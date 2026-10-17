@@ -6,6 +6,10 @@ The first goal is to choose a target and define a reproducible public experiment
 
 This repository is currently in the research and decision-planning stage. It does not yet contain a compiler implementation.
 
+## Decision map
+
+Follow [Choose a constrained compilation target and a reproducible first experiment](https://github.com/awjreynolds/p4ai/issues/1). Research evidence is linked from the map's child issues; target selection remains a human decision. See [tracker conventions](docs/issue-tracker.md) for collaboration details.
+
 ## License
 
 MIT. See [LICENSE](LICENSE).
