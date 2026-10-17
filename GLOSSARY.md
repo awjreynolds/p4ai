@@ -1,6 +1,6 @@
 # Bounded compiler decisions
 
-Language for the eBPF decision-policy pilot.
+Language for the compiler decision-policy experiment.
 
 ## Language
 
