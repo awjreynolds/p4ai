@@ -92,10 +92,10 @@ def _kernel_source(family: str, lanes: int, rounds: int) -> str:
     lines.extend(
         [
             "    for (size_t index = 0; index < n; ++index) {",
-            "        const uint64_t input_word = left[index] +",
+            "        const uint64_t input_word = (left[index] +",
             "            (right[index] ^ ((uint64_t)index * "
             + _INDEX_MIX
-            + ")) ^ salt;",
+            + "))) ^ salt;",
             f"        for (unsigned round = 0; round < {rounds}u; ++round) {{",
             "            const uint64_t word = input_word +",
             "                ((uint64_t)round * " + _ROUND_MIX + ");",
@@ -233,10 +233,10 @@ def _driver_source(family: str, lanes: int, rounds: int) -> str:
             f"        state[lane] = {_SEED} + ((uint64_t)(lane + 1) * {_LANE_SEED});",
             "    }",
             "    for (size_t index = 0; index < n; ++index) {",
-            "        const uint64_t input_word = left[index] +",
+            "        const uint64_t input_word = (left[index] +",
             "            (right[index] ^ ((uint64_t)index * "
             + _INDEX_MIX
-            + ")) ^ salt;",
+            + "))) ^ salt;",
             "        for (unsigned round = 0; round < ROUND_COUNT; ++round) {",
             "            const uint64_t word = input_word +",
             "                ((uint64_t)round * " + _ROUND_MIX + ");",
