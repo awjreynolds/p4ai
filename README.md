@@ -4,6 +4,8 @@ Exploring an evidence-gated escalation approach to compilation for resource-cons
 
 The first goal is to choose a current, actively developing target with plausible career relevance and define a reproducible public experiment, including the compiler boundary, baseline, hard constraints, and success criteria. Current P4 targets, eBPF, and GPU/AI compiler stacks are candidates; the target choice is open. Tofino is excluded as the destination.
 
+The current research preference is NVIDIA-aligned GPU compiler work, reflecting the author's proximity to Bristol and interest in NVIDIA. Triton shared-memory allocation is a provisional candidate; research findings and alternatives are recorded in the decision map. No target has been selected or toolchain validated yet.
+
 This repository is currently in the research and decision-planning stage. It does not yet contain a compiler implementation.
 
 ## Decision map
