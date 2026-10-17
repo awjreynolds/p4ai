@@ -44,6 +44,20 @@ A live model choosing a legal action demonstrates integration only. It does not 
 
 Jev credentials are loaded from `TYPESAFE_API_KEY` or `~/.config/typesafe/api-key`; Codex uses its existing login. Credentials and generated artifacts are not committed. There is no token cap; model identity, latency and usage are recorded when available.
 
+## Quality and adaptation experiment
+
+The [frozen screening design](docs/escalation-quality-design.md) tests same-state decision outcomes across separate fitting, calibration and held-out workload families. It compares model advice with stock LLVM, simple selectors and a small learned scorer, then tests adaptation to increased register pressure.
+
+The [completed screening results](docs/results/escalation-quality-v1.md) found no demonstrated escalation advantage: calibration chose never escalate, and the cheap learned selector matched Jev on held-out code outcomes. Maintenance savings remain unproved.
+
+```sh
+uv run python -m scripts.quality_experiment \
+  --validation-report artifacts/native-validation/report.json \
+  --output artifacts/escalation-quality-v1
+```
+
+This makes live provider calls and builds native counterfactual executables. Completed responses are reused on resume. The run refuses to resume if its implementation hashes change. Its maintenance measurements are a controlled adaptation proxy; they do not measure long-term engineering effort.
+
 ## Decision map
 
 Follow [Choose a constrained compilation target and a reproducible first experiment](https://github.com/awjreynolds/p4ai/issues/1). The reopened decision is [Choose the first target and compiler intervention](https://github.com/awjreynolds/p4ai/issues/5), followed by [Agree the first experiment and evidence required for success](https://github.com/awjreynolds/p4ai/issues/6). See the [glossary](GLOSSARY.md) and [tracker conventions](docs/issue-tracker.md) for collaboration details.

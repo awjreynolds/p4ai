@@ -287,6 +287,28 @@ def usage_summary(states: list[dict], routing: dict) -> dict:
     }
 
 
+def case_iterations(case_dir: Path, stock_exe: Path, target_ms: int) -> int:
+    path = case_dir / "timing-calibration.json"
+    identity = {"stock_sha256": digest(stock_exe), "target_sample_ms": target_ms}
+    if path.exists():
+        recorded = load(path)
+        if any(recorded.get(key) != value for key, value in identity.items()):
+            raise ValueError("timing calibration identity changed")
+        iterations = recorded.get("iterations")
+        if type(iterations) is not int or iterations <= 0:
+            raise ValueError("invalid stored timing iteration count")
+        return iterations
+    pilot = benchmark._run_one("stock", stock_exe, 10000, "iteration calibration")
+    iterations = max(
+        1000, min(10000000, math.ceil(10000 * target_ms * 1e6 / pilot["elapsed_ns"]))
+    )
+    save(
+        path,
+        {**identity, "iterations": iterations, "pilot_elapsed_ns": pilot["elapsed_ns"]},
+    )
+    return iterations
+
+
 def run(args: argparse.Namespace) -> dict:
     from scripts import counterfactual
 
@@ -345,20 +367,8 @@ def run(args: argparse.Namespace) -> dict:
                 if case["status"] != "passed":
                     raise RuntimeError(f"baseline failed: {case_id}")
                 stock_exe = Path(case["paths"]["stock_executable"])
-                pilot = benchmark._run_one(
-                    "stock", stock_exe, 10000, "iteration calibration"
-                )
-                iterations = max(
-                    1000,
-                    min(
-                        10000000,
-                        math.ceil(
-                            10000
-                            * design["target_sample_ms"]
-                            * 1e6
-                            / pilot["elapsed_ns"]
-                        ),
-                    ),
+                iterations = case_iterations(
+                    case_dir, stock_exe, design["target_sample_ms"]
                 )
                 for site in case["baseline"]["first"]["sites"]:
                     site_dir = case_dir / f"site-{site['site_index']}"

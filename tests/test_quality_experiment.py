@@ -98,3 +98,21 @@ def test_partial_failure_preserves_successful_provider_response(tmp_path, monkey
     assert calls == ["jev", "codex", "codex"]
     assert len(response["attempts"]) == 3
     assert set(response["responses"]) == {"jev", "codex"}
+
+
+def test_iteration_calibration_is_preserved_on_resume(tmp_path, monkeypatch):
+    executable = tmp_path / "stock"
+    executable.write_bytes(b"fixed binary")
+    calls = []
+
+    def sample(*args):
+        calls.append(args)
+        return {"elapsed_ns": 10000000}
+
+    monkeypatch.setattr(quality.benchmark, "_run_one", sample)
+    assert quality.case_iterations(tmp_path, executable, 100) == 100000
+    assert quality.case_iterations(tmp_path, executable, 100) == 100000
+    assert len(calls) == 1
+    executable.write_bytes(b"changed binary")
+    with pytest.raises(ValueError, match="identity changed"):
+        quality.case_iterations(tmp_path, executable, 100)
