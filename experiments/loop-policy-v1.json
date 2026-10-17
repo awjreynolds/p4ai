@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "name": "loop-policy-v1",
+  "seed": 20261018,
+  "llvm_revision": "32d702efa29d0fdd02cff7b79dea8fdbbcf059d4",
+  "target_cpu": "apple-m3",
+  "claim": "Selection among loop-local VF/IC directives, with LLVM legality and downstream optimization retained; not replacement of the whole vectorizer cost model.",
+  "families": {
+    "discovery": ["affine", "reduction", "hash64"],
+    "calibrate": ["dot_product", "conditional"],
+    "test": ["polynomial32", "stride", "stencil"]
+  },
+  "trip_counts": [257, 4099],
+  "actions": ["stock", "scalar", "vf2", "vf4", "vf8", "vf4_ic2", "vf4_ic4", "vf8_ic2"],
+  "benchmark_rounds": 11,
+  "target_sample_ms": 100,
+  "discovery_gap_fraction": 0.05,
+  "noise_floor_fraction": 0.02,
+  "calibration_escalation_budget": 0.25,
+  "discovery_gate": "Choose the best constant action including stock and per-case candidate-best actions on discovery block one. Confirm without reselecting on block two. Require at least 5% family-balanced runtime reduction over the fitted constant, gain beyond max(2%, three times maximum paired MAD log ratio), positive direction in at least two discovery families, and distinct code outcomes in at least half discovery cases. Otherwise stop before model calls.",
+  "controls": ["stock LLVM", "best discovery-fitted constant including stock", "one-nearest-neighbor candidate loss predictor fitted only on discovery", "Jev", "Codex", "calibration-frozen cascade"],
+  "model_packet": "Source numerical features, candidate VF/IC choices and fixed target facts only. No family/case names or timing outcomes. One valid response per provider per identical packet; retain failed attempts and reuse successful responses.",
+  "success": "Held-out cascade improvement over the fitted constant and Jev exceeds max(2%, three times maximum paired MAD log ratio), with positive direction in at least two of three test families and no regression beyond that bound against nearest-neighbor. Calibration escalation <=25%; report held-out rate even if it exceeds budget. Stock comparison is separate. Never force positive routing.",
+  "maintenance": "Count fixed selector rules, learned exemplars, routing parameters, packet features and prompt policy. No human-effort or long-term maintenance claim from this experiment.",
+  "scope": "Synthetic single-loop native screening, two fixed trip counts, one CPU. Does not establish whole-program, cross-target or production performance.",
+  "stop": "Fail closed on toolchain, correctness or provenance errors. Gate failure is a valid negative result; do not quietly change controls, corpus or thresholds after timings. A different boundary requires a new design."
+}
