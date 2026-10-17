@@ -1,0 +1,21 @@
+# Native LLVM register-eviction validation
+
+`scripts/validate.py` exercises the MLGO interactive eviction callback in a real LLVM `llc` process on the native ARM64 host. It does not emulate LLVM register allocation or call a model. The `first` and `last` policies choose the first or last column that LLVM marks eligible, which provides a small deterministic way to check that different live actions reach the allocator. LLVM reserves the final column as a no-eviction sentinel; the provider packet labels it “Do not evict a physical register; leave the current virtual register for allocator continuation.”
+
+Run the full gate after the pinned LLVM build and native corpus are available:
+
+```sh
+uv run python scripts/validate.py
+```
+
+By default the harness expects the pinned LLVM source at `.cache/iree/third_party/llvm-project`, its build at `.cache/llvm-build`, and the C corpus at `fixtures/native`. If that checkout is absent, validation auto-detects the fallback `.cache/llvm-project`; `--llvm-source` overrides the choice. The gate checks source revision `32d702efa29d0fdd02cff7b79dea8fdbbcf059d4` and requires the build manifest at `.cache/llvm-build/p4ai-build.json` (or `--build-manifest`). Any revision SHA printed by either tool's `--version` must match the pin. Since `llc --version` may omit the SHA, the manifest also has to match the selected source, guard source and patch hashes, and `llc`, `clang`, and `FileCheck` binary paths and hashes. The manifest must identify the Release/Ninja build with assertions and AArch64+BPF targets. The target is `arm64-apple-darwin`; every object compilation runs `-verify-machineinstrs`. Paths can be overridden with `--llvm-source`, `--build-dir`, `--build-manifest`, `--llc`, `--clang`, `--linker`, and `--artifacts-dir`. `--timeout-seconds` bounds compiler and driver commands, and `--iterations` controls the native driver run.
+
+The harness compiles the kernel fixture to LLVM IR, then compiles it with stock greedy allocation, first-eligible advice, and last-eligible advice. It requires a shared LLVM observation with at least two eligible columns where the policies choose different columns. It replays the first-policy trace in a fresh compile and checks that each supplied observation number, context, feature hash, legal-action list, and action match. Replay also binds every row to the LLVM IR hash, `llc` binary and version hashes, pinned source revision, guard source and patch hashes, build-manifest hash, and normalized compiler arguments. It refuses a changed identity before sending the action and rejects a replay that leaves saved decisions unused.
+
+The state fingerprint covers the tensors exposed by LLVM's interactive protocol, and the identity covers the inputs listed in the report. Equality is evidence that those supplied summaries and inputs matched; it does not prove that every internal register allocator state field was identical. The run compares action traces and object hashes as reproducibility evidence within this boundary.
+
+Three additional live `llc` compilations bypass host-side action validation and send a negative, out-of-range, or masked candidate. Each must fail with the expected C++ guard diagnostic on two attempts. The native driver is linked against the stock and advised objects, then checks all pressure kernels against independent scalar references and compares checksums across policies. It records elapsed time but does not use timing to claim performance.
+
+Each run writes `report.json` and per-command stdout/stderr under `artifacts/llvm-regalloc-<UTC timestamp>/` by default. The report records command arguments, exit status, duration, and output hashes, plus the source/tool/fixture hashes and check statuses. Missing tools or a timed-out process produce an incomplete or failed report; they are never counted as a pass. `tests/test_advisor.py` and `tests/test_validate.py` cover host-side protocol decisions, feature alignment, replay identity, trace completion, result parsing, and divergence detection. They use no fake compiler protocol transcript as evidence of compiler behavior.
+
+LLVM 22 smoke runs, if used while the pinned build is still compiling, are plumbing checks only. They must be reported separately and cannot satisfy the pinned compiler gate. No GPU is required or used for this validation.
