@@ -4,6 +4,10 @@ Language for the compiler decision-policy experiment.
 
 ## Language
 
+**Harness compiler**:
+The compiler architecture formed by a decision harness and an existing compiler engine. The harness governs bounded internal choices, escalation, validation and recorded evidence; the engine supplies compilation mechanisms and target constraints. In this experiment LLVM is the engine and register eviction is the first decision boundary.
+_Avoid_: A replacement for LLVM, a command-line flag tuner
+
 **Selection policy**:
 The rules or learned judgement that choose a compiler action from the permitted alternatives for a program and target profile.
 _Avoid_: Validator, transformation

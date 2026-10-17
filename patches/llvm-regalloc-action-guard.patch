@@ -1,0 +1,62 @@
+diff --git a/llvm/lib/CodeGen/MLRegAllocEvictAdvisor.cpp b/llvm/lib/CodeGen/MLRegAllocEvictAdvisor.cpp
+index 71845751b..74621984a 100644
+--- a/llvm/lib/CodeGen/MLRegAllocEvictAdvisor.cpp
++++ b/llvm/lib/CodeGen/MLRegAllocEvictAdvisor.cpp
+@@ -644,10 +644,8 @@ MLEvictAdvisor::MLEvictAdvisor(const MachineFunction &MF, const RAGreedy &RA,
+ int64_t MLEvictAdvisor::tryFindEvictionCandidatePosition(
+     const LiveInterval &, const AllocationOrder &, unsigned, uint8_t,
+     const SmallVirtRegSet &) const {
+-  int64_t Ret = Runner->evaluate<int64_t>();
+-  assert(Ret >= 0);
+-  assert(static_cast<size_t>(Ret) <= CandidateVirtRegPos);
+-  return Ret;
++  // Validate the reply against the current candidate set in the caller.
++  return Runner->evaluate<int64_t>();
+ }
+ 
+ bool MLEvictAdvisor::loadInterferenceFeatures(
+@@ -820,18 +818,38 @@ MCRegister MLEvictAdvisor::tryFindEvictionCandidate(
+       static_cast<float>(RA.getQueueSize()) / InitialQSize;
+ 
+   // Get a decision.
+-  size_t CandidatePos = tryFindEvictionCandidatePosition(
++  int64_t CandidatePosition = tryFindEvictionCandidatePosition(
+       VirtReg, Order, OrderLimit, CostPerUseLimit, FixedRegisters);
+-  // The contract with the ML side is that CandidatePos is mask == 1 (i.e.
+-  // Regs[CandidatePos].second)
+-  assert(Regs[CandidatePos].second);
++  if (CandidatePosition < 0) {
++    reportFatalUsageError(
++        Twine("Regalloc: ML eviction advisor returned negative candidate "
++              "position ") +
++        Twine(CandidatePosition));
++  }
++  const size_t CandidatePos = static_cast<size_t>(CandidatePosition);
++  if (CandidatePos >= NumColumns) {
++    reportFatalUsageError(
++        Twine("Regalloc: ML eviction advisor returned candidate position ") +
++        Twine(CandidatePosition) + " outside the candidate columns [0, " +
++        Twine(NumColumns) + ")");
++  }
++  if (CandidatePos != CandidateVirtRegPos && CandidatePos >= ValidPosLimit) {
++    reportFatalUsageError(
++        Twine("Regalloc: ML eviction advisor returned candidate position ") +
++        Twine(CandidatePosition) + " outside the visited allocation order [0, " +
++        Twine(ValidPosLimit) + ")");
++  }
++  if (!Regs[CandidatePos].second) {
++    reportFatalUsageError(
++        Twine("Regalloc: ML eviction advisor selected masked candidate "
++              "position ") +
++        Twine(CandidatePosition));
++  }
+   if (CandidatePos == CandidateVirtRegPos) {
+     onEviction(VirtReg.reg());
+     assert(!MustFindEviction);
+     return MCRegister::NoRegister;
+   }
+-  assert(CandidatePos < ValidPosLimit);
+-  (void)ValidPosLimit;
+ 
+   // Update information about how many times the virtual registers being
+   // evicted have been evicted so that we can prevent the model from evicting
