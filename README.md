@@ -17,7 +17,7 @@ uv sync --locked
 uv run python scripts/build_compiler.py setup
 uv run python scripts/build_compiler.py build
 uv run python scripts/validate.py --linker /usr/bin/clang --artifacts-dir artifacts/native-validation
-uv run pytest -q
+uv run python -m pytest -q
 ```
 
 LLVM is pinned to `32d702efa29d0fdd02cff7b79dea8fdbbcf059d4` in IREE's public LLVM fork. Existing research checkouts are reused when present; a fresh bootstrap creates `.cache/llvm-project`. Validation auto-detects either checkout; `--llvm-source` overrides that choice.
