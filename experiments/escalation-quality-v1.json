@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "name": "escalation-quality-v1",
+  "seed": 20261018,
+  "llvm_revision": "32d702efa29d0fdd02cff7b79dea8fdbbcf059d4",
+  "families": {
+    "fit": ["polynomial", "rotate_xor"],
+    "calibrate": ["cross_lane", "dot_product"],
+    "test": ["masked_recurrence", "alternating_inputs"]
+  },
+  "base_variants": [{"lanes": 24, "rounds": 4}, {"lanes": 32, "rounds": 4}],
+  "shift_variants": [{"lanes": 40, "rounds": 8, "role": "adapt"}, {"lanes": 48, "rounds": 8, "role": "shift_test"}],
+  "site_quantiles": [0.25, 0.75],
+  "benchmark_rounds": 11,
+  "target_sample_ms": 100,
+  "calibration_escalation_budget": 0.25,
+  "noise_floor_fraction": 0.02,
+  "candidate_pool": ["first", "last", "seeded_uniform", "minimum_use_def_density", "jev", "codex", "nearest_neighbor_when_fitted", "adapted_nearest_neighbor_on_shift_test"],
+  "model_response_reuse": "One Jev and one Codex answer per identical frozen packet; cascade reuses these actions.",
+  "continuation": "Exact first-policy prefix; one intervention; fresh first-eligible continuation.",
+  "stop": "Report incomplete on infrastructure/correctness failure. Never force positive routing. If calibration chooses never escalate, retain that result and evaluate the held-out negative outcome.",
+  "success": "All outputs correct; held-out cascade gains over Jev exceed max(2%, observed paired noise), with consistent direction across both families, escalation <=25%, and no disadvantage beyond noise against nearest-neighbor. Stock improvement is a separate practical criterion.",
+  "maintenance": "Frozen shift first; refit nearest-neighbor and recalibrate threshold using identical shift40 labels, evaluate both frozen/adapted on shift48. Count source/config/prompt changes, parameters/exemplars, labels and provider calls. No claim about human maintenance hours or long-term effort."
+}
