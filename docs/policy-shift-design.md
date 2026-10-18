@@ -16,7 +16,7 @@ Twelve distinct dimension/padding recipes supply two seeded layout variants each
 
 ## Audit before repair
 
-Fit the unchanged source forest on the original 36 development cases with the existing fixed configuration. Evaluate it with each compiler's own 42-feature packets. Compile and validate all audit actions before measuring. Unsupported compiler evidence is a technical failure, never a reason to substitute guessed fields.
+Reuse the hash-verified forest already fitted on the original 36 development cases with the existing fixed configuration. Its exported weights are embedded in the published replication bundle; no refit changes the source policy. Evaluate it with each compiler's own 42-feature packets. Compile and validate all audit actions before measuring. Unsupported compiler evidence is a technical failure, never a reason to substitute guessed fields.
 
 Measure source and target audit choices against their respective measured best legal actions. Use two blocks of eleven interleaved rounds. Within each block, compute group-balanced policy/oracle ratios and a source-to-target ratio of those regrets. With two layouts per recipe, equal recipe and case weighting coincide.
 
