@@ -34,6 +34,16 @@ def _spec(
     }
 
 
+def _padded_spec(
+    a_column_major: bool, b_column_major: bool, c_column_major: bool
+) -> dict[str, object]:
+    return _spec(a_column_major, b_column_major, c_column_major) | {
+        "a_padding": 1,
+        "b_padding": 2,
+        "c_padding": 3,
+    }
+
+
 @pytest.mark.parametrize("order", contraction_corpus.ORDERS)
 @pytest.mark.parametrize("layouts", list(itertools.product((False, True), repeat=3)))
 def test_all_orders_and_layouts_match_independent_reference(
@@ -128,6 +138,115 @@ def test_driver_rejects_a_corrupted_contraction(tmp_path: Path) -> None:
     assert "kernel mismatch" in result.stderr
 
 
+@pytest.mark.parametrize("order", contraction_corpus.ORDERS)
+@pytest.mark.parametrize("layouts", list(itertools.product((False, True), repeat=3)))
+def test_padded_orders_and_layouts_match_reference_and_report_physical_extents(
+    tmp_path: Path, order: str, layouts: tuple[bool, bool, bool]
+) -> None:
+    generated = contraction_corpus.generate_case(
+        tmp_path, _padded_spec(*layouts), order=order
+    )
+    kernel_path = generated["kernel"]
+    driver_path = generated["driver"]
+    assert isinstance(kernel_path, Path)
+    assert isinstance(driver_path, Path)
+    assert "_pad_1_2_3_" in kernel_path.name
+    assert f"// CONTRACTION_LOOP_ORDER: {order}" in kernel_path.read_text(
+        encoding="utf-8"
+    )
+
+    features = generated["features"]
+    assert isinstance(features, dict)
+    assert features["a_padding"] == 1
+    assert features["b_padding"] == 2
+    assert features["c_padding"] == 3
+    assert features["a_leading_dimension"] == (6 if layouts[0] else 10)
+    assert features["b_leading_dimension"] == (11 if layouts[1] else 9)
+    assert features["c_leading_dimension"] == (8 if layouts[2] else 10)
+    assert features["a_i_stride"] == (1 if layouts[0] else 10)
+    assert features["a_k_stride"] == (6 if layouts[0] else 1)
+    assert features["b_k_stride"] == (1 if layouts[1] else 9)
+    assert features["b_j_stride"] == (11 if layouts[1] else 1)
+    assert features["c_i_stride"] == (1 if layouts[2] else 10)
+    assert features["c_j_stride"] == (8 if layouts[2] else 1)
+    assert features["a_allocated_elements"] == (54 if layouts[0] else 50)
+    assert features["b_allocated_elements"] == (77 if layouts[1] else 81)
+    assert features["c_allocated_elements"] == (56 if layouts[2] else 50)
+
+    executable = tmp_path / f"padded-{order}-{''.join(map(str, layouts))}"
+    subprocess.run(
+        [
+            *_compiler(),
+            "-std=c11",
+            "-O2",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            str(kernel_path),
+            str(driver_path),
+            "-o",
+            str(executable),
+        ],
+        check=True,
+    )
+    result = json.loads(subprocess.check_output([str(executable), "2"], text=True))
+    assert result["correct"] is True
+    assert result["iterations"] == 2
+    assert re.fullmatch(r"[0-9a-f]{16}", result["checksum"])
+
+
+def test_explicit_zero_padding_preserves_generated_sources(tmp_path: Path) -> None:
+    spec = _spec(False, True, False)
+    legacy = contraction_corpus.generate_case(tmp_path / "legacy", spec, "ikj")
+    explicit_zero = contraction_corpus.generate_case(
+        tmp_path / "explicit-zero",
+        spec | {"a_padding": 0, "b_padding": 0, "c_padding": 0},
+        "ikj",
+    )
+    assert legacy["kernel"].read_text(encoding="utf-8") == explicit_zero[
+        "kernel"
+    ].read_text(encoding="utf-8")
+    assert legacy["driver"].read_text(encoding="utf-8") == explicit_zero[
+        "driver"
+    ].read_text(encoding="utf-8")
+
+
+def test_reference_rejects_nonzero_padding_output(tmp_path: Path) -> None:
+    spec = _spec(False, True, False) | {"c_padding": 2}
+    generated = contraction_corpus.generate_case(tmp_path, spec)
+    kernel_path = generated["kernel"]
+    driver_path = generated["driver"]
+    assert isinstance(kernel_path, Path)
+    assert isinstance(driver_path, Path)
+    kernel = kernel_path.read_text(encoding="utf-8")
+    zeroing = "        out[cell] = 0;"
+    assert kernel.count(zeroing) == 1
+    kernel_path.write_text(
+        kernel.replace(zeroing, zeroing + "\n        out[C_COUNT - 1u] = 1u;"),
+        encoding="utf-8",
+    )
+    executable = tmp_path / "corrupted-padding"
+    subprocess.run(
+        [
+            *_compiler(),
+            "-std=c11",
+            "-O0",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            str(kernel_path),
+            str(driver_path),
+            "-o",
+            str(executable),
+        ],
+        check=True,
+    )
+    result = subprocess.run([str(executable), "1"], capture_output=True, text=True)
+    assert result.returncode == 1
+    assert result.stdout == ""
+    assert "kernel mismatch" in result.stderr
+
+
 @pytest.mark.parametrize(
     ("spec", "order"),
     [
@@ -139,6 +258,10 @@ def test_driver_rejects_a_corrupted_contraction(tmp_path: Path) -> None:
         (_spec(False, False, False) | {"a_column_major": 1}, "ijk"),
         ({"m": 5}, "ijk"),
         (_spec(False, False, False), "ik"),
+        (_spec(False, False, False) | {"a_padding": -1}, "ijk"),
+        (_spec(False, False, False) | {"b_padding": 65}, "ijk"),
+        (_spec(False, False, False) | {"c_padding": True}, "ijk"),
+        (_spec(False, False, False) | {"a_padding": 2.0}, "ijk"),
     ],
 )
 def test_generator_rejects_invalid_spec_or_order(
