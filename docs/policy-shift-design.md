@@ -10,7 +10,7 @@ The proposed contribution is a replaceable, frozen selection policy plus an evid
 
 ## Fresh split and shift
 
-Keep the source operation, M3 CPU, driver compiler, SDK, linker and action menu fixed. Switch the kernel compiler from the pinned LLVM build to the installed Apple Clang. The manifest hashes both compiler binaries. This is a toolchain change rather than an upgrade claim.
+Keep the source operation, M3 CPU, driver compiler, recorded SDK environment, linking driver and action menu fixed. Switch the kernel compiler from the pinned LLVM build to the installed Apple Clang. The manifest hashes both compiler binaries. The recorded linker field identifies the Clang linking driver; it does not hash the underlying system linker or every SDK input. This is a same-host toolchain change rather than an upgrade claim or a fully hermetic build.
 
 Twelve distinct dimension/padding recipes supply two seeded layout variants each: three audit recipes, three adaptation recipes and six final-test recipes. All 24 full specifications and all twelve base recipes are distinct from the previous compiler-feedback and replication corpora. Never split action or layout rows from a recipe across partitions. This remains within one kernel family.
 

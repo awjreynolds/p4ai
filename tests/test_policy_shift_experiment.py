@@ -120,9 +120,132 @@ def test_measurement_adapter_preserves_features_and_action_executables(tmp_path:
 
     assert adapted["partition"] == "discovery"
     assert adapted["family"] == case["group"]
-    assert adapted["build"]["source_features"] == features
+    assert adapted["source_features"] == features
     assert adapted["build"]["case_fingerprint"] == "frozen-case-build"
     for action in shift.ACTION_NAMES:
         assert adapted["build"]["actions"][action]["artifacts"]["executable"]["path"] == str(
             tmp_path / f"{action}.bin"
         )
+
+
+def test_shared_measurement_helper_accepts_adapter_features(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    case = shift._case_rows(shift._design(DESIGN_PATH), "audit")[0]
+    features = {"m": 47, "n": 67, "k": 41}
+    executables = []
+    actions = {}
+    for action in shift.ACTION_NAMES:
+        executable = tmp_path / f"{action}.bin"
+        executable.write_bytes(action.encode())
+        if action != "ijk":
+            executables.append((action, executable))
+        actions[action] = {
+            "code_identity": f"identity-{action}",
+            "correctness": {"link": {"executable_path": str(executable)}},
+        }
+    build = {
+        "case_fingerprint": "frozen-case-build",
+        "source_features": features,
+        "actions": actions,
+    }
+    adapted = shift._measurement_case(case, build)
+    aliases = {action: action for action in shift.ACTION_NAMES}
+    aliases["ijk"] = "stock"
+    monkeypatch.setattr(
+        shift.contraction,
+        "_identity_actions",
+        lambda _case: (executables, aliases),
+    )
+    monkeypatch.setattr(
+        shift.contraction,
+        "_pilot_iterations",
+        lambda *_args: (2, {"pilot_cache_sha256": "a" * 64}),
+    )
+
+    def fake_benchmark(
+        named_executables: list[tuple[str, Path]], *, iterations: int, rounds: int, seed: int
+    ) -> dict[str, object]:
+        names = [name for name, _path in named_executables]
+        return {
+            "status": "measured",
+            "iterations": iterations,
+            "rounds": rounds,
+            "stock_checksum": "0123456789abcdef",
+            "summaries": {name: {} for name in names},
+            "round_records": [
+                {
+                    "round": round_number,
+                    "order": str(seed),
+                    "measurements": {
+                        name: {"elapsed_ns": round_number * 100}
+                        for name in names
+                    },
+                }
+                for round_number in range(1, rounds + 1)
+            ],
+        }
+
+    monkeypatch.setattr(shift.contraction.benchmark, "run_benchmark", fake_benchmark)
+    measured = shift.contraction._measure_cases(
+        [adapted],
+        {"benchmark_rounds": 11, "seed": 20261021, "target_sample_ms": 20},
+        tmp_path / "timing",
+        blocks=(1,),
+    )
+
+    assert measured[0]["source_features"] == features
+    assert len(measured[0]["benchmark"]["round_records"]) == 11
+
+
+def test_native_result_links_with_explicit_sdk(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    sdk = tmp_path / "SDK"
+    sdk.mkdir()
+    linker = tmp_path / "clang"
+    driver = tmp_path / "driver.o"
+    object_path = tmp_path / "kernel.o"
+    executable = tmp_path / "kernel"
+    artifacts = tmp_path / "artifacts"
+    checksum = "0123456789abcdef"
+    calls: list[list[str]] = []
+
+    def fake_command(name: str, command: list[str], _directory: Path, _timeout: int):
+        calls.append(command)
+        if name.endswith("_link"):
+            Path(command[-1]).write_bytes(b"linked executable")
+            stdout = b""
+        else:
+            stdout = (
+                '{"correct":true,"iterations":2,"checksum":"'
+                + checksum
+                + '","elapsed_ns":100}\n'
+            ).encode()
+        return {
+            "passed": True,
+            "return_code": 0,
+            "command": command,
+            "_stdout": stdout,
+            "_stderr": b"",
+        }
+
+    monkeypatch.setattr(shift.experiment, "_run_command", fake_command)
+
+    result = shift.native_result_with_sdk(
+        "pilot",
+        object_path,
+        executable,
+        driver_object=driver,
+        linker=linker,
+        sdk=sdk,
+        iterations=2,
+        artifacts_dir=artifacts,
+        timeout_seconds=5,
+        expected_checksum=checksum,
+    )
+
+    assert calls[0][1:4] == ["-O2", "-isysroot", str(sdk)]
+    assert result["link"]["status"] == "passed"
+    assert result["runtime"]["status"] == "passed"
+    assert result["runtime"]["measurements"][0]["checksum_matches_stock"] is True

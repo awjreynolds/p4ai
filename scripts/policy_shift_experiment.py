@@ -29,6 +29,7 @@ try:
         harness_policy,
         loop_build,
         quality_experiment,
+        validate,
     )
     from . import (
         compiler_feedback_experiment as feedback,
@@ -46,6 +47,7 @@ except ImportError:  # Running as ``python scripts/policy_shift_experiment.py``.
     import harness_policy
     import loop_build
     import quality_experiment
+    import validate
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -382,6 +384,79 @@ def _public_artifact(path: Path) -> dict[str, str]:
     return {"path": str(path), "sha256": _sha256(path)}
 
 
+def native_result_with_sdk(
+    name: str,
+    object_path: Path,
+    executable_path: Path,
+    *,
+    driver_object: Path,
+    linker: Path,
+    sdk: Path,
+    iterations: int,
+    artifacts_dir: Path,
+    timeout_seconds: int,
+    expected_checksum: str | None,
+) -> dict[str, Any]:
+    """Link and correctness-check a native action with the pinned macOS SDK.
+
+    Apple Clang can compile objects with an SDK argument yet its direct link
+    invocation may not discover the SDK libraries. Keep this local to the
+    policy-shift experiment so frozen build helpers retain their old contract.
+    """
+    link = experiment._run_command(
+        f"{name}_link",
+        [
+            str(linker),
+            "-O2",
+            "-isysroot",
+            str(sdk),
+            str(driver_object),
+            str(object_path),
+            "-o",
+            str(executable_path),
+        ],
+        artifacts_dir,
+        timeout_seconds,
+    )
+    linked = link["passed"] and executable_path.is_file()
+    link_record = {
+        "status": "passed" if linked else "failed",
+        **experiment._public_command_result(link),
+        "executable_path": str(executable_path),
+        "executable_sha256": _sha256(executable_path) if executable_path.is_file() else None,
+    }
+    runtime: dict[str, Any] = {
+        "status": "blocked",
+        "reason": "link failed",
+        "measurements": [],
+    }
+    if linked:
+        run = experiment._run_command(
+            f"{name}_run",
+            [str(executable_path), str(iterations)],
+            artifacts_dir,
+            timeout_seconds,
+        )
+        parsed = validate._read_driver_result(run["_stdout"], iterations)
+        checksum_matches = bool(
+            parsed and (expected_checksum is None or parsed["checksum"] == expected_checksum)
+        )
+        runtime = {
+            "status": "passed" if run["passed"] and parsed and checksum_matches else "failed",
+            "measurements": [
+                {
+                    **experiment._public_command_result(run),
+                    "correct": parsed["correct"] if parsed else False,
+                    "iterations": parsed["iterations"] if parsed else None,
+                    "checksum": parsed["checksum"] if parsed else None,
+                    "checksum_matches_stock": checksum_matches,
+                    "elapsed_ns": parsed["elapsed_ns"] if parsed else None,
+                }
+            ],
+        }
+    return {"link": link_record, "runtime": runtime}
+
+
 def _validate_artifacts(report: dict[str, Any]) -> None:
     refs = report.get("artifacts")
     if not isinstance(refs, dict) or not refs:
@@ -531,12 +606,13 @@ def build_case(
                 row_errors.append(f"cannot identify kernel code: {error}")
         correctness = None
         if not row_errors and driver_result["passed"] and driver_object.is_file():
-            correctness = loop_build._native_result(
+            correctness = native_result_with_sdk(
                 action,
                 object_path,
                 executable_path,
                 driver_object=driver_object,
                 linker=linker,
+                sdk=sdk,
                 iterations=3,
                 artifacts_dir=compiler_arm_dir,
                 timeout_seconds=300,
@@ -666,7 +742,7 @@ def _prepare_provenance(design_path: Path, design: dict[str, Any], toolchains: d
         "runner_sha256": _sha256(Path(__file__).resolve()),
         "implementation_sha256": {
             str(Path(module.__file__).resolve().relative_to(ROOT)): _sha256(Path(module.__file__).resolve())
-            for module in (benchmark, compiler_evidence, contraction, contraction_corpus, experiment, loop_build, quality_experiment, harness_policy, feedback)
+            for module in (benchmark, compiler_evidence, contraction, contraction_corpus, experiment, loop_build, quality_experiment, harness_policy, feedback, validate)
         },
         "source_design_sha256": _sha256(SOURCE_DESIGN),
         "source_policy_report_sha256": _sha256(SOURCE_POLICY_REPORT),
@@ -810,9 +886,9 @@ def _measurement_case(case: dict[str, Any], build: dict[str, Any]) -> dict[str, 
         # The existing helper only permits two blocks for discovery. This label
         # is internal to its cache path; the public audit partition is retained.
         "partition": "discovery",
+        "source_features": build["source_features"],
         "build": {
             "case_fingerprint": build["case_fingerprint"],
-            "source_features": build["source_features"],
             "actions": {
                 action: {
                     "code_identity": build["actions"][action]["code_identity"],
