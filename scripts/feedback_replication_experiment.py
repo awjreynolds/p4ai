@@ -150,6 +150,31 @@ def _design(path: Path, source_design_path: Path) -> dict[str, Any]:
         raise FeedbackReplicationError("design must pin the scikit-learn version")
     if type(design.get("provider_replicates")) is not int or design["provider_replicates"] != REPLICATES:
         raise FeedbackReplicationError("design must request exactly three provider replicates")
+    max_attempts = design.get("provider_max_attempts", 1)
+    if type(max_attempts) is not int or max_attempts not in (1, 3):
+        raise FeedbackReplicationError("provider_max_attempts must be 1 or 3")
+    if max_attempts == 3:
+        amendment = design.get("pre_timing_amendment")
+        if not isinstance(amendment, dict) or amendment.get("fresh_timing_observed") is not False:
+            raise FeedbackReplicationError("bounded retry policy requires its pre-timing amendment evidence")
+        for path_key, hash_key in (
+            ("original_design", "original_design_sha256"),
+            ("initial_abort_evidence", "initial_abort_evidence_sha256"),
+        ):
+            relative = amendment.get(path_key)
+            expected_hash = amendment.get(hash_key)
+            try:
+                evidence_path = (ROOT / relative).resolve()
+                evidence_path.relative_to(ROOT)
+            except (TypeError, ValueError):
+                raise FeedbackReplicationError(f"retry amendment {path_key} path is invalid") from None
+            if (
+                not isinstance(expected_hash, str)
+                or not re.fullmatch(r"[0-9a-f]{64}", expected_hash)
+                or not evidence_path.is_file()
+                or _sha256(evidence_path) != expected_hash
+            ):
+                raise FeedbackReplicationError(f"retry amendment {path_key} hash changed or is missing")
     if type(design.get("benchmark_rounds")) is not int or design["benchmark_rounds"] != 11:
         raise FeedbackReplicationError("design must use eleven rounds per block")
     if type(design.get("benchmark_blocks")) is not int or design["benchmark_blocks"] != 2:
@@ -540,33 +565,144 @@ def _predict_controls(
     }
 
 
+def _cached_provider_entry(
+    packet: dict[str, Any], cache_path: Path, case_id: str, replicate: int
+) -> tuple[dict[str, Any] | None, int]:
+    """Validate an existing slot through the frozen provider-cache reader."""
+    if not cache_path.exists():
+        return None, 0
+    packet_hash = loop_experiment._packet_fingerprint(packet)
+    try:
+        entry = feedback._query_provider(packet, "jev", cache_path, allow_call=False)
+    except feedback.CompilerFeedbackError as error:
+        message = str(error)
+        if message not in {
+            "frozen model choice has no matching provider cache entry",
+            "frozen jev response is missing from provider cache",
+        }:
+            raise
+        cache = feedback._load(cache_path)
+        packets = cache["packets"]
+        if message == "frozen model choice has no matching provider cache entry":
+            raise FeedbackReplicationError(
+                f"provider cache is incomplete or changed for {case_id} replicate {replicate}"
+            ) from error
+        entry = packets[packet_hash]
+        if entry.get("responses") != {} or entry.get("response_sha256") != {}:
+            raise FeedbackReplicationError(
+                f"provider slot contains an unexpected response for {case_id} replicate {replicate}"
+            ) from error
+        if not entry["attempts"]:
+            raise FeedbackReplicationError(
+                f"provider slot has no retained attempt for {case_id} replicate {replicate}"
+            ) from error
+        if any(
+            not isinstance(attempt, dict)
+            or attempt.get("provider") != "jev"
+            or attempt.get("status") not in {"unavailable", "rejected"}
+            or not isinstance(attempt.get("reason"), str)
+            or not attempt["reason"]
+            for attempt in entry["attempts"]
+        ):
+            raise FeedbackReplicationError(
+                f"missing response has no valid failure history for {case_id} replicate {replicate}"
+            ) from error
+        return None, len(entry["attempts"])
+    if set(entry.get("responses", {})) != {"jev"}:
+        raise FeedbackReplicationError(
+            f"provider slot is not a single valid Jev response for {case_id} replicate {replicate}"
+        )
+    return entry, len(entry["attempts"])
+
+
+def _slot_record(
+    case_id: str,
+    packet: dict[str, Any],
+    cache_path: Path,
+    replicate: int,
+    entry: dict[str, Any],
+) -> dict[str, Any]:
+    packet_hash = loop_experiment._packet_fingerprint(packet)
+    if entry.get("packet_sha256") != packet_hash or entry.get("packet") != packet:
+        raise FeedbackReplicationError(f"provider packet changed for {case_id} replicate {replicate}")
+    return {
+        "replicate": replicate,
+        "packet_sha256": packet_hash,
+        "action": feedback._provider_action(entry, "jev"),
+        "response": entry["responses"]["jev"],
+        "attempts": entry["attempts"],
+        "cache_path": str(cache_path.resolve()),
+        "cache_sha256": _sha256(cache_path),
+    }
+
+
+def _verify_frozen_slots(
+    case: dict[str, Any], packet: dict[str, Any], output: Path, recorded: list[dict[str, Any]]
+) -> None:
+    if not isinstance(recorded, list) or len(recorded) != REPLICATES:
+        raise FeedbackReplicationError(f"frozen provider choices are incomplete for {case['case_id']}")
+    for replicate, slot in enumerate(recorded, 1):
+        cache_path = output / "provider-cache" / case["case_id"] / f"replicate-{replicate}.json"
+        if (
+            not isinstance(slot, dict)
+            or slot.get("replicate") != replicate
+            or slot.get("cache_path") != str(cache_path.resolve())
+            or not cache_path.is_file()
+            or slot.get("cache_sha256") != _sha256(cache_path)
+        ):
+            raise FeedbackReplicationError(f"frozen provider cache changed for {case['case_id']}")
+        entry, _ = _cached_provider_entry(packet, cache_path, case["case_id"], replicate)
+        if entry is None or _slot_record(case["case_id"], packet, cache_path, replicate, entry) != slot:
+            raise FeedbackReplicationError(f"frozen provider choice changed for {case['case_id']}")
+
+
 def _query_replicates(
-    case: dict[str, Any], packet: dict[str, Any], output: Path, count: int = REPLICATES
+    case: dict[str, Any],
+    packet: dict[str, Any],
+    output: Path,
+    count: int = REPLICATES,
+    max_attempts: int = 1,
 ) -> list[dict[str, Any]]:
     if count != REPLICATES:
         raise FeedbackReplicationError("provider replicate count changed")
-    packet_hash = loop_experiment._packet_fingerprint(packet)
+    if type(max_attempts) is not int or max_attempts not in (1, 3):
+        raise FeedbackReplicationError("provider max attempts must be 1 or 3")
     slots = []
     for replicate in range(1, count + 1):
         cache_path = output / "provider-cache" / case["case_id"] / f"replicate-{replicate}.json"
-        # Existing files are cache-only: failed slots are preserved and never retried.
-        entry = feedback._query_provider(
-            packet, "jev", cache_path, allow_call=not cache_path.exists()
-        )
-        if entry.get("packet_sha256") != packet_hash or entry.get("packet") != packet:
-            raise FeedbackReplicationError(f"provider packet changed for {case['case_id']} replicate {replicate}")
-        if set(entry.get("responses", {})) != {"jev"}:
-            raise FeedbackReplicationError(f"provider slot is not a single valid Jev response for {case['case_id']}")
-        action = feedback._provider_action(entry, "jev")
-        slots.append({
-            "replicate": replicate,
-            "packet_sha256": packet_hash,
-            "action": action,
-            "response": entry["responses"]["jev"],
-            "attempts": entry["attempts"],
-            "cache_path": str(cache_path.resolve()),
-            "cache_sha256": _sha256(cache_path),
-        })
+        while True:
+            entry, attempts_before = _cached_provider_entry(
+                packet, cache_path, case["case_id"], replicate
+            )
+            if entry is not None:
+                break
+            if attempts_before >= max_attempts:
+                raise feedback.CompilerFeedbackError(
+                    "jev returned no valid decision; cached provider attempts are exhausted"
+                )
+            try:
+                feedback._query_provider(packet, "jev", cache_path, allow_call=True)
+            except feedback.CompilerFeedbackError as error:
+                if str(error) != "jev returned no valid decision; failed attempt is cached":
+                    raise
+                _, attempts_after = _cached_provider_entry(
+                    packet, cache_path, case["case_id"], replicate
+                )
+                if attempts_after <= attempts_before:
+                    raise FeedbackReplicationError(
+                        f"failed Jev attempt was not retained for {case['case_id']} replicate {replicate}"
+                    ) from error
+                if attempts_after >= max_attempts:
+                    raise
+                continue
+            # Re-read through the frozen helper to verify newly written response hashes.
+            entry, _ = _cached_provider_entry(packet, cache_path, case["case_id"], replicate)
+            if entry is None:
+                raise FeedbackReplicationError(
+                    f"Jev response was not retained for {case['case_id']} replicate {replicate}"
+                )
+            break
+        slots.append(_slot_record(case["case_id"], packet, cache_path, replicate, entry))
     if len({slot["packet_sha256"] for slot in slots}) != 1:
         raise FeedbackReplicationError("replicate packets are not identical")
     if len({slot["cache_path"] for slot in slots}) != REPLICATES:
@@ -664,17 +800,7 @@ def run_prepare(
             row = choices[case["case_id"]]
             if row.get("packet_sha256") != loop_experiment._packet_fingerprint(packet):
                 raise FeedbackReplicationError(f"frozen packet changed for {case['case_id']}")
-            for replicate, slot in enumerate(row.get("provider_replicates", []), 1):
-                cache_path = Path(slot["cache_path"])
-                if (
-                    slot.get("replicate") != replicate
-                    or slot.get("cache_sha256") != _sha256(cache_path)
-                    or slot.get("packet_sha256") != row["packet_sha256"]
-                    or slot.get("action") != feedback._provider_action(
-                        feedback._load(cache_path)["packets"][row["packet_sha256"]], "jev"
-                    )
-                ):
-                    raise FeedbackReplicationError(f"frozen provider choice changed for {case['case_id']}")
+            _verify_frozen_slots(case, packet, output, row.get("provider_replicates", []))
     else:
         prediction_started = time.perf_counter()
         predictions = {
@@ -689,7 +815,13 @@ def run_prepare(
         for case in built:
             controls = predictions[case["case_id"]]
             packet = feedback._provider_packet(case, design, informed=True)
-            slots = _query_replicates(case, packet, output, design["provider_replicates"])
+            slots = _query_replicates(
+                case,
+                packet,
+                output,
+                design["provider_replicates"],
+                design.get("provider_max_attempts", 1),
+            )
             choices[case["case_id"]] = {
                 **controls,
                 "packet_sha256": loop_experiment._packet_fingerprint(packet),
@@ -912,20 +1044,7 @@ def _prepared_inputs(
         packet_hash = loop_experiment._packet_fingerprint(packet)
         if row.get("packet_sha256") != packet_hash:
             raise FeedbackReplicationError(f"prepared packet changed for {case['case_id']}")
-        for replicate, slot in enumerate(row["provider_replicates"], 1):
-            cache_path = Path(slot.get("cache_path", ""))
-            if (
-                slot.get("replicate") != replicate
-                or slot.get("packet_sha256") != packet_hash
-                or not cache_path.is_file()
-                or slot.get("cache_sha256") != _sha256(cache_path)
-            ):
-                raise FeedbackReplicationError(f"prepared provider cache changed for {case['case_id']}")
-            entry = _load(cache_path)["packets"].get(packet_hash)
-            if not isinstance(entry, dict) or entry.get("packet") != packet or entry.get("responses", {}).get("jev") != slot.get("response"):
-                raise FeedbackReplicationError(f"prepared provider response changed for {case['case_id']}")
-            if feedback._provider_action(entry, "jev") != slot.get("action"):
-                raise FeedbackReplicationError(f"prepared provider action changed for {case['case_id']}")
+        _verify_frozen_slots(case, packet, output, row["provider_replicates"])
     return design, prepared, built, choices, {
         "provenance": provenance,
         "source_cases": source_cases,
@@ -933,6 +1052,46 @@ def _prepared_inputs(
         "training_evidence": training_evidence,
         "cost_inventory": cost_inventory,
     }
+
+
+def _preflight_build_reports(design: dict[str, Any], output: Path) -> None:
+    """Fail before build validation can enter its build-if-report-is-missing path."""
+    manifest_path = output / "builds.json"
+    if not manifest_path.is_file():
+        raise FeedbackReplicationError("measurement refuses to rebuild: prepared build manifest is missing")
+    manifest = _load(manifest_path)
+    recorded = manifest.get("cases") if isinstance(manifest, dict) else None
+    expected = _cases(design)
+    if not isinstance(recorded, list) or len(recorded) != len(expected):
+        raise FeedbackReplicationError("measurement refuses to rebuild: prepared build manifest is incomplete")
+
+    problems = []
+    for want, have in zip(expected, recorded, strict=True):
+        if not isinstance(have, dict) or any(
+            have.get(key) != want[key] for key in ("partition", "group", "family", "case_id", "spec")
+        ):
+            raise FeedbackReplicationError("measurement refuses to rebuild: prepared build case identity changed")
+        expected_path = (
+            output / "cases" / want["partition"] / want["case_id"] / "build" / "report.json"
+        ).resolve()
+        try:
+            report_path = Path(have["build_report_path"]).resolve()
+            expected_hash = have["build_report_sha256"]
+        except (KeyError, TypeError, ValueError):
+            problems.append(f"{want['case_id']}: missing report reference")
+            continue
+        if report_path != expected_path:
+            problems.append(f"{want['case_id']}: unexpected report path")
+        elif not isinstance(expected_hash, str) or not re.fullmatch(r"[0-9a-f]{64}", expected_hash):
+            problems.append(f"{want['case_id']}: invalid report hash")
+        elif not report_path.is_file():
+            problems.append(f"{want['case_id']}: report is missing")
+        elif _sha256(report_path) != expected_hash:
+            problems.append(f"{want['case_id']}: report hash changed")
+    if problems:
+        raise FeedbackReplicationError(
+            "measurement refuses to rebuild; build report preflight failed: " + "; ".join(problems)
+        )
 
 
 def run_measure(
@@ -944,6 +1103,9 @@ def run_measure(
     design_path, validation_path, output, source_output = (
         path.expanduser().resolve() for path in (design_path, validation_path, output, source_output)
     )
+    source_design_path = (ROOT / "experiments" / "compiler-feedback-v1.json").resolve()
+    design = _design(design_path, source_design_path)
+    _preflight_build_reports(design, output)
     design, prepared, built, choices, context = _prepared_inputs(
         design_path, validation_path, output, source_output
     )
