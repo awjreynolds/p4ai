@@ -1,0 +1,7507 @@
+{
+  "schema_version": 1,
+  "case_order": "baseline source SHA256 ascending; source-based, independent of oracle role",
+  "cases": [
+    {
+      "id": "heldout-01",
+      "structure": "overlapping-admission",
+      "requirements": {
+        "Ingress.chain_0": 16384,
+        "Ingress.chain_1": 16384,
+        "Ingress.chain_10": 16384,
+        "Ingress.chain_11": 16384,
+        "Ingress.chain_2": 16384,
+        "Ingress.chain_3": 16384,
+        "Ingress.chain_4": 16384,
+        "Ingress.chain_5": 16384,
+        "Ingress.chain_6": 16384,
+        "Ingress.chain_7": 16384,
+        "Ingress.chain_8": 16384,
+        "Ingress.chain_9": 16384,
+        "Ingress.side_0": 196608,
+        "Ingress.side_1": 196608,
+        "Ingress.side_2": 196608,
+        "Ingress.side_3": 196608,
+        "Ingress.side_4": 196608,
+        "Ingress.side_5": 196608,
+        "Ingress.side_6": 196608,
+        "Ingress.side_7": 196608
+      },
+      "group_semantics": {
+        "a": "eight independent side policy tables",
+        "b": "primary dependency/action graph tables"
+      },
+      "default": "evaluation/heldout-01/default/program.p4",
+      "candidates": [
+        {
+          "id": "a-pack-1",
+          "source": "evaluation/heldout-01/a-pack-1/program.p4",
+          "sha256": "fa1983581776263ee1b0f98c726bfd7681ac961ca77af17ebcd4037ac19736ca",
+          "edits": [
+            {
+              "line": 182,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 193,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 204,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 215,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 226,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 237,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 248,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 259,
+              "text": "    @pack(1)"
+            }
+          ]
+        },
+        {
+          "id": "a-pack-2",
+          "source": "evaluation/heldout-01/a-pack-2/program.p4",
+          "sha256": "dddbe3393aace6a0e31f926fb0fb6628ebd0dff35188b484e2b11f855bdfd781",
+          "edits": [
+            {
+              "line": 182,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 193,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 204,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 215,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 226,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 237,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 248,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 259,
+              "text": "    @pack(2)"
+            }
+          ]
+        },
+        {
+          "id": "a-pack-3",
+          "source": "evaluation/heldout-01/a-pack-3/program.p4",
+          "sha256": "e514a0fc02d7a6258f4cb198e92fc63ff42f6ab5d6023ae3f91765dde2635560",
+          "edits": [
+            {
+              "line": 182,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 193,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 204,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 215,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 226,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 237,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 248,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 259,
+              "text": "    @pack(3)"
+            }
+          ]
+        },
+        {
+          "id": "a-pack-4",
+          "source": "evaluation/heldout-01/a-pack-4/program.p4",
+          "sha256": "75f648221f22a24c119c92d8b8a351a1bfd5632b301499291103562efd566d1c",
+          "edits": [
+            {
+              "line": 182,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 193,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 204,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 215,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 226,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 237,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 248,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 259,
+              "text": "    @pack(4)"
+            }
+          ]
+        },
+        {
+          "id": "a-pack-5",
+          "source": "evaluation/heldout-01/a-pack-5/program.p4",
+          "sha256": "178b7e7a0420cdc4a0a706a2db3f120c300ab09cbe71c19844de46b2f25a07ee",
+          "edits": [
+            {
+              "line": 182,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 193,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 204,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 215,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 226,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 237,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 248,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 259,
+              "text": "    @pack(5)"
+            }
+          ]
+        },
+        {
+          "id": "a-pack-6",
+          "source": "evaluation/heldout-01/a-pack-6/program.p4",
+          "sha256": "c7175aa123715bc20791a5ef935f2a5ad878292194f64f253e030dfd9487815c",
+          "edits": [
+            {
+              "line": 182,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 193,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 204,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 215,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 226,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 237,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 248,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 259,
+              "text": "    @pack(6)"
+            }
+          ]
+        },
+        {
+          "id": "a-pack-7",
+          "source": "evaluation/heldout-01/a-pack-7/program.p4",
+          "sha256": "5d28c5f20c5d16f40dd3a2d5cc94b882ce36210bafc0b40266d716d4105bbd3b",
+          "edits": [
+            {
+              "line": 182,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 193,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 204,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 215,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 226,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 237,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 248,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 259,
+              "text": "    @pack(7)"
+            }
+          ]
+        },
+        {
+          "id": "a-pack-8",
+          "source": "evaluation/heldout-01/a-pack-8/program.p4",
+          "sha256": "ce1abb79350b3518337bbe0e2423bc406d45f8858cd4f1854218b70a0f3eb20e",
+          "edits": [
+            {
+              "line": 182,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 193,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 204,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 215,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 226,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 237,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 248,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 259,
+              "text": "    @pack(8)"
+            }
+          ]
+        },
+        {
+          "id": "a-pack-9",
+          "source": "evaluation/heldout-01/a-pack-9/program.p4",
+          "sha256": "01f9eda949a3a67ddb17a3aba0f1b2e80f7faf106bcd32d306514403049954fb",
+          "edits": [
+            {
+              "line": 182,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 193,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 204,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 215,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 226,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 237,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 248,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 259,
+              "text": "    @pack(9)"
+            }
+          ]
+        },
+        {
+          "id": "b-pack-1",
+          "source": "evaluation/heldout-01/b-pack-1/program.p4",
+          "sha256": "fb9c3de3d6b384816bbce2ed3648e3f3a56c9379ebaaa34ec3238116f298f69e",
+          "edits": [
+            {
+              "line": 50,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 61,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 72,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 83,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 94,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 105,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 116,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 127,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 138,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 149,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 160,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 171,
+              "text": "    @pack(1)"
+            }
+          ]
+        },
+        {
+          "id": "b-pack-2",
+          "source": "evaluation/heldout-01/b-pack-2/program.p4",
+          "sha256": "5868b261c5718b2859d92817f0e43505db1da31babe63ed2cd0f105d1beca1e0",
+          "edits": [
+            {
+              "line": 50,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 61,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 72,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 83,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 94,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 105,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 116,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 127,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 138,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 149,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 160,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 171,
+              "text": "    @pack(2)"
+            }
+          ]
+        },
+        {
+          "id": "b-pack-3",
+          "source": "evaluation/heldout-01/b-pack-3/program.p4",
+          "sha256": "cf3d955c7d98fdde8ee5ee9a8bbfd227e5ee510f9b19735a7496eec585de2a8f",
+          "edits": [
+            {
+              "line": 50,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 61,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 72,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 83,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 94,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 105,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 116,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 127,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 138,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 149,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 160,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 171,
+              "text": "    @pack(3)"
+            }
+          ]
+        },
+        {
+          "id": "b-pack-4",
+          "source": "evaluation/heldout-01/b-pack-4/program.p4",
+          "sha256": "72198a7170e04cfb42535fa070bf89446c1a3db8a8c6e59bc1037070ab4722fd",
+          "edits": [
+            {
+              "line": 50,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 61,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 72,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 83,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 94,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 105,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 116,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 127,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 138,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 149,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 160,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 171,
+              "text": "    @pack(4)"
+            }
+          ]
+        },
+        {
+          "id": "b-pack-5",
+          "source": "evaluation/heldout-01/b-pack-5/program.p4",
+          "sha256": "0e461e41d50263b036592f09f909e207721c46ac4a4a59d20f2168b1ec8fe1e8",
+          "edits": [
+            {
+              "line": 50,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 61,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 72,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 83,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 94,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 105,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 116,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 127,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 138,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 149,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 160,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 171,
+              "text": "    @pack(5)"
+            }
+          ]
+        },
+        {
+          "id": "b-pack-6",
+          "source": "evaluation/heldout-01/b-pack-6/program.p4",
+          "sha256": "53651b981e6c5597b62b6bf115bd7d72419bfa7b089d52fdd999b28d3a7bd7e6",
+          "edits": [
+            {
+              "line": 50,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 61,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 72,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 83,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 94,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 105,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 116,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 127,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 138,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 149,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 160,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 171,
+              "text": "    @pack(6)"
+            }
+          ]
+        },
+        {
+          "id": "b-pack-7",
+          "source": "evaluation/heldout-01/b-pack-7/program.p4",
+          "sha256": "9274311bf64fcc10366cd46e04bb74d594604d761cf4ff9d96ce279b60897541",
+          "edits": [
+            {
+              "line": 50,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 61,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 72,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 83,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 94,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 105,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 116,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 127,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 138,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 149,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 160,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 171,
+              "text": "    @pack(7)"
+            }
+          ]
+        },
+        {
+          "id": "b-pack-8",
+          "source": "evaluation/heldout-01/b-pack-8/program.p4",
+          "sha256": "29dfa606c21bb194aedffcfbbc3e53e399c8d0c178df3a13bcab5134d8659930",
+          "edits": [
+            {
+              "line": 50,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 61,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 72,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 83,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 94,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 105,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 116,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 127,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 138,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 149,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 160,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 171,
+              "text": "    @pack(8)"
+            }
+          ]
+        },
+        {
+          "id": "b-pack-9",
+          "source": "evaluation/heldout-01/b-pack-9/program.p4",
+          "sha256": "7e7fa19e7efa75d97525f724f50255bc8f4093af153f98b3f36305969e37e4e8",
+          "edits": [
+            {
+              "line": 50,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 61,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 72,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 83,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 94,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 105,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 116,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 127,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 138,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 149,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 160,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 171,
+              "text": "    @pack(9)"
+            }
+          ]
+        },
+        {
+          "id": "a-no-immediate",
+          "source": "evaluation/heldout-01/a-no-immediate/program.p4",
+          "sha256": "4612681e2376cefdc178bfc1a2e6a16012149884329a6a6281dc14d1d2dbe548",
+          "edits": [
+            {
+              "line": 181,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 192,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 203,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 214,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 225,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 236,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 247,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 258,
+              "text": "    @immediate(0)"
+            }
+          ]
+        },
+        {
+          "id": "b-no-immediate",
+          "source": "evaluation/heldout-01/b-no-immediate/program.p4",
+          "sha256": "2a3ce448e08c82a30605478857bb993a5213340232749a384adf0aae73e42c9d",
+          "edits": [
+            {
+              "line": 49,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 60,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 71,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 82,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 93,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 104,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 115,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 126,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 137,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 148,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 159,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 170,
+              "text": "    @immediate(0)"
+            }
+          ]
+        },
+        {
+          "id": "all-no-immediate",
+          "source": "evaluation/heldout-01/all-no-immediate/program.p4",
+          "sha256": "67a9083e2647749e14940f98e276be5c21d097ba3822fb74faec25f96dc5441f",
+          "edits": [
+            {
+              "line": 49,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 60,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 71,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 82,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 93,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 104,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 115,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 126,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 137,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 148,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 159,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 170,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 181,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 192,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 203,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 214,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 225,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 236,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 247,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 258,
+              "text": "    @immediate(0)"
+            }
+          ]
+        },
+        {
+          "id": "a-priority",
+          "source": "evaluation/heldout-01/a-priority/program.p4",
+          "sha256": "d85b701baef0b16abaaa9cf18a0f7e3204b85ad313ae0e1cf1682fd6d988451a",
+          "edits": [
+            {
+              "line": 183,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 194,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 205,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 216,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 227,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 238,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 249,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 260,
+              "text": "    @placement_priority(10)"
+            }
+          ]
+        },
+        {
+          "id": "b-priority",
+          "source": "evaluation/heldout-01/b-priority/program.p4",
+          "sha256": "74a43d21210a87eeecaba7864a0f0de2321edd75e0acd3162cd7d3793b6aee3b",
+          "edits": [
+            {
+              "line": 51,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 62,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 73,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 84,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 95,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 106,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 117,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 128,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 139,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 150,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 161,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 172,
+              "text": "    @placement_priority(10)"
+            }
+          ]
+        },
+        {
+          "id": "a-later",
+          "source": "evaluation/heldout-01/a-later/program.p4",
+          "sha256": "1d6ace8ac35bd24950217c31da55d288da70c88c39a66e37421f1b53206afeea",
+          "edits": [
+            {
+              "line": 183,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 194,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 205,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 216,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 227,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 238,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 249,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 260,
+              "text": "    @placement_priority(-10)"
+            }
+          ]
+        },
+        {
+          "id": "b-later",
+          "source": "evaluation/heldout-01/b-later/program.p4",
+          "sha256": "ab9566700ab40e0ed21d60f57a0f539f947b8f42bfacf27d5757f66118b343ee",
+          "edits": [
+            {
+              "line": 51,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 62,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 73,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 84,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 95,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 106,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 117,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 128,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 139,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 150,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 161,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 172,
+              "text": "    @placement_priority(-10)"
+            }
+          ]
+        }
+      ],
+      "default_sha256": "46084df9fd80e9af5767ddd20634180b119c9e088054de83f0cea70341fefb54"
+    },
+    {
+      "id": "heldout-02",
+      "structure": "fork-join-chain",
+      "requirements": {
+        "Ingress.chain_0": 1024,
+        "Ingress.chain_1": 1024,
+        "Ingress.chain_10": 1024,
+        "Ingress.chain_11": 1024,
+        "Ingress.chain_2": 1024,
+        "Ingress.chain_3": 1024,
+        "Ingress.chain_4": 1024,
+        "Ingress.chain_5": 1024,
+        "Ingress.chain_6": 1024,
+        "Ingress.chain_7": 1024,
+        "Ingress.chain_8": 1024,
+        "Ingress.chain_9": 1024,
+        "Ingress.side_0": 1024,
+        "Ingress.side_1": 1024,
+        "Ingress.side_2": 1024,
+        "Ingress.side_3": 1024,
+        "Ingress.side_4": 1024,
+        "Ingress.side_5": 1024,
+        "Ingress.side_6": 1024,
+        "Ingress.side_7": 1024
+      },
+      "group_semantics": {
+        "a": "eight independent side policy tables",
+        "b": "primary dependency/action graph tables"
+      },
+      "default": "evaluation/heldout-02/default/program.p4",
+      "candidates": [
+        {
+          "id": "a-pack-1",
+          "source": "evaluation/heldout-02/a-pack-1/program.p4",
+          "sha256": "aeb7e1093a987babb78975bd9f8f53923e428cb2d316f763498a23d102e3fb17",
+          "edits": [
+            {
+              "line": 184,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 195,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 206,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 217,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 228,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 239,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 250,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 261,
+              "text": "    @pack(1)"
+            }
+          ]
+        },
+        {
+          "id": "a-pack-2",
+          "source": "evaluation/heldout-02/a-pack-2/program.p4",
+          "sha256": "8e1b46fc58e6dc5292e2b504029ea9be5299edc7810fca5faa5baf00bb80ba56",
+          "edits": [
+            {
+              "line": 184,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 195,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 206,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 217,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 228,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 239,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 250,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 261,
+              "text": "    @pack(2)"
+            }
+          ]
+        },
+        {
+          "id": "a-pack-3",
+          "source": "evaluation/heldout-02/a-pack-3/program.p4",
+          "sha256": "ec2a3682b0b5382b8e1b325882f05aafa67f1d85d40c9c13bfb5e78be8461967",
+          "edits": [
+            {
+              "line": 184,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 195,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 206,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 217,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 228,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 239,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 250,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 261,
+              "text": "    @pack(3)"
+            }
+          ]
+        },
+        {
+          "id": "a-pack-4",
+          "source": "evaluation/heldout-02/a-pack-4/program.p4",
+          "sha256": "57b5fd72a6e64b73428a7de8bd528a194fff85652520f85543e8fc9f915805d9",
+          "edits": [
+            {
+              "line": 184,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 195,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 206,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 217,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 228,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 239,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 250,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 261,
+              "text": "    @pack(4)"
+            }
+          ]
+        },
+        {
+          "id": "a-pack-5",
+          "source": "evaluation/heldout-02/a-pack-5/program.p4",
+          "sha256": "80fdfc781f250c1e580018f654edde32cdbce3e14e46311467c0d89271846e9a",
+          "edits": [
+            {
+              "line": 184,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 195,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 206,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 217,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 228,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 239,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 250,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 261,
+              "text": "    @pack(5)"
+            }
+          ]
+        },
+        {
+          "id": "a-pack-6",
+          "source": "evaluation/heldout-02/a-pack-6/program.p4",
+          "sha256": "599a6b51dd9625073bcd5f762a6ed9de13c5b3b38aa52986111b5446f098c1ae",
+          "edits": [
+            {
+              "line": 184,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 195,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 206,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 217,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 228,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 239,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 250,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 261,
+              "text": "    @pack(6)"
+            }
+          ]
+        },
+        {
+          "id": "a-pack-7",
+          "source": "evaluation/heldout-02/a-pack-7/program.p4",
+          "sha256": "703aaaa3a0840ebb6d8ab884db1588372cc480a3ecf4870759b9f5f96eedbf2e",
+          "edits": [
+            {
+              "line": 184,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 195,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 206,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 217,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 228,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 239,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 250,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 261,
+              "text": "    @pack(7)"
+            }
+          ]
+        },
+        {
+          "id": "a-pack-8",
+          "source": "evaluation/heldout-02/a-pack-8/program.p4",
+          "sha256": "6f54f5d44ff1635e70feabe7eb2afeed8c2437b82e686a9f702ebd5cff5fbaf8",
+          "edits": [
+            {
+              "line": 184,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 195,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 206,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 217,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 228,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 239,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 250,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 261,
+              "text": "    @pack(8)"
+            }
+          ]
+        },
+        {
+          "id": "a-pack-9",
+          "source": "evaluation/heldout-02/a-pack-9/program.p4",
+          "sha256": "0bfbfafc40cdc8ffe7f3b5265c4de5f496a942643c6962300b7aec26a4657330",
+          "edits": [
+            {
+              "line": 184,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 195,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 206,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 217,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 228,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 239,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 250,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 261,
+              "text": "    @pack(9)"
+            }
+          ]
+        },
+        {
+          "id": "b-pack-1",
+          "source": "evaluation/heldout-02/b-pack-1/program.p4",
+          "sha256": "e19884390e5829d09c50c63f74746bcc230139773117a9f6b14312573ef123f3",
+          "edits": [
+            {
+              "line": 52,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 63,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 74,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 85,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 96,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 107,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 118,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 129,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 140,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 151,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 162,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 173,
+              "text": "    @pack(1)"
+            }
+          ]
+        },
+        {
+          "id": "b-pack-2",
+          "source": "evaluation/heldout-02/b-pack-2/program.p4",
+          "sha256": "3759bb68687727d2c3c4c8387c81c88bf1d94f63fedf7117cbc855133813911e",
+          "edits": [
+            {
+              "line": 52,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 63,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 74,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 85,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 96,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 107,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 118,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 129,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 140,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 151,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 162,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 173,
+              "text": "    @pack(2)"
+            }
+          ]
+        },
+        {
+          "id": "b-pack-3",
+          "source": "evaluation/heldout-02/b-pack-3/program.p4",
+          "sha256": "68fd55aca2f24e2695ec7870c209edd18612fcb1483cd9f6325dfcf374f40f02",
+          "edits": [
+            {
+              "line": 52,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 63,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 74,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 85,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 96,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 107,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 118,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 129,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 140,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 151,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 162,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 173,
+              "text": "    @pack(3)"
+            }
+          ]
+        },
+        {
+          "id": "b-pack-4",
+          "source": "evaluation/heldout-02/b-pack-4/program.p4",
+          "sha256": "288bdfb353ae41c01b0726d3b2e9abf786549fae63efb0d9d48a6d016cc04e81",
+          "edits": [
+            {
+              "line": 52,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 63,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 74,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 85,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 96,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 107,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 118,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 129,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 140,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 151,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 162,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 173,
+              "text": "    @pack(4)"
+            }
+          ]
+        },
+        {
+          "id": "b-pack-5",
+          "source": "evaluation/heldout-02/b-pack-5/program.p4",
+          "sha256": "cc329cecbb4480c35abe2733adec0d1533f2870a6ecaf5cce28bbba0c2bbc410",
+          "edits": [
+            {
+              "line": 52,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 63,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 74,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 85,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 96,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 107,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 118,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 129,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 140,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 151,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 162,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 173,
+              "text": "    @pack(5)"
+            }
+          ]
+        },
+        {
+          "id": "b-pack-6",
+          "source": "evaluation/heldout-02/b-pack-6/program.p4",
+          "sha256": "d302f70d3e1fa6af5ff2f86f206a60d62c2879e571cc45f07f53ab1eab83f3da",
+          "edits": [
+            {
+              "line": 52,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 63,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 74,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 85,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 96,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 107,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 118,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 129,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 140,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 151,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 162,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 173,
+              "text": "    @pack(6)"
+            }
+          ]
+        },
+        {
+          "id": "b-pack-7",
+          "source": "evaluation/heldout-02/b-pack-7/program.p4",
+          "sha256": "c7bb4cd2bf89f8b3377f6d9a60715a31d52d9db10a69436c78a9cd9e9251cb4b",
+          "edits": [
+            {
+              "line": 52,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 63,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 74,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 85,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 96,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 107,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 118,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 129,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 140,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 151,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 162,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 173,
+              "text": "    @pack(7)"
+            }
+          ]
+        },
+        {
+          "id": "b-pack-8",
+          "source": "evaluation/heldout-02/b-pack-8/program.p4",
+          "sha256": "64394c1504318c4c437949228815e8adfa6ddc80e9211884dff79f17e6072819",
+          "edits": [
+            {
+              "line": 52,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 63,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 74,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 85,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 96,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 107,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 118,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 129,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 140,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 151,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 162,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 173,
+              "text": "    @pack(8)"
+            }
+          ]
+        },
+        {
+          "id": "b-pack-9",
+          "source": "evaluation/heldout-02/b-pack-9/program.p4",
+          "sha256": "df8eb4c5cd2bf300ca6c81cefe8282ba1d6ed57a1a005e6000de5f609ca78779",
+          "edits": [
+            {
+              "line": 52,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 63,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 74,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 85,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 96,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 107,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 118,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 129,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 140,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 151,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 162,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 173,
+              "text": "    @pack(9)"
+            }
+          ]
+        },
+        {
+          "id": "a-no-immediate",
+          "source": "evaluation/heldout-02/a-no-immediate/program.p4",
+          "sha256": "a736781df6f54687ab3a08eec63a8e2db7e1387a6effbd2049ea0060e445605b",
+          "edits": [
+            {
+              "line": 183,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 194,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 205,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 216,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 227,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 238,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 249,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 260,
+              "text": "    @immediate(0)"
+            }
+          ]
+        },
+        {
+          "id": "b-no-immediate",
+          "source": "evaluation/heldout-02/b-no-immediate/program.p4",
+          "sha256": "f7bfecd278bdbca602c69b0c21e3b571058c25f49d1a4b0f5c46b628edf969ab",
+          "edits": [
+            {
+              "line": 51,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 62,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 73,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 84,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 95,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 106,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 117,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 128,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 139,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 150,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 161,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 172,
+              "text": "    @immediate(0)"
+            }
+          ]
+        },
+        {
+          "id": "all-no-immediate",
+          "source": "evaluation/heldout-02/all-no-immediate/program.p4",
+          "sha256": "3e98b0bee8f85969a7d7b1c12543ad82dbcd83122b9ef072a4c5fdac7bbd342c",
+          "edits": [
+            {
+              "line": 51,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 62,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 73,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 84,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 95,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 106,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 117,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 128,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 139,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 150,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 161,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 172,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 183,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 194,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 205,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 216,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 227,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 238,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 249,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 260,
+              "text": "    @immediate(0)"
+            }
+          ]
+        },
+        {
+          "id": "a-priority",
+          "source": "evaluation/heldout-02/a-priority/program.p4",
+          "sha256": "9cfc7e49fccc14507b81eb1bf110f7aeab5f290bc4ec34a2c71244b28119370b",
+          "edits": [
+            {
+              "line": 185,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 196,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 207,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 218,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 229,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 240,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 251,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 262,
+              "text": "    @placement_priority(10)"
+            }
+          ]
+        },
+        {
+          "id": "b-priority",
+          "source": "evaluation/heldout-02/b-priority/program.p4",
+          "sha256": "369766be441c394bca845adcd49a089401585a1a8ef0a285c19cf895c8244171",
+          "edits": [
+            {
+              "line": 53,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 64,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 75,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 86,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 97,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 108,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 119,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 130,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 141,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 152,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 163,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 174,
+              "text": "    @placement_priority(10)"
+            }
+          ]
+        },
+        {
+          "id": "a-later",
+          "source": "evaluation/heldout-02/a-later/program.p4",
+          "sha256": "0b1b334c78eadf97e2f350ee884e3ae4075b60df87ace80dc76244580eef6a6a",
+          "edits": [
+            {
+              "line": 185,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 196,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 207,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 218,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 229,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 240,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 251,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 262,
+              "text": "    @placement_priority(-10)"
+            }
+          ]
+        },
+        {
+          "id": "b-later",
+          "source": "evaluation/heldout-02/b-later/program.p4",
+          "sha256": "fc3008274e0fdc8d3940ba9540386cb387cb2cb4aa0a513faed7cd210544c228",
+          "edits": [
+            {
+              "line": 53,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 64,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 75,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 86,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 97,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 108,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 119,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 130,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 141,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 152,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 163,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 174,
+              "text": "    @placement_priority(-10)"
+            }
+          ]
+        }
+      ],
+      "default_sha256": "48f6f15db182598d0da742e5b71a839815bdfdb71c290bcc03d401955603d7e3"
+    },
+    {
+      "id": "heldout-03",
+      "structure": "accumulating-chain",
+      "requirements": {
+        "Ingress.chain_0": 32768,
+        "Ingress.chain_1": 32768,
+        "Ingress.chain_10": 32768,
+        "Ingress.chain_11": 32768,
+        "Ingress.chain_2": 32768,
+        "Ingress.chain_3": 32768,
+        "Ingress.chain_4": 32768,
+        "Ingress.chain_5": 32768,
+        "Ingress.chain_6": 32768,
+        "Ingress.chain_7": 32768,
+        "Ingress.chain_8": 32768,
+        "Ingress.chain_9": 32768,
+        "Ingress.side_0": 524288,
+        "Ingress.side_1": 524288,
+        "Ingress.side_2": 524288,
+        "Ingress.side_3": 524288,
+        "Ingress.side_4": 524288,
+        "Ingress.side_5": 524288,
+        "Ingress.side_6": 524288,
+        "Ingress.side_7": 524288
+      },
+      "group_semantics": {
+        "a": "eight independent side policy tables",
+        "b": "primary dependency/action graph tables"
+      },
+      "default": "evaluation/heldout-03/default/program.p4",
+      "candidates": [
+        {
+          "id": "a-pack-1",
+          "source": "evaluation/heldout-03/a-pack-1/program.p4",
+          "sha256": "792be3a4f61c0cb346f3d96a61e4cedbf8fc7825a893037791e98e31f982f1ab",
+          "edits": [
+            {
+              "line": 183,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 194,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 205,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 216,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 227,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 238,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 249,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 260,
+              "text": "    @pack(1)"
+            }
+          ]
+        },
+        {
+          "id": "a-pack-2",
+          "source": "evaluation/heldout-03/a-pack-2/program.p4",
+          "sha256": "8e3c7c5596a081685fdc853acbfe83aab5200fa677ad7e10595a04c1bdb9d02c",
+          "edits": [
+            {
+              "line": 183,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 194,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 205,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 216,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 227,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 238,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 249,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 260,
+              "text": "    @pack(2)"
+            }
+          ]
+        },
+        {
+          "id": "a-pack-3",
+          "source": "evaluation/heldout-03/a-pack-3/program.p4",
+          "sha256": "fc08fb6b2dce7dd8a5c0938ee03dbc8675f3f8c6914ba5814d32e44bd2f175cb",
+          "edits": [
+            {
+              "line": 183,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 194,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 205,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 216,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 227,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 238,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 249,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 260,
+              "text": "    @pack(3)"
+            }
+          ]
+        },
+        {
+          "id": "a-pack-4",
+          "source": "evaluation/heldout-03/a-pack-4/program.p4",
+          "sha256": "34654cc589f1af33e1ff63c5b7eb466e2ce8cc5916a26dbf4595026cc4fd11a5",
+          "edits": [
+            {
+              "line": 183,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 194,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 205,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 216,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 227,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 238,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 249,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 260,
+              "text": "    @pack(4)"
+            }
+          ]
+        },
+        {
+          "id": "a-pack-5",
+          "source": "evaluation/heldout-03/a-pack-5/program.p4",
+          "sha256": "49115807707a1e669659eb90945cacdc697fccfd1666b004e51aa04a6addfe94",
+          "edits": [
+            {
+              "line": 183,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 194,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 205,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 216,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 227,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 238,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 249,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 260,
+              "text": "    @pack(5)"
+            }
+          ]
+        },
+        {
+          "id": "a-pack-6",
+          "source": "evaluation/heldout-03/a-pack-6/program.p4",
+          "sha256": "2bd3b6867c1c5bc93e54c7ba1786bf5435b1ca0c12c67f9359495604a60bac50",
+          "edits": [
+            {
+              "line": 183,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 194,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 205,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 216,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 227,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 238,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 249,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 260,
+              "text": "    @pack(6)"
+            }
+          ]
+        },
+        {
+          "id": "a-pack-7",
+          "source": "evaluation/heldout-03/a-pack-7/program.p4",
+          "sha256": "916bc2ad9a9f5edd982bec2f486e56a7108450fcef0804c99b56c3d4985678e0",
+          "edits": [
+            {
+              "line": 183,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 194,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 205,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 216,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 227,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 238,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 249,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 260,
+              "text": "    @pack(7)"
+            }
+          ]
+        },
+        {
+          "id": "a-pack-8",
+          "source": "evaluation/heldout-03/a-pack-8/program.p4",
+          "sha256": "9833aa1a1af2c6332ec36895f15cf68ccc946a21a83d949c7996d149446f738f",
+          "edits": [
+            {
+              "line": 183,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 194,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 205,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 216,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 227,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 238,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 249,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 260,
+              "text": "    @pack(8)"
+            }
+          ]
+        },
+        {
+          "id": "a-pack-9",
+          "source": "evaluation/heldout-03/a-pack-9/program.p4",
+          "sha256": "320c87b333fca59a2ce280939095c67ac598a3eaefc82dc33d451a99da5ad253",
+          "edits": [
+            {
+              "line": 183,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 194,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 205,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 216,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 227,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 238,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 249,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 260,
+              "text": "    @pack(9)"
+            }
+          ]
+        },
+        {
+          "id": "b-pack-1",
+          "source": "evaluation/heldout-03/b-pack-1/program.p4",
+          "sha256": "2bbb2980777d52f66e35bc6520490cb0e6fa7eca893b555de30cf75d3bc5d063",
+          "edits": [
+            {
+              "line": 51,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 62,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 73,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 84,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 95,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 106,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 117,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 128,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 139,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 150,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 161,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 172,
+              "text": "    @pack(1)"
+            }
+          ]
+        },
+        {
+          "id": "b-pack-2",
+          "source": "evaluation/heldout-03/b-pack-2/program.p4",
+          "sha256": "7da3530f718aaf1a9892db3e6693e6c7791ffa8a62f1a8f38d45a63166769661",
+          "edits": [
+            {
+              "line": 51,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 62,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 73,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 84,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 95,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 106,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 117,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 128,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 139,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 150,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 161,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 172,
+              "text": "    @pack(2)"
+            }
+          ]
+        },
+        {
+          "id": "b-pack-3",
+          "source": "evaluation/heldout-03/b-pack-3/program.p4",
+          "sha256": "b2258dc348592646862abd9405bc1df0583113d8e77a49dd25d44ee7f44d1181",
+          "edits": [
+            {
+              "line": 51,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 62,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 73,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 84,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 95,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 106,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 117,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 128,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 139,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 150,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 161,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 172,
+              "text": "    @pack(3)"
+            }
+          ]
+        },
+        {
+          "id": "b-pack-4",
+          "source": "evaluation/heldout-03/b-pack-4/program.p4",
+          "sha256": "9dd9716053193184d8fa5d81a2cb895b996a65dc939803ca292857094b186327",
+          "edits": [
+            {
+              "line": 51,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 62,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 73,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 84,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 95,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 106,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 117,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 128,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 139,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 150,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 161,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 172,
+              "text": "    @pack(4)"
+            }
+          ]
+        },
+        {
+          "id": "b-pack-5",
+          "source": "evaluation/heldout-03/b-pack-5/program.p4",
+          "sha256": "46b31dcb753205bd0ee94079a4acb06a383e394d5714f8e4c0b4a76971929525",
+          "edits": [
+            {
+              "line": 51,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 62,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 73,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 84,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 95,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 106,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 117,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 128,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 139,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 150,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 161,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 172,
+              "text": "    @pack(5)"
+            }
+          ]
+        },
+        {
+          "id": "b-pack-6",
+          "source": "evaluation/heldout-03/b-pack-6/program.p4",
+          "sha256": "6ffadae1462b22c580d10a93ac18881632da16e74a5703615e582a669e26fc32",
+          "edits": [
+            {
+              "line": 51,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 62,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 73,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 84,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 95,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 106,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 117,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 128,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 139,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 150,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 161,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 172,
+              "text": "    @pack(6)"
+            }
+          ]
+        },
+        {
+          "id": "b-pack-7",
+          "source": "evaluation/heldout-03/b-pack-7/program.p4",
+          "sha256": "8c59aa692e5fabe8b590430405b4be76444de6fb16c073d8a8b83f2be5b96d38",
+          "edits": [
+            {
+              "line": 51,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 62,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 73,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 84,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 95,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 106,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 117,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 128,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 139,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 150,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 161,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 172,
+              "text": "    @pack(7)"
+            }
+          ]
+        },
+        {
+          "id": "b-pack-8",
+          "source": "evaluation/heldout-03/b-pack-8/program.p4",
+          "sha256": "3ac3ac691dcc6eb5667c02466a7c74b9f5a4261470fadee2c13c1ef73480b469",
+          "edits": [
+            {
+              "line": 51,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 62,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 73,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 84,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 95,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 106,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 117,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 128,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 139,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 150,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 161,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 172,
+              "text": "    @pack(8)"
+            }
+          ]
+        },
+        {
+          "id": "b-pack-9",
+          "source": "evaluation/heldout-03/b-pack-9/program.p4",
+          "sha256": "414046d6b2ddb1ec251c76ee72b97efaeb21255a627406118dda81f14147d33a",
+          "edits": [
+            {
+              "line": 51,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 62,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 73,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 84,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 95,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 106,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 117,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 128,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 139,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 150,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 161,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 172,
+              "text": "    @pack(9)"
+            }
+          ]
+        },
+        {
+          "id": "a-no-immediate",
+          "source": "evaluation/heldout-03/a-no-immediate/program.p4",
+          "sha256": "26c6a3b6dacd532550b17004372f3e1e090c6a5704dc7c103445009cc6b3a019",
+          "edits": [
+            {
+              "line": 182,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 193,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 204,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 215,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 226,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 237,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 248,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 259,
+              "text": "    @immediate(0)"
+            }
+          ]
+        },
+        {
+          "id": "b-no-immediate",
+          "source": "evaluation/heldout-03/b-no-immediate/program.p4",
+          "sha256": "cc5c6fd7bf46eb6b3718c8c77a351df88e6d805b42d32710ee69c3a480dbe75f",
+          "edits": [
+            {
+              "line": 50,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 61,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 72,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 83,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 94,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 105,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 116,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 127,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 138,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 149,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 160,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 171,
+              "text": "    @immediate(0)"
+            }
+          ]
+        },
+        {
+          "id": "all-no-immediate",
+          "source": "evaluation/heldout-03/all-no-immediate/program.p4",
+          "sha256": "9245071334b76848d55b2419e66bee11e4cac5e704fd8f3e7861db5a4a29408a",
+          "edits": [
+            {
+              "line": 50,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 61,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 72,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 83,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 94,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 105,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 116,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 127,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 138,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 149,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 160,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 171,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 182,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 193,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 204,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 215,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 226,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 237,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 248,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 259,
+              "text": "    @immediate(0)"
+            }
+          ]
+        },
+        {
+          "id": "a-priority",
+          "source": "evaluation/heldout-03/a-priority/program.p4",
+          "sha256": "459e7e5bacbb6f8b2130a2eda4bce0b74527a01b2abf1def7b996be8e5c5504f",
+          "edits": [
+            {
+              "line": 184,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 195,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 206,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 217,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 228,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 239,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 250,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 261,
+              "text": "    @placement_priority(10)"
+            }
+          ]
+        },
+        {
+          "id": "b-priority",
+          "source": "evaluation/heldout-03/b-priority/program.p4",
+          "sha256": "e54b82956a08f9872b0f65f619e39053d62828ac2e9abfeb2dde4d92b688d20c",
+          "edits": [
+            {
+              "line": 52,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 63,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 74,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 85,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 96,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 107,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 118,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 129,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 140,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 151,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 162,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 173,
+              "text": "    @placement_priority(10)"
+            }
+          ]
+        },
+        {
+          "id": "a-later",
+          "source": "evaluation/heldout-03/a-later/program.p4",
+          "sha256": "bbc0cb10d8c43e9a84de1ff928d66e6920fdba9b4a6f3d4e87d883550ce697b8",
+          "edits": [
+            {
+              "line": 184,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 195,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 206,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 217,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 228,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 239,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 250,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 261,
+              "text": "    @placement_priority(-10)"
+            }
+          ]
+        },
+        {
+          "id": "b-later",
+          "source": "evaluation/heldout-03/b-later/program.p4",
+          "sha256": "03ad465180c135661086262a2bd35cd43ee8006d5282f9ee999794b64b9967fc",
+          "edits": [
+            {
+              "line": 52,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 63,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 74,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 85,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 96,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 107,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 118,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 129,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 140,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 151,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 162,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 173,
+              "text": "    @placement_priority(-10)"
+            }
+          ]
+        }
+      ],
+      "default_sha256": "8b23bc73a5f229be12c12ad1d8cd7737a979c406fa485d9c936dd1c818a93562"
+    },
+    {
+      "id": "heldout-04",
+      "structure": "accumulating-chain",
+      "requirements": {
+        "Ingress.chain_0": 16384,
+        "Ingress.chain_1": 16384,
+        "Ingress.chain_10": 16384,
+        "Ingress.chain_11": 16384,
+        "Ingress.chain_2": 16384,
+        "Ingress.chain_3": 16384,
+        "Ingress.chain_4": 16384,
+        "Ingress.chain_5": 16384,
+        "Ingress.chain_6": 16384,
+        "Ingress.chain_7": 16384,
+        "Ingress.chain_8": 16384,
+        "Ingress.chain_9": 16384,
+        "Ingress.side_0": 180224,
+        "Ingress.side_1": 180224,
+        "Ingress.side_2": 180224,
+        "Ingress.side_3": 180224,
+        "Ingress.side_4": 180224,
+        "Ingress.side_5": 180224,
+        "Ingress.side_6": 180224,
+        "Ingress.side_7": 180224
+      },
+      "group_semantics": {
+        "a": "eight independent side policy tables",
+        "b": "primary dependency/action graph tables"
+      },
+      "default": "evaluation/heldout-04/default/program.p4",
+      "candidates": [
+        {
+          "id": "a-pack-1",
+          "source": "evaluation/heldout-04/a-pack-1/program.p4",
+          "sha256": "9437ec07ea522e3e197b3ea17950d707c9dad47eff5420a7aa46743935427742",
+          "edits": [
+            {
+              "line": 183,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 194,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 205,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 216,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 227,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 238,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 249,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 260,
+              "text": "    @pack(1)"
+            }
+          ]
+        },
+        {
+          "id": "a-pack-2",
+          "source": "evaluation/heldout-04/a-pack-2/program.p4",
+          "sha256": "ec75cd6060af12ea52b4a8ba14013c1cd308508b1a3a9f2f05ddd02acbf59296",
+          "edits": [
+            {
+              "line": 183,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 194,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 205,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 216,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 227,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 238,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 249,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 260,
+              "text": "    @pack(2)"
+            }
+          ]
+        },
+        {
+          "id": "a-pack-3",
+          "source": "evaluation/heldout-04/a-pack-3/program.p4",
+          "sha256": "3d68888ccae9b2a231ce6438b0fdb55dd3638517898c72056f41989c0ff97e45",
+          "edits": [
+            {
+              "line": 183,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 194,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 205,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 216,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 227,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 238,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 249,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 260,
+              "text": "    @pack(3)"
+            }
+          ]
+        },
+        {
+          "id": "a-pack-4",
+          "source": "evaluation/heldout-04/a-pack-4/program.p4",
+          "sha256": "05a10be8c660fa701e79baa55e1c96092b1e6687a5a51d2b2cc85d1a972ddb78",
+          "edits": [
+            {
+              "line": 183,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 194,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 205,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 216,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 227,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 238,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 249,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 260,
+              "text": "    @pack(4)"
+            }
+          ]
+        },
+        {
+          "id": "a-pack-5",
+          "source": "evaluation/heldout-04/a-pack-5/program.p4",
+          "sha256": "ccbfec088b0befd57aef9a8d1b61fed63c3905e17e17c42943531cd948024a70",
+          "edits": [
+            {
+              "line": 183,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 194,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 205,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 216,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 227,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 238,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 249,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 260,
+              "text": "    @pack(5)"
+            }
+          ]
+        },
+        {
+          "id": "a-pack-6",
+          "source": "evaluation/heldout-04/a-pack-6/program.p4",
+          "sha256": "dc94962435d79ce52e2aa1168e46585c9934d4dcbe90f4f5ba1b7c4ed47c17a9",
+          "edits": [
+            {
+              "line": 183,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 194,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 205,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 216,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 227,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 238,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 249,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 260,
+              "text": "    @pack(6)"
+            }
+          ]
+        },
+        {
+          "id": "a-pack-7",
+          "source": "evaluation/heldout-04/a-pack-7/program.p4",
+          "sha256": "178cfceb8cb4480c024c32854a356a11e1e5233d4bc993e6cba8f34fdc72a8de",
+          "edits": [
+            {
+              "line": 183,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 194,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 205,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 216,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 227,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 238,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 249,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 260,
+              "text": "    @pack(7)"
+            }
+          ]
+        },
+        {
+          "id": "a-pack-8",
+          "source": "evaluation/heldout-04/a-pack-8/program.p4",
+          "sha256": "f6991667cfe4f9e0b010fa08f78f3f4e636a2ce46ed8c184b392117c517466c2",
+          "edits": [
+            {
+              "line": 183,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 194,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 205,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 216,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 227,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 238,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 249,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 260,
+              "text": "    @pack(8)"
+            }
+          ]
+        },
+        {
+          "id": "a-pack-9",
+          "source": "evaluation/heldout-04/a-pack-9/program.p4",
+          "sha256": "e220f06b6d63974f7ec4666c6917d5352020219fe42324b718c69ec41b331ed6",
+          "edits": [
+            {
+              "line": 183,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 194,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 205,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 216,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 227,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 238,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 249,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 260,
+              "text": "    @pack(9)"
+            }
+          ]
+        },
+        {
+          "id": "b-pack-1",
+          "source": "evaluation/heldout-04/b-pack-1/program.p4",
+          "sha256": "e1ebd3e0b6ddcb0944595d61b530cf8b100c80f3511fdbecb0fd9296b41936e7",
+          "edits": [
+            {
+              "line": 51,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 62,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 73,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 84,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 95,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 106,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 117,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 128,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 139,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 150,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 161,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 172,
+              "text": "    @pack(1)"
+            }
+          ]
+        },
+        {
+          "id": "b-pack-2",
+          "source": "evaluation/heldout-04/b-pack-2/program.p4",
+          "sha256": "c8c730c1724bfdad05dd29026f197ab1f7bcbcebe8b6502f330be95d17844e71",
+          "edits": [
+            {
+              "line": 51,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 62,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 73,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 84,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 95,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 106,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 117,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 128,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 139,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 150,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 161,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 172,
+              "text": "    @pack(2)"
+            }
+          ]
+        },
+        {
+          "id": "b-pack-3",
+          "source": "evaluation/heldout-04/b-pack-3/program.p4",
+          "sha256": "fccbac508fef5f9648fe083039008a64c45de2683a7bf10b60ac662d87f6e1dc",
+          "edits": [
+            {
+              "line": 51,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 62,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 73,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 84,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 95,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 106,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 117,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 128,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 139,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 150,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 161,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 172,
+              "text": "    @pack(3)"
+            }
+          ]
+        },
+        {
+          "id": "b-pack-4",
+          "source": "evaluation/heldout-04/b-pack-4/program.p4",
+          "sha256": "4b3a064d38e0197fb0ad8778866404b3100663554f30b8434c2c249aa787fc3e",
+          "edits": [
+            {
+              "line": 51,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 62,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 73,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 84,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 95,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 106,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 117,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 128,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 139,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 150,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 161,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 172,
+              "text": "    @pack(4)"
+            }
+          ]
+        },
+        {
+          "id": "b-pack-5",
+          "source": "evaluation/heldout-04/b-pack-5/program.p4",
+          "sha256": "c1620997c0fd7c4883076ca0e530fa74dc7e9bb57b30016b11d0bb55b77db51e",
+          "edits": [
+            {
+              "line": 51,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 62,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 73,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 84,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 95,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 106,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 117,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 128,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 139,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 150,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 161,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 172,
+              "text": "    @pack(5)"
+            }
+          ]
+        },
+        {
+          "id": "b-pack-6",
+          "source": "evaluation/heldout-04/b-pack-6/program.p4",
+          "sha256": "c2b4ea9fbedd182f290e8055253fc72c06620875f8f157090c1ad7feb0924963",
+          "edits": [
+            {
+              "line": 51,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 62,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 73,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 84,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 95,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 106,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 117,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 128,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 139,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 150,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 161,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 172,
+              "text": "    @pack(6)"
+            }
+          ]
+        },
+        {
+          "id": "b-pack-7",
+          "source": "evaluation/heldout-04/b-pack-7/program.p4",
+          "sha256": "4c568dbccb5e4323cd5e7d9d84034930a8b9d397de105d660d48225a1db631e1",
+          "edits": [
+            {
+              "line": 51,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 62,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 73,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 84,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 95,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 106,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 117,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 128,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 139,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 150,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 161,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 172,
+              "text": "    @pack(7)"
+            }
+          ]
+        },
+        {
+          "id": "b-pack-8",
+          "source": "evaluation/heldout-04/b-pack-8/program.p4",
+          "sha256": "e634f9e7c9c14a5ae95b2b658a900204299c85fb0ed02d1ce349b1b87c78b5f4",
+          "edits": [
+            {
+              "line": 51,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 62,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 73,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 84,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 95,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 106,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 117,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 128,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 139,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 150,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 161,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 172,
+              "text": "    @pack(8)"
+            }
+          ]
+        },
+        {
+          "id": "b-pack-9",
+          "source": "evaluation/heldout-04/b-pack-9/program.p4",
+          "sha256": "6d1aa0946a4669d0767e6e1c65ef38016603c73199484600fba6985bb49efb27",
+          "edits": [
+            {
+              "line": 51,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 62,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 73,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 84,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 95,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 106,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 117,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 128,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 139,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 150,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 161,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 172,
+              "text": "    @pack(9)"
+            }
+          ]
+        },
+        {
+          "id": "a-no-immediate",
+          "source": "evaluation/heldout-04/a-no-immediate/program.p4",
+          "sha256": "a04571a68c17d4a3615ac5898f32b7dda6de09916db2c54725ed41186d29b069",
+          "edits": [
+            {
+              "line": 182,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 193,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 204,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 215,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 226,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 237,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 248,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 259,
+              "text": "    @immediate(0)"
+            }
+          ]
+        },
+        {
+          "id": "b-no-immediate",
+          "source": "evaluation/heldout-04/b-no-immediate/program.p4",
+          "sha256": "9d689f03bf2354aa3415e29610795eb32b1c5e128ed6021e5374b9b7454a26bd",
+          "edits": [
+            {
+              "line": 50,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 61,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 72,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 83,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 94,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 105,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 116,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 127,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 138,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 149,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 160,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 171,
+              "text": "    @immediate(0)"
+            }
+          ]
+        },
+        {
+          "id": "all-no-immediate",
+          "source": "evaluation/heldout-04/all-no-immediate/program.p4",
+          "sha256": "a984ff3c2d1310e0d7513127995c34345bfb06adf7fa7087012db6d1ee057843",
+          "edits": [
+            {
+              "line": 50,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 61,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 72,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 83,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 94,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 105,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 116,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 127,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 138,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 149,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 160,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 171,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 182,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 193,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 204,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 215,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 226,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 237,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 248,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 259,
+              "text": "    @immediate(0)"
+            }
+          ]
+        },
+        {
+          "id": "a-priority",
+          "source": "evaluation/heldout-04/a-priority/program.p4",
+          "sha256": "2b1ccad470232fbc566058d97155337670e612cb096bf77056bf0f311491928c",
+          "edits": [
+            {
+              "line": 184,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 195,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 206,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 217,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 228,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 239,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 250,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 261,
+              "text": "    @placement_priority(10)"
+            }
+          ]
+        },
+        {
+          "id": "b-priority",
+          "source": "evaluation/heldout-04/b-priority/program.p4",
+          "sha256": "9626bf33b50cc480c71fe1c2260b643ef12534f1e826ae1b417b699f9de70e6b",
+          "edits": [
+            {
+              "line": 52,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 63,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 74,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 85,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 96,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 107,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 118,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 129,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 140,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 151,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 162,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 173,
+              "text": "    @placement_priority(10)"
+            }
+          ]
+        },
+        {
+          "id": "a-later",
+          "source": "evaluation/heldout-04/a-later/program.p4",
+          "sha256": "7f7e52fdfddf604650921ea69f99de0ea1041e7385d08c277d12d3c7f70151dd",
+          "edits": [
+            {
+              "line": 184,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 195,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 206,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 217,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 228,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 239,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 250,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 261,
+              "text": "    @placement_priority(-10)"
+            }
+          ]
+        },
+        {
+          "id": "b-later",
+          "source": "evaluation/heldout-04/b-later/program.p4",
+          "sha256": "04fe095fd77bb01ffd07fb0b9fe03536f011f06635b78307e47d63d3ea798abb",
+          "edits": [
+            {
+              "line": 52,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 63,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 74,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 85,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 96,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 107,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 118,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 129,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 140,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 151,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 162,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 173,
+              "text": "    @placement_priority(-10)"
+            }
+          ]
+        }
+      ],
+      "default_sha256": "aec4c8eefb3c0dd18c722a126cdbea224a229e560df806a7be9578e47d86156e"
+    },
+    {
+      "id": "heldout-05",
+      "structure": "accumulating-chain",
+      "requirements": {
+        "Ingress.chain_0": 16384,
+        "Ingress.chain_1": 16384,
+        "Ingress.chain_10": 16384,
+        "Ingress.chain_11": 16384,
+        "Ingress.chain_2": 16384,
+        "Ingress.chain_3": 16384,
+        "Ingress.chain_4": 16384,
+        "Ingress.chain_5": 16384,
+        "Ingress.chain_6": 16384,
+        "Ingress.chain_7": 16384,
+        "Ingress.chain_8": 16384,
+        "Ingress.chain_9": 16384,
+        "Ingress.side_0": 196608,
+        "Ingress.side_1": 196608,
+        "Ingress.side_2": 196608,
+        "Ingress.side_3": 196608,
+        "Ingress.side_4": 196608,
+        "Ingress.side_5": 196608,
+        "Ingress.side_6": 196608,
+        "Ingress.side_7": 196608
+      },
+      "group_semantics": {
+        "a": "eight independent side policy tables",
+        "b": "primary dependency/action graph tables"
+      },
+      "default": "evaluation/heldout-05/default/program.p4",
+      "candidates": [
+        {
+          "id": "a-pack-1",
+          "source": "evaluation/heldout-05/a-pack-1/program.p4",
+          "sha256": "7a616c324d4645a6d9cee3cc52af373c54ca52da3af217aa6db388ffecd82a80",
+          "edits": [
+            {
+              "line": 183,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 194,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 205,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 216,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 227,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 238,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 249,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 260,
+              "text": "    @pack(1)"
+            }
+          ]
+        },
+        {
+          "id": "a-pack-2",
+          "source": "evaluation/heldout-05/a-pack-2/program.p4",
+          "sha256": "62812c2018271297ce9b272e6416411887a5515e53d353533110785d3a1665ee",
+          "edits": [
+            {
+              "line": 183,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 194,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 205,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 216,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 227,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 238,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 249,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 260,
+              "text": "    @pack(2)"
+            }
+          ]
+        },
+        {
+          "id": "a-pack-3",
+          "source": "evaluation/heldout-05/a-pack-3/program.p4",
+          "sha256": "54460afdb66284ba6a15557260d6c6f0d671a8c8c8e4c4d96fca79df764340fc",
+          "edits": [
+            {
+              "line": 183,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 194,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 205,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 216,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 227,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 238,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 249,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 260,
+              "text": "    @pack(3)"
+            }
+          ]
+        },
+        {
+          "id": "a-pack-4",
+          "source": "evaluation/heldout-05/a-pack-4/program.p4",
+          "sha256": "b8ef7252d553b612d368d1be6c93e9c334e033a7ab6381cff17869ade56caf98",
+          "edits": [
+            {
+              "line": 183,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 194,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 205,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 216,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 227,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 238,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 249,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 260,
+              "text": "    @pack(4)"
+            }
+          ]
+        },
+        {
+          "id": "a-pack-5",
+          "source": "evaluation/heldout-05/a-pack-5/program.p4",
+          "sha256": "ee1d58a01a796705c0712d1284a344825a39c7f9fee969bc836e15395852a9ea",
+          "edits": [
+            {
+              "line": 183,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 194,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 205,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 216,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 227,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 238,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 249,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 260,
+              "text": "    @pack(5)"
+            }
+          ]
+        },
+        {
+          "id": "a-pack-6",
+          "source": "evaluation/heldout-05/a-pack-6/program.p4",
+          "sha256": "5f653334ed799e5d1d93015fc0a0d4fdebc76a9807b83e6610a5ab895d3bbf76",
+          "edits": [
+            {
+              "line": 183,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 194,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 205,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 216,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 227,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 238,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 249,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 260,
+              "text": "    @pack(6)"
+            }
+          ]
+        },
+        {
+          "id": "a-pack-7",
+          "source": "evaluation/heldout-05/a-pack-7/program.p4",
+          "sha256": "1f66a39a05f7270e0db840350412004e5e74c0825fe4ceb2f34493a176ee9902",
+          "edits": [
+            {
+              "line": 183,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 194,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 205,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 216,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 227,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 238,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 249,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 260,
+              "text": "    @pack(7)"
+            }
+          ]
+        },
+        {
+          "id": "a-pack-8",
+          "source": "evaluation/heldout-05/a-pack-8/program.p4",
+          "sha256": "9e659501db5e95a9f7e8108c8fcf30c97fa27da0836d6d2c381b3954c7e897f2",
+          "edits": [
+            {
+              "line": 183,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 194,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 205,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 216,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 227,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 238,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 249,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 260,
+              "text": "    @pack(8)"
+            }
+          ]
+        },
+        {
+          "id": "a-pack-9",
+          "source": "evaluation/heldout-05/a-pack-9/program.p4",
+          "sha256": "13d6921b4da170c7e39ab51a76b59b9eaabbcded16313aa9a363f573482f84f5",
+          "edits": [
+            {
+              "line": 183,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 194,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 205,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 216,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 227,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 238,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 249,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 260,
+              "text": "    @pack(9)"
+            }
+          ]
+        },
+        {
+          "id": "b-pack-1",
+          "source": "evaluation/heldout-05/b-pack-1/program.p4",
+          "sha256": "0f3e1120312a93ef30ea94e8c4d4c33cf040e5a7522f1c6ea9d0acc0881f2885",
+          "edits": [
+            {
+              "line": 51,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 62,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 73,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 84,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 95,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 106,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 117,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 128,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 139,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 150,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 161,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 172,
+              "text": "    @pack(1)"
+            }
+          ]
+        },
+        {
+          "id": "b-pack-2",
+          "source": "evaluation/heldout-05/b-pack-2/program.p4",
+          "sha256": "7c8eb9fd16c8d9ef005d5275722fe2f6063a2f07c9d6432f333601b38d561e7e",
+          "edits": [
+            {
+              "line": 51,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 62,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 73,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 84,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 95,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 106,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 117,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 128,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 139,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 150,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 161,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 172,
+              "text": "    @pack(2)"
+            }
+          ]
+        },
+        {
+          "id": "b-pack-3",
+          "source": "evaluation/heldout-05/b-pack-3/program.p4",
+          "sha256": "7b9667298f8e3b4f9983cec41a2e9b471b14bc33ed772d35b795720f7ce8941b",
+          "edits": [
+            {
+              "line": 51,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 62,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 73,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 84,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 95,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 106,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 117,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 128,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 139,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 150,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 161,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 172,
+              "text": "    @pack(3)"
+            }
+          ]
+        },
+        {
+          "id": "b-pack-4",
+          "source": "evaluation/heldout-05/b-pack-4/program.p4",
+          "sha256": "ea67efce5e200aea321d47d5d455520e88031d114ec42efecaa3c6a38697d58c",
+          "edits": [
+            {
+              "line": 51,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 62,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 73,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 84,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 95,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 106,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 117,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 128,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 139,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 150,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 161,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 172,
+              "text": "    @pack(4)"
+            }
+          ]
+        },
+        {
+          "id": "b-pack-5",
+          "source": "evaluation/heldout-05/b-pack-5/program.p4",
+          "sha256": "9a4b93ec4a8eacc5ecba5e0dd4149ffaf5884f18b5f40dad283130341884254c",
+          "edits": [
+            {
+              "line": 51,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 62,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 73,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 84,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 95,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 106,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 117,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 128,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 139,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 150,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 161,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 172,
+              "text": "    @pack(5)"
+            }
+          ]
+        },
+        {
+          "id": "b-pack-6",
+          "source": "evaluation/heldout-05/b-pack-6/program.p4",
+          "sha256": "d546eae4f409fceaa2afbbd85cde62da6a6ed83a4f04bf07b11a5cf1111866e2",
+          "edits": [
+            {
+              "line": 51,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 62,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 73,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 84,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 95,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 106,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 117,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 128,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 139,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 150,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 161,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 172,
+              "text": "    @pack(6)"
+            }
+          ]
+        },
+        {
+          "id": "b-pack-7",
+          "source": "evaluation/heldout-05/b-pack-7/program.p4",
+          "sha256": "9c86f437d6a15dc7484e2ee6942ebd2c876942af80572cdeee0f9116beee9199",
+          "edits": [
+            {
+              "line": 51,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 62,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 73,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 84,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 95,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 106,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 117,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 128,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 139,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 150,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 161,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 172,
+              "text": "    @pack(7)"
+            }
+          ]
+        },
+        {
+          "id": "b-pack-8",
+          "source": "evaluation/heldout-05/b-pack-8/program.p4",
+          "sha256": "ad12451c264518035851e0a54aaa06b185744086c8ef37d76ecfb48695ed9175",
+          "edits": [
+            {
+              "line": 51,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 62,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 73,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 84,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 95,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 106,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 117,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 128,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 139,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 150,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 161,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 172,
+              "text": "    @pack(8)"
+            }
+          ]
+        },
+        {
+          "id": "b-pack-9",
+          "source": "evaluation/heldout-05/b-pack-9/program.p4",
+          "sha256": "82e9e90abbbb09b3565ac99e5f5f2d0135aa7062304a0452079187a870b7271e",
+          "edits": [
+            {
+              "line": 51,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 62,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 73,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 84,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 95,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 106,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 117,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 128,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 139,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 150,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 161,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 172,
+              "text": "    @pack(9)"
+            }
+          ]
+        },
+        {
+          "id": "a-no-immediate",
+          "source": "evaluation/heldout-05/a-no-immediate/program.p4",
+          "sha256": "e0d400b8111837496429b6e26206d19e8fd3c3c0bfb82d9485bc86dabc620638",
+          "edits": [
+            {
+              "line": 182,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 193,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 204,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 215,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 226,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 237,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 248,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 259,
+              "text": "    @immediate(0)"
+            }
+          ]
+        },
+        {
+          "id": "b-no-immediate",
+          "source": "evaluation/heldout-05/b-no-immediate/program.p4",
+          "sha256": "66b465efaec4ce081f88b6c3206c287db614f94536f11c9feea9fdf1eb3ec52e",
+          "edits": [
+            {
+              "line": 50,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 61,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 72,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 83,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 94,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 105,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 116,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 127,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 138,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 149,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 160,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 171,
+              "text": "    @immediate(0)"
+            }
+          ]
+        },
+        {
+          "id": "all-no-immediate",
+          "source": "evaluation/heldout-05/all-no-immediate/program.p4",
+          "sha256": "daaea4c8059a608cc5f048ca5ad5f8d03a8927217343dbdbeb5e8667230ab56b",
+          "edits": [
+            {
+              "line": 50,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 61,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 72,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 83,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 94,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 105,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 116,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 127,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 138,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 149,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 160,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 171,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 182,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 193,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 204,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 215,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 226,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 237,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 248,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 259,
+              "text": "    @immediate(0)"
+            }
+          ]
+        },
+        {
+          "id": "a-priority",
+          "source": "evaluation/heldout-05/a-priority/program.p4",
+          "sha256": "b1740a4073cf8964f489b03e3f0a1822349073533c28869396cf3b243bf37bf3",
+          "edits": [
+            {
+              "line": 184,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 195,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 206,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 217,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 228,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 239,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 250,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 261,
+              "text": "    @placement_priority(10)"
+            }
+          ]
+        },
+        {
+          "id": "b-priority",
+          "source": "evaluation/heldout-05/b-priority/program.p4",
+          "sha256": "9046de5be630885c664625897b163cecb12642bbbf6f5932b292566a08570294",
+          "edits": [
+            {
+              "line": 52,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 63,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 74,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 85,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 96,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 107,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 118,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 129,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 140,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 151,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 162,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 173,
+              "text": "    @placement_priority(10)"
+            }
+          ]
+        },
+        {
+          "id": "a-later",
+          "source": "evaluation/heldout-05/a-later/program.p4",
+          "sha256": "03f1f5955a5bdd940eb4085cded87ce5eee7e3025d9f8e13da18e6bf9659f180",
+          "edits": [
+            {
+              "line": 184,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 195,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 206,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 217,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 228,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 239,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 250,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 261,
+              "text": "    @placement_priority(-10)"
+            }
+          ]
+        },
+        {
+          "id": "b-later",
+          "source": "evaluation/heldout-05/b-later/program.p4",
+          "sha256": "385f6da34df957b7c139cd6c01ce8753667d6174aa39481f168bac613db036a3",
+          "edits": [
+            {
+              "line": 52,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 63,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 74,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 85,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 96,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 107,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 118,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 129,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 140,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 151,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 162,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 173,
+              "text": "    @placement_priority(-10)"
+            }
+          ]
+        }
+      ],
+      "default_sha256": "c65699aaa4dd9bc1043d9ebc40215633ce07224258d1edcbd8935e0165dd8711"
+    },
+    {
+      "id": "heldout-06",
+      "structure": "overlapping-admission",
+      "requirements": {
+        "Ingress.chain_0": 16384,
+        "Ingress.chain_1": 16384,
+        "Ingress.chain_10": 16384,
+        "Ingress.chain_11": 16384,
+        "Ingress.chain_2": 16384,
+        "Ingress.chain_3": 16384,
+        "Ingress.chain_4": 16384,
+        "Ingress.chain_5": 16384,
+        "Ingress.chain_6": 16384,
+        "Ingress.chain_7": 16384,
+        "Ingress.chain_8": 16384,
+        "Ingress.chain_9": 16384,
+        "Ingress.side_0": 180224,
+        "Ingress.side_1": 180224,
+        "Ingress.side_2": 180224,
+        "Ingress.side_3": 180224,
+        "Ingress.side_4": 180224,
+        "Ingress.side_5": 180224,
+        "Ingress.side_6": 180224,
+        "Ingress.side_7": 180224
+      },
+      "group_semantics": {
+        "a": "eight independent side policy tables",
+        "b": "primary dependency/action graph tables"
+      },
+      "default": "evaluation/heldout-06/default/program.p4",
+      "candidates": [
+        {
+          "id": "a-pack-1",
+          "source": "evaluation/heldout-06/a-pack-1/program.p4",
+          "sha256": "d756428ca800d22cae8d115bfcb4b3e325cd9838717cf9646a95d83ea5aaa3f3",
+          "edits": [
+            {
+              "line": 182,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 193,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 204,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 215,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 226,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 237,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 248,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 259,
+              "text": "    @pack(1)"
+            }
+          ]
+        },
+        {
+          "id": "a-pack-2",
+          "source": "evaluation/heldout-06/a-pack-2/program.p4",
+          "sha256": "4cbd58725885b120f5e7e3592b30120ee2dd910642e3d814571e32e4ab78c40b",
+          "edits": [
+            {
+              "line": 182,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 193,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 204,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 215,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 226,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 237,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 248,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 259,
+              "text": "    @pack(2)"
+            }
+          ]
+        },
+        {
+          "id": "a-pack-3",
+          "source": "evaluation/heldout-06/a-pack-3/program.p4",
+          "sha256": "d3d9955417dee678c076b32f6abbb9ed4a5481a99970a3f3c8f5abdcd2948544",
+          "edits": [
+            {
+              "line": 182,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 193,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 204,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 215,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 226,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 237,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 248,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 259,
+              "text": "    @pack(3)"
+            }
+          ]
+        },
+        {
+          "id": "a-pack-4",
+          "source": "evaluation/heldout-06/a-pack-4/program.p4",
+          "sha256": "eca8dedde62484fb418266b5ba4bfd751814591706d30ac1db6b8707d2e4481a",
+          "edits": [
+            {
+              "line": 182,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 193,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 204,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 215,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 226,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 237,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 248,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 259,
+              "text": "    @pack(4)"
+            }
+          ]
+        },
+        {
+          "id": "a-pack-5",
+          "source": "evaluation/heldout-06/a-pack-5/program.p4",
+          "sha256": "12d42da57100fa4f249e36d57d96ec61979424737ccbcfa70c096b40d0375ae9",
+          "edits": [
+            {
+              "line": 182,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 193,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 204,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 215,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 226,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 237,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 248,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 259,
+              "text": "    @pack(5)"
+            }
+          ]
+        },
+        {
+          "id": "a-pack-6",
+          "source": "evaluation/heldout-06/a-pack-6/program.p4",
+          "sha256": "89e1494743241f0751e08514ed6588bcc956303ab07bfc888e1b0e0966575e61",
+          "edits": [
+            {
+              "line": 182,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 193,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 204,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 215,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 226,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 237,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 248,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 259,
+              "text": "    @pack(6)"
+            }
+          ]
+        },
+        {
+          "id": "a-pack-7",
+          "source": "evaluation/heldout-06/a-pack-7/program.p4",
+          "sha256": "b8a36d90a493643ced1412286d460adb420dc0d7bec0763beb1513442320eeef",
+          "edits": [
+            {
+              "line": 182,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 193,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 204,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 215,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 226,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 237,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 248,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 259,
+              "text": "    @pack(7)"
+            }
+          ]
+        },
+        {
+          "id": "a-pack-8",
+          "source": "evaluation/heldout-06/a-pack-8/program.p4",
+          "sha256": "8a4b1b0df9d51e6e5e629b54fe273ca2f2eb3ada0b66ed12aa91a3a3858ba14f",
+          "edits": [
+            {
+              "line": 182,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 193,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 204,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 215,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 226,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 237,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 248,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 259,
+              "text": "    @pack(8)"
+            }
+          ]
+        },
+        {
+          "id": "a-pack-9",
+          "source": "evaluation/heldout-06/a-pack-9/program.p4",
+          "sha256": "01df0bc6c78218bc954c461985aed604cd6816a2e1a4b79b4cd641b6ef87b41a",
+          "edits": [
+            {
+              "line": 182,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 193,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 204,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 215,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 226,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 237,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 248,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 259,
+              "text": "    @pack(9)"
+            }
+          ]
+        },
+        {
+          "id": "b-pack-1",
+          "source": "evaluation/heldout-06/b-pack-1/program.p4",
+          "sha256": "f8dc30b864e7d56ca4aa479f6894c3b5c756d2ab033b266c64466c6edc4f676e",
+          "edits": [
+            {
+              "line": 50,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 61,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 72,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 83,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 94,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 105,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 116,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 127,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 138,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 149,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 160,
+              "text": "    @pack(1)"
+            },
+            {
+              "line": 171,
+              "text": "    @pack(1)"
+            }
+          ]
+        },
+        {
+          "id": "b-pack-2",
+          "source": "evaluation/heldout-06/b-pack-2/program.p4",
+          "sha256": "734467e563d318c7e66c7682c51f371d9cabb4c90a3ec55ad1785e0245b11b9d",
+          "edits": [
+            {
+              "line": 50,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 61,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 72,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 83,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 94,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 105,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 116,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 127,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 138,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 149,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 160,
+              "text": "    @pack(2)"
+            },
+            {
+              "line": 171,
+              "text": "    @pack(2)"
+            }
+          ]
+        },
+        {
+          "id": "b-pack-3",
+          "source": "evaluation/heldout-06/b-pack-3/program.p4",
+          "sha256": "9640ac53b51cbc8737d42e5727c4aea03322edcf0af9aaa3a0d5deab6b6b458a",
+          "edits": [
+            {
+              "line": 50,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 61,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 72,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 83,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 94,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 105,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 116,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 127,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 138,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 149,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 160,
+              "text": "    @pack(3)"
+            },
+            {
+              "line": 171,
+              "text": "    @pack(3)"
+            }
+          ]
+        },
+        {
+          "id": "b-pack-4",
+          "source": "evaluation/heldout-06/b-pack-4/program.p4",
+          "sha256": "fbb7e720fefe940abd6567ff03f9ee25f1d258d315adacebbcd83afbebcc9502",
+          "edits": [
+            {
+              "line": 50,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 61,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 72,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 83,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 94,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 105,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 116,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 127,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 138,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 149,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 160,
+              "text": "    @pack(4)"
+            },
+            {
+              "line": 171,
+              "text": "    @pack(4)"
+            }
+          ]
+        },
+        {
+          "id": "b-pack-5",
+          "source": "evaluation/heldout-06/b-pack-5/program.p4",
+          "sha256": "2b03965689158f651f879256f718f5f8f891bdd2b73c01128957d92071bc10e4",
+          "edits": [
+            {
+              "line": 50,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 61,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 72,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 83,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 94,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 105,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 116,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 127,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 138,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 149,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 160,
+              "text": "    @pack(5)"
+            },
+            {
+              "line": 171,
+              "text": "    @pack(5)"
+            }
+          ]
+        },
+        {
+          "id": "b-pack-6",
+          "source": "evaluation/heldout-06/b-pack-6/program.p4",
+          "sha256": "fe38a279f79203360e4c4e46109bbd0d45a4afd93dcb2457e8b238b0a8fd549d",
+          "edits": [
+            {
+              "line": 50,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 61,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 72,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 83,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 94,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 105,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 116,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 127,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 138,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 149,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 160,
+              "text": "    @pack(6)"
+            },
+            {
+              "line": 171,
+              "text": "    @pack(6)"
+            }
+          ]
+        },
+        {
+          "id": "b-pack-7",
+          "source": "evaluation/heldout-06/b-pack-7/program.p4",
+          "sha256": "4d36a1ab7dc9e39dfe3b4a6b38b3dc44558f60c9f61ad86b83fc1c8935d538fa",
+          "edits": [
+            {
+              "line": 50,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 61,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 72,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 83,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 94,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 105,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 116,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 127,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 138,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 149,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 160,
+              "text": "    @pack(7)"
+            },
+            {
+              "line": 171,
+              "text": "    @pack(7)"
+            }
+          ]
+        },
+        {
+          "id": "b-pack-8",
+          "source": "evaluation/heldout-06/b-pack-8/program.p4",
+          "sha256": "37b56c79dd0005f20d97009b37477cb148be309cbea87bec26385f0487717899",
+          "edits": [
+            {
+              "line": 50,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 61,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 72,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 83,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 94,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 105,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 116,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 127,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 138,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 149,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 160,
+              "text": "    @pack(8)"
+            },
+            {
+              "line": 171,
+              "text": "    @pack(8)"
+            }
+          ]
+        },
+        {
+          "id": "b-pack-9",
+          "source": "evaluation/heldout-06/b-pack-9/program.p4",
+          "sha256": "6bf9fb434950bda27fa54c51f098d5e58aa354930dd576cf9622bb7dcd3461a3",
+          "edits": [
+            {
+              "line": 50,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 61,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 72,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 83,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 94,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 105,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 116,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 127,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 138,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 149,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 160,
+              "text": "    @pack(9)"
+            },
+            {
+              "line": 171,
+              "text": "    @pack(9)"
+            }
+          ]
+        },
+        {
+          "id": "a-no-immediate",
+          "source": "evaluation/heldout-06/a-no-immediate/program.p4",
+          "sha256": "4839404cd40722c7aeed49dd1bf785161920774fdeebfb76bece95eb653b6169",
+          "edits": [
+            {
+              "line": 181,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 192,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 203,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 214,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 225,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 236,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 247,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 258,
+              "text": "    @immediate(0)"
+            }
+          ]
+        },
+        {
+          "id": "b-no-immediate",
+          "source": "evaluation/heldout-06/b-no-immediate/program.p4",
+          "sha256": "3c0fef0f8766faca65d5755d916e4261ba10943bcfc22306ddb25e39b7ffedae",
+          "edits": [
+            {
+              "line": 49,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 60,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 71,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 82,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 93,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 104,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 115,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 126,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 137,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 148,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 159,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 170,
+              "text": "    @immediate(0)"
+            }
+          ]
+        },
+        {
+          "id": "all-no-immediate",
+          "source": "evaluation/heldout-06/all-no-immediate/program.p4",
+          "sha256": "c732d016d83862ad3cdc2f9f6fd46fe178c5128258ca09420cc12d1ef8585aa1",
+          "edits": [
+            {
+              "line": 49,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 60,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 71,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 82,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 93,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 104,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 115,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 126,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 137,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 148,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 159,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 170,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 181,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 192,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 203,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 214,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 225,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 236,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 247,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 258,
+              "text": "    @immediate(0)"
+            }
+          ]
+        },
+        {
+          "id": "a-priority",
+          "source": "evaluation/heldout-06/a-priority/program.p4",
+          "sha256": "6c34bfaccdfe5c557e2b97f063fe2f09595850c91f1456ebab9e88af0048e734",
+          "edits": [
+            {
+              "line": 183,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 194,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 205,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 216,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 227,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 238,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 249,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 260,
+              "text": "    @placement_priority(10)"
+            }
+          ]
+        },
+        {
+          "id": "b-priority",
+          "source": "evaluation/heldout-06/b-priority/program.p4",
+          "sha256": "6b2bea44581163b5291a1c94d2bd03b6eeef9ca90d3bc33309b799bc7ed9449a",
+          "edits": [
+            {
+              "line": 51,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 62,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 73,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 84,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 95,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 106,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 117,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 128,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 139,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 150,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 161,
+              "text": "    @placement_priority(10)"
+            },
+            {
+              "line": 172,
+              "text": "    @placement_priority(10)"
+            }
+          ]
+        },
+        {
+          "id": "a-later",
+          "source": "evaluation/heldout-06/a-later/program.p4",
+          "sha256": "311f94d2da01d563bed773f3a45a9fe98cc491235d1e986a09432ee5e5673e1a",
+          "edits": [
+            {
+              "line": 183,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 194,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 205,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 216,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 227,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 238,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 249,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 260,
+              "text": "    @placement_priority(-10)"
+            }
+          ]
+        },
+        {
+          "id": "b-later",
+          "source": "evaluation/heldout-06/b-later/program.p4",
+          "sha256": "0af229115c3479827e5e6e323a3aba2bd95af2b576225f75bb6947f8a7ebe79e",
+          "edits": [
+            {
+              "line": 51,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 62,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 73,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 84,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 95,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 106,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 117,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 128,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 139,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 150,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 161,
+              "text": "    @placement_priority(-10)"
+            },
+            {
+              "line": 172,
+              "text": "    @placement_priority(-10)"
+            }
+          ]
+        }
+      ],
+      "default_sha256": "f10d4a5be80307510f8359fff8504b2e5992aded572778f06ba08b9430852050"
+    }
+  ],
+  "curation_grid_sha256": "7c33b007b6b6c2d14874b6af2ca69c3a5e7b2ad5544e72a0b8a95f1e08fcb0dc",
+  "curation_grid_hashes": {
+    "selection-grid.json": "7c33b007b6b6c2d14874b6af2ca69c3a5e7b2ad5544e72a0b8a95f1e08fcb0dc",
+    "selection-addendum-1.json": "ebced1ffa46053f6d5eb88f3253dc85ae26a89c1a60352bcadadd23fe015459b",
+    "selection-addendum-2.json": "5e0ba268713a87fa221716d7e7c8b7a58eb2b6a77b3c3a611fa963ff6a943741"
+  },
+  "separation": "Independent curator source export. Selection uses annotation-only compiler qualification, never adviser or mechanical outcomes. Expert repair labels remain sealed until all policy choices complete."
+}

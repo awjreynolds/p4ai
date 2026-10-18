@@ -1,6 +1,6 @@
 # P4 multi-repair escalation experiment v1
 
-Status: design under preparation; no evaluation calls permitted until the complete design, shared knowledge, fixed policy, source manifest and runner are frozen. Earlier experiments and acceptance rules remain unchanged.
+Status: corpus qualification incomplete. The bounded independent search supplied four repair cases across two structures, below the six-case/three-structure requirement. No v1 evaluation calls were made. The original requirement and all qualification evidence are retained; a separately frozen v2 evaluates the narrower corpus. See `examples/p4-multirepair/evaluation/curation-metadata.json`. Earlier experiments remain unchanged.
 
 ## Question
 
