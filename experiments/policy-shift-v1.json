@@ -1,0 +1,456 @@
+{
+  "schema_version": 1,
+  "name": "policy-shift-v1",
+  "seed": 20261021,
+  "target": "arm64-apple-darwin",
+  "target_cpu": "apple-m3",
+  "source_clang": ".cache/llvm-build/bin/clang",
+  "source_clang_sha256": "bdf7e085e770703f4cb620cc998f01463b1ac499e8cecbbc2e22a4051fc4a686",
+  "target_clang": "/Library/Developer/CommandLineTools/usr/bin/clang",
+  "target_clang_sha256": "f30550eab15fdf5ab8c0dc54c52679711241e5d4b636b027e18c09fef531775d",
+  "linker": "/Library/Developer/CommandLineTools/usr/bin/clang",
+  "linker_sha256": "f30550eab15fdf5ab8c0dc54c52679711241e5d4b636b027e18c09fef531775d",
+  "sdk": "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+  "kernel_flags": [
+    "-std=c11",
+    "-O3",
+    "--target=arm64-apple-darwin",
+    "-mcpu=apple-m3",
+    "-mtune=apple-m3",
+    "-mllvm",
+    "-verify-machineinstrs",
+    "-Rpass=loop-vectorize",
+    "-Rpass-missed=loop-vectorize"
+  ],
+  "driver_flags": [
+    "-std=c11",
+    "-O2",
+    "--target=arm64-apple-darwin",
+    "-mcpu=apple-m3",
+    "-mtune=apple-m3",
+    "-fno-vectorize",
+    "-fno-slp-vectorize"
+  ],
+  "actions": [
+    "stock",
+    "ijk",
+    "ikj",
+    "jik",
+    "jki",
+    "kij",
+    "kji"
+  ],
+  "benchmark_rounds": 11,
+  "benchmark_blocks": 2,
+  "target_sample_ms": 20,
+  "noise_floor_fraction": 0.02,
+  "minimum_target_regret": 0.05,
+  "minimum_regret_increase": 0.03,
+  "minimum_repair_improvement": 0.05,
+  "minimum_positive_test_groups": 4,
+  "forest": {
+    "n_estimators": 64,
+    "max_depth": 6,
+    "min_samples_leaf": 2,
+    "random_state": 20261020,
+    "n_jobs": 1
+  },
+  "sklearn_version": "1.9.1",
+  "refit_rule": "target adaptation only; same features and fixed forest configuration; no tuning",
+  "source_bundle": "docs/results/compiler-feedback-v1.json",
+  "source_bundle_sha256": "c918ecb366a9a14219e98a644acd4929ea74cbd60b5ed8477278cae560333fa8",
+  "cases": [
+    {
+      "partition": "audit",
+      "group": "small",
+      "case_id": "shift-audit-small-ccr",
+      "spec": {
+        "m": 47,
+        "n": 67,
+        "k": 41,
+        "a_padding": 3,
+        "b_padding": 5,
+        "c_padding": 7,
+        "a_column_major": true,
+        "b_column_major": true,
+        "c_column_major": false
+      }
+    },
+    {
+      "partition": "audit",
+      "group": "small",
+      "case_id": "shift-audit-small-crr",
+      "spec": {
+        "m": 47,
+        "n": 67,
+        "k": 41,
+        "a_padding": 3,
+        "b_padding": 5,
+        "c_padding": 7,
+        "a_column_major": true,
+        "b_column_major": false,
+        "c_column_major": false
+      }
+    },
+    {
+      "partition": "audit",
+      "group": "wide",
+      "case_id": "shift-audit-wide-rrr",
+      "spec": {
+        "m": 61,
+        "n": 239,
+        "k": 103,
+        "a_padding": 5,
+        "b_padding": 7,
+        "c_padding": 9,
+        "a_column_major": false,
+        "b_column_major": false,
+        "c_column_major": false
+      }
+    },
+    {
+      "partition": "audit",
+      "group": "wide",
+      "case_id": "shift-audit-wide-rcc",
+      "spec": {
+        "m": 61,
+        "n": 239,
+        "k": 103,
+        "a_padding": 5,
+        "b_padding": 7,
+        "c_padding": 9,
+        "a_column_major": false,
+        "b_column_major": true,
+        "c_column_major": true
+      }
+    },
+    {
+      "partition": "audit",
+      "group": "deep",
+      "case_id": "shift-audit-deep-ccr",
+      "spec": {
+        "m": 71,
+        "n": 83,
+        "k": 263,
+        "a_padding": 9,
+        "b_padding": 3,
+        "c_padding": 5,
+        "a_column_major": true,
+        "b_column_major": true,
+        "c_column_major": false
+      }
+    },
+    {
+      "partition": "audit",
+      "group": "deep",
+      "case_id": "shift-audit-deep-rcr",
+      "spec": {
+        "m": 71,
+        "n": 83,
+        "k": 263,
+        "a_padding": 9,
+        "b_padding": 3,
+        "c_padding": 5,
+        "a_column_major": false,
+        "b_column_major": true,
+        "c_column_major": false
+      }
+    },
+    {
+      "partition": "adaptation",
+      "group": "square",
+      "case_id": "shift-adaptation-square-rcc",
+      "spec": {
+        "m": 137,
+        "n": 137,
+        "k": 137,
+        "a_padding": 3,
+        "b_padding": 1,
+        "c_padding": 5,
+        "a_column_major": false,
+        "b_column_major": true,
+        "c_column_major": true
+      }
+    },
+    {
+      "partition": "adaptation",
+      "group": "square",
+      "case_id": "shift-adaptation-square-ccc",
+      "spec": {
+        "m": 137,
+        "n": 137,
+        "k": 137,
+        "a_padding": 3,
+        "b_padding": 1,
+        "c_padding": 5,
+        "a_column_major": true,
+        "b_column_major": true,
+        "c_column_major": true
+      }
+    },
+    {
+      "partition": "adaptation",
+      "group": "tall",
+      "case_id": "shift-adaptation-tall-ccr",
+      "spec": {
+        "m": 251,
+        "n": 67,
+        "k": 109,
+        "a_padding": 7,
+        "b_padding": 5,
+        "c_padding": 3,
+        "a_column_major": true,
+        "b_column_major": true,
+        "c_column_major": false
+      }
+    },
+    {
+      "partition": "adaptation",
+      "group": "tall",
+      "case_id": "shift-adaptation-tall-rcc",
+      "spec": {
+        "m": 251,
+        "n": 67,
+        "k": 109,
+        "a_padding": 7,
+        "b_padding": 5,
+        "c_padding": 3,
+        "a_column_major": false,
+        "b_column_major": true,
+        "c_column_major": true
+      }
+    },
+    {
+      "partition": "adaptation",
+      "group": "shallow",
+      "case_id": "shift-adaptation-shallow-rrr",
+      "spec": {
+        "m": 193,
+        "n": 173,
+        "k": 29,
+        "a_padding": 1,
+        "b_padding": 9,
+        "c_padding": 7,
+        "a_column_major": false,
+        "b_column_major": false,
+        "c_column_major": false
+      }
+    },
+    {
+      "partition": "adaptation",
+      "group": "shallow",
+      "case_id": "shift-adaptation-shallow-rrc",
+      "spec": {
+        "m": 193,
+        "n": 173,
+        "k": 29,
+        "a_padding": 1,
+        "b_padding": 9,
+        "c_padding": 7,
+        "a_column_major": false,
+        "b_column_major": false,
+        "c_column_major": true
+      }
+    },
+    {
+      "partition": "test",
+      "group": "small",
+      "case_id": "shift-test-small-rrr",
+      "spec": {
+        "m": 53,
+        "n": 73,
+        "k": 43,
+        "a_padding": 5,
+        "b_padding": 3,
+        "c_padding": 9,
+        "a_column_major": false,
+        "b_column_major": false,
+        "c_column_major": false
+      }
+    },
+    {
+      "partition": "test",
+      "group": "small",
+      "case_id": "shift-test-small-ccc",
+      "spec": {
+        "m": 53,
+        "n": 73,
+        "k": 43,
+        "a_padding": 5,
+        "b_padding": 3,
+        "c_padding": 9,
+        "a_column_major": true,
+        "b_column_major": true,
+        "c_column_major": true
+      }
+    },
+    {
+      "partition": "test",
+      "group": "square",
+      "case_id": "shift-test-square-rrr",
+      "spec": {
+        "m": 149,
+        "n": 149,
+        "k": 149,
+        "a_padding": 9,
+        "b_padding": 7,
+        "c_padding": 1,
+        "a_column_major": false,
+        "b_column_major": false,
+        "c_column_major": false
+      }
+    },
+    {
+      "partition": "test",
+      "group": "square",
+      "case_id": "shift-test-square-ccc",
+      "spec": {
+        "m": 149,
+        "n": 149,
+        "k": 149,
+        "a_padding": 9,
+        "b_padding": 7,
+        "c_padding": 1,
+        "a_column_major": true,
+        "b_column_major": true,
+        "c_column_major": true
+      }
+    },
+    {
+      "partition": "test",
+      "group": "tall",
+      "case_id": "shift-test-tall-ccc",
+      "spec": {
+        "m": 271,
+        "n": 71,
+        "k": 113,
+        "a_padding": 3,
+        "b_padding": 7,
+        "c_padding": 5,
+        "a_column_major": true,
+        "b_column_major": true,
+        "c_column_major": true
+      }
+    },
+    {
+      "partition": "test",
+      "group": "tall",
+      "case_id": "shift-test-tall-rcc",
+      "spec": {
+        "m": 271,
+        "n": 71,
+        "k": 113,
+        "a_padding": 3,
+        "b_padding": 7,
+        "c_padding": 5,
+        "a_column_major": false,
+        "b_column_major": true,
+        "c_column_major": true
+      }
+    },
+    {
+      "partition": "test",
+      "group": "wide",
+      "case_id": "shift-test-wide-rrc",
+      "spec": {
+        "m": 73,
+        "n": 257,
+        "k": 107,
+        "a_padding": 7,
+        "b_padding": 1,
+        "c_padding": 9,
+        "a_column_major": false,
+        "b_column_major": false,
+        "c_column_major": true
+      }
+    },
+    {
+      "partition": "test",
+      "group": "wide",
+      "case_id": "shift-test-wide-rrr",
+      "spec": {
+        "m": 73,
+        "n": 257,
+        "k": 107,
+        "a_padding": 7,
+        "b_padding": 1,
+        "c_padding": 9,
+        "a_column_major": false,
+        "b_column_major": false,
+        "c_column_major": false
+      }
+    },
+    {
+      "partition": "test",
+      "group": "deep",
+      "case_id": "shift-test-deep-crr",
+      "spec": {
+        "m": 79,
+        "n": 89,
+        "k": 281,
+        "a_padding": 5,
+        "b_padding": 9,
+        "c_padding": 3,
+        "a_column_major": true,
+        "b_column_major": false,
+        "c_column_major": false
+      }
+    },
+    {
+      "partition": "test",
+      "group": "deep",
+      "case_id": "shift-test-deep-ccr",
+      "spec": {
+        "m": 79,
+        "n": 89,
+        "k": 281,
+        "a_padding": 5,
+        "b_padding": 9,
+        "c_padding": 3,
+        "a_column_major": true,
+        "b_column_major": true,
+        "c_column_major": false
+      }
+    },
+    {
+      "partition": "test",
+      "group": "shallow",
+      "case_id": "shift-test-shallow-crr",
+      "spec": {
+        "m": 211,
+        "n": 181,
+        "k": 31,
+        "a_padding": 9,
+        "b_padding": 5,
+        "c_padding": 7,
+        "a_column_major": true,
+        "b_column_major": false,
+        "c_column_major": false
+      }
+    },
+    {
+      "partition": "test",
+      "group": "shallow",
+      "case_id": "shift-test-shallow-ccr",
+      "spec": {
+        "m": 211,
+        "n": 181,
+        "k": 31,
+        "a_padding": 9,
+        "b_padding": 5,
+        "c_padding": 7,
+        "a_column_major": true,
+        "b_column_major": true,
+        "c_column_major": false
+      }
+    }
+  ],
+  "repair_budget": {
+    "direct_patch_candidates": 1,
+    "adviser_minutes": 20,
+    "maximum_bespoke_predicates": 4,
+    "allow_case_identity_rules": false,
+    "allow_test_outcomes": false
+  },
+  "stop_rule": "If either audit block fails the compiler-induced regret gate, stop adaptation and final timing; publish negative finding plus executable artifact/replay demonstration."
+}
