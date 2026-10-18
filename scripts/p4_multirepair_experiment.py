@@ -52,10 +52,13 @@ def acceptance(case, directory, baseline):
         table = tables.get(name, {})
         attributes = table.get("match_attributes", {})
         stages = attributes.get("stage_tables", [])
+        identities = [(s.get("stage_number"), s.get("logical_table_id")) for s in stages]
+        identified = all(type(value) is int and value >= 0 for pair in identities for value in pair)
         supported = (table.get("table_type") == "match" and attributes.get("match_type") == "exact"
                      and not table.get("action_profile") and not table.get("selection_table_refs")
                      and all(r.get("how_referenced") == "direct" for r in table.get("action_data_table_refs", []))
-                     and stages and all(s.get("stage_table_type") == "hash_match" and type(s.get("size")) is int and s["size"] >= 0 for s in stages))
+                     and stages and identified and len(set(identities)) == len(identities)
+                     and all(s.get("stage_table_type") == "hash_match" and type(s.get("size")) is int and s["size"] >= 0 for s in stages))
         if not supported:
             errors.append("unsupported_or_missing_context:" + name)
         if table.get("size") != size or (supported and sum(s["size"] for s in stages) < size):

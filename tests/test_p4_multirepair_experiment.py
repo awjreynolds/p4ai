@@ -48,7 +48,7 @@ def setup(tmp_path, monkeypatch):
         directory.mkdir(parents=True)
         (directory / "stderr.log").write_text(f"diagnostic:{policy}")
         runner.save(directory / "context.json", {"tables": [{"name": "Ingress.one", "table_type": "match", "size": 10,
-            "match_attributes": {"match_type": "exact", "stage_tables": [{"stage_table_type": "hash_match", "stage_number": 0, "size": 10}]}}]})
+            "match_attributes": {"match_type": "exact", "stage_tables": [{"stage_table_type": "hash_match", "stage_number": 0, "logical_table_id": 0, "size": 10}]}}]})
         bfrt = schema()
         bfrt["tables"][1]["id"] = len(compiled)  # Only allowed generated-ID variation.
         runner.save(directory / "bfrt.json", bfrt)
@@ -191,6 +191,46 @@ def test_duplicate_manifest_requirement_key_rejected(setup):
     manifest_path.write_text(manifest_path.read_text().replace('"Ingress.one": 10', '"Ingress.one": 10, "Ingress.one": 10'))
     with pytest.raises(ValueError, match="duplicate manifest"):
         runner.Experiment(path, output)
+
+
+@pytest.mark.parametrize("fault", ["duplicate", "missing_stage", "missing_logical", "boolean", "negative"])
+def test_fail_closed_on_invalid_allocation_identity(setup, fault):
+    path, output, _, fits = setup
+    fits.add("default")
+    experiment = runner.Experiment(path, output)
+    experiment.freeze()
+    case = experiment.manifest["cases"][0]
+    experiment.compile(case, "default")
+    directory = output / "probes/case/default"
+    context = runner.read(directory / "context.json")
+    stages = context["tables"][0]["match_attributes"]["stage_tables"]
+    if fault == "duplicate":
+        stages[0]["size"] = 5
+        stages.append(copy.deepcopy(stages[0]))
+    elif fault.startswith("missing"):
+        del stages[0]["stage_number" if fault == "missing_stage" else "logical_table_id"]
+    else:
+        stages[0]["logical_table_id"] = True if fault == "boolean" else -1
+    runner.save(directory / "context.json", context)
+    checked = runner.acceptance(case, directory, directory)
+    assert not checked["eligible_fit"]
+    assert "unsupported_or_missing_context:Ingress.one" in checked["errors"]
+
+
+def test_distinct_logical_allocations_in_same_stage_are_supported(setup):
+    path, output, _, fits = setup
+    fits.add("default")
+    experiment = runner.Experiment(path, output)
+    experiment.freeze()
+    case = experiment.manifest["cases"][0]
+    experiment.compile(case, "default")
+    directory = output / "probes/case/default"
+    context = runner.read(directory / "context.json")
+    stages = context["tables"][0]["match_attributes"]["stage_tables"]
+    stages[0]["size"] = 5
+    stages.append({**stages[0], "logical_table_id": 1})
+    runner.save(directory / "context.json", context)
+    assert runner.acceptance(case, directory, directory)["eligible_fit"]
 
 
 def test_fail_closed_on_capacity_or_unsupported_context(setup):
