@@ -320,6 +320,15 @@ def _load_inputs(
     correctness = action_report.get("correctness", {}) if isinstance(action_report, dict) else {}
     measurements = correctness.get("runtime", {}).get("measurements", [])
     first_measurement = measurements[0] if isinstance(measurements, list) and measurements else {}
+    build_identity = build.get("identity", {})
+    correctness_iterations = build.get("correctness_iterations")
+    identity_iterations = (
+        build_identity.get("correctness_iterations")
+        if isinstance(build_identity, dict)
+        else None
+    )
+    if correctness_iterations is None:
+        correctness_iterations = identity_iterations
     if (
         not isinstance(action_report, dict)
         or action_report.get("status") != "passed"
@@ -328,6 +337,13 @@ def _load_inputs(
         or first_measurement.get("correct") is not True
         or first_measurement.get("checksum_matches_stock") is not True
         or first_measurement.get("checksum") != stock_checksum
+        or type(correctness_iterations) is not int
+        or correctness_iterations < 1
+        or (
+            identity_iterations is not None
+            and identity_iterations != correctness_iterations
+        )
+        or first_measurement.get("iterations") != correctness_iterations
         or not isinstance(stock_checksum, str)
         or _CHECKSUM.fullmatch(stock_checksum) is None
     ):
@@ -384,6 +400,7 @@ def _load_inputs(
         "baseline_executable": baseline_executable,
         "baseline_executable_sha256": _sha256(baseline_executable),
         "stock_checksum": stock_checksum,
+        "correctness_iterations": correctness_iterations,
         "kernel_flags": kernel_flags,
         "host": host,
     }
@@ -417,7 +434,7 @@ def _compile_repeat(
         driver_object=inputs["driver_object"],
         linker=inputs["linker_path"],
         sdk=inputs["sdk_path"],
-        iterations=1,
+        iterations=inputs["correctness_iterations"],
         artifacts_dir=repeat_dir,
         timeout_seconds=300,
         expected_checksum=inputs["stock_checksum"],
@@ -428,6 +445,7 @@ def _compile_repeat(
         native.get("link", {}).get("status") != "passed"
         or native.get("runtime", {}).get("status") != "passed"
         or correctness.get("correct") is not True
+        or correctness.get("iterations") != inputs["correctness_iterations"]
         or correctness.get("checksum_matches_stock") is not True
         or correctness.get("checksum") != inputs["stock_checksum"]
     ):
@@ -542,6 +560,7 @@ def run_demo(
         "status": "passed" if repeatability_passed else "not_repeatable",
         "correctness_status": "passed",
         "repeatability_status": "passed" if repeatability_passed else "failed",
+        "correctness_iterations": inputs["correctness_iterations"],
         "case_id": case_id,
         "group": inputs["case"]["group"],
         "compiler_arm": compiler_arm,

@@ -136,6 +136,7 @@ def _fixture(tmp_path: Path) -> dict[str, Path | dict]:
         "spec": design["cases"][0]["spec"],
         "compiler_arm": "source",
         "case_fingerprint": "c" * 64,
+        "identity": {"correctness_iterations": 3},
         "stock_checksum": "0123456789abcdef",
         "toolchain": toolchain,
         "kernel_flags": kernel_flags,
@@ -159,6 +160,7 @@ def _fixture(tmp_path: Path) -> dict[str, Path | dict]:
                             "correct": True,
                             "checksum_matches_stock": True,
                             "checksum": "0123456789abcdef",
+                            "iterations": 3,
                         }],
                     },
                 },
@@ -229,9 +231,13 @@ def _mock_native_commands(
         name, object_path, executable_path, *, driver_object, linker, sdk, iterations,
         artifacts_dir, timeout_seconds, expected_checksum,
     ):
-        del name, object_path, linker, iterations, artifacts_dir, timeout_seconds
+        del name, object_path, linker, artifacts_dir, timeout_seconds
         repeat = len(calls["native"]) + 1
-        calls["native"].append({"driver_object": driver_object, "sdk": sdk})
+        calls["native"].append({
+            "driver_object": driver_object,
+            "sdk": sdk,
+            "iterations": iterations,
+        })
         executable_data = b"native executable"
         if diverge and repeat == 2:
             executable_data = b"different executable"
@@ -242,9 +248,9 @@ def _mock_native_commands(
                 "status": "passed",
                 "measurements": [{
                     "correct": True,
-                    "iterations": 1,
-                    "checksum": expected_checksum,
-                    "checksum_matches_stock": True,
+                    "iterations": iterations,
+                    "checksum": expected_checksum if iterations == 3 else "wrong-iterations",
+                    "checksum_matches_stock": iterations == 3,
                     "elapsed_ns": 123456,
                     "duration_ms": 123,
                 }],
@@ -279,6 +285,7 @@ def test_replays_frozen_choice_and_correctness_checks_two_independent_rebuilds(
 
     assert report["status"] == "passed"
     assert report["decision"]["action"] == "ijk"
+    assert report["correctness_iterations"] == 3
     assert report["comparisons"]["decision_repeated"] is True
     assert report["comparisons"]["rebuild_object_sha256_equal"] is True
     assert report["comparisons"]["rebuild_code_identity_equal"] is True
@@ -290,9 +297,10 @@ def test_replays_frozen_choice_and_correctness_checks_two_independent_rebuilds(
         "repeat-1", "repeat-2"
     ]
     assert calls["native"] == [
-        {"driver_object": fixture["driver_object"], "sdk": tmp_path / "MacOSX.sdk"},
-        {"driver_object": fixture["driver_object"], "sdk": tmp_path / "MacOSX.sdk"},
+        {"driver_object": fixture["driver_object"], "sdk": tmp_path / "MacOSX.sdk", "iterations": 3},
+        {"driver_object": fixture["driver_object"], "sdk": tmp_path / "MacOSX.sdk", "iterations": 3},
     ]
+    assert all(row["correctness"]["iterations"] == 3 for row in report["repeats"])
     assert all(row["correctness"]["status"] == "passed" for row in report["repeats"])
     serialized = json.dumps(report)
     assert "elapsed_ns" not in serialized
