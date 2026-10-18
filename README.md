@@ -58,6 +58,14 @@ uv run python -m scripts.quality_experiment \
 
 This makes live provider calls and builds native counterfactual executables. Completed responses are reused on resume. The run refuses to resume if its implementation hashes change. Its maintenance measurements are a controlled adaptation proxy; they do not measure long-term engineering effort.
 
+## Finding a boundary with quality headroom
+
+The [completed loop-order experiment](docs/results/contraction-policy-v1.md) found a substantial scheduling opportunity in the harness compiler's structured-IR lowering pass. Confirmed discovery choices reduced runtime by 41.48% versus the fitted constant and 26.73% versus a small stride selector. The earlier [vectorization screen](docs/results/loop-policy-v1.md) failed its gate and made no model calls.
+
+On held-out contraction layouts, Jev beat the constant and nearest-neighbor controls, but its 1.66% advantage over the stride selector was below the noise gate. Always-Codex was 6.54% slower than Jev; both the primary and explicitly exploratory routing analyses selected never escalate. This establishes a useful decision boundary, **not useful escalation or maintenance savings**.
+
+The [contraction design](docs/contraction-policy-design.md) preserves six legal schedules and LLVM downstream optimization. It uses the actual Apple M3 target and native execution; canonical `ijk` is a source-order reference, not LLVM's preferred scheduling policy. Reproduction commands and public evidence are in the result report.
+
 ## Decision map
 
 Follow [Choose a constrained compilation target and a reproducible first experiment](https://github.com/awjreynolds/p4ai/issues/1). The reopened decision is [Choose the first target and compiler intervention](https://github.com/awjreynolds/p4ai/issues/5), followed by [Agree the first experiment and evidence required for success](https://github.com/awjreynolds/p4ai/issues/6). See the [glossary](GLOSSARY.md) and [tracker conventions](docs/issue-tracker.md) for collaboration details.
