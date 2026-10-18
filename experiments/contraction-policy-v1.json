@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "name": "contraction-policy-v1",
+  "seed": 20261018,
+  "llvm_revision": "32d702efa29d0fdd02cff7b79dea8fdbbcf059d4",
+  "target_cpu": "apple-m3",
+  "claim": "Loop-order choice in the harness compiler structured-IR lowering pass. LLVM downstream optimizations are retained; no existing LLVM scheduling callback or complete cost model is replaced.",
+  "families": {
+    "discovery": [
+      "rrc",
+      "ccr",
+      "crr"
+    ],
+    "calibrate": [
+      "crc",
+      "ccc"
+    ],
+    "test": [
+      "rrr",
+      "rcr",
+      "rcc"
+    ]
+  },
+  "actions": [
+    "stock",
+    "ijk",
+    "ikj",
+    "jik",
+    "jki",
+    "kij",
+    "kji"
+  ],
+  "benchmark_rounds": 11,
+  "target_sample_ms": 100,
+  "discovery_gap_fraction": 0.05,
+  "noise_floor_fraction": 0.02,
+  "calibration_escalation_budget": 0.25,
+  "discovery_gate": "Fit the best constant including canonical ijk and case oracle on block one; freeze both. On independent block two require at least 5% family-balanced runtime improvement over BOTH the constant and predefined stride selector, exceeding max(2%,3*maximum paired MAD log ratio), positive in at least two discovery layout groups for each comparison, and distinct code in at least half cases. Otherwise zero model calls.",
+  "controls": [
+    "canonical ijk reference (label stock)",
+    "best discovery-fitted constant",
+    "predefined stride selector",
+    "discovery-fitted one-nearest-neighbor",
+    "Jev",
+    "Codex",
+    "calibration-frozen cascade"
+  ],
+  "model_packet": "Structured IR dimensions and all array axis strides, plus each candidate traversal order encoded numerically and fixed target facts. No layout IDs, case paths or measured outcomes. Features derive mechanically from IR; no family-specific feature rules.",
+  "success": "Held-out cascade improvement over fitted constant, stride selector, nearest-neighbor and Jev exceeds max(2%,3*maximum paired MAD log ratio), positive in at least two of three test layout groups for each comparison. Calibration and held-out escalation rates <=25%. Report canonical ijk comparison separately. Never force routing.",
+  "maintenance": "Count fixed selector parameter, stride expression, NN exemplars, routing parameter and mechanically derived IR features. No human-effort or long-term maintenance claim.",
+  "scope": "Synthetic layout generalization for one unsigned tensor contraction operation on one CPU, three fixed shapes. Not independent application families, production performance or broad compiler policy replacement.",
+  "stop": "Fail closed on toolchain, correctness or provenance errors. Gate failure is a valid negative result; do not quietly change controls, corpus or thresholds after timings. A different boundary requires a new design.",
+  "shapes": [
+    {
+      "m": 128,
+      "n": 128,
+      "k": 128
+    },
+    {
+      "m": 16,
+      "n": 256,
+      "k": 128
+    },
+    {
+      "m": 128,
+      "n": 128,
+      "k": 16
+    }
+  ],
+  "layout_encoding": "Three letters specify A, B, C row (r) or column (c) major. Groups were shuffled from lexicographic product using Random(20261018) before timing. All shapes of a layout remain in one partition.",
+  "stride_selector": "Among six permutations choose minimum tuple (cost(inner axis), cost(middle axis), fixed order id), where cost(axis)=stride_A(axis)+stride_B(axis)+2*stride_C(axis), in bytes; absent axes have zero stride.",
+  "semantic_contract": "Disjoint uint32 buffers, initialize C to zero, compute C_ij=sum_k ((A_ik XOR uint32(salt))*B_kj) modulo 2^32. All six loop permutations preserve this result. No floating point, aliasing or loop-carried dependencies across distinct outputs.",
+  "timing_calibration": "Pilot every distinct executable for 32 iterations outside measured rounds; set shared case iterations to ceil(32*target_ms*1e6/minimum pilot elapsed_ns), at least 1. Freeze iterations across blocks. Cal/test pilots occur after blind model choices. Refuse work if any predicted sample exceeds 20 seconds; no selective dropping."
+}
