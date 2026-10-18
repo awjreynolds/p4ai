@@ -1,0 +1,660 @@
+{
+  "schema_version": 1,
+  "name": "compiler-feedback-v1",
+  "seed": 20261019,
+  "llvm_revision": "32d702efa29d0fdd02cff7b79dea8fdbbcf059d4",
+  "target_cpu": "apple-m3",
+  "hypothesis": "Generic compiler-generated evidence exposes source-only choice errors; a tiny learned incremental-value signal can route useful stronger advice without per-case selector rules.",
+  "cases": [
+    {
+      "partition": "discovery",
+      "group": "discovery-small",
+      "case_id": "discovery-small-ccr",
+      "spec": {
+        "m": 31,
+        "n": 47,
+        "k": 29,
+        "a_column_major": true,
+        "b_column_major": true,
+        "c_column_major": false,
+        "a_padding": 0,
+        "b_padding": 0,
+        "c_padding": 0
+      }
+    },
+    {
+      "partition": "discovery",
+      "group": "discovery-small",
+      "case_id": "discovery-small-crr",
+      "spec": {
+        "m": 31,
+        "n": 47,
+        "k": 29,
+        "a_column_major": true,
+        "b_column_major": false,
+        "c_column_major": false,
+        "a_padding": 0,
+        "b_padding": 0,
+        "c_padding": 0
+      }
+    },
+    {
+      "partition": "discovery",
+      "group": "discovery-small",
+      "case_id": "discovery-small-rcr",
+      "spec": {
+        "m": 31,
+        "n": 47,
+        "k": 29,
+        "a_column_major": false,
+        "b_column_major": true,
+        "c_column_major": false,
+        "a_padding": 0,
+        "b_padding": 0,
+        "c_padding": 0
+      }
+    },
+    {
+      "partition": "discovery",
+      "group": "discovery-small",
+      "case_id": "discovery-small-rcc",
+      "spec": {
+        "m": 31,
+        "n": 47,
+        "k": 29,
+        "a_column_major": false,
+        "b_column_major": true,
+        "c_column_major": true,
+        "a_padding": 0,
+        "b_padding": 0,
+        "c_padding": 0
+      }
+    },
+    {
+      "partition": "discovery",
+      "group": "discovery-square",
+      "case_id": "discovery-square-ccc",
+      "spec": {
+        "m": 96,
+        "n": 96,
+        "k": 96,
+        "a_column_major": true,
+        "b_column_major": true,
+        "c_column_major": true,
+        "a_padding": 1,
+        "b_padding": 0,
+        "c_padding": 1
+      }
+    },
+    {
+      "partition": "discovery",
+      "group": "discovery-square",
+      "case_id": "discovery-square-rcc",
+      "spec": {
+        "m": 96,
+        "n": 96,
+        "k": 96,
+        "a_column_major": false,
+        "b_column_major": true,
+        "c_column_major": true,
+        "a_padding": 1,
+        "b_padding": 0,
+        "c_padding": 1
+      }
+    },
+    {
+      "partition": "discovery",
+      "group": "discovery-square",
+      "case_id": "discovery-square-ccr",
+      "spec": {
+        "m": 96,
+        "n": 96,
+        "k": 96,
+        "a_column_major": true,
+        "b_column_major": true,
+        "c_column_major": false,
+        "a_padding": 1,
+        "b_padding": 0,
+        "c_padding": 1
+      }
+    },
+    {
+      "partition": "discovery",
+      "group": "discovery-square",
+      "case_id": "discovery-square-rrc",
+      "spec": {
+        "m": 96,
+        "n": 96,
+        "k": 96,
+        "a_column_major": false,
+        "b_column_major": false,
+        "c_column_major": true,
+        "a_padding": 1,
+        "b_padding": 0,
+        "c_padding": 1
+      }
+    },
+    {
+      "partition": "discovery",
+      "group": "discovery-tall",
+      "case_id": "discovery-tall-rrc",
+      "spec": {
+        "m": 192,
+        "n": 40,
+        "k": 64,
+        "a_column_major": false,
+        "b_column_major": false,
+        "c_column_major": true,
+        "a_padding": 0,
+        "b_padding": 7,
+        "c_padding": 3
+      }
+    },
+    {
+      "partition": "discovery",
+      "group": "discovery-tall",
+      "case_id": "discovery-tall-rcc",
+      "spec": {
+        "m": 192,
+        "n": 40,
+        "k": 64,
+        "a_column_major": false,
+        "b_column_major": true,
+        "c_column_major": true,
+        "a_padding": 0,
+        "b_padding": 7,
+        "c_padding": 3
+      }
+    },
+    {
+      "partition": "discovery",
+      "group": "discovery-tall",
+      "case_id": "discovery-tall-rrr",
+      "spec": {
+        "m": 192,
+        "n": 40,
+        "k": 64,
+        "a_column_major": false,
+        "b_column_major": false,
+        "c_column_major": false,
+        "a_padding": 0,
+        "b_padding": 7,
+        "c_padding": 3
+      }
+    },
+    {
+      "partition": "discovery",
+      "group": "discovery-tall",
+      "case_id": "discovery-tall-ccr",
+      "spec": {
+        "m": 192,
+        "n": 40,
+        "k": 64,
+        "a_column_major": true,
+        "b_column_major": true,
+        "c_column_major": false,
+        "a_padding": 0,
+        "b_padding": 7,
+        "c_padding": 3
+      }
+    },
+    {
+      "partition": "discovery",
+      "group": "discovery-wide",
+      "case_id": "discovery-wide-crr",
+      "spec": {
+        "m": 24,
+        "n": 224,
+        "k": 80,
+        "a_column_major": true,
+        "b_column_major": false,
+        "c_column_major": false,
+        "a_padding": 7,
+        "b_padding": 1,
+        "c_padding": 0
+      }
+    },
+    {
+      "partition": "discovery",
+      "group": "discovery-wide",
+      "case_id": "discovery-wide-ccc",
+      "spec": {
+        "m": 24,
+        "n": 224,
+        "k": 80,
+        "a_column_major": true,
+        "b_column_major": true,
+        "c_column_major": true,
+        "a_padding": 7,
+        "b_padding": 1,
+        "c_padding": 0
+      }
+    },
+    {
+      "partition": "discovery",
+      "group": "discovery-wide",
+      "case_id": "discovery-wide-rrr",
+      "spec": {
+        "m": 24,
+        "n": 224,
+        "k": 80,
+        "a_column_major": false,
+        "b_column_major": false,
+        "c_column_major": false,
+        "a_padding": 7,
+        "b_padding": 1,
+        "c_padding": 0
+      }
+    },
+    {
+      "partition": "discovery",
+      "group": "discovery-wide",
+      "case_id": "discovery-wide-rcc",
+      "spec": {
+        "m": 24,
+        "n": 224,
+        "k": 80,
+        "a_column_major": false,
+        "b_column_major": true,
+        "c_column_major": true,
+        "a_padding": 7,
+        "b_padding": 1,
+        "c_padding": 0
+      }
+    },
+    {
+      "partition": "calibrate",
+      "group": "calibrate-uneven",
+      "case_id": "calibrate-uneven-rcc",
+      "spec": {
+        "m": 63,
+        "n": 95,
+        "k": 65,
+        "a_column_major": false,
+        "b_column_major": true,
+        "c_column_major": true,
+        "a_padding": 3,
+        "b_padding": 5,
+        "c_padding": 3
+      }
+    },
+    {
+      "partition": "calibrate",
+      "group": "calibrate-uneven",
+      "case_id": "calibrate-uneven-crr",
+      "spec": {
+        "m": 63,
+        "n": 95,
+        "k": 65,
+        "a_column_major": true,
+        "b_column_major": false,
+        "c_column_major": false,
+        "a_padding": 3,
+        "b_padding": 5,
+        "c_padding": 3
+      }
+    },
+    {
+      "partition": "calibrate",
+      "group": "calibrate-uneven",
+      "case_id": "calibrate-uneven-rrc",
+      "spec": {
+        "m": 63,
+        "n": 95,
+        "k": 65,
+        "a_column_major": false,
+        "b_column_major": false,
+        "c_column_major": true,
+        "a_padding": 3,
+        "b_padding": 5,
+        "c_padding": 3
+      }
+    },
+    {
+      "partition": "calibrate",
+      "group": "calibrate-uneven",
+      "case_id": "calibrate-uneven-crc",
+      "spec": {
+        "m": 63,
+        "n": 95,
+        "k": 65,
+        "a_column_major": true,
+        "b_column_major": false,
+        "c_column_major": true,
+        "a_padding": 3,
+        "b_padding": 5,
+        "c_padding": 3
+      }
+    },
+    {
+      "partition": "calibrate",
+      "group": "calibrate-tall",
+      "case_id": "calibrate-tall-rcc",
+      "spec": {
+        "m": 160,
+        "n": 48,
+        "k": 112,
+        "a_column_major": false,
+        "b_column_major": true,
+        "c_column_major": true,
+        "a_padding": 5,
+        "b_padding": 3,
+        "c_padding": 1
+      }
+    },
+    {
+      "partition": "calibrate",
+      "group": "calibrate-tall",
+      "case_id": "calibrate-tall-ccc",
+      "spec": {
+        "m": 160,
+        "n": 48,
+        "k": 112,
+        "a_column_major": true,
+        "b_column_major": true,
+        "c_column_major": true,
+        "a_padding": 5,
+        "b_padding": 3,
+        "c_padding": 1
+      }
+    },
+    {
+      "partition": "calibrate",
+      "group": "calibrate-tall",
+      "case_id": "calibrate-tall-crc",
+      "spec": {
+        "m": 160,
+        "n": 48,
+        "k": 112,
+        "a_column_major": true,
+        "b_column_major": false,
+        "c_column_major": true,
+        "a_padding": 5,
+        "b_padding": 3,
+        "c_padding": 1
+      }
+    },
+    {
+      "partition": "calibrate",
+      "group": "calibrate-tall",
+      "case_id": "calibrate-tall-rrr",
+      "spec": {
+        "m": 160,
+        "n": 48,
+        "k": 112,
+        "a_column_major": false,
+        "b_column_major": false,
+        "c_column_major": false,
+        "a_padding": 5,
+        "b_padding": 3,
+        "c_padding": 1
+      }
+    },
+    {
+      "partition": "test",
+      "group": "test-small",
+      "case_id": "test-small-ccc",
+      "spec": {
+        "m": 37,
+        "n": 53,
+        "k": 43,
+        "a_column_major": true,
+        "b_column_major": true,
+        "c_column_major": true,
+        "a_padding": 11,
+        "b_padding": 9,
+        "c_padding": 5
+      }
+    },
+    {
+      "partition": "test",
+      "group": "test-small",
+      "case_id": "test-small-rcc",
+      "spec": {
+        "m": 37,
+        "n": 53,
+        "k": 43,
+        "a_column_major": false,
+        "b_column_major": true,
+        "c_column_major": true,
+        "a_padding": 11,
+        "b_padding": 9,
+        "c_padding": 5
+      }
+    },
+    {
+      "partition": "test",
+      "group": "test-small",
+      "case_id": "test-small-rrc",
+      "spec": {
+        "m": 37,
+        "n": 53,
+        "k": 43,
+        "a_column_major": false,
+        "b_column_major": false,
+        "c_column_major": true,
+        "a_padding": 11,
+        "b_padding": 9,
+        "c_padding": 5
+      }
+    },
+    {
+      "partition": "test",
+      "group": "test-small",
+      "case_id": "test-small-crr",
+      "spec": {
+        "m": 37,
+        "n": 53,
+        "k": 43,
+        "a_column_major": true,
+        "b_column_major": false,
+        "c_column_major": false,
+        "a_padding": 11,
+        "b_padding": 9,
+        "c_padding": 5
+      }
+    },
+    {
+      "partition": "test",
+      "group": "test-square",
+      "case_id": "test-square-rrc",
+      "spec": {
+        "m": 160,
+        "n": 160,
+        "k": 160,
+        "a_column_major": false,
+        "b_column_major": false,
+        "c_column_major": true,
+        "a_padding": 9,
+        "b_padding": 11,
+        "c_padding": 7
+      }
+    },
+    {
+      "partition": "test",
+      "group": "test-square",
+      "case_id": "test-square-rcc",
+      "spec": {
+        "m": 160,
+        "n": 160,
+        "k": 160,
+        "a_column_major": false,
+        "b_column_major": true,
+        "c_column_major": true,
+        "a_padding": 9,
+        "b_padding": 11,
+        "c_padding": 7
+      }
+    },
+    {
+      "partition": "test",
+      "group": "test-square",
+      "case_id": "test-square-crc",
+      "spec": {
+        "m": 160,
+        "n": 160,
+        "k": 160,
+        "a_column_major": true,
+        "b_column_major": false,
+        "c_column_major": true,
+        "a_padding": 9,
+        "b_padding": 11,
+        "c_padding": 7
+      }
+    },
+    {
+      "partition": "test",
+      "group": "test-square",
+      "case_id": "test-square-rrr",
+      "spec": {
+        "m": 160,
+        "n": 160,
+        "k": 160,
+        "a_column_major": false,
+        "b_column_major": false,
+        "c_column_major": false,
+        "a_padding": 9,
+        "b_padding": 11,
+        "c_padding": 7
+      }
+    },
+    {
+      "partition": "test",
+      "group": "test-wide",
+      "case_id": "test-wide-rcr",
+      "spec": {
+        "m": 40,
+        "n": 192,
+        "k": 144,
+        "a_column_major": false,
+        "b_column_major": true,
+        "c_column_major": false,
+        "a_padding": 13,
+        "b_padding": 7,
+        "c_padding": 9
+      }
+    },
+    {
+      "partition": "test",
+      "group": "test-wide",
+      "case_id": "test-wide-crc",
+      "spec": {
+        "m": 40,
+        "n": 192,
+        "k": 144,
+        "a_column_major": true,
+        "b_column_major": false,
+        "c_column_major": true,
+        "a_padding": 13,
+        "b_padding": 7,
+        "c_padding": 9
+      }
+    },
+    {
+      "partition": "test",
+      "group": "test-wide",
+      "case_id": "test-wide-ccr",
+      "spec": {
+        "m": 40,
+        "n": 192,
+        "k": 144,
+        "a_column_major": true,
+        "b_column_major": true,
+        "c_column_major": false,
+        "a_padding": 13,
+        "b_padding": 7,
+        "c_padding": 9
+      }
+    },
+    {
+      "partition": "test",
+      "group": "test-wide",
+      "case_id": "test-wide-crr",
+      "spec": {
+        "m": 40,
+        "n": 192,
+        "k": 144,
+        "a_column_major": true,
+        "b_column_major": false,
+        "c_column_major": false,
+        "a_padding": 13,
+        "b_padding": 7,
+        "c_padding": 9
+      }
+    }
+  ],
+  "actions": [
+    "stock",
+    "ijk",
+    "ikj",
+    "jik",
+    "jki",
+    "kij",
+    "kji"
+  ],
+  "source_features": [
+    "a_i_stride_bytes",
+    "a_k_stride_bytes",
+    "arithmetic_bits",
+    "b_j_stride_bytes",
+    "b_k_stride_bytes",
+    "c_i_stride_bytes",
+    "c_j_stride_bytes",
+    "element_bits",
+    "inner_a_stride_bytes",
+    "inner_axis_id",
+    "inner_b_stride_bytes",
+    "inner_c_stride_bytes",
+    "inner_stride_cost_bytes",
+    "k",
+    "m",
+    "middle_a_stride_bytes",
+    "middle_axis_id",
+    "middle_b_stride_bytes",
+    "middle_c_stride_bytes",
+    "middle_stride_cost_bytes",
+    "n",
+    "outer_a_stride_bytes",
+    "outer_axis_id",
+    "outer_b_stride_bytes",
+    "outer_c_stride_bytes",
+    "outer_stride_cost_bytes",
+    "target_architecture_bits",
+    "target_has_sve",
+    "target_vector_register_bits",
+    "trip_count"
+  ],
+  "compiler_features": {
+    "ir_instruction_count": "Static LLVM instruction lines in harness_kernel only",
+    "ir_basic_block_count": "Static basic blocks in harness_kernel",
+    "ir_load_count": "Static load opcodes in harness_kernel",
+    "ir_store_count": "Static store opcodes in harness_kernel",
+    "ir_multiply_count": "Static mul/fmul opcodes in harness_kernel",
+    "ir_vector_instruction_count": "Static instructions with fixed vector types or vector-specific opcodes in harness_kernel",
+    "ir_max_vector_bits": "Maximum fixed vector lane count times element bits in harness_kernel; zero if none",
+    "ir_loop_metadata_count": "Distinct LLVM loop metadata IDs attached within harness_kernel",
+    "vectorize_remark_count": "Distinct tagged successful loop-vectorize remarks from object compilation",
+    "vectorize_remark_max_vf": "Maximum successful vectorization factor, zero absent",
+    "vectorize_remark_max_interleave": "Maximum successful interleave count, zero absent",
+    "object_bytes": "Whole kernel object file size including metadata; not native text size or runtime cost"
+  },
+  "benchmark_rounds": 11,
+  "target_sample_ms": 100,
+  "discovery_gap_fraction": 0.05,
+  "noise_floor_fraction": 0.02,
+  "calibration_escalation_budget": 0.25,
+  "fit": "Discovery block one only: best constant; compiler-informed 1NN with existing training-only minmax normalized numeric features; compiler-informed ridge alpha=1, intercept unpenalized, log(runtime/canonical ijk), training-only minmax scaling. For discovery opportunity gates, predict each structural group using models fitted on the other three groups only, then freeze these out-of-group actions. After confirmation, fit final NN/ridge on all discovery block-one labels for calibration/test, including cheap-only evaluation. Fixed complete feature schemas. No hyperparameter search.",
+  "discovery_gate": "Freeze per-case candidate-best choices, fitted constant and leave-one-structural-group-out informed NN/ridge predictions after block one. Block two must confirm >=5% family-balanced runtime reduction and beyond max(log1p(.02),3*maximum paired MADlog) against constant,stride,out-of-group NN,out-of-group ridge, with positive direction in >=2 structural groups each. Require distinct native code in at least half cases. Otherwise skip providers, evaluate final all-discovery-fitted cheap controls on held-out cases, report negative opportunity for inference. Out-of-group gate models are distinct from final deployment models.",
+  "packets": "Source-only Jev receives the same 30 source/stride/target fields as previous experiment. Informed Jev and Codex receive those plus the 12 static compiler fields. Learned controls receive identical informed numeric fields. No group IDs, paths, measured outcomes, provider response or confidence from another model. Compilation/extraction times are recorded as costs, never features.",
+  "model_calls": "If gate passes query source Jev, informed Jev and informed Codex once per calibration/test case, caching valid responses and failures. Freeze all choices before calibration/test timing pilots. Existing bounded provider-retry policy applies; never retry valid choices.",
+  "mechanical_gate": "Stride selector unchanged. If stride and informed ridge choose the same action, return it without inference in deployment. If they disagree, consult informed Jev. Offline counterfactual model responses are collected on every evaluation case for fair comparison.",
+  "no_codex_cascade": "Use stride when stride==ridge; otherwise use informed Jev. This is the attribution control for any third-tier gain.",
+  "router_signal": "On mechanical-disagreement cases only, regret=max(predicted_log_loss_of_Jev_action - minimum_predicted_log_loss,0), using the frozen ridge. Eligible for stronger advice only if regret>threshold. No confidence rule.",
+  "router_candidates": "Never, plus thresholds zero and midpoints between distinct nonnegative calibration regret values. Strict > comparison keeps ties together. Fit on calibration timings only; <=floor(.25*Ncal) stronger calls. Minimize mean log runtime ratio relative to no-Codex cascade, treating per-case gains below2% as ties; prefer fewer calls then never then higher threshold.",
+  "primary_success": "Cascade beats fitted constant,stride,NN,ridge,informed Jev,and no-Codex cascade beyond max(log1p(.02),3*maximum paired MADlog), with positive direction in >=2 held-out structural groups each; calibration and test stronger-call fractions<=25%. Report all gates independently; never force routes.",
+  "information_test": "Compare informed Jev/source Jev held-out runtime beyond same noise bound with gains in>=2groups. Separate ablation, not causal proof about all model architectures. Model success without this improvement does not confirm the missing-information hypothesis.",
+  "cheap_only_evaluation": "On opportunity gate failure, freeze fitted cheap policies and measure calibration/test cases without provider calls. Report generalization and whether a generic cheap predictor closes the gap. No fabricated cascade.",
+  "maintenance": "Count handwritten stride expression,6actions,42genericfields,96NNlabels,ridgecoefficients,fixedalpha,mechanicalagreementgate,onecalibratedregretthreshold,andprompts. Generic parser/testing is mechanism cost. No human maintenance/adaptation claim; no later distribution shift is tested here.",
+  "scope": "36 fresh synthetic contractions:16discovery,8calibration,12test. Partition by dimension/padding structural setting; four seeded layout combinations per setting. Held-out new settings for oneoperation/oneCPU, not application generalization. No prior measured case reused.",
+  "stop": "Fail closed on correctness/toolchain/evidence/provenance issues; do not revise corpus,controls,features,prompts,gates or routes after observing timings. Hypothesis failures are recorded and guide a separate future experiment."
+}
