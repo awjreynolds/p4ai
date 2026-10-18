@@ -72,6 +72,8 @@ The [compiler-feedback experiment](docs/results/compiler-feedback-v1.md) found a
 
 The full cascade still failed. Its agreement shortcut made one costly mistake, and calibration's predicted-regret signal never triggered Codex. Always-Codex was 56.10% slower than informed Jev. The current informed policy also compiles every candidate to extract features; native runtime gains do not establish end-to-end cost or maintenance savings. The [design](docs/compiler-feedback-design.md) and [public evidence](docs/results/compiler-feedback-v1.json) preserve both the positive information result and negative three-tier result.
 
+The [application feasibility gate](docs/results/sqlite-feasibility-v1.md) passes historical SQLite's reference workload on both compilers but rejects that source for optimization evidence after a UBSan finding. A separate toy check confirms LLVM's interactive inliner through the exact pinned `opt` tool and Apple Clang. These are technical prerequisites for later application-level repair, not a demonstrated repair policy.
+
 ## Decision map
 
 Follow [Choose a constrained compilation target and a reproducible first experiment](https://github.com/awjreynolds/p4ai/issues/1). The reopened decision is [Choose the first target and compiler intervention](https://github.com/awjreynolds/p4ai/issues/5), followed by [Agree the first experiment and evidence required for success](https://github.com/awjreynolds/p4ai/issues/6). See the [glossary](GLOSSARY.md) and [tracker conventions](docs/issue-tracker.md) for collaboration details.
