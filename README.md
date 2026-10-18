@@ -18,7 +18,9 @@ The first executable target is **native ARM64 on macOS**, using LLVM's existing 
 
 The mechanical baseline picks the first eligible candidate. LLVM's normal Greedy allocator remains a separate production reference. Candidate filtering, hints, cost limits, splitting, spilling, and substantial surrounding policy remain in LLVM. This is one replaced decision boundary, not a new allocator or an assertion that all compiler policy has been simplified. See the [boundary inventory](docs/selector-boundary.md).
 
-GPU access is permanently unavailable for this effort. NVIDIA scheduling was investigated, but GPU-free compilation cannot establish runtime correctness or performance. That experiment was retired before validation; eBPF and CPU scheduling remain alternatives. Tofino is excluded as the destination.
+GPU access is permanently unavailable for this effort. NVIDIA scheduling was investigated, but GPU-free compilation cannot establish runtime correctness or performance. That experiment was retired before validation; eBPF and CPU scheduling remain alternatives. Tofino is now authorized as a compiler resource-fit research testbed; the eventual commercial/career target remains open.
+
+The next experiment tests [P4 pragma-guided resource-fit repair](docs/p4-pragma-fit-pilot.md): infer the allocation directives a developer would supply when a program fails to fit. Qualification uses the public Tofino backend, fixed capacities and annotation-only changes. [Discovery candidates](examples/p4-fit/README.md) are prepared, but no genuine failure-to-fit → pragma-only fit pair has yet been established. This work preserves the completed CPU results above.
 
 ## Build and validate
 
