@@ -1,0 +1,17 @@
+{
+  "archive": "curation-evidence.tar.gz",
+  "archive_bytes": 5097251,
+  "archive_note": "Exact prepared sealed archive retained unchanged. Its internal pending-release labels describe preparation time and are superseded by this release record.",
+  "archive_sha256": "efbca503119423bbafdf3661a402da35bea9fa090895d52371da3c566404e0cf",
+  "authorization": "Coordinator confirmed parent run exited 0 with complete=true for all six cases and all five arms, with 37 provider attempts. Curator did not read model results.",
+  "no_additional_compiler_or_model_calls": true,
+  "released_at_utc": "2026-10-18T18:28:23.565573+00:00",
+  "status": "released_after_all_adviser_choices_complete",
+  "validation": {
+    "acceptance_status_changes": 0,
+    "bounded_selected_acceptance_replays": 10,
+    "complete_local_acceptance_replays": 150,
+    "hash_verification": "pass",
+    "host_path_and_secret_pattern_scan": "pass"
+  }
+}

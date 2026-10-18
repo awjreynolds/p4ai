@@ -1,0 +1,263 @@
+{
+  "immediate_helper": {
+    "aggregate_seconds": 71.36914945812896,
+    "physical_invocations": 2,
+    "receipts": [
+      {
+        "elapsed_seconds": 62.98909304197878,
+        "probe": "artifacts/p4-immediate-dev/overlapping-admission-196608/default/probe.json"
+      },
+      {
+        "elapsed_seconds": 8.380056416150182,
+        "probe": "artifacts/p4-immediate-dev/overlapping-admission-196608/side-no-immediate/probe.json"
+      }
+    ]
+  },
+  "initial_development": {
+    "aggregate_seconds": 568.100369292777,
+    "physical_invocations": 40,
+    "receipts": [
+      {
+        "elapsed_seconds": 19.886100084055215,
+        "historical_source_matches_available_file": true,
+        "probe": "artifacts/p4-multirepair-curation/development/diamond-policy128/probes/a-later/probe.json",
+        "source_sha256": "d2cbe1f560fa06a371969e643392cf23ff49154f4b15ca83ee416f9f576af776"
+      },
+      {
+        "elapsed_seconds": 15.331083917059004,
+        "historical_source_matches_available_file": true,
+        "probe": "artifacts/p4-multirepair-curation/development/diamond-policy128/probes/a-no-immediate/probe.json",
+        "source_sha256": "f3b57c44964d539858c87f2d7f95aa41c0e2b4d85ddaff1d272410ff1b3bb3d7"
+      },
+      {
+        "elapsed_seconds": 13.435637207701802,
+        "historical_source_matches_available_file": true,
+        "probe": "artifacts/p4-multirepair-curation/development/diamond-policy128/probes/a-pack-3/probe.json",
+        "source_sha256": "fa9348ec6b4a401a33086d92ebcd97aaab36fb647bf9d01f7a8ab120a9f7f8df"
+      },
+      {
+        "elapsed_seconds": 19.285257333889604,
+        "historical_source_matches_available_file": true,
+        "probe": "artifacts/p4-multirepair-curation/development/diamond-policy128/probes/b-priority/probe.json",
+        "source_sha256": "cd731700a10e607a1c04e1b534d5d1549ef6e4fce9d96192c7c50e74c0eeb91b"
+      },
+      {
+        "elapsed_seconds": 19.279376207850873,
+        "historical_source_matches_available_file": true,
+        "probe": "artifacts/p4-multirepair-curation/development/diamond-policy128/probes/default/probe.json",
+        "source_sha256": "a91e76bf955f8caadf29f4fa59675f81cf8e616ac283b142398c6c6163d7f7b7"
+      },
+      {
+        "elapsed_seconds": 10.479554667137563,
+        "historical_source_matches_available_file": true,
+        "probe": "artifacts/p4-multirepair-curation/development/diamond44k80/probes/a-pack-3/probe.json",
+        "source_sha256": "e67023cd7a6cc569df414beabca0e2bf010202ea7c009b072f90eb258e807a9b"
+      },
+      {
+        "elapsed_seconds": 5.807411708403379,
+        "historical_source_matches_available_file": true,
+        "probe": "artifacts/p4-multirepair-curation/development/diamond44k80/probes/all-no-immediate/probe.json",
+        "source_sha256": "5ef1ca84544b6f2d841ead09ceb6cbf1db7b2b1cac36e7ad58ddc10e1f89aba3"
+      },
+      {
+        "elapsed_seconds": 5.781461542006582,
+        "historical_source_matches_available_file": true,
+        "probe": "artifacts/p4-multirepair-curation/development/diamond44k80/probes/default/probe.json",
+        "source_sha256": "df80f2b5ebed43438b2504954289fc48fe1d0a586ae1585d780de16f98a199c8"
+      },
+      {
+        "elapsed_seconds": 10.637761500198394,
+        "historical_source_matches_available_file": true,
+        "probe": "artifacts/p4-multirepair-curation/development/diamond48/probes/a-pack-3/probe.json",
+        "source_sha256": "c6793d75df395ffffaa3d5f1b9e3df85e65d0b608a7f8b3bf8f26d02f3582a3a"
+      },
+      {
+        "elapsed_seconds": 11.856874499935657,
+        "historical_source_matches_available_file": true,
+        "probe": "artifacts/p4-multirepair-curation/development/diamond48/probes/all-no-immediate/probe.json",
+        "source_sha256": "4499a7867b4cdb1bcc404bf53679b38b524cddf12859087bf8a0c60f93f6441e"
+      },
+      {
+        "elapsed_seconds": 13.247627582866699,
+        "historical_source_matches_available_file": true,
+        "probe": "artifacts/p4-multirepair-curation/development/diamond48/probes/default/probe.json",
+        "source_sha256": "b723f3cdba258ae58ee3daa0966e599ffd0fb250eb3db50fcadecb81ba58ac89"
+      },
+      {
+        "elapsed_seconds": 10.047561542131007,
+        "historical_source_matches_available_file": true,
+        "probe": "artifacts/p4-multirepair-curation/development/diamond48k80/probes/a-pack-7/probe.json",
+        "source_sha256": "fb855558d7a5040b8eb52c23881d5297a3c6283cf070d5794cc0cb6c07092677"
+      },
+      {
+        "elapsed_seconds": 9.885752875357866,
+        "historical_source_matches_available_file": true,
+        "probe": "artifacts/p4-multirepair-curation/development/diamond48k80/probes/a-pack-9/probe.json",
+        "source_sha256": "66bb145a9ce6bd2f7f878bdc73c7ef03e8f9609dcd0608dedb31bc869ac74d22"
+      },
+      {
+        "elapsed_seconds": 13.89831741573289,
+        "historical_source_matches_available_file": true,
+        "probe": "artifacts/p4-multirepair-curation/development/diamond48k80/probes/default/probe.json",
+        "source_sha256": "5f4ecf5bc831d51806dd6b4bec5cecc69b0de78cd9bd5675273182bbc9c5dfae"
+      },
+      {
+        "elapsed_seconds": 34.82148304162547,
+        "historical_source_matches_available_file": true,
+        "probe": "artifacts/p4-multirepair-curation/development/exclusive-policy128/probes/a-later/probe.json",
+        "source_sha256": "25baaf8be4cc06697fe4fe7e95f21701962675f6558b5a95199e80f6fb5816cc"
+      },
+      {
+        "elapsed_seconds": 26.32065312517807,
+        "historical_source_matches_available_file": true,
+        "probe": "artifacts/p4-multirepair-curation/development/exclusive-policy128/probes/a-no-immediate/probe.json",
+        "source_sha256": "1fc090454a286240785d74bab0c478c46a0281939f76c989667bf716a20ee419"
+      },
+      {
+        "elapsed_seconds": 18.38742845831439,
+        "historical_source_matches_available_file": true,
+        "probe": "artifacts/p4-multirepair-curation/development/exclusive-policy128/probes/a-pack-3/probe.json",
+        "source_sha256": "8b5207946f0258c97dca7bcfcd0bd4257e7ecd8efe633552383e0b365d540d2c"
+      },
+      {
+        "elapsed_seconds": 27.456355415750295,
+        "historical_source_matches_available_file": true,
+        "probe": "artifacts/p4-multirepair-curation/development/exclusive-policy128/probes/b-priority/probe.json",
+        "source_sha256": "9d9b89d924002bd8fd1f23f87a5304297f35f660a44403071e535117ddb1633c"
+      },
+      {
+        "elapsed_seconds": 35.54338545911014,
+        "historical_source_matches_available_file": true,
+        "probe": "artifacts/p4-multirepair-curation/development/exclusive-policy128/probes/default/probe.json",
+        "source_sha256": "b99be6b6645e648797697d2f7378e43720a87b99f5380a62cec91d22a912c5d6"
+      },
+      {
+        "elapsed_seconds": 7.891556624788791,
+        "historical_source_matches_available_file": true,
+        "probe": "artifacts/p4-multirepair-curation/development/exclusive32accum/probes/a-pack-3/probe.json",
+        "source_sha256": "0cd91c259de93209bdfc5937da43a702683dcf96b8d18978d039da4ea3d25734"
+      },
+      {
+        "elapsed_seconds": 7.924558749888092,
+        "historical_source_matches_available_file": true,
+        "probe": "artifacts/p4-multirepair-curation/development/exclusive32accum/probes/all-no-immediate/probe.json",
+        "source_sha256": "5d94d64107a22a8f175c30970965fc9d234ff43af8dd321c7e491452b1420f70"
+      },
+      {
+        "elapsed_seconds": 8.020202541723847,
+        "historical_source_matches_available_file": true,
+        "probe": "artifacts/p4-multirepair-curation/development/exclusive32accum/probes/default/probe.json",
+        "source_sha256": "6535fa36b8aa0f942d985d0045083690ef48520b777a6abf003e9889cb310f51"
+      },
+      {
+        "elapsed_seconds": 18.79885270772502,
+        "historical_source_matches_available_file": true,
+        "probe": "artifacts/p4-multirepair-curation/development/exclusive36k80/probes/a-pack-7/probe.json",
+        "source_sha256": "167f5883f3ed660cdb8b7b4257c756f3468ed184ea2995209c2b4605d8d4ee08"
+      },
+      {
+        "elapsed_seconds": 18.048162499908358,
+        "historical_source_matches_available_file": true,
+        "probe": "artifacts/p4-multirepair-curation/development/exclusive36k80/probes/all-no-immediate/probe.json",
+        "source_sha256": "70f4714dda07b8bfb231294c63fd8eb01217fe4f337252c8f2588fa01e743500"
+      },
+      {
+        "elapsed_seconds": 21.306377709377557,
+        "historical_source_matches_available_file": true,
+        "probe": "artifacts/p4-multirepair-curation/development/exclusive36k80/probes/default/probe.json",
+        "source_sha256": "82fa5b86114c69da7722ae8d8df80747dcbfb26f792084d5d645695d63094625"
+      },
+      {
+        "elapsed_seconds": 16.85682462528348,
+        "historical_source_matches_available_file": true,
+        "probe": "artifacts/p4-multirepair-curation/development/exclusive40/probes/a-pack-3/probe.json",
+        "source_sha256": "600d0aab69b79825369827ef1037680ba8784bd37140bfe6c4601e08333fda27"
+      },
+      {
+        "elapsed_seconds": 17.70829329220578,
+        "historical_source_matches_available_file": true,
+        "probe": "artifacts/p4-multirepair-curation/development/exclusive40/probes/all-no-immediate/probe.json",
+        "source_sha256": "cdf506b3cf9527f486ee7527a6e94709c482771e635b9f806aa256411f02e7f3"
+      },
+      {
+        "elapsed_seconds": 17.952523457817733,
+        "historical_source_matches_available_file": true,
+        "probe": "artifacts/p4-multirepair-curation/development/exclusive40/probes/default/probe.json",
+        "source_sha256": "01e47183bce272fa70e614e0cbe421394f6bf22712acebc15a176887d2b8479f"
+      },
+      {
+        "elapsed_seconds": 13.65743466699496,
+        "historical_source_matches_available_file": true,
+        "probe": "artifacts/p4-multirepair-curation/development/wide-policy128/probes/a-no-immediate/probe.json",
+        "source_sha256": "cc28c61577aab7784f5039ff12a465b697b1ebb1d9cec2fb280c227fcb84b5a1"
+      },
+      {
+        "elapsed_seconds": 11.447962875012308,
+        "historical_source_matches_available_file": true,
+        "probe": "artifacts/p4-multirepair-curation/development/wide-policy128/probes/a-pack-3/probe.json",
+        "source_sha256": "45e89f4aeafa6fa839cc684620278328c4a0139a2f2a55827cda983a178fb384"
+      },
+      {
+        "elapsed_seconds": 16.760846791323274,
+        "historical_source_matches_available_file": true,
+        "probe": "artifacts/p4-multirepair-curation/development/wide-policy128/probes/default/probe.json",
+        "source_sha256": "0465c34f5b2c8febd69e0a7f90b00b0d9dce29cb6241b99a9d857c5bfc8ca282"
+      },
+      {
+        "elapsed_seconds": 5.270664083305746,
+        "historical_source_matches_available_file": true,
+        "probe": "artifacts/p4-multirepair-curation/development/wide48accum/probes/a-pack-3/probe.json",
+        "source_sha256": "6078db2901d34151c48fd6a20e83493d31051781ff721067cfbc2db30e445352"
+      },
+      {
+        "elapsed_seconds": 5.314218583982438,
+        "historical_source_matches_available_file": true,
+        "probe": "artifacts/p4-multirepair-curation/development/wide48accum/probes/all-no-immediate/probe.json",
+        "source_sha256": "3fd69bb58f5d33234e6efa405f83b4f58d400ae9306e20d8b2aa6c0a02f0b524"
+      },
+      {
+        "elapsed_seconds": 5.2687769159674644,
+        "historical_source_matches_available_file": true,
+        "probe": "artifacts/p4-multirepair-curation/development/wide48accum/probes/default/probe.json",
+        "source_sha256": "cfead51573fd5642d1ca6c3415ec5ef0320d57afd0a49848caa5e05f357efd10"
+      },
+      {
+        "elapsed_seconds": 12.976441208738834,
+        "historical_source_matches_available_file": true,
+        "probe": "artifacts/p4-multirepair-curation/development/wide64/probes/a-pack-3/probe.json",
+        "source_sha256": "4e77240f282bb329ac1fc4c423d2abb5bc964a85caaf2422e817b5a6f06604af"
+      },
+      {
+        "elapsed_seconds": 12.605730750132352,
+        "historical_source_matches_available_file": true,
+        "probe": "artifacts/p4-multirepair-curation/development/wide64/probes/all-no-immediate/probe.json",
+        "source_sha256": "647b58dfb2505d239d148460b595ed55178fec842037cd0bc041ea175227f939"
+      },
+      {
+        "elapsed_seconds": 13.261757832951844,
+        "historical_source_matches_available_file": true,
+        "probe": "artifacts/p4-multirepair-curation/development/wide64/probes/default/probe.json",
+        "source_sha256": "fc10a5064108eb701265c9352c0c263d6a01d86df83eaf8d60a39d467176f3b6"
+      },
+      {
+        "elapsed_seconds": 5.3263372094370425,
+        "historical_source_matches_available_file": true,
+        "probe": "artifacts/p4-multirepair-curation/development/wide64k40/probes/a-pack-3/probe.json",
+        "source_sha256": "974628ab0f45e9f1da5df24e4fc78533ac3da5a6621cbb533ab765ec21b09564"
+      },
+      {
+        "elapsed_seconds": 4.988626791164279,
+        "historical_source_matches_available_file": true,
+        "probe": "artifacts/p4-multirepair-curation/development/wide64k40/probes/all-no-immediate/probe.json",
+        "source_sha256": "141301d0d3c5cdde2bf1e5d9f41f826c1081b5c426b1ff51e57cbfe27de8f65c"
+      },
+      {
+        "elapsed_seconds": 5.325135790742934,
+        "historical_source_matches_available_file": true,
+        "probe": "artifacts/p4-multirepair-curation/development/wide64k40/probes/default/probe.json",
+        "source_sha256": "724be8da0ecc5e2f277c8b4952f988772211cc7ff8d91892972dcbdbd5618154"
+      }
+    ]
+  },
+  "note": "Separate from curation and evaluation. Historical overwritten development sources are explicitly marked unavailable."
+}

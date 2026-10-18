@@ -24,6 +24,8 @@ The [P4 qualification](docs/results/p4-pragma-fit-qualification-v1.md) now demon
 
 The [frozen six-case P4 adviser pilot](docs/results/p4-fit-advice-v1.md) found no escalation benefit: packing repaired one of five default failures under the strict acceptance gate; Jev and Codex repaired none, and the cascade only matched packing through its mechanical tier. Three other fitting candidates were rejected solely for generated debug-schema changes; their application tables were unchanged, and mechanical methods found all of them. The report preserves the frozen scores and this acceptance-rule limitation separately. No model or maintenance advantage is established.
 
+That pilot gave the mechanical recipe development knowledge withheld from the models. A [separate information-access diagnostic](docs/results/p4-information-diagnostic-v1.md) showed both advisers could select the supplied repair. The subsequent [equal-knowledge, unseen-source trial](docs/results/p4-multirepair-v2.md) repaired two of four qualified cases with each of the mechanical, Jev, Codex and escalation arms. Escalation recovered one invalid-response failure over cheap continuation, but added no coverage over the three-choice mechanical selector. Two cases with verified `pack(6)` repairs remained unsolved by every arm. The original three-structure corpus failed qualification; the separately frozen trial covers two synthetic repair structures and two controls. Neither broader generalization nor policy-maintenance savings is demonstrated.
+
 ## Build and validate
 
 Requires macOS ARM64, Xcode command-line tools, CMake, Git, and uv. The bootstrap downloads pinned LLVM source and builds a native compiler locally; it does not install system tools or require a GPU.
