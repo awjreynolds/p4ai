@@ -61,7 +61,10 @@ def analyze(output: Path, amendment: Path) -> dict:
     discovery = json.loads(discovery_path.read_text())
     if digest(discovery_path) != primary['discovery_sha256']:
         raise ValueError('frozen discovery changed')
-    design = discovery['design']
+    design_path = Path(discovery['design'])
+    if digest(design_path) != discovery['provenance']['design_sha256']:
+        raise ValueError('frozen design changed')
+    design = json.loads(design_path.read_text())
     for cases in (primary['calibration_cases'], primary['test_cases']):
         trial._verify_cache_refs(cases)
     calibration_rows = [{
