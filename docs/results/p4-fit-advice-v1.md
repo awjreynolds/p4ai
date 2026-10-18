@@ -4,6 +4,8 @@ The small mechanical packing sequence repaired one of five failing baselines. Je
 
 This follows a [real pragma-only repair](p4-pragma-fit-qualification-v1.md). It does not establish that model advice cannot help P4 generally.
 
+**Interpretation clarification:** the packing order incorporated a successful development repair that the advisers were explicitly denied. V1 compares those deployed strategies under their assigned information; it does not isolate model capability under equal development knowledge. The [separate information-access diagnostic](../p4-information-diagnostic-v1.md) addresses this asymmetry without changing any v1 case, choice, score or evidence.
+
 All six cases and 36 case/arm pairs completed. The [evidence bundle](p4-fit-advice-v1.json) preserves full inputs, decisions and validation; the [frozen contract](../p4-fit-advice-v1.md) defines scoring.
 
 **Acceptance-gate caveat:** three additional candidates genuinely compiled and assembled but failed the frozen full-BFRT equality gate because generated snapshot/debug metadata changed. Application tables, actions, keys and required capacities matched. Their original rejected scores remain unchanged; the separate audit below prevents confusing schema rejection with physical infeasibility. All three were found by mechanical arms, so this caveat does not conceal an adviser rescue.

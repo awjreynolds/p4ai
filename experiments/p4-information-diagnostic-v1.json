@@ -1,0 +1,70 @@
+{
+  "experiment_id": "p4-information-diagnostic-v1",
+  "source_run": "artifacts/p4-fit-advice-v1",
+  "source_config": "experiments/p4-fit-advice-v1.json",
+  "design": "docs/p4-information-diagnostic-v1.md",
+  "image": "sha256:5b27c37f3835c646c4a7f87c64de986a5fd5d71170b3f8b91e4bfbb908763af9",
+  "compile_timeout_seconds": 120,
+  "cases": [
+    {
+      "id": "tenant56",
+      "packet": "artifacts/p4-fit-advice-v1/decisions/tenant56/packing/1-packet.json"
+    },
+    {
+      "id": "tenant8",
+      "packet": "artifacts/p4-fit-advice-v1/decisions/tenant8/packing/1-packet.json"
+    }
+  ],
+  "providers": [
+    "jev",
+    "codex"
+  ],
+  "conditions": [
+    "baseline_information",
+    "worked_example"
+  ],
+  "schedule": [
+    {
+      "case": "tenant56",
+      "provider": "jev",
+      "condition": "baseline_information"
+    },
+    {
+      "case": "tenant8",
+      "provider": "codex",
+      "condition": "worked_example"
+    },
+    {
+      "case": "tenant8",
+      "provider": "jev",
+      "condition": "worked_example"
+    },
+    {
+      "case": "tenant56",
+      "provider": "codex",
+      "condition": "baseline_information"
+    },
+    {
+      "case": "tenant56",
+      "provider": "jev",
+      "condition": "worked_example"
+    },
+    {
+      "case": "tenant8",
+      "provider": "codex",
+      "condition": "baseline_information"
+    },
+    {
+      "case": "tenant8",
+      "provider": "jev",
+      "condition": "baseline_information"
+    },
+    {
+      "case": "tenant56",
+      "provider": "codex",
+      "condition": "worked_example"
+    }
+  ],
+  "common_context": "Each candidate is an alternative applied afresh to the original source shown above. Previous attempts are not accumulated. Choose exactly one menu item. No candidate outcome for the current program is supplied.\nPinned compiler documentation (p4c ca5aef25de1f847b5c88a05af583506484927015): @pack(N) requests 1\u20139 exact-match entries per wide table word; this is not a count per SRAM unit, and larger values can prevent placement. @placement_priority(N) changes consideration order: default 0; positive favours earlier placement and negative later placement. @immediate(0) disables the default attempt to store action parameters in match overhead rather than an action-data table. These are allocation controls; they do not guarantee a fit. Preserve required capacities and program semantics.",
+  "worked_example": "One verified development example is available to inform your decision, not as a universal repair rule. It used this same fixed compiler/target and synthetic pipeline family: twelve dependent chain tables, 16,384 entries each; eight independent side tables, 114,688 entries each; side exact-match key = 32-bit flow + 48-bit tenant, with 32-bit action values. Unannotated compilation allocated 14 stages and 880 SRAM blocks and the assembler rejected it against the 12-stage limit. Applying @pack(3) to each of the eight side tables (menu policy side-pack-3), with no other changes, compiled and assembled into 12 stages using 936 SRAM blocks. Required/logical capacities and the control-plane schema excluding annotations were unchanged. Source basename and code positions were controlled, and compiler inputs matched. This discovery informed putting side-pack-3 first in the mechanical recipe. No outcome for the current case is provided, and different dimensions may require a different choice."
+}
