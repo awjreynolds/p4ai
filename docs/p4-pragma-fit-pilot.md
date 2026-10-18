@@ -1,6 +1,6 @@
 # Proposed P4 pragma-guided fit experiment
 
-Status: [compiler-fit qualification passed](results/p4-pragma-fit-qualification-v1.md); the model comparison is not yet executed. The existing native CPU experiments and their negative results remain unchanged. The user's new hypothesis is that a harness can infer the compiler steering decisions a P4 developer would otherwise express through pragmas to make a program fit a resource-constrained target.
+Status: [compiler-fit qualification passed](results/p4-pragma-fit-qualification-v1.md), and the [separately frozen adviser pilot](results/p4-fit-advice-v1.md) completed without model or escalation advantage. Its strict full-schema gate also rejected three real compiler fits due to generated debug metadata; the report preserves that limitation without rescoring. The existing native CPU experiments and their negative results remain unchanged. The user's new hypothesis is that a harness can infer the compiler steering decisions a P4 developer would otherwise express through pragmas to make a program fit a resource-constrained target.
 
 ## Decision boundary
 

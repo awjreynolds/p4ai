@@ -22,6 +22,8 @@ GPU access is permanently unavailable for this effort. NVIDIA scheduling was inv
 
 The [P4 qualification](docs/results/p4-pragma-fit-qualification-v1.md) now demonstrates a real pragma-only repair: a program that needs 14 stages fits Tofino’s 12-stage limit after eight `@pack(3)` directives, with unchanged logical table capacities and control-plane interface. SRAM use increases from 880 to 936 blocks. The public compiler emits a target binary; no switch hardware is required for this fit check. This establishes the developer-steering boundary for a [harness compiler experiment](docs/p4-pragma-fit-pilot.md), not model advantage or executed packet correctness. The completed CPU results above remain unchanged.
 
+The [frozen six-case P4 adviser pilot](docs/results/p4-fit-advice-v1.md) found no escalation benefit: packing repaired one of five default failures under the strict acceptance gate; Jev and Codex repaired none, and the cascade only matched packing through its mechanical tier. Three other fitting candidates were rejected solely for generated debug-schema changes; their application tables were unchanged, and mechanical methods found all of them. The report preserves the frozen scores and this acceptance-rule limitation separately. No model or maintenance advantage is established.
+
 ## Build and validate
 
 Requires macOS ARM64, Xcode command-line tools, CMake, Git, and uv. The bootstrap downloads pinned LLVM source and builds a native compiler locally; it does not install system tools or require a GPU.
