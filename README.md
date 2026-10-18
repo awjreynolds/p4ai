@@ -76,6 +76,8 @@ The [fresh replication](docs/results/feedback-replication-v1.md) retains an aggr
 
 The [open decision-policy review](docs/research/open-decision-policy-options.md) recommends testing automatic policy repair against a direct compiler heuristic change. Open typed models are potential implementations, but moving handwritten rules into another engine does not establish simpler maintenance. A small learned scorer can live inside the compiler; a separate model service is not required by the architecture.
 
+The [System One architecture deep dive](docs/research/system-one-domain-policies.md) separates model specialization, deployment and MCP integration. It recommends testing versioned policy updates against direct heuristic repairs, preserving reproducible builds and using general advisers where their measured value justifies them. It also audits the small number of independent workload recipes behind the current results.
+
 The [application feasibility gate](docs/results/sqlite-feasibility-v1.md) passes historical SQLite's reference workload on both compilers but rejects that source for optimization evidence after a UBSan finding. A separate toy check confirms LLVM's interactive inliner through the exact pinned `opt` tool and Apple Clang. These are technical prerequisites for later application-level repair, not a demonstrated repair policy. The subsequent [current SQLite qualification](docs/results/current-sqlite-feasibility-v1.md) passes both compiler baselines and Apple ASan/UBSan against the unchanged workload/reference, clearing that application prerequisite without an optimization claim.
 
 ## Decision map

@@ -2,6 +2,8 @@
 
 Reviewed 18 October 2026. This is a source review and architectural recommendation, not a benchmark of these projects. No model was installed or run.
 
+The subsequent [System One architecture deep dive](system-one-domain-policies.md) develops the distinction between general priors and domain learning, MCP integration, reproducible builds and the evidence needed to claim easier maintenance.
+
 The user's question is whether a domain-specific Jev-like engine would simplify compiler updates, or merely move compiler heuristics into another rules system. The recommendation is to preserve a small compiler-owned decision boundary and first test a cheap policy trained on measured compiler outcomes. A larger open decision model is a candidate only if it supplies useful generalization or adaptation that this baseline lacks.
 
 ## Separate constraints from selection
