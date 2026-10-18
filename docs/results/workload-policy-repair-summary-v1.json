@@ -1,0 +1,1274 @@
+{
+  "fit_elapsed_seconds": 0.6013548327609897,
+  "gate": {
+    "all_local_comparisons_passed": false,
+    "comparisons": {
+      "direct_patch_vs_unchanged_source_forest": {
+        "blocks": {
+          "1": {
+            "dispersion_threshold": 0.019802627296179712,
+            "geometric_runtime_ratio": 0.8668780502616239,
+            "group_mean_log_ratios": {
+              "deep": -0.5745486609651261,
+              "shallow": 0.0,
+              "small": 0.0,
+              "square": 0.0,
+              "tall": 0.0,
+              "wide": -0.28259315442943467
+            },
+            "mean_group_balanced_log_improvement": 0.1428569692324268,
+            "mean_group_balanced_log_ratio": -0.1428569692324268,
+            "passed": false,
+            "positive_groups": 2,
+            "requirements": {
+              "at_least_four_of_six_groups_faster": false,
+              "geometric_runtime_ratio_below_0_95": true,
+              "paired_log_improvement_exceeds_dispersion": true
+            },
+            "round_level_group_balanced_log_ratios": [
+              -0.14264069367639573,
+              -0.14130702583526783,
+              -0.14489868990868437,
+              -0.14284198746106153,
+              -0.14340333768983513,
+              -0.1419660577590235,
+              -0.1410132490924831,
+              -0.1425128770562718,
+              -0.14344616528926393,
+              -0.1429679441414495,
+              -0.14442863364695832
+            ],
+            "round_level_mad": 0.0006041778282024068
+          },
+          "2": {
+            "dispersion_threshold": 0.019802627296179712,
+            "geometric_runtime_ratio": 0.8675473500878876,
+            "group_mean_log_ratios": {
+              "deep": -0.5711887282940877,
+              "shallow": 0.0,
+              "small": 0.0,
+              "square": 0.0,
+              "tall": 0.0,
+              "wide": -0.2813223902067267
+            },
+            "mean_group_balanced_log_improvement": 0.14208518641680243,
+            "mean_group_balanced_log_ratio": -0.14208518641680243,
+            "passed": false,
+            "positive_groups": 2,
+            "requirements": {
+              "at_least_four_of_six_groups_faster": false,
+              "geometric_runtime_ratio_below_0_95": true,
+              "paired_log_improvement_exceeds_dispersion": true
+            },
+            "round_level_group_balanced_log_ratios": [
+              -0.14029526760751312,
+              -0.1410707049850826,
+              -0.14286169756819977,
+              -0.13915053547947595,
+              -0.14278297021430378,
+              -0.1451531695044139,
+              -0.14293866015571874,
+              -0.14402876918026966,
+              -0.14032247463573919,
+              -0.14076686865159027,
+              -0.14356593260251965
+            ],
+            "round_level_mad": 0.0017122652292211882
+          }
+        },
+        "candidate": "direct_patch",
+        "passed": false,
+        "reference": "unchanged_source_forest"
+      },
+      "target_refit_vs_direct_patch": {
+        "blocks": {
+          "1": {
+            "dispersion_threshold": 0.019802627296179712,
+            "geometric_runtime_ratio": 1.3222469447692422,
+            "group_mean_log_ratios": {
+              "deep": 0.0,
+              "shallow": 0.0,
+              "small": 0.9770001623924855,
+              "square": 0.0,
+              "tall": -0.033070313091345865,
+              "wide": 0.7320652726854665
+            },
+            "mean_group_balanced_log_improvement": -0.27933252033110106,
+            "mean_group_balanced_log_ratio": 0.27933252033110106,
+            "passed": false,
+            "positive_groups": 1,
+            "requirements": {
+              "at_least_four_of_six_groups_faster": false,
+              "geometric_runtime_ratio_below_0_95": false,
+              "paired_log_improvement_exceeds_dispersion": false
+            },
+            "round_level_group_balanced_log_ratios": [
+              0.2804384812194746,
+              0.27857727711927244,
+              0.27845023966680454,
+              0.2791372616360354,
+              0.2807517918973618,
+              0.27925223000091537,
+              0.2791501004622148,
+              0.28046111086972225,
+              0.2789525985633829,
+              0.2792541259908002,
+              0.27823250621612705
+            ],
+            "round_level_mad": 0.0005728233429423413
+          },
+          "2": {
+            "dispersion_threshold": 0.019802627296179712,
+            "geometric_runtime_ratio": 1.3235031394439827,
+            "group_mean_log_ratios": {
+              "deep": 0.0,
+              "shallow": 0.0,
+              "small": 0.9793241379849248,
+              "square": 0.0,
+              "tall": -0.030677008541252413,
+              "wide": 0.7330455591118931
+            },
+            "mean_group_balanced_log_improvement": -0.2802821147592609,
+            "mean_group_balanced_log_ratio": 0.2802821147592609,
+            "passed": false,
+            "positive_groups": 1,
+            "requirements": {
+              "at_least_four_of_six_groups_faster": false,
+              "geometric_runtime_ratio_below_0_95": false,
+              "paired_log_improvement_exceeds_dispersion": false
+            },
+            "round_level_group_balanced_log_ratios": [
+              0.2829958320286574,
+              0.2820549280731515,
+              0.2818382966803105,
+              0.2810962629572412,
+              0.2807758674444899,
+              0.2799071823779035,
+              0.28024600943120265,
+              0.28014540852338093,
+              0.27402842496759844,
+              0.27948690057900183,
+              0.28052814928893205
+            ],
+            "round_level_mad": 0.000620966911028531
+          }
+        },
+        "candidate": "target_refit",
+        "passed": false,
+        "reference": "direct_patch"
+      },
+      "target_refit_vs_unchanged_source_forest": {
+        "blocks": {
+          "1": {
+            "dispersion_threshold": 0.019802627296179712,
+            "geometric_runtime_ratio": 1.1462268534459499,
+            "group_mean_log_ratios": {
+              "deep": -0.5745486609651261,
+              "shallow": 0.0,
+              "small": 0.9770001623924855,
+              "square": 0.0,
+              "tall": -0.033070313091345865,
+              "wide": 0.4494721182560318
+            },
+            "mean_group_balanced_log_improvement": -0.13647555109867424,
+            "mean_group_balanced_log_ratio": 0.13647555109867424,
+            "passed": false,
+            "positive_groups": 2,
+            "requirements": {
+              "at_least_four_of_six_groups_faster": false,
+              "geometric_runtime_ratio_below_0_95": false,
+              "paired_log_improvement_exceeds_dispersion": false
+            },
+            "round_level_group_balanced_log_ratios": [
+              0.1377977875430789,
+              0.1372702512840046,
+              0.13355154975812014,
+              0.13629527417497386,
+              0.13734845420752667,
+              0.1372861722418919,
+              0.13813685136973164,
+              0.13794823381345045,
+              0.13550643327411896,
+              0.13628618184935068,
+              0.13380387256916873
+            ],
+            "round_level_mad": 0.0008666000857270317
+          },
+          "2": {
+            "dispersion_threshold": 0.019802627296179712,
+            "geometric_runtime_ratio": 1.1482016414576275,
+            "group_mean_log_ratios": {
+              "deep": -0.5711887282940877,
+              "shallow": 0.0,
+              "small": 0.9793241379849248,
+              "square": 0.0,
+              "tall": -0.030677008541252413,
+              "wide": 0.4517231689051664
+            },
+            "mean_group_balanced_log_improvement": -0.1381969283424585,
+            "mean_group_balanced_log_ratio": 0.1381969283424585,
+            "passed": false,
+            "positive_groups": 2,
+            "requirements": {
+              "at_least_four_of_six_groups_faster": false,
+              "geometric_runtime_ratio_below_0_95": false,
+              "paired_log_improvement_exceeds_dispersion": false
+            },
+            "round_level_group_balanced_log_ratios": [
+              0.14270056442114426,
+              0.14098422308806893,
+              0.13897659911211077,
+              0.14194572747776527,
+              0.1379928972301861,
+              0.13475401287348962,
+              0.13730734927548394,
+              0.13611663934311127,
+              0.1337059503318593,
+              0.13872003192741159,
+              0.13696221668641242
+            ],
+            "round_level_mad": 0.0018762578870748226
+          }
+        },
+        "candidate": "target_refit",
+        "passed": false,
+        "reference": "unchanged_source_forest"
+      }
+    },
+    "jev_available": true,
+    "jev_vs_target_refit": {
+      "blocks": {
+        "1": {
+          "dispersion_threshold": 0.019802627296179712,
+          "geometric_runtime_ratio": 0.9712135394096709,
+          "group_mean_log_ratios": {
+            "deep": 0.5745486609651261,
+            "shallow": 0.6435997993944809,
+            "small": -0.9770001623924855,
+            "square": 0.0,
+            "tall": 0.03307031309134586,
+            "wide": -0.4494721182560318
+          },
+          "mean_group_balanced_log_improvement": 0.029208917866260755,
+          "mean_group_balanced_log_ratio": -0.029208917866260755,
+          "passed": false,
+          "positive_groups": 2,
+          "requirements": {
+            "at_least_four_of_six_groups_faster": false,
+            "geometric_runtime_ratio_below_0_95": false,
+            "paired_log_improvement_exceeds_dispersion": true
+          },
+          "round_level_group_balanced_log_ratios": [
+            -0.03144044884762193,
+            -0.03578355241322811,
+            -0.025344229028751566,
+            -0.02803550176894853,
+            -0.028899587421671702,
+            -0.029835494950150154,
+            -0.029908476564494687,
+            -0.029306394099194125,
+            -0.02800388361401646,
+            -0.028785654567828903,
+            -0.025954873252962172
+          ],
+          "round_level_mad": 0.0009359075284784517
+        },
+        "2": {
+          "dispersion_threshold": 0.019802627296179712,
+          "geometric_runtime_ratio": 0.9705642063916946,
+          "group_mean_log_ratios": {
+            "deep": 0.5711887282940877,
+            "shallow": 0.649915247012011,
+            "small": -0.9793241379849248,
+            "square": 0.0,
+            "tall": 0.030677008541252413,
+            "wide": -0.4517231689051664
+          },
+          "mean_group_balanced_log_improvement": 0.02987772050712334,
+          "mean_group_balanced_log_ratio": -0.02987772050712334,
+          "passed": false,
+          "positive_groups": 2,
+          "requirements": {
+            "at_least_four_of_six_groups_faster": false,
+            "geometric_runtime_ratio_below_0_95": false,
+            "paired_log_improvement_exceeds_dispersion": true
+          },
+          "round_level_group_balanced_log_ratios": [
+            -0.03438479132923137,
+            -0.032657614569435583,
+            -0.031456347760036356,
+            -0.03394146050927186,
+            -0.02952215137522216,
+            -0.027682171772246925,
+            -0.027348409703798843,
+            -0.027069908481843402,
+            -0.025304199755197303,
+            -0.030836119335742415,
+            -0.028451750986330532
+          ],
+          "round_level_mad": 0.002173741671423316
+        }
+      },
+      "candidate": "informed_jev_reference",
+      "passed": false,
+      "reference": "target_refit"
+    },
+    "passed": false,
+    "primary": {
+      "blocks": {
+        "1": {
+          "dispersion_threshold": 0.019802627296179712,
+          "geometric_runtime_ratio": 1.1462268534459499,
+          "group_mean_log_ratios": {
+            "deep": -0.5745486609651261,
+            "shallow": 0.0,
+            "small": 0.9770001623924855,
+            "square": 0.0,
+            "tall": -0.033070313091345865,
+            "wide": 0.4494721182560318
+          },
+          "mean_group_balanced_log_improvement": -0.13647555109867424,
+          "mean_group_balanced_log_ratio": 0.13647555109867424,
+          "passed": false,
+          "positive_groups": 2,
+          "requirements": {
+            "at_least_four_of_six_groups_faster": false,
+            "geometric_runtime_ratio_below_0_95": false,
+            "paired_log_improvement_exceeds_dispersion": false
+          },
+          "round_level_group_balanced_log_ratios": [
+            0.1377977875430789,
+            0.1372702512840046,
+            0.13355154975812014,
+            0.13629527417497386,
+            0.13734845420752667,
+            0.1372861722418919,
+            0.13813685136973164,
+            0.13794823381345045,
+            0.13550643327411896,
+            0.13628618184935068,
+            0.13380387256916873
+          ],
+          "round_level_mad": 0.0008666000857270317
+        },
+        "2": {
+          "dispersion_threshold": 0.019802627296179712,
+          "geometric_runtime_ratio": 1.1482016414576275,
+          "group_mean_log_ratios": {
+            "deep": -0.5711887282940877,
+            "shallow": 0.0,
+            "small": 0.9793241379849248,
+            "square": 0.0,
+            "tall": -0.030677008541252413,
+            "wide": 0.4517231689051664
+          },
+          "mean_group_balanced_log_improvement": -0.1381969283424585,
+          "mean_group_balanced_log_ratio": 0.1381969283424585,
+          "passed": false,
+          "positive_groups": 2,
+          "requirements": {
+            "at_least_four_of_six_groups_faster": false,
+            "geometric_runtime_ratio_below_0_95": false,
+            "paired_log_improvement_exceeds_dispersion": false
+          },
+          "round_level_group_balanced_log_ratios": [
+            0.14270056442114426,
+            0.14098422308806893,
+            0.13897659911211077,
+            0.14194572747776527,
+            0.1379928972301861,
+            0.13475401287348962,
+            0.13730734927548394,
+            0.13611663934311127,
+            0.1337059503318593,
+            0.13872003192741159,
+            0.13696221668641242
+          ],
+          "round_level_mad": 0.0018762578870748226
+        }
+      },
+      "candidate": "target_refit",
+      "passed": false,
+      "reference": "unchanged_source_forest"
+    },
+    "stride_control_vs_unchanged_source_forest": {
+      "blocks": {
+        "1": {
+          "dispersion_threshold": 0.019802627296179712,
+          "geometric_runtime_ratio": 1.2037760616112287,
+          "group_mean_log_ratios": {
+            "deep": 0.31449162755583226,
+            "shallow": 0.9610870515231421,
+            "small": 0.0,
+            "square": 0.0,
+            "tall": 0.11979448083750109,
+            "wide": -0.28259315442943467
+          },
+          "mean_group_balanced_log_improvement": -0.18546333424784012,
+          "mean_group_balanced_log_ratio": 0.18546333424784012,
+          "passed": false,
+          "positive_groups": 1,
+          "requirements": {
+            "at_least_four_of_six_groups_faster": false,
+            "geometric_runtime_ratio_below_0_95": false,
+            "paired_log_improvement_exceeds_dispersion": false
+          },
+          "round_level_group_balanced_log_ratios": [
+            0.18455759868985813,
+            0.18209480418822646,
+            0.1870092884742918,
+            0.18835825552722682,
+            0.18563949041633745,
+            0.18581783853442502,
+            0.18918228751484245,
+            0.18665783676781567,
+            0.18162097026950078,
+            0.18364815866765852,
+            0.1855101476760582
+          ],
+          "round_level_mad": 0.0013697980579543412
+        },
+        "2": {
+          "dispersion_threshold": 0.019802627296179712,
+          "geometric_runtime_ratio": 1.203922688279104,
+          "group_mean_log_ratios": {
+            "deep": 0.3132287221470405,
+            "shallow": 0.9623746725241703,
+            "small": 0.0,
+            "square": 0.0,
+            "tall": 0.11922979012844413,
+            "wide": -0.2813223902067267
+          },
+          "mean_group_balanced_log_improvement": -0.18558513243215471,
+          "mean_group_balanced_log_ratio": 0.18558513243215471,
+          "passed": false,
+          "positive_groups": 1,
+          "requirements": {
+            "at_least_four_of_six_groups_faster": false,
+            "geometric_runtime_ratio_below_0_95": false,
+            "paired_log_improvement_exceeds_dispersion": false
+          },
+          "round_level_group_balanced_log_ratios": [
+            0.1842037434191525,
+            0.18806341228985765,
+            0.182111755577002,
+            0.1859653477455208,
+            0.18593894933816188,
+            0.18412126329292622,
+            0.18889770324463417,
+            0.18661894598597528,
+            0.18918651716296128,
+            0.1862371012290787,
+            0.18009171746843144
+          ],
+          "round_level_mad": 0.0018440844525945688
+        }
+      },
+      "candidate": "stride_selector",
+      "evaluation_role": "descriptive_control_not_repair_acceptance",
+      "passed": false,
+      "reference": "unchanged_source_forest"
+    }
+  },
+  "group_balanced_ratios": {
+    "1": {
+      "direct_patch": {
+        "oracle": 1.0055925868640108,
+        "stock": 0.24719574532212973
+      },
+      "informed_jev_reference": {
+        "oracle": 1.2913660465284664,
+        "stock": 0.3174448544323502
+      },
+      "stride_selector": {
+        "oracle": 1.3963997397734027,
+        "stock": 0.3432643388088088
+      },
+      "target_refit": {
+        "oracle": 1.329641725663537,
+        "stock": 0.3268538190121417
+      },
+      "unchanged_source_forest": {
+        "oracle": 1.160016205924839,
+        "stock": 0.28515630918042745
+      }
+    },
+    "2": {
+      "direct_patch": {
+        "oracle": 1.0055083211592235,
+        "stock": 0.24739766457560985
+      },
+      "informed_jev_reference": {
+        "oracle": 1.2916204593510137,
+        "stock": 0.3177933771777479
+      },
+      "stride_selector": {
+        "oracle": 1.3953754581515174,
+        "stock": 0.34332150444545373
+      },
+      "target_refit": {
+        "oracle": 1.3307934197912807,
+        "stock": 0.32743158575692904
+      },
+      "unchanged_source_forest": {
+        "oracle": 1.1590241397859835,
+        "stock": 0.28516906258839586
+      }
+    }
+  },
+  "patch_commit": "9012f76",
+  "per_case": [
+    {
+      "blocks": {
+        "1": {
+          "direct_patch": {
+            "oracle": 1.0,
+            "stock": 0.1055570719011371
+          },
+          "informed_jev_reference": {
+            "oracle": 1.0,
+            "stock": 0.1055570719011371
+          },
+          "stride_selector": {
+            "oracle": 1.0,
+            "stock": 0.1055570719011371
+          },
+          "target_refit": {
+            "oracle": 1.0,
+            "stock": 0.1055570719011371
+          },
+          "unchanged_source_forest": {
+            "oracle": 1.0,
+            "stock": 0.1055570719011371
+          }
+        },
+        "2": {
+          "direct_patch": {
+            "oracle": 1.0,
+            "stock": 0.10577754645159271
+          },
+          "informed_jev_reference": {
+            "oracle": 1.0,
+            "stock": 0.10577754645159271
+          },
+          "stride_selector": {
+            "oracle": 1.0,
+            "stock": 0.10577754645159271
+          },
+          "target_refit": {
+            "oracle": 1.0,
+            "stock": 0.10577754645159271
+          },
+          "unchanged_source_forest": {
+            "oracle": 1.0,
+            "stock": 0.10577754645159271
+          }
+        }
+      },
+      "case_id": "shift-test-small-rrr",
+      "choices": {
+        "direct_patch": "ikj",
+        "informed_jev_reference": [
+          "ikj",
+          "ikj",
+          "ikj"
+        ],
+        "stride_selector": "ikj",
+        "target_refit": "ikj",
+        "unchanged_source_forest": "ikj"
+      },
+      "group": "small"
+    },
+    {
+      "blocks": {
+        "1": {
+          "direct_patch": {
+            "oracle": 1.0,
+            "stock": 0.14170606595265847
+          },
+          "informed_jev_reference": {
+            "oracle": 1.0,
+            "stock": 0.14170606595265847
+          },
+          "stride_selector": {
+            "oracle": 1.0,
+            "stock": 0.14170606595265847
+          },
+          "target_refit": {
+            "oracle": 7.0568609274219956,
+            "stock": 1.0
+          },
+          "unchanged_source_forest": {
+            "oracle": 1.0,
+            "stock": 0.14170606595265847
+          }
+        },
+        "2": {
+          "direct_patch": {
+            "oracle": 1.0,
+            "stock": 0.14104895137673998
+          },
+          "informed_jev_reference": {
+            "oracle": 1.0,
+            "stock": 0.14104895137673998
+          },
+          "stride_selector": {
+            "oracle": 1.0,
+            "stock": 0.14104895137673998
+          },
+          "target_refit": {
+            "oracle": 7.0897372170390165,
+            "stock": 1.0
+          },
+          "unchanged_source_forest": {
+            "oracle": 1.0,
+            "stock": 0.14104895137673998
+          }
+        }
+      },
+      "case_id": "shift-test-small-ccc",
+      "choices": {
+        "direct_patch": "jki",
+        "informed_jev_reference": [
+          "jki",
+          "jki",
+          "jki"
+        ],
+        "stride_selector": "jki",
+        "target_refit": "ijk",
+        "unchanged_source_forest": "jki"
+      },
+      "group": "small"
+    },
+    {
+      "blocks": {
+        "1": {
+          "direct_patch": {
+            "oracle": 1.0,
+            "stock": 0.11625062498636732
+          },
+          "informed_jev_reference": {
+            "oracle": 1.0,
+            "stock": 0.11625062498636732
+          },
+          "stride_selector": {
+            "oracle": 1.0,
+            "stock": 0.11625062498636732
+          },
+          "target_refit": {
+            "oracle": 1.0,
+            "stock": 0.11625062498636732
+          },
+          "unchanged_source_forest": {
+            "oracle": 1.0,
+            "stock": 0.11625062498636732
+          }
+        },
+        "2": {
+          "direct_patch": {
+            "oracle": 1.0,
+            "stock": 0.11715889149370698
+          },
+          "informed_jev_reference": {
+            "oracle": 1.0,
+            "stock": 0.11715889149370698
+          },
+          "stride_selector": {
+            "oracle": 1.0,
+            "stock": 0.11715889149370698
+          },
+          "target_refit": {
+            "oracle": 1.0,
+            "stock": 0.11715889149370698
+          },
+          "unchanged_source_forest": {
+            "oracle": 1.0,
+            "stock": 0.11715889149370698
+          }
+        }
+      },
+      "case_id": "shift-test-square-rrr",
+      "choices": {
+        "direct_patch": "ikj",
+        "informed_jev_reference": [
+          "ikj",
+          "ikj",
+          "ikj"
+        ],
+        "stride_selector": "ikj",
+        "target_refit": "ikj",
+        "unchanged_source_forest": "ikj"
+      },
+      "group": "square"
+    },
+    {
+      "blocks": {
+        "1": {
+          "direct_patch": {
+            "oracle": 1.0,
+            "stock": 0.15573066057951473
+          },
+          "informed_jev_reference": {
+            "oracle": 1.0,
+            "stock": 0.15573066057951473
+          },
+          "stride_selector": {
+            "oracle": 1.0,
+            "stock": 0.15573066057951473
+          },
+          "target_refit": {
+            "oracle": 1.0,
+            "stock": 0.15573066057951473
+          },
+          "unchanged_source_forest": {
+            "oracle": 1.0,
+            "stock": 0.15573066057951473
+          }
+        },
+        "2": {
+          "direct_patch": {
+            "oracle": 1.0,
+            "stock": 0.15544632113490015
+          },
+          "informed_jev_reference": {
+            "oracle": 1.0,
+            "stock": 0.15544632113490015
+          },
+          "stride_selector": {
+            "oracle": 1.0,
+            "stock": 0.15544632113490015
+          },
+          "target_refit": {
+            "oracle": 1.0,
+            "stock": 0.15544632113490015
+          },
+          "unchanged_source_forest": {
+            "oracle": 1.0,
+            "stock": 0.15544632113490015
+          }
+        }
+      },
+      "case_id": "shift-test-square-ccc",
+      "choices": {
+        "direct_patch": "jki",
+        "informed_jev_reference": [
+          "jki",
+          "jki",
+          "jki"
+        ],
+        "stride_selector": "jki",
+        "target_refit": "jki",
+        "unchanged_source_forest": "jki"
+      },
+      "group": "square"
+    },
+    {
+      "blocks": {
+        "1": {
+          "direct_patch": {
+            "oracle": 1.0683769483744507,
+            "stock": 0.2117905947907964
+          },
+          "informed_jev_reference": {
+            "oracle": 1.0683769483744507,
+            "stock": 0.2117905947907964
+          },
+          "stride_selector": {
+            "oracle": 1.0683769483744507,
+            "stock": 0.2117905947907964
+          },
+          "target_refit": {
+            "oracle": 1.0,
+            "stock": 0.19823583344159426
+          },
+          "unchanged_source_forest": {
+            "oracle": 1.0683769483744507,
+            "stock": 0.2117905947907964
+          }
+        },
+        "2": {
+          "direct_patch": {
+            "oracle": 1.0632752651732018,
+            "stock": 0.21159588107337934
+          },
+          "informed_jev_reference": {
+            "oracle": 1.0632752651732018,
+            "stock": 0.21159588107337934
+          },
+          "stride_selector": {
+            "oracle": 1.0632752651732018,
+            "stock": 0.21159588107337934
+          },
+          "target_refit": {
+            "oracle": 1.0,
+            "stock": 0.19900385911724516
+          },
+          "unchanged_source_forest": {
+            "oracle": 1.0632752651732018,
+            "stock": 0.21159588107337934
+          }
+        }
+      },
+      "case_id": "shift-test-tall-ccc",
+      "choices": {
+        "direct_patch": "jki",
+        "informed_jev_reference": [
+          "jki",
+          "jki",
+          "jki"
+        ],
+        "stride_selector": "jki",
+        "target_refit": "kji",
+        "unchanged_source_forest": "jki"
+      },
+      "group": "tall"
+    },
+    {
+      "blocks": {
+        "1": {
+          "direct_patch": {
+            "oracle": 1.0,
+            "stock": 1.0
+          },
+          "informed_jev_reference": {
+            "oracle": 1.0,
+            "stock": 1.0
+          },
+          "stride_selector": {
+            "oracle": 1.2707267255756534,
+            "stock": 1.2707267255756534
+          },
+          "target_refit": {
+            "oracle": 1.0,
+            "stock": 1.0
+          },
+          "unchanged_source_forest": {
+            "oracle": 1.0,
+            "stock": 1.0
+          }
+        },
+        "2": {
+          "direct_patch": {
+            "oracle": 1.0,
+            "stock": 1.0
+          },
+          "informed_jev_reference": {
+            "oracle": 1.0,
+            "stock": 1.0
+          },
+          "stride_selector": {
+            "oracle": 1.2692924005267734,
+            "stock": 1.2692924005267734
+          },
+          "target_refit": {
+            "oracle": 1.0,
+            "stock": 1.0
+          },
+          "unchanged_source_forest": {
+            "oracle": 1.0,
+            "stock": 1.0
+          }
+        }
+      },
+      "case_id": "shift-test-tall-rcc",
+      "choices": {
+        "direct_patch": "ijk",
+        "informed_jev_reference": [
+          "ijk",
+          "ijk",
+          "ijk"
+        ],
+        "stride_selector": "jik",
+        "target_refit": "ijk",
+        "unchanged_source_forest": "ijk"
+      },
+      "group": "tall"
+    },
+    {
+      "blocks": {
+        "1": {
+          "direct_patch": {
+            "oracle": 1.0,
+            "stock": 0.2174991493467131
+          },
+          "informed_jev_reference": {
+            "oracle": 1.7597756139684386,
+            "stock": 0.3827496990792252
+          },
+          "stride_selector": {
+            "oracle": 1.0,
+            "stock": 0.2174991493467131
+          },
+          "target_refit": {
+            "oracle": 1.0,
+            "stock": 0.2174991493467131
+          },
+          "unchanged_source_forest": {
+            "oracle": 1.7597756139684386,
+            "stock": 0.3827496990792252
+          }
+        },
+        "2": {
+          "direct_patch": {
+            "oracle": 1.0,
+            "stock": 0.21755905578476648
+          },
+          "informed_jev_reference": {
+            "oracle": 1.7553087728942278,
+            "stock": 0.38188331924158525
+          },
+          "stride_selector": {
+            "oracle": 1.0,
+            "stock": 0.21755905578476648
+          },
+          "target_refit": {
+            "oracle": 1.0,
+            "stock": 0.21755905578476648
+          },
+          "unchanged_source_forest": {
+            "oracle": 1.7553087728942278,
+            "stock": 0.38188331924158525
+          }
+        }
+      },
+      "case_id": "shift-test-wide-rrc",
+      "choices": {
+        "direct_patch": "kji",
+        "informed_jev_reference": [
+          "jki",
+          "jki",
+          "jki"
+        ],
+        "stride_selector": "kji",
+        "target_refit": "kji",
+        "unchanged_source_forest": "jki"
+      },
+      "group": "wide"
+    },
+    {
+      "blocks": {
+        "1": {
+          "direct_patch": {
+            "oracle": 1.0007837577524605,
+            "stock": 0.23127899067387447
+          },
+          "informed_jev_reference": {
+            "oracle": 1.0007837577524605,
+            "stock": 0.23127899067387447
+          },
+          "stride_selector": {
+            "oracle": 1.0007837577524605,
+            "stock": 0.23127899067387447
+          },
+          "target_refit": {
+            "oracle": 4.327171070906572,
+            "stock": 1.0
+          },
+          "unchanged_source_forest": {
+            "oracle": 1.0007837577524605,
+            "stock": 0.23127899067387447
+          }
+        },
+        "2": {
+          "direct_patch": {
+            "oracle": 1.0045748859747852,
+            "stock": 0.23082599557337585
+          },
+          "informed_jev_reference": {
+            "oracle": 1.0045748859747852,
+            "stock": 0.23082599557337585
+          },
+          "stride_selector": {
+            "oracle": 1.0045748859747852,
+            "stock": 0.23082599557337585
+          },
+          "target_refit": {
+            "oracle": 4.352087309227904,
+            "stock": 1.0
+          },
+          "unchanged_source_forest": {
+            "oracle": 1.0045748859747852,
+            "stock": 0.23082599557337585
+          }
+        }
+      },
+      "case_id": "shift-test-wide-rrr",
+      "choices": {
+        "direct_patch": "ikj",
+        "informed_jev_reference": [
+          "ikj",
+          "ikj",
+          "ikj"
+        ],
+        "stride_selector": "ikj",
+        "target_refit": "ijk",
+        "unchanged_source_forest": "ikj"
+      },
+      "group": "wide"
+    },
+    {
+      "blocks": {
+        "1": {
+          "direct_patch": {
+            "oracle": 1.0,
+            "stock": 0.12030184616492737
+          },
+          "informed_jev_reference": {
+            "oracle": 1.0,
+            "stock": 0.12030184616492737
+          },
+          "stride_selector": {
+            "oracle": 1.0,
+            "stock": 0.12030184616492737
+          },
+          "target_refit": {
+            "oracle": 1.0,
+            "stock": 0.12030184616492737
+          },
+          "unchanged_source_forest": {
+            "oracle": 1.0,
+            "stock": 0.12030184616492737
+          }
+        },
+        "2": {
+          "direct_patch": {
+            "oracle": 1.0,
+            "stock": 0.12053287897650007
+          },
+          "informed_jev_reference": {
+            "oracle": 1.0,
+            "stock": 0.12053287897650007
+          },
+          "stride_selector": {
+            "oracle": 1.0,
+            "stock": 0.12053287897650007
+          },
+          "target_refit": {
+            "oracle": 1.0,
+            "stock": 0.12053287897650007
+          },
+          "unchanged_source_forest": {
+            "oracle": 1.0,
+            "stock": 0.12053287897650007
+          }
+        }
+      },
+      "case_id": "shift-test-deep-crr",
+      "choices": {
+        "direct_patch": "ikj",
+        "informed_jev_reference": [
+          "ikj",
+          "ikj",
+          "ikj"
+        ],
+        "stride_selector": "ikj",
+        "target_refit": "ikj",
+        "unchanged_source_forest": "ikj"
+      },
+      "group": "deep"
+    },
+    {
+      "blocks": {
+        "1": {
+          "direct_patch": {
+            "oracle": 1.0,
+            "stock": 0.16465347004648467
+          },
+          "informed_jev_reference": {
+            "oracle": 3.155343364514618,
+            "stock": 0.5195382341554817
+          },
+          "stride_selector": {
+            "oracle": 5.918485432400208,
+            "stock": 0.9744991638642633
+          },
+          "target_refit": {
+            "oracle": 1.0,
+            "stock": 0.16465347004648467
+          },
+          "unchanged_source_forest": {
+            "oracle": 3.155343364514618,
+            "stock": 0.5195382341554817
+          }
+        },
+        "2": {
+          "direct_patch": {
+            "oracle": 1.0,
+            "stock": 0.16659640000312914
+          },
+          "informed_jev_reference": {
+            "oracle": 3.134210964958948,
+            "stock": 0.5221482636124941
+          },
+          "stride_selector": {
+            "oracle": 5.864017218476201,
+            "stock": 0.9769241581544978
+          },
+          "target_refit": {
+            "oracle": 1.0,
+            "stock": 0.16659640000312914
+          },
+          "unchanged_source_forest": {
+            "oracle": 3.134210964958948,
+            "stock": 0.5221482636124941
+          }
+        }
+      },
+      "case_id": "shift-test-deep-ccr",
+      "choices": {
+        "direct_patch": "kij",
+        "informed_jev_reference": [
+          "ikj",
+          "ikj",
+          "ikj"
+        ],
+        "stride_selector": "jik",
+        "target_refit": "kij",
+        "unchanged_source_forest": "ikj"
+      },
+      "group": "deep"
+    },
+    {
+      "blocks": {
+        "1": {
+          "direct_patch": {
+            "oracle": 1.0,
+            "stock": 0.9109679627272977
+          },
+          "informed_jev_reference": {
+            "oracle": 1.0,
+            "stock": 0.9109679627272977
+          },
+          "stride_selector": {
+            "oracle": 1.8869740310411003,
+            "stock": 1.7189728887768279
+          },
+          "target_refit": {
+            "oracle": 1.0,
+            "stock": 0.9109679627272977
+          },
+          "unchanged_source_forest": {
+            "oracle": 1.0,
+            "stock": 0.9109679627272977
+          }
+        },
+        "2": {
+          "direct_patch": {
+            "oracle": 1.0,
+            "stock": 0.9067506160835327
+          },
+          "informed_jev_reference": {
+            "oracle": 1.0,
+            "stock": 0.9067506160835327
+          },
+          "stride_selector": {
+            "oracle": 1.8680943573376356,
+            "stock": 1.6938957094180724
+          },
+          "target_refit": {
+            "oracle": 1.0,
+            "stock": 0.9067506160835327
+          },
+          "unchanged_source_forest": {
+            "oracle": 1.0,
+            "stock": 0.9067506160835327
+          }
+        }
+      },
+      "case_id": "shift-test-shallow-crr",
+      "choices": {
+        "direct_patch": "ikj",
+        "informed_jev_reference": [
+          "ikj",
+          "ikj",
+          "ikj"
+        ],
+        "stride_selector": "kij",
+        "target_refit": "ikj",
+        "unchanged_source_forest": "ikj"
+      },
+      "group": "shallow"
+    },
+    {
+      "blocks": {
+        "1": {
+          "direct_patch": {
+            "oracle": 1.0,
+            "stock": 1.0
+          },
+          "informed_jev_reference": {
+            "oracle": 3.6226275271997004,
+            "stock": 3.6226275271997004
+          },
+          "stride_selector": {
+            "oracle": 3.6226275271997004,
+            "stock": 3.6226275271997004
+          },
+          "target_refit": {
+            "oracle": 1.0,
+            "stock": 1.0
+          },
+          "unchanged_source_forest": {
+            "oracle": 1.0,
+            "stock": 1.0
+          }
+        },
+        "2": {
+          "direct_patch": {
+            "oracle": 1.0,
+            "stock": 1.0
+          },
+          "informed_jev_reference": {
+            "oracle": 3.66867475261709,
+            "stock": 3.66867475261709
+          },
+          "stride_selector": {
+            "oracle": 3.66867475261709,
+            "stock": 3.66867475261709
+          },
+          "target_refit": {
+            "oracle": 1.0,
+            "stock": 1.0
+          },
+          "unchanged_source_forest": {
+            "oracle": 1.0,
+            "stock": 1.0
+          }
+        }
+      },
+      "case_id": "shift-test-shallow-ccr",
+      "choices": {
+        "direct_patch": "ijk",
+        "informed_jev_reference": [
+          "ikj",
+          "ikj",
+          "ikj"
+        ],
+        "stride_selector": "ikj",
+        "target_refit": "ijk",
+        "unchanged_source_forest": "ijk"
+      },
+      "group": "shallow"
+    }
+  ],
+  "provider": {
+    "failed_or_unattempted_slots": 0,
+    "input_tokens_observed": 148494,
+    "model_ids": [
+      "jev-1.14.0"
+    ],
+    "observed_response_latency_ms": 20172.128249891102,
+    "output_tokens_observed": 2124,
+    "recorded_attempts": 36,
+    "response_count": 36,
+    "responses_with_input_token_count": 36,
+    "responses_with_latency": 36,
+    "responses_with_output_token_count": 36,
+    "usage_scope": "successful response usage only; failed call usage may be unavailable"
+  },
+  "public_bundle_sha256": "bfe7209a38bcce54f7f821e99ef218d3704b1ae6f04260dada578745e38b8d10",
+  "public_records": 171,
+  "schema_version": 1,
+  "source_commit": "17a3fda0f66a5e2fe8d78572f3288baef6402b49",
+  "status": "repair_gate_failed"
+}

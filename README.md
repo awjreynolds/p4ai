@@ -2,6 +2,16 @@
 
 A **harness compiler** that experiments with replacing handwritten compiler selection policy with a small mechanical selector, Typesafe.ai's Jev, and selective stronger-model advice. Compiler mechanisms and acceptance checks remain authoritative.
 
+The [completed proof of concept](docs/harness-compiler-poc.md) now includes native correctness, repeatable builds, portable policy replay, and a [frozen policy-repair experiment](docs/results/workload-policy-repair-v1.md). The learned update failed: refitting made held-out code about 15% slower. A small agent-authored heuristic improved aggregate runtime by about 13%, but failed the required breadth of improvement; the full escalation and maintenance hypotheses remain unproved. Negative results and all competing choices are published.
+
+Replay all twelve final local decisions with **plain Python**, without a compiler, model service or ML dependency:
+
+```sh
+python3 -S -m scripts.replay_workload_repair
+```
+
+This verifies recorded decisions; it does not rerun performance measurements. The [result report](docs/results/workload-policy-repair-v1.md) explains the failed gates, per-case regressions and native reproduction requirements.
+
 For a quick executable example, try [offline policy replay](examples/harness-policy/README.md): plain Python scores six legal loop orders with a frozen locally trained forest, without credentials, scikit-learn or a compiler installation. This replays recorded compiler features; native compilation and optimization evidence are separate checks below.
 
 The first executable target is **native ARM64 on macOS**, using LLVM's existing register-allocation eviction advisor. Registers are the constrained resource. LLVM offers eligible candidate positions; an external policy selects one. A small C++ patch checks the response before indexing the candidate array. Python hosts the decision protocol and experiments.

@@ -4,6 +4,16 @@ This project separates a compiler's legal transformations from the policy that c
 
 The runnable scheduling example is deliberately narrow: fixed-shape, non-aliasing, unsigned modular matrix contractions on Apple M3. All six loop orders preserve its arithmetic semantics. Python implements the harness and policy boundary; generated C goes through LLVM or Apple Clang. This is a real lowering decision owned by the harness, not a replacement for all downstream compiler heuristics.
 
+The [completed workload-repair experiment](results/workload-policy-repair-v1.md) is negative for its main hypothesis: the fixed refit made held-out code 14.6–14.8% slower. A small direct heuristic reduced aggregate runtime 13.2–13.3%, but improved only two groups while four tied, so it also failed the frozen gate. Jev failed its comparison. No model or heuristic was changed after evaluation.
+
+Replay the source forest, refitted forest and direct heuristic on **all twelve recorded test cases**:
+
+```sh
+python3 -S -m scripts.replay_workload_repair
+```
+
+This uses only the standard library and verifies each choice against the public evidence. It demonstrates a portable policy boundary and preserves a rejected update; it does not generate new timing evidence.
+
 ## Try a frozen decision anywhere
 
 With Python 3.12 or later, from the repository root:
@@ -67,12 +77,14 @@ The present compiler-informed policy compiles every candidate before selection. 
 | Does better compiler information help? | The compiler-feedback experiment improved Jev decisions with static compiler evidence; fresh replication retained aggregate gains but failed its group-consistency requirement |
 | Does a general model always beat a cheap local model? | No such conclusion: Jev was about 8.5% better in aggregate than one fixed forest in replication, with concentrated regressions |
 | Is a local specialist necessarily better? | Not established; grouped development diagnostics show sensitivity to feature representation and training recipes |
+| Did automatic refitting repair workload generalization? | No: the separately frozen target-only update worsened held-out runtime about 15%; a small direct patch was better in aggregate but still failed its group gate |
+| Did a compiler change cause the observed policy gap? | No: the compiler-shift audit found substantial regret under both compilers without the required worsening |
 | Does moving rules outside the compiler reduce maintenance? | Not established; prompts, features, data, dependencies and validation remain maintained policy |
 
 See the [experiment history](../README.md), [fresh replication](results/feedback-replication-v1.md), [grouped development diagnostic](results/policy-learning-diagnostic-v1.md), and [compiler-shift contract](policy-shift-design.md). Correctness checks cover the defined corpus; they are not a proof for arbitrary C programs.
 
-## Architectural conclusion to test
+## Architectural conclusion from this proof of concept
 
-The strongest current hypothesis is a stable compiler mechanism with versioned policy artifacts and an evidence-driven update workflow. A general adviser can help investigate unfamiliar behavior or prepare an update; its presence in every build must earn its cost. MCP can expose this workflow to agent clients, but it does not itself improve optimization decisions.
+The demonstrated architecture is a stable compiler mechanism with versioned policy artifacts and an evidence-driven update workflow. That workflow rejected a harmful learned update. An agent authored a narrowly useful heuristic, but this single result does not establish the causal value of assistance or reduced maintenance. A model's presence in every build must earn its cost. MCP can expose this workflow to agent clients, but it does not itself improve optimization decisions.
 
 The proof of concept is not a claim that learned compiler policies are new. Its research value depends on openly measuring when advice helps, when a small policy suffices, and whether updates actually reduce bespoke maintenance. A negative result at a frozen gate is an outcome, not permission to tune against the test cases until the desired story appears.
