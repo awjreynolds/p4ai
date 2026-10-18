@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "name": "contraction-routing-secondary-v1",
+  "status": "exploratory post-registration amendment",
+  "trigger": "Calibration confidences were [0.05, 0.11, 0.15, 0.15, 0.21, 0.22]. The primary fixed threshold grid has no feasible nonzero calibration routing under its 25% budget. No analyst choosing this amendment inspected calibration or held-out runtimes before freezing these rules.",
+  "preservation": "Keep the primary design, code, decisions, timings and results unchanged. No new provider calls or benchmark measurements.",
+  "candidates": "Never escalate, plus midpoint thresholds between consecutive distinct calibration confidence values. Escalate strictly below the threshold; ties stay together. Candidate generation uses calibration confidences only.",
+  "fit": "Use calibration runtimes only. Same geometric-mean runtime objective as the primary router, treating improvements below 2% as ties. At most floor(0.25*Ncal) escalations. Prefer fewer escalations, then never, then lower threshold on objective ties.",
+  "evaluation": "Evaluate the selected rule once on existing held-out timings. Keep all original controls, noise floors, two-layout direction requirements and both 25% routing budgets. Report the primary cascade separately.",
+  "interpretation": "Exploratory secondary evidence prompted by calibration-confidence inspection, not success of the original preregistered routing experiment. Do not change the rule after inspecting outcomes."
+}
