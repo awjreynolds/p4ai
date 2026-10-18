@@ -19,6 +19,8 @@ def test_design_pins_upstream_small_correctness_contract() -> None:
     assert design["build"]["small_problem_size"] is True
     assert design["build"]["release_cache"] == "cmake/caches/O3.cmake"
     assert design["build"]["optimization_profile"] == "upstream O3 without LTO"
+    assert design["build"]["collect_code_size"] is False
+    assert design["build"]["code_size_deviation"]
     deviation = design["build"]["profile_deviation"]
     assert "-flto" in deviation
     assert "-fomit-frame-pointer" in deviation
@@ -120,20 +122,69 @@ def test_upstream_test_file_must_run_original_small_reference_and_tolerance(tmp_
     design = feasibility._design(DESIGN)
     test_file = tmp_path / "sqlite3.test"
     test_file.write_text(
-        "RUN: cd %S ; %b/sqlite3 -init sqlite3rc :memory: < commands\n"
+        "RUN: cd %S ; %S/sqlite3 -init sqlite3rc :memory: < commands\n"
         "VERIFY: %b/fpcmp-target -r 1.0e-9 %o %S/sqlite3.reference_output.small\n",
         encoding="utf-8",
     )
 
     assert feasibility._verify_upstream_test(test_file, design)["status"] == "passed"
     test_file.write_text(
-        "RUN: cd %S ; %b/sqlite3 -init sqlite3rc :memory: < commands\n"
+        "RUN: cd %S ; %S/sqlite3 -init sqlite3rc :memory: < commands\n"
         "VERIFY: %b/fpcmp-target -r 1.0e-8 %o %S/sqlite3.reference_output.small\n",
         encoding="utf-8",
     )
     result = feasibility._verify_upstream_test(test_file, design)
     assert result["status"] == "failed"
     assert result["missing_lines"] == [result["expected_lines"][1]]
+
+
+def test_direct_runner_preserves_upstream_timeit_inputs_and_observation(tmp_path: Path) -> None:
+    app_build = tmp_path / "build" / feasibility.SUBTREE
+    timeit = tmp_path / "build" / "tools" / "timeit-target"
+    binary = app_build / "sqlite3"
+    commands = app_build / "commands"
+    output = tmp_path / "logs" / "run.output"
+    summary = tmp_path / "logs" / "run.summary"
+
+    argv = feasibility._upstream_timeit_command(
+        timeit=timeit,
+        binary=binary,
+        app_build=app_build,
+        input_path=commands,
+        output_path=output,
+        summary_path=summary,
+        run_options=["-init", "sqlite3rc", ":memory:"],
+    )
+
+    assert argv == [
+        str(timeit), "--timeout", "7200", "--limit-core", "0", "--limit-cpu", "7200",
+        "--limit-file-size", "209715200", "--limit-rss-size", "838860800",
+        "--append-exitstatus", "--redirect-output", str(output), "--redirect-input", str(commands),
+        "--chdir", str(app_build), "--summary", str(summary), str(binary),
+        "-init", "sqlite3rc", ":memory:",
+    ]
+
+
+def test_reference_pass_requires_application_exit_and_upstream_comparator() -> None:
+    successful_run = {"return_code": 0, "target_exit_code": 0}
+    assert feasibility._reference_test_passed(successful_run, {"return_code": 0})
+    assert not feasibility._reference_test_passed(successful_run, {"return_code": 1})
+    assert not feasibility._reference_test_passed(
+        {"return_code": 0, "target_exit_code": 1}, {"return_code": 0}
+    )
+    assert not feasibility._reference_test_passed(
+        {"return_code": 1, "target_exit_code": 0}, {"return_code": 0}
+    )
+
+
+def test_timeit_summary_exit_code_is_recorded_without_treating_it_as_a_pass(tmp_path: Path) -> None:
+    summary = tmp_path / "timeit.summary"
+    summary.write_text("exit 0\nreal 0.0030\n", encoding="utf-8")
+    assert feasibility._timeit_target_exit_code(summary) == 0
+    summary.write_text("exit 139\nreal 0.0030\n", encoding="utf-8")
+    assert feasibility._timeit_target_exit_code(summary) == 139
+    summary.write_text("not a timeit summary\n", encoding="utf-8")
+    assert feasibility._timeit_target_exit_code(summary) is None
 
 
 def test_both_compilers_receive_identical_native_cmake_contract(tmp_path: Path) -> None:
@@ -171,9 +222,25 @@ def test_both_compilers_receive_identical_native_cmake_contract(tmp_path: Path) 
     assert "-C" in pinned
     assert str(source / design["build"]["release_cache"]) in pinned
     assert "-DSMALL_PROBLEM_SIZE=ON" in pinned
+    assert "-DTEST_SUITE_COLLECT_CODE_SIZE=OFF" in pinned
     pinned_common = [arg for arg in pinned if not arg.startswith("-DCMAKE_C_COMPILER=") and arg != str(tmp_path / "pinned")]
     system_common = [arg for arg in system if not arg.startswith("-DCMAKE_C_COMPILER=") and arg != str(tmp_path / "system")]
     assert pinned_common == system_common
+
+
+def test_host_compiler_wrapper_supplies_target_sdk_and_minimum_os(tmp_path: Path) -> None:
+    design = feasibility._design(DESIGN)
+    tools = {"host_cc": "/tools/apple-clang", "sdk": "/SDK/MacOSX.sdk"}
+    wrapper_path = tmp_path / "host-cc-wrapper.sh"
+
+    wrapper = feasibility._write_host_compiler_wrapper(wrapper_path, design, tools)
+    content = wrapper_path.read_text(encoding="utf-8")
+
+    assert content.startswith("#!/bin/sh\nexec /tools/apple-clang ")
+    assert "--target=arm64-apple-darwin" in content
+    assert "-isysroot /SDK/MacOSX.sdk" in content
+    assert "-mmacosx-version-min=14.0" in content
+    assert wrapper["sha256"] == feasibility._sha256_file(wrapper_path)
 
 
 def test_optional_sanitizer_variant_adds_flags_without_changing_source_contract(tmp_path: Path) -> None:

@@ -7,9 +7,11 @@ It records correctness and provenance; it does not collect performance timings.
 from __future__ import annotations
 
 import argparse
+import copy
 import hashlib
 import json
 import os
+import shlex
 import shutil
 import signal
 import subprocess
@@ -48,6 +50,7 @@ STATIC_INPUTS = (
 SOURCE_ROOT_FILES = ("CMakeLists.txt", "lit.cfg", "lit.site.cfg.in", "LICENSE.TXT")
 HARNESS_TREES = ("cmake", "tools", "litsupport", "utils")
 TIMEOUT_SECONDS = 1800
+UPSTREAM_RUN_TIMEOUT_SECONDS = 7300
 
 
 class FeasibilityError(RuntimeError):
@@ -112,6 +115,8 @@ def _design(path: Path) -> dict[str, Any]:
         or build.get("subdirectories") != SUBTREE
         or build.get("small_problem_size") is not True
         or build.get("collect_compile_time") is not False
+        or build.get("collect_code_size") is not False
+        or not build.get("code_size_deviation")
         or build.get("optimization_profile") != "upstream O3 without LTO"
         or not build.get("profile_deviation")
         or build.get("release_flags_are_from_upstream_cache") is not True
@@ -197,7 +202,8 @@ def _run_command(
             cwd=cwd,
             env=env,
             stdin=subprocess.DEVNULL,
-            capture_output=True,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
             start_new_session=True,
         )
         try:
@@ -504,6 +510,7 @@ def _cmake_command(
         f"-DTEST_SUITE_SUBDIRS={build['subdirectories']}",
         f"-DSMALL_PROBLEM_SIZE={'ON' if build['small_problem_size'] else 'OFF'}",
         f"-DTEST_SUITE_COLLECT_COMPILE_TIME={'ON' if build['collect_compile_time'] else 'OFF'}",
+        f"-DTEST_SUITE_COLLECT_CODE_SIZE={'ON' if build['collect_code_size'] else 'OFF'}",
         "-DTEST_SUITE_RUN_BENCHMARKS=ON",
         f"-DCMAKE_OSX_ARCHITECTURES={target['architecture']}",
         f"-DCMAKE_OSX_SYSROOT={tools['sdk']}",
@@ -522,10 +529,32 @@ def _cmake_command(
     return argv
 
 
+def _write_host_compiler_wrapper(path: Path, design: dict[str, Any], tools: dict[str, Any]) -> dict[str, Any]:
+    target = design["target"]
+    command = [
+        tools["host_cc"],
+        f"--target={target['triple']}",
+        "-arch",
+        target["architecture"],
+        "-isysroot",
+        tools["sdk"],
+        f"-mmacosx-version-min={target['minimum_os_version']}",
+    ]
+    content = "#!/bin/sh\nexec " + shlex.join(command) + ' "$@"\n'
+    path.write_text(content, encoding="utf-8")
+    path.chmod(0o755)
+    return {
+        "path": str(path),
+        "sha256": _sha256_file(path),
+        "host_compiler": tools["host_cc"],
+        "arguments": command[1:],
+    }
+
+
 def _verify_upstream_test(path: Path, design: dict[str, Any]) -> dict[str, Any]:
     text = path.read_text(encoding="utf-8")
     verify = design["verification"]
-    expected_run = "RUN: cd %S ; %b/sqlite3 -init sqlite3rc :memory: < commands"
+    expected_run = "RUN: cd %S ; %S/sqlite3 -init sqlite3rc :memory: < commands"
     expected_verify = (
         f"VERIFY: %b/fpcmp-target -r {verify['relative_tolerance']} %o "
         f"%S/{verify['reference_output']}"
@@ -539,6 +568,227 @@ def _verify_upstream_test(path: Path, design: dict[str, Any]) -> dict[str, Any]:
         "expected_lines": [expected_run, expected_verify],
         "missing_lines": missing,
     }
+
+
+def _upstream_timeit_command(
+    *,
+    timeit: Path,
+    binary: Path,
+    app_build: Path,
+    input_path: Path,
+    output_path: Path,
+    summary_path: Path,
+    run_options: list[str],
+) -> list[str]:
+    """Reproduce litsupport's Unix traditional-output wrapper for the RUN line."""
+    return [
+        str(timeit),
+        "--timeout", "7200",
+        "--limit-core", "0",
+        "--limit-cpu", "7200",
+        "--limit-file-size", "209715200",
+        "--limit-rss-size", "838860800",
+        "--append-exitstatus",
+        "--redirect-output", str(output_path),
+        "--redirect-input", str(input_path),
+        "--chdir", str(app_build),
+        "--summary", str(summary_path),
+        str(binary),
+        *run_options,
+    ]
+
+
+def _timeit_target_exit_code(summary_path: Path) -> int | None:
+    """Read the application exit status emitted by upstream timeit-target."""
+    try:
+        first_line = summary_path.read_text(encoding="utf-8").splitlines()[0]
+    except (OSError, UnicodeDecodeError, IndexError):
+        return None
+    parts = first_line.split()
+    if len(parts) != 2 or parts[0] != "exit":
+        return None
+    try:
+        return int(parts[1])
+    except ValueError:
+        return None
+
+
+def _reference_test_passed(upstream_run: dict[str, Any], reference_compare: dict[str, Any]) -> bool:
+    """Require the upstream runner, application, and output comparator to pass."""
+    return (
+        upstream_run.get("return_code") == 0
+        and upstream_run.get("target_exit_code") == 0
+        and reference_compare.get("return_code") == 0
+    )
+
+
+def _cache_values(path: Path) -> dict[str, str]:
+    values: dict[str, str] = {}
+    for line in path.read_text(encoding="utf-8", errors="replace").splitlines():
+        if line.startswith("//") or "=" not in line or ":" not in line.split("=", 1)[0]:
+            continue
+        key, value = line.split("=", 1)
+        name, _kind = key.split(":", 1)
+        values[name] = value
+    return values
+
+
+def _reusable_variant_checks(
+    variant: dict[str, Any],
+    *,
+    name: str,
+    sanitizer: bool,
+    design: dict[str, Any],
+    source: Path,
+    tools: dict[str, Any],
+) -> tuple[bool, list[str]]:
+    """Recheck a previous build's provenance and on-disk products before reuse."""
+    failures: list[str] = []
+    build_dir = Path(variant.get("build_directory", ""))
+    app_build = build_dir / SUBTREE
+    compiler_sha = tools["files"][name]["sha256"]
+    suffix = "-asan-ubsan" if sanitizer else ""
+    expected_name = f"{name}{suffix}"
+    if variant.get("name") != expected_name or variant.get("sanitizer") is not sanitizer:
+        failures.append("variant identity or sanitizer mode differs")
+    if variant.get("compiler", {}).get("sha256") != compiler_sha:
+        failures.append("compiler hash differs")
+    target = variant.get("target", {})
+    if (
+        target.get("triple") != design["target"]["triple"]
+        or target.get("architecture") != design["target"]["architecture"]
+        or target.get("sdk_path") != tools["sdk"]
+        or target.get("sdk_version") != tools["sdk_version"]
+        or target.get("sdk_sha256") != tools["files"]["sdk"]["sha256"]
+        or target.get("linker_path") != tools["linker"]
+        or target.get("linker_sha256") != tools["files"]["linker"]["sha256"]
+        or target.get("minimum_os_version") != design["target"]["minimum_os_version"]
+    ):
+        failures.append("native target or SDK provenance differs")
+    commands = variant.get("commands", {})
+    if any(commands.get(step, {}).get("return_code") != 0 for step in ("configure", "build")):
+        failures.append("configure or build did not previously succeed")
+    for step in ("configure", "build"):
+        record = commands.get(step, {})
+        for kind in ("stdout", "stderr"):
+            log_path = Path(record.get(f"{kind}_path", ""))
+            expected_hash = record.get(f"{kind}_sha256")
+            if not log_path.is_file() or _sha256_file(log_path) != expected_hash:
+                failures.append(f"previous {step} {kind} log is missing or changed")
+    if not build_dir.is_dir():
+        failures.append("build directory is missing")
+        return False, failures
+
+    try:
+        cache = _cache_values(build_dir / "CMakeCache.txt")
+    except OSError:
+        cache = {}
+        failures.append("CMake cache is missing")
+    expected_cache = {
+        "CMAKE_BUILD_TYPE": "Release",
+        "CMAKE_C_COMPILER": tools["compilers"][name],
+        "CMAKE_C_COMPILER_TARGET": design["target"]["triple"],
+        "CMAKE_CXX_COMPILER": tools["host_cxx"],
+        "CMAKE_LINKER": tools["linker"],
+        "CMAKE_OSX_ARCHITECTURES": design["target"]["architecture"],
+        "CMAKE_OSX_DEPLOYMENT_TARGET": design["target"]["minimum_os_version"],
+        "CMAKE_OSX_SYSROOT": tools["sdk"],
+        "SMALL_PROBLEM_SIZE": "ON",
+        "TEST_SUITE_COLLECT_CODE_SIZE": "OFF",
+        "TEST_SUITE_LIT": tools["lit"],
+        "TEST_SUITE_SUBDIRS": design["build"]["subdirectories"],
+    }
+    failures.extend(
+        f"CMake cache {key} differs" for key, expected in expected_cache.items()
+        if cache.get(key) != expected
+    )
+    wrapper = variant.get("host_compiler_wrapper", {})
+    wrapper_path = Path(wrapper.get("path", ""))
+    if (
+        not wrapper_path.is_file()
+        or wrapper.get("sha256") != _sha256_file(wrapper_path)
+        or cache.get("TEST_SUITE_HOST_CC") != str(wrapper_path)
+    ):
+        failures.append("host compiler wrapper is missing, changed, or not configured")
+
+    generated = _generated_input_records(build_dir)
+    copied = _copied_input_records(source, build_dir)
+    compile_commands = _compile_command_records(build_dir, design, tools)
+    test_file = app_build / design["verification"]["test_file"]
+    test_contract = _verify_upstream_test(test_file, design) if test_file.is_file() else {"status": "failed"}
+    artifacts = variant.get("artifacts", {})
+    binary = app_build / "sqlite3"
+    expected_artifacts = {
+        "binary": _sha256_file(binary) if binary.is_file() else None,
+        "compile_commands": compile_commands.get("sha256"),
+        "release_cache_sha256": _sha256_file(source / design["build"]["release_cache"]),
+        "test_file": test_contract.get("sha256"),
+    }
+    recorded_artifacts = {
+        "binary": artifacts.get("binary", {}).get("sha256"),
+        "compile_commands": artifacts.get("compile_commands"),
+        "release_cache_sha256": artifacts.get("release_cache_sha256"),
+        "test_file": artifacts.get("test_file"),
+    }
+    if expected_artifacts != recorded_artifacts:
+        failures.append("one or more built artifact hashes differ")
+    if any(
+        item.get("status") != "passed"
+        for item in (variant.get("generated_inputs", {}), variant.get("copied_inputs", {}), compile_commands, test_contract)
+    ):
+        failures.append("generated inputs, copied inputs, compile commands, or upstream test contract failed")
+    if variant.get("generated_inputs") != generated or variant.get("copied_inputs") != copied:
+        failures.append("generated or copied input hashes changed")
+    if variant.get("compile_commands") != compile_commands:
+        failures.append("compile command evidence changed")
+    if variant.get("upstream_test_contract") != test_contract:
+        failures.append("upstream test contract changed")
+    if not (build_dir / "tools" / "timeit-target").is_file():
+        failures.append("upstream timeit-target is missing")
+    if not (build_dir / "tools" / "fpcmp-target").is_file():
+        failures.append("upstream fpcmp-target is missing")
+    if sanitizer:
+        flags = " ".join(design["sanitizers"]["flags"])
+        if cache.get("CMAKE_C_FLAGS") != flags:
+            failures.append("sanitizer flags differ from the frozen design")
+    return not failures, failures
+
+
+def _load_reusable_builds(
+    report_path: Path | None,
+    *,
+    prepared: dict[str, Any],
+    design: dict[str, Any],
+    source: Path,
+    tools: dict[str, Any],
+) -> tuple[dict[str, dict[str, Any]], dict[str, Any] | None]:
+    if report_path is None:
+        return {}, None
+    report = _load_json(report_path)
+    if (
+        report.get("design_sha256") != prepared["design_sha256"]
+        or report.get("source", {}).get("tree_sha256") != prepared["source"]["tree_sha256"]
+        or report.get("source", {}).get("revision") != PINNED_REVISION
+        or report.get("toolchain", {}).get("files") != tools.get("files")
+    ):
+        raise FeasibilityError("reuse report does not match the frozen design, source, or toolchain hashes")
+    reusable: dict[str, dict[str, Any]] = {}
+    for sanitizer, field in ((False, "baseline_variants"), (True, "sanitizer_variants")):
+        for variant in report.get(field, []):
+            name = variant.get("name", "").removesuffix("-asan-ubsan")
+            if name not in tools["compilers"]:
+                continue
+            valid, reasons = _reusable_variant_checks(
+                variant,
+                name=name,
+                sanitizer=sanitizer,
+                design=design,
+                source=source,
+                tools=tools,
+            )
+            if valid:
+                reusable[variant["name"]] = variant
+    return reusable, {"path": str(report_path.resolve()), "sha256": _sha256_file(report_path)}
 
 
 def _generated_input_records(build_dir: Path) -> dict[str, Any]:
@@ -675,14 +925,20 @@ def _variant(
     output: Path,
     tools: dict[str, Any],
     sanitizer: bool = False,
+    reuse_variant: dict[str, Any] | None = None,
+    reuse_report: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     suffix = "-asan-ubsan" if sanitizer else ""
     variant_id = f"{name}{suffix}"
-    build_dir = output / "build" / variant_id
+    build_dir = (
+        Path(reuse_variant["build_directory"])
+        if reuse_variant is not None
+        else output / "build" / variant_id
+    )
     logs = output / "commands" / variant_id
     build_dir.mkdir(parents=True, exist_ok=True)
     compiler_version = tools["files"][name]["version"]
-    result: dict[str, Any] = {
+    result: dict[str, Any] = copy.deepcopy(reuse_variant) if reuse_variant is not None else {
         "name": variant_id,
         "compiler": {
             "path": str(compiler),
@@ -707,28 +963,44 @@ def _variant(
         "build_directory": str(build_dir),
         "commands": {},
     }
-    configure = _cmake_command(
-        design,
-        source=source,
-        build_dir=build_dir,
-        compiler=compiler,
-        tools=tools,
-        sanitizer=sanitizer,
-    )
-    result["commands"]["configure"] = _run_command(
-        configure, cwd=ROOT, log_dir=logs, name="configure"
-    )
-    if result["commands"]["configure"]["return_code"] != 0:
-        result["status"] = "failed"
-        return result
+    if reuse_variant is not None:
+        prior_lit_result = result.get("commands", {}).pop("reference_test", None)
+        result["build_reuse"] = {
+            "validated": True,
+            "source_report": reuse_report,
+            "scope": "Rechecked build inputs, compiler cache, compile commands, and artifact hashes; reran upstream workload with its built timeit-target and fpcmp-target.",
+            "prior_lit_result": prior_lit_result,
+        }
+        host_wrapper = result["host_compiler_wrapper"]
+    else:
+        host_wrapper = _write_host_compiler_wrapper(
+            build_dir / "host-cc-wrapper.sh", design, tools
+        )
+    result["host_compiler_wrapper"] = host_wrapper
+    variant_tools = {**tools, "host_cc": host_wrapper["path"]}
+    if reuse_variant is None:
+        configure = _cmake_command(
+            design,
+            source=source,
+            build_dir=build_dir,
+            compiler=compiler,
+            tools=variant_tools,
+            sanitizer=sanitizer,
+        )
+        result["commands"]["configure"] = _run_command(
+            configure, cwd=ROOT, log_dir=logs, name="configure"
+        )
+        if result["commands"]["configure"]["return_code"] != 0:
+            result["status"] = "failed"
+            return result
 
-    build_command = [
-        tools["cmake"], "--build", str(build_dir), "--target", design["build"]["target"],
-        "--parallel", "2", "--verbose",
-    ]
-    result["commands"]["build"] = _run_command(
-        build_command, cwd=ROOT, log_dir=logs, name="build"
-    )
+        build_command = [
+            tools["cmake"], "--build", str(build_dir), "--target", design["build"]["target"],
+            "--parallel", "2", "--verbose",
+        ]
+        result["commands"]["build"] = _run_command(
+            build_command, cwd=ROOT, log_dir=logs, name="build"
+        )
     result["generated_inputs"] = _generated_input_records(build_dir)
     result["copied_inputs"] = _copied_input_records(source, build_dir)
     app_build = build_dir / SUBTREE
@@ -762,18 +1034,97 @@ def _variant(
     env = os.environ.copy()
     if sanitizer:
         env.update(design["sanitizers"]["runtime_options"])
-    lit_command = [tools["lit"], "-sv", "--timeout=300", str(test_file)]
-    result["commands"]["reference_test"] = _run_command(
-        lit_command,
-        cwd=build_dir,
+    timeit = build_dir / "tools" / "timeit-target"
+    comparator = build_dir / "tools" / "fpcmp-target"
+    input_path = app_build / design["verification"]["stdin_file"]
+    reference_path = app_build / design["verification"]["reference_output"]
+    output_path = logs / "upstream-run.output"
+    summary_path = logs / "upstream-run.timeit-summary"
+    output_path.unlink(missing_ok=True)
+    summary_path.unlink(missing_ok=True)
+    run_command = _upstream_timeit_command(
+        timeit=timeit,
+        binary=binary,
+        app_build=app_build,
+        input_path=input_path,
+        output_path=output_path,
+        summary_path=summary_path,
+        run_options=design["verification"]["run_options"],
+    )
+    upstream_run = _run_command(
+        run_command,
+        cwd=app_build,
         log_dir=logs,
-        name="reference-test",
-        timeout=TIMEOUT_SECONDS,
+        name="upstream-run",
+        timeout=UPSTREAM_RUN_TIMEOUT_SECONDS,
         env=env,
     )
-    result["status"] = (
-        "passed" if result["commands"]["reference_test"]["return_code"] == 0 else "failed"
+    upstream_run.update({
+        "target_output_path": str(output_path),
+        "target_output_sha256": _sha256_file(output_path) if output_path.is_file() else None,
+        "target_output_size_bytes": output_path.stat().st_size if output_path.is_file() else None,
+        "stdin_path": str(input_path),
+        "stdin_sha256": _sha256_file(input_path) if input_path.is_file() else None,
+        "timeit_target_path": str(timeit),
+        "timeit_target_sha256": _sha256_file(timeit) if timeit.is_file() else None,
+        "timeit_summary_path": str(summary_path),
+        "timeit_summary_sha256": _sha256_file(summary_path) if summary_path.is_file() else None,
+        "target_exit_code": _timeit_target_exit_code(summary_path),
+    })
+    compare_command = [
+        str(comparator),
+        "-r",
+        design["verification"]["relative_tolerance"],
+        str(output_path),
+        str(reference_path),
+    ]
+    reference_compare = _run_command(
+        compare_command,
+        cwd=app_build,
+        log_dir=logs,
+        name="reference-compare",
     )
+    reference_compare.update({
+        "comparator_path": str(comparator),
+        "comparator_sha256": _sha256_file(comparator) if comparator.is_file() else None,
+        "reference_path": str(reference_path),
+        "reference_sha256": _sha256_file(reference_path) if reference_path.is_file() else None,
+    })
+    reference_passed = _reference_test_passed(upstream_run, reference_compare)
+    result["commands"]["upstream_run"] = upstream_run
+    result["commands"]["reference_compare"] = reference_compare
+    result["commands"]["reference_test"] = {
+        "status": "passed" if reference_passed else "failed",
+        "return_code": 0 if reference_passed else 1,
+        "target_exit_code": upstream_run["target_exit_code"],
+        "requires": [
+            "timeit-target command succeeds",
+            "captured application exit status is zero",
+            "fpcmp-target accepts the captured output at the frozen tolerance",
+        ],
+    }
+    result["artifacts"].update({
+        "timeit_target": {"path": str(timeit), "sha256": upstream_run["timeit_target_sha256"]},
+        "fpcmp_target": {"path": str(comparator), "sha256": reference_compare["comparator_sha256"]},
+        "upstream_run_output": {
+            "path": str(output_path),
+            "sha256": upstream_run["target_output_sha256"],
+            "size_bytes": upstream_run["target_output_size_bytes"],
+        },
+        "timeit_summary": {
+            "path": str(summary_path),
+            "sha256": upstream_run["timeit_summary_sha256"],
+        },
+        "reference_output": {
+            "path": str(reference_path),
+            "sha256": reference_compare["reference_sha256"],
+        },
+        "stdin_commands": {
+            "path": str(input_path),
+            "sha256": upstream_run["stdin_sha256"],
+        },
+    })
+    result["status"] = "passed" if reference_passed else "failed"
     return result
 
 
@@ -818,12 +1169,20 @@ def validate(
     output: Path = DEFAULT_OUTPUT,
     *,
     sanitizers: bool = False,
+    reuse_build_report: Path | None = None,
 ) -> dict[str, Any]:
     design = _design(design_path)
     prepared = prepare(design_path, source, output)
     source = source.resolve()
     output = output.resolve()
     tools = _resolve_tools(design, ROOT)
+    reusable_variants, reuse_report = _load_reusable_builds(
+        reuse_build_report.resolve() if reuse_build_report is not None else None,
+        prepared=prepared,
+        design=design,
+        source=source,
+        tools=tools,
+    )
     run_key = _fingerprint({
         "design_sha256": prepared["design_sha256"],
         "source_sha256": prepared["source"]["tree_sha256"],
@@ -842,6 +1201,8 @@ def validate(
             source=source,
             output=run_root,
             tools=tools,
+            reuse_variant=reusable_variants.get(name),
+            reuse_report=reuse_report,
         ))
     sanitizer_variants = []
     if sanitizers:
@@ -854,6 +1215,8 @@ def validate(
                 output=run_root,
                 tools=tools,
                 sanitizer=True,
+                reuse_variant=reusable_variants.get(f"{name}-asan-ubsan"),
+                reuse_report=reuse_report,
             ))
     baseline_passed = all(row.get("status") == "passed" for row in variants)
     input_comparison = _compare_generated_inputs(variants)
@@ -876,6 +1239,15 @@ def validate(
         ),
         "design_sha256": prepared["design_sha256"],
         "source_manifest_sha256": _sha256_file(output / "source-manifest.json"),
+        "build_reuse_source": reuse_report,
+        "runner_adaptation": {
+            "reason": "The pinned test-suite lit package is incompatible with the available llvm-lit runtime API.",
+            "run": "Execute the exact upstream RUN executable and arguments through the built timeit-target, with upstream timeout/resource limits, stdin redirection, working directory, traditional combined output, and appended exit status.",
+            "verify": "Execute the exact upstream fpcmp-target arguments and relative tolerance on that captured output and the pinned reference file.",
+            "pass_requires": ["timeit-target succeeds", "captured application exit status is zero", "fpcmp-target succeeds"],
+            "output_normalization": "none",
+            "timeit_summary_is_performance_result": False,
+        },
         "implementation_sha256": prepared["implementation_sha256"],
         "source": prepared["source"],
         "toolchain": tools,
@@ -897,6 +1269,11 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--design", type=Path, default=DEFAULT_DESIGN)
     parser.add_argument("--source", type=Path, default=DEFAULT_SOURCE)
     parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
+    parser.add_argument(
+        "--reuse-build-report",
+        type=Path,
+        help="reuse build outputs only after revalidating the prior report, cache, inputs, and hashes",
+    )
     parser.add_argument("--sanitizers", action="store_true", help="also build and run the same workload under ASan+UBSan")
     args = parser.parse_args(argv)
     try:
@@ -908,6 +1285,7 @@ def main(argv: list[str] | None = None) -> int:
                 args.source.resolve(),
                 args.output.resolve(),
                 sanitizers=args.sanitizers,
+                reuse_build_report=args.reuse_build_report.resolve() if args.reuse_build_report else None,
             )
         )
     except (FeasibilityError, OSError, ValueError) as error:
