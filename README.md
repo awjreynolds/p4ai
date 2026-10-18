@@ -66,6 +66,12 @@ On held-out contraction layouts, Jev beat the constant and nearest-neighbor cont
 
 The [contraction design](docs/contraction-policy-design.md) preserves six legal schedules and LLVM downstream optimization. It uses the actual Apple M3 target and native execution; canonical `ijk` is a source-order reference, not LLVM's preferred scheduling policy. Reproduction commands and public evidence are in the result report.
 
+## Compiler-informed decisions
+
+The [compiler-feedback experiment](docs/results/compiler-feedback-v1.md) found a useful middle tier on 12 fresh held-out contraction settings: compiler-informed Jev reduced runtime by **17.56% versus stride** and **12.06% versus a cheap ridge predictor**, beyond the declared dispersion thresholds. Adding compiler evidence improved Jev by **34.86% versus source-only input**. The mechanical stride rule stayed unchanged.
+
+The full cascade still failed. Its agreement shortcut made one costly mistake, and calibration's predicted-regret signal never triggered Codex. Always-Codex was 56.10% slower than informed Jev. The current informed policy also compiles every candidate to extract features; native runtime gains do not establish end-to-end cost or maintenance savings. The [design](docs/compiler-feedback-design.md) and [public evidence](docs/results/compiler-feedback-v1.json) preserve both the positive information result and negative three-tier result.
+
 ## Decision map
 
 Follow [Choose a constrained compilation target and a reproducible first experiment](https://github.com/awjreynolds/p4ai/issues/1). The reopened decision is [Choose the first target and compiler intervention](https://github.com/awjreynolds/p4ai/issues/5), followed by [Agree the first experiment and evidence required for success](https://github.com/awjreynolds/p4ai/issues/6). See the [glossary](GLOSSARY.md) and [tracker conventions](docs/issue-tracker.md) for collaboration details.
