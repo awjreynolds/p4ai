@@ -1,0 +1,65 @@
+{
+  "experiment_id": "p4-fit-advice-v1",
+  "image": "sha256:5b27c37f3835c646c4a7f87c64de986a5fd5d71170b3f8b91e4bfbb908763af9",
+  "compile_timeout_seconds": 120,
+  "attempts_per_arm": 3,
+  "random_seed": 20261018,
+  "cases": [
+    {
+      "id": "tenant8",
+      "depth": 12,
+      "sides": 8,
+      "chain_entries": 16384,
+      "side_entries": 196608,
+      "tenant_bits": 8
+    },
+    {
+      "id": "tenant16",
+      "depth": 12,
+      "sides": 8,
+      "chain_entries": 16384,
+      "side_entries": 184320,
+      "tenant_bits": 16
+    },
+    {
+      "id": "tenant40",
+      "depth": 12,
+      "sides": 8,
+      "chain_entries": 16384,
+      "side_entries": 147456,
+      "tenant_bits": 40
+    },
+    {
+      "id": "tenant56",
+      "depth": 12,
+      "sides": 8,
+      "chain_entries": 16384,
+      "side_entries": 114688,
+      "tenant_bits": 56
+    },
+    {
+      "id": "tenant64",
+      "depth": 12,
+      "sides": 8,
+      "chain_entries": 16384,
+      "side_entries": 106496,
+      "tenant_bits": 64
+    },
+    {
+      "id": "depth10-tenant48",
+      "depth": 10,
+      "sides": 8,
+      "chain_entries": 16384,
+      "side_entries": 114688,
+      "tenant_bits": 48
+    }
+  ],
+  "arms": [
+    "packing",
+    "priority",
+    "random",
+    "jev",
+    "codex",
+    "cascade"
+  ]
+}
