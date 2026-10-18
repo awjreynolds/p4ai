@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "cases": [
+    {
+      "id": "overlapping-admission-196608",
+      "structure": "overlapping-admission-plus-dependent-chain",
+      "requirements": {
+        "Ingress.chain_0": 16384,
+        "Ingress.chain_1": 16384,
+        "Ingress.chain_2": 16384,
+        "Ingress.chain_3": 16384,
+        "Ingress.chain_4": 16384,
+        "Ingress.chain_5": 16384,
+        "Ingress.chain_6": 16384,
+        "Ingress.chain_7": 16384,
+        "Ingress.chain_8": 16384,
+        "Ingress.chain_9": 16384,
+        "Ingress.chain_10": 16384,
+        "Ingress.chain_11": 16384,
+        "Ingress.side_0": 196608,
+        "Ingress.side_1": 196608,
+        "Ingress.side_2": 196608,
+        "Ingress.side_3": 196608,
+        "Ingress.side_4": 196608,
+        "Ingress.side_5": 196608,
+        "Ingress.side_6": 196608,
+        "Ingress.side_7": 196608
+      },
+      "default": "default/program.p4",
+      "candidates": [
+        {
+          "id": "side-no-immediate",
+          "source": "side-no-immediate/program.p4",
+          "edits": [
+            {
+              "line": 183,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 194,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 205,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 216,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 227,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 238,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 249,
+              "text": "    @immediate(0)"
+            },
+            {
+              "line": 260,
+              "text": "    @immediate(0)"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
