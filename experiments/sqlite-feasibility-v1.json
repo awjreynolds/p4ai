@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "experiment": "sqlite-application-substrate-feasibility",
+  "scope": "correctness-only substrate qualification; no repair interventions or performance timing",
+  "source": {
+    "repository": "https://github.com/llvm/llvm-test-suite.git",
+    "revision": "2834619c5f535a36498daffc470cf3f4ae12a4f9",
+    "subtree": "MultiSource/Applications/sqlite3",
+    "sqlite_version": "3.5.7",
+    "required_paths": [
+      "CMakeLists.txt",
+      "VERSION",
+      "commands",
+      "copyright-release.html",
+      "shell.c",
+      "smalltest.tcl",
+      "sqlite3.c",
+      "sqlite3.h",
+      "sqlite3.reference_output.small",
+      "sqlite3rc"
+    ],
+    "license_paths": [
+      "LICENSE.TXT",
+      "MultiSource/Applications/sqlite3/copyright-release.html"
+    ]
+  },
+  "build": {
+    "generator": "Ninja",
+    "configuration": "Release",
+    "release_cache": "cmake/caches/O3.cmake",
+    "subdirectories": "MultiSource/Applications/sqlite3",
+    "small_problem_size": true,
+    "collect_compile_time": false,
+    "target": "sqlite3",
+    "release_flags_are_from_upstream_cache": true,
+    "optimization_profile": "upstream O3 without LTO",
+    "profile_deviation": "The upstream Release cache enables -flto and -fomit-frame-pointer; this gate uses the upstream O3 cache so both compiler distributions share a non-LTO native link path. The deviation is explicit; application definitions, generated workload, run command, reference output, and tolerance remain upstream.",
+    "definitions_from_upstream_cmake": [
+      "STDC_HEADERS=1",
+      "HAVE_SYS_TYPES_H=1",
+      "HAVE_SYS_STAT_H=1",
+      "HAVE_STDLIB_H=1",
+      "HAVE_STRING_H=1",
+      "HAVE_MEMORY_H=1",
+      "HAVE_STRINGS_H=1",
+      "HAVE_INTTYPES_H=1",
+      "HAVE_STDINT_H=1",
+      "HAVE_UNISTD_H=1",
+      "SQLITE_OMIT_LOAD_EXTENSION=1",
+      "SQLITE_THREADSAFE=0"
+    ]
+  },
+  "target": {
+    "triple": "arm64-apple-darwin",
+    "architecture": "arm64",
+    "sdk": "macosx",
+    "minimum_os_version": "14.0",
+    "linker_resolution": "xcrun --find ld"
+  },
+  "toolchain": {
+    "pinned_clang": ".cache/llvm-build/bin/clang",
+    "system_clang_resolution": "xcrun --find clang",
+    "system_cxx_resolution": "xcrun --find clang++",
+    "sdk_path_resolution": "xcrun --sdk macosx --show-sdk-path",
+    "lit": ".cache/llvm-build/bin/llvm-lit",
+    "ninja": ".venv/bin/ninja"
+  },
+  "verification": {
+    "test_file": "sqlite3.test",
+    "run_options": ["-init", "sqlite3rc", ":memory:"],
+    "stdin_file": "commands",
+    "generated_input_pattern": "test{1..15}.sql",
+    "reference_output": "sqlite3.reference_output.small",
+    "comparator": "upstream fpcmp-target",
+    "relative_tolerance": "1.0e-9",
+    "must_match_upstream_test_lines": true
+  },
+  "sanitizers": {
+    "optional": true,
+    "flags": ["-fsanitize=address,undefined", "-fno-omit-frame-pointer"],
+    "run_same_small_workload": true,
+    "runtime_options": {
+      "ASAN_OPTIONS": "halt_on_error=1",
+      "UBSAN_OPTIONS": "halt_on_error=1:print_stacktrace=1"
+    },
+    "failure_policy": "record compiler/runtime failure as evidence; never patch upstream sources"
+  }
+}
