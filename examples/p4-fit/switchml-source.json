@@ -1,0 +1,25 @@
+{
+  "license_sha256": "69849221bfb90053de2134ef5e6d540287b4b98062326492f1f96f5da685524b",
+  "p4_directory": "dev_root/p4",
+  "source_repository": "https://github.com/p4lang/p4app-switchML",
+  "source_revision": "b5c74a04fa66faa82acab154a4e21c8f76d913f2",
+  "source_sha256": {
+    "arp_icmp_responder.p4": "ca81cfaefad5a421525392f646cbe0b04e1f4f859596bcb8c152a6605f06b0e1",
+    "bitmap_checker.p4": "4a96c9a3dd91d6af2819c6c14febc60f6592da3bb2b9d7208d7e1e7501fe9e7a",
+    "configuration.p4": "da72abf2accab43d282c141c0abff7d4b10884bcc5bf5fd674ad84e397ade2c2",
+    "drop_simulator.p4": "7f71d68e2ee34e6f6f9b985f2720d40528e2c8033c8d062f3d0cdcac44c23b16",
+    "exponents.p4": "3aa1d9db7b3d5217ff50b1d1525e21d1159cf99c97f9e253d119b18c282e6df7",
+    "forwarder.p4": "1d4b14cda081f08efbca83cf249b91b23775b8bed3f97b932c4ff46da656f164",
+    "headers.p4": "a0034fc0b5a57d5d0559b4aa73455cdb840cb479a3fe079f963471df09db9642",
+    "next_step_selector.p4": "57f4389d196892d65b37fdd33b2398ec9731e4f6d8f55d6f037d5b340b7c47cb",
+    "parsers.p4": "f6f66d03eccecd209fbce16708ef218405a632ad2346fe3138da85e370ace44c",
+    "processor.p4": "e3bc0ff48f536e75317f70d83d3e8cbb199f072f98226edf39d231e994fc5c1c",
+    "rdma_receiver.p4": "d68e954071979f98c53506e1f8b7871a328a6f1579b5a16d7ba791469afb4f59",
+    "rdma_sender.p4": "a5c1ef9816888dc0e7af8c2cc329a3ea615b555fef9ce76a8ea67fdec2a95c44",
+    "switchml.p4": "f52220b2b853fe48de4ac83f17791fe1e800a3d25e1712ff3de42a6aa953e1fa",
+    "types.p4": "1b173eb08b438f9d3cc75d526793c4b0f2797c25d26012b6c440fc36ea864df5",
+    "udp_receiver.p4": "7b8905cbba6b0c3fbaf59c5bf24a7316ae0633c8adfb32f73b8b850745e23425",
+    "udp_sender.p4": "aa09b9094e0fba780571390e0e365b3f64d573ce5bf4c33b0a4490a2652c6b12",
+    "workers_counter.p4": "aaddba13fb04d0fd753303a125dbf5f9cf8c630061fd1b7573750908e57b4c63"
+  }
+}

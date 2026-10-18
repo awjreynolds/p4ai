@@ -1,0 +1,494 @@
+{
+  "schema_version": 1,
+  "name": "feedback-replication-v1-recovery",
+  "seed": 20261020,
+  "llvm_revision": "32d702efa29d0fdd02cff7b79dea8fdbbcf059d4",
+  "target_cpu": "apple-m3",
+  "source_design": "experiments/compiler-feedback-v1.json",
+  "training_source": {
+    "design": "experiments/compiler-feedback-v1.json",
+    "public_bundle": "docs/results/compiler-feedback-v1.json",
+    "public_bundle_sha256": "c918ecb366a9a14219e98a644acd4929ea74cbd60b5ed8477278cae560333fa8",
+    "raw_root": "artifacts/compiler-feedback-v1",
+    "block": 1
+  },
+  "cases": [
+    {
+      "partition": "test",
+      "group": "replication-small",
+      "case_id": "replication-small-ccc",
+      "spec": {
+        "m": 43,
+        "n": 61,
+        "k": 37,
+        "a_padding": 2,
+        "b_padding": 4,
+        "c_padding": 6,
+        "a_column_major": true,
+        "b_column_major": true,
+        "c_column_major": true
+      }
+    },
+    {
+      "partition": "test",
+      "group": "replication-small",
+      "case_id": "replication-small-crc",
+      "spec": {
+        "m": 43,
+        "n": 61,
+        "k": 37,
+        "a_padding": 2,
+        "b_padding": 4,
+        "c_padding": 6,
+        "a_column_major": true,
+        "b_column_major": false,
+        "c_column_major": true
+      }
+    },
+    {
+      "partition": "test",
+      "group": "replication-small",
+      "case_id": "replication-small-ccr",
+      "spec": {
+        "m": 43,
+        "n": 61,
+        "k": 37,
+        "a_padding": 2,
+        "b_padding": 4,
+        "c_padding": 6,
+        "a_column_major": true,
+        "b_column_major": true,
+        "c_column_major": false
+      }
+    },
+    {
+      "partition": "test",
+      "group": "replication-small",
+      "case_id": "replication-small-rcr",
+      "spec": {
+        "m": 43,
+        "n": 61,
+        "k": 37,
+        "a_padding": 2,
+        "b_padding": 4,
+        "c_padding": 6,
+        "a_column_major": false,
+        "b_column_major": true,
+        "c_column_major": false
+      }
+    },
+    {
+      "partition": "test",
+      "group": "replication-square",
+      "case_id": "replication-square-rcc",
+      "spec": {
+        "m": 128,
+        "n": 128,
+        "k": 128,
+        "a_padding": 7,
+        "b_padding": 5,
+        "c_padding": 3,
+        "a_column_major": false,
+        "b_column_major": true,
+        "c_column_major": true
+      }
+    },
+    {
+      "partition": "test",
+      "group": "replication-square",
+      "case_id": "replication-square-ccc",
+      "spec": {
+        "m": 128,
+        "n": 128,
+        "k": 128,
+        "a_padding": 7,
+        "b_padding": 5,
+        "c_padding": 3,
+        "a_column_major": true,
+        "b_column_major": true,
+        "c_column_major": true
+      }
+    },
+    {
+      "partition": "test",
+      "group": "replication-square",
+      "case_id": "replication-square-rrr",
+      "spec": {
+        "m": 128,
+        "n": 128,
+        "k": 128,
+        "a_padding": 7,
+        "b_padding": 5,
+        "c_padding": 3,
+        "a_column_major": false,
+        "b_column_major": false,
+        "c_column_major": false
+      }
+    },
+    {
+      "partition": "test",
+      "group": "replication-square",
+      "case_id": "replication-square-ccr",
+      "spec": {
+        "m": 128,
+        "n": 128,
+        "k": 128,
+        "a_padding": 7,
+        "b_padding": 5,
+        "c_padding": 3,
+        "a_column_major": true,
+        "b_column_major": true,
+        "c_column_major": false
+      }
+    },
+    {
+      "partition": "test",
+      "group": "replication-tall",
+      "case_id": "replication-tall-rrc",
+      "spec": {
+        "m": 224,
+        "n": 56,
+        "k": 96,
+        "a_padding": 3,
+        "b_padding": 9,
+        "c_padding": 1,
+        "a_column_major": false,
+        "b_column_major": false,
+        "c_column_major": true
+      }
+    },
+    {
+      "partition": "test",
+      "group": "replication-tall",
+      "case_id": "replication-tall-ccc",
+      "spec": {
+        "m": 224,
+        "n": 56,
+        "k": 96,
+        "a_padding": 3,
+        "b_padding": 9,
+        "c_padding": 1,
+        "a_column_major": true,
+        "b_column_major": true,
+        "c_column_major": true
+      }
+    },
+    {
+      "partition": "test",
+      "group": "replication-tall",
+      "case_id": "replication-tall-rrr",
+      "spec": {
+        "m": 224,
+        "n": 56,
+        "k": 96,
+        "a_padding": 3,
+        "b_padding": 9,
+        "c_padding": 1,
+        "a_column_major": false,
+        "b_column_major": false,
+        "c_column_major": false
+      }
+    },
+    {
+      "partition": "test",
+      "group": "replication-tall",
+      "case_id": "replication-tall-rcr",
+      "spec": {
+        "m": 224,
+        "n": 56,
+        "k": 96,
+        "a_padding": 3,
+        "b_padding": 9,
+        "c_padding": 1,
+        "a_column_major": false,
+        "b_column_major": true,
+        "c_column_major": false
+      }
+    },
+    {
+      "partition": "test",
+      "group": "replication-wide",
+      "case_id": "replication-wide-rcc",
+      "spec": {
+        "m": 48,
+        "n": 240,
+        "k": 128,
+        "a_padding": 11,
+        "b_padding": 3,
+        "c_padding": 5,
+        "a_column_major": false,
+        "b_column_major": true,
+        "c_column_major": true
+      }
+    },
+    {
+      "partition": "test",
+      "group": "replication-wide",
+      "case_id": "replication-wide-rrr",
+      "spec": {
+        "m": 48,
+        "n": 240,
+        "k": 128,
+        "a_padding": 11,
+        "b_padding": 3,
+        "c_padding": 5,
+        "a_column_major": false,
+        "b_column_major": false,
+        "c_column_major": false
+      }
+    },
+    {
+      "partition": "test",
+      "group": "replication-wide",
+      "case_id": "replication-wide-rrc",
+      "spec": {
+        "m": 48,
+        "n": 240,
+        "k": 128,
+        "a_padding": 11,
+        "b_padding": 3,
+        "c_padding": 5,
+        "a_column_major": false,
+        "b_column_major": false,
+        "c_column_major": true
+      }
+    },
+    {
+      "partition": "test",
+      "group": "replication-wide",
+      "case_id": "replication-wide-ccc",
+      "spec": {
+        "m": 48,
+        "n": 240,
+        "k": 128,
+        "a_padding": 11,
+        "b_padding": 3,
+        "c_padding": 5,
+        "a_column_major": true,
+        "b_column_major": true,
+        "c_column_major": true
+      }
+    },
+    {
+      "partition": "test",
+      "group": "replication-deep",
+      "case_id": "replication-deep-rrc",
+      "spec": {
+        "m": 72,
+        "n": 88,
+        "k": 256,
+        "a_padding": 5,
+        "b_padding": 1,
+        "c_padding": 7,
+        "a_column_major": false,
+        "b_column_major": false,
+        "c_column_major": true
+      }
+    },
+    {
+      "partition": "test",
+      "group": "replication-deep",
+      "case_id": "replication-deep-crr",
+      "spec": {
+        "m": 72,
+        "n": 88,
+        "k": 256,
+        "a_padding": 5,
+        "b_padding": 1,
+        "c_padding": 7,
+        "a_column_major": true,
+        "b_column_major": false,
+        "c_column_major": false
+      }
+    },
+    {
+      "partition": "test",
+      "group": "replication-deep",
+      "case_id": "replication-deep-ccc",
+      "spec": {
+        "m": 72,
+        "n": 88,
+        "k": 256,
+        "a_padding": 5,
+        "b_padding": 1,
+        "c_padding": 7,
+        "a_column_major": true,
+        "b_column_major": true,
+        "c_column_major": true
+      }
+    },
+    {
+      "partition": "test",
+      "group": "replication-deep",
+      "case_id": "replication-deep-ccr",
+      "spec": {
+        "m": 72,
+        "n": 88,
+        "k": 256,
+        "a_padding": 5,
+        "b_padding": 1,
+        "c_padding": 7,
+        "a_column_major": true,
+        "b_column_major": true,
+        "c_column_major": false
+      }
+    },
+    {
+      "partition": "test",
+      "group": "replication-shallow",
+      "case_id": "replication-shallow-rcc",
+      "spec": {
+        "m": 192,
+        "n": 160,
+        "k": 24,
+        "a_padding": 9,
+        "b_padding": 7,
+        "c_padding": 11,
+        "a_column_major": false,
+        "b_column_major": true,
+        "c_column_major": true
+      }
+    },
+    {
+      "partition": "test",
+      "group": "replication-shallow",
+      "case_id": "replication-shallow-rrc",
+      "spec": {
+        "m": 192,
+        "n": 160,
+        "k": 24,
+        "a_padding": 9,
+        "b_padding": 7,
+        "c_padding": 11,
+        "a_column_major": false,
+        "b_column_major": false,
+        "c_column_major": true
+      }
+    },
+    {
+      "partition": "test",
+      "group": "replication-shallow",
+      "case_id": "replication-shallow-rrr",
+      "spec": {
+        "m": 192,
+        "n": 160,
+        "k": 24,
+        "a_padding": 9,
+        "b_padding": 7,
+        "c_padding": 11,
+        "a_column_major": false,
+        "b_column_major": false,
+        "c_column_major": false
+      }
+    },
+    {
+      "partition": "test",
+      "group": "replication-shallow",
+      "case_id": "replication-shallow-crc",
+      "spec": {
+        "m": 192,
+        "n": 160,
+        "k": 24,
+        "a_padding": 9,
+        "b_padding": 7,
+        "c_padding": 11,
+        "a_column_major": true,
+        "b_column_major": false,
+        "c_column_major": true
+      }
+    }
+  ],
+  "actions": [
+    "stock",
+    "ijk",
+    "ikj",
+    "jik",
+    "jki",
+    "kij",
+    "kji"
+  ],
+  "source_features": [
+    "a_i_stride_bytes",
+    "a_k_stride_bytes",
+    "arithmetic_bits",
+    "b_j_stride_bytes",
+    "b_k_stride_bytes",
+    "c_i_stride_bytes",
+    "c_j_stride_bytes",
+    "element_bits",
+    "inner_a_stride_bytes",
+    "inner_axis_id",
+    "inner_b_stride_bytes",
+    "inner_c_stride_bytes",
+    "inner_stride_cost_bytes",
+    "k",
+    "m",
+    "middle_a_stride_bytes",
+    "middle_axis_id",
+    "middle_b_stride_bytes",
+    "middle_c_stride_bytes",
+    "middle_stride_cost_bytes",
+    "n",
+    "outer_a_stride_bytes",
+    "outer_axis_id",
+    "outer_b_stride_bytes",
+    "outer_c_stride_bytes",
+    "outer_stride_cost_bytes",
+    "target_architecture_bits",
+    "target_has_sve",
+    "target_vector_register_bits",
+    "trip_count"
+  ],
+  "compiler_features": {
+    "ir_instruction_count": "Static LLVM instruction lines in harness_kernel only",
+    "ir_basic_block_count": "Static basic blocks in harness_kernel",
+    "ir_load_count": "Static load opcodes in harness_kernel",
+    "ir_store_count": "Static store opcodes in harness_kernel",
+    "ir_multiply_count": "Static mul/fmul opcodes in harness_kernel",
+    "ir_vector_instruction_count": "Static instructions with fixed vector types or vector-specific opcodes in harness_kernel",
+    "ir_max_vector_bits": "Maximum fixed vector lane count times element bits in harness_kernel; zero if none",
+    "ir_loop_metadata_count": "Distinct LLVM loop metadata IDs attached within harness_kernel",
+    "vectorize_remark_count": "Distinct tagged successful loop-vectorize remarks from object compilation",
+    "vectorize_remark_max_vf": "Maximum successful vectorization factor, zero absent",
+    "vectorize_remark_max_interleave": "Maximum successful interleave count, zero absent",
+    "object_bytes": "Whole kernel object file size including metadata; not native text size or runtime cost"
+  },
+  "forest": {
+    "n_estimators": 64,
+    "max_depth": 6,
+    "min_samples_leaf": 2,
+    "random_state": 20261020,
+    "n_jobs": 1
+  },
+  "sklearn_version": "1.9.1",
+  "provider_replicates": 3,
+  "benchmark_rounds": 11,
+  "benchmark_blocks": 2,
+  "target_sample_ms": 100,
+  "noise_floor_fraction": 0.02,
+  "hypothesis": "Compiler-informed Jev improves fresh contraction schedule choices beyond generic cheap selectors, including a fixed nonlinear predictor, with consistent expected single-call quality across repeated provider responses.",
+  "training": "All36 prior compiler-feedback cases, first timing block only, six unique orders each. Targets log(runtime/canonical stock), same42 numeric features. Fit constant,1NN,ridge alpha1,random forest with fixed parameters. No new test outcomes enter training, tuning, feature selection or prompt construction. Prior held-out cases are now training only.",
+  "packet": "Unchanged informed compiler-feedback decision packet; no test group labels, timings, paths, replicate ID or answers from other models. Three independent valid responses per identical packet, separately cached and all obtained before any timing pilot. Never retry a valid choice. Record bounded failed attempts.",
+  "measurement": "Every fresh case and all seven labels, two independent interleaved11-round blocks. No filtering by model advantage. All choices and fitted policies frozen before timing. No concurrent compilation, tests or model fitting during timing.",
+  "primary_success": "In each block separately, expected single-call Jev runtime beats each of constant,stride,nearest_neighbor,ridge,forest beyond max(log1p(.02),3*maximum paired MADlog), positive in at least4of6 structural groups. Group-balanced geometric ratios after arithmetic averaging across three provider-selected runtimes per case and round. No best-of-three selection. Report every comparison and individual replicate.",
+  "interpretation": "Success supports middle-tier decision quality on one generated operation/CPU, not useful third-tier routing, application generalization, human maintenance savings or a complete escalation architecture. If a generic cheap predictor matches Jev, report a cheap learned-policy candidate without forcing escalation. Failure or variability is a result, not permission to add handwritten exceptions.",
+  "maintenance": "Report selector expression, feature and action counts, fixed hyperparameters, learned labels/model size, prompt, provider calls, and compilation/extraction/fit/inference costs. No adaptation-effort claim.",
+  "stop": "Fail closed on correctness or provenance failure; preserve all failures and unfavourable cases. Do not alter cases/features/controls/prompts/success gates after observing fresh timings.",
+  "corpus_selection": "Six dimension/padding settings deliberately fixed before any fresh compilation, inference or timing to cover small, square, tall, wide, deep-reduction and shallow-reduction shapes. Values are listed explicitly in cases; not randomly sampled from a deployment population. For each setting, choose four of rrr,rrc,rcr,rcc,crr,crc,ccr,ccc using Python random.Random(20261020).sample in listed setting order. Exact specs are disjoint from all prior experiment manifests.",
+  "provider_variability": "Three distinct HTTP requests per packet with identical model/configuration and no local response reuse across replicate slots. Provider-side caching/determinism and statistical independence are not established. Report per-replicate comparisons and choice agreement, not population-level stability or confidence intervals. The arithmetic response average is an empirical three-request estimate.",
+  "baseline_scope": "The fixed small random forest is a reproducible nonlinear comparator, not an upper bound on learned-policy quality; no hyperparameter search. A failed superiority gate does not establish equivalence or lack of compiler-information value.",
+  "provider_max_attempts": 3,
+  "pre_timing_amendment": {
+    "original_design": "experiments/feedback-replication-v1.json",
+    "original_design_sha256": "39991373535d6d2c005d25b948a3cf96d44e7b252221dd4b8fa7fd160855fe1d",
+    "original_implementation_commit": "c2dee44",
+    "initial_abort_evidence": "docs/results/feedback-replication-initial-abort-v1.json",
+    "initial_abort_evidence_sha256": "25c28229bb18eb3e4e1572949de465e52f9c3f38cf684d58ead058b3fea74960",
+    "reason": "Jev invalid_response at replication-square-rrr replicate2; the adapter retained reason only, so the precise failed schema check and rejected-response usage are unavailable",
+    "fresh_timing_observed": false,
+    "preserved_valid_responses": 19,
+    "preserved_failed_requests": 1,
+    "rule": "At most three total attempts per slot for invalid or unavailable responses, including the initial failed attempt. Apply equally to all slots; preserve every attempt; never retry valid choices; exhaustion aborts without dropping cases. No parser, schema, prompt, control, corpus or gate changes. Primary quality is for this bounded-retry provider policy; report failures and total requests separately.",
+    "import": "Copy the 20 original provider cache files byte-for-byte into a new output before preparation. Frozen packet validation must match every imported slot. Rebuild fresh cases under new provenance; no old performance observations exist."
+  }
+}

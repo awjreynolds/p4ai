@@ -1,0 +1,479 @@
+{
+  "status": "qualified_development_example",
+  "scope": "Compiler-reported fit and declared interface/capacity preservation only; no hardware execution or full semantic proof. Not held-out evidence.",
+  "ancestry": "Adapted published tenant8 default source: eight independent side table calls become two overlapping conditional groups selected by tenant bits0 and1; twelve dependent chain tables unchanged. Synthetic modification of the prior chain/side family, not an independent production application.",
+  "anchor": "artifacts/p4-fit-advice-v1/sources/tenant8/default/program.p4",
+  "anchor_sha256": "834e9f3357bf5245baed8d0fb7b791d0b892df3f93c6b2a386e93562d0968aa1",
+  "group_mapping": {
+    "a": [
+      "Ingress.side_0",
+      "Ingress.side_1",
+      "Ingress.side_2",
+      "Ingress.side_3",
+      "Ingress.side_4",
+      "Ingress.side_5",
+      "Ingress.side_6",
+      "Ingress.side_7"
+    ],
+    "b": [
+      "Ingress.chain_0",
+      "Ingress.chain_1",
+      "Ingress.chain_2",
+      "Ingress.chain_3",
+      "Ingress.chain_4",
+      "Ingress.chain_5",
+      "Ingress.chain_6",
+      "Ingress.chain_7",
+      "Ingress.chain_8",
+      "Ingress.chain_9",
+      "Ingress.chain_10",
+      "Ingress.chain_11"
+    ]
+  },
+  "manifest_sha256": "03c06660cf0b22e53bd2a51735855ed38c1df7a680970cda8b0ddc7867b8f4fe",
+  "fixed_slot_edits": [
+    {
+      "line": 183,
+      "text": "    @immediate(0)"
+    },
+    {
+      "line": 194,
+      "text": "    @immediate(0)"
+    },
+    {
+      "line": 205,
+      "text": "    @immediate(0)"
+    },
+    {
+      "line": 216,
+      "text": "    @immediate(0)"
+    },
+    {
+      "line": 227,
+      "text": "    @immediate(0)"
+    },
+    {
+      "line": 238,
+      "text": "    @immediate(0)"
+    },
+    {
+      "line": 249,
+      "text": "    @immediate(0)"
+    },
+    {
+      "line": 260,
+      "text": "    @immediate(0)"
+    }
+  ],
+  "annotation_only_validation": "passed validate_manifest; all8edits replace blank80columnlines; sourcebasename and linepositions unchanged",
+  "compilation_attempts": 2,
+  "outcomes": {
+    "default": {
+      "compiler_reported_fit": false,
+      "returncode": 2,
+      "timed_out": false,
+      "actual_stage_ids": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "srams": 942,
+      "acceptance": {
+        "eligible_fit": true,
+        "errors": [],
+        "bfrt_comparison": "equal"
+      },
+      "accepted_fit": false,
+      "capacities": {
+        "Ingress.chain_0": {
+          "requested": 16384,
+          "logical": 16384,
+          "physical": 16384
+        },
+        "Ingress.chain_1": {
+          "requested": 16384,
+          "logical": 16384,
+          "physical": 16384
+        },
+        "Ingress.chain_2": {
+          "requested": 16384,
+          "logical": 16384,
+          "physical": 16384
+        },
+        "Ingress.chain_3": {
+          "requested": 16384,
+          "logical": 16384,
+          "physical": 16384
+        },
+        "Ingress.chain_4": {
+          "requested": 16384,
+          "logical": 16384,
+          "physical": 16384
+        },
+        "Ingress.chain_5": {
+          "requested": 16384,
+          "logical": 16384,
+          "physical": 16384
+        },
+        "Ingress.chain_6": {
+          "requested": 16384,
+          "logical": 16384,
+          "physical": 16384
+        },
+        "Ingress.chain_7": {
+          "requested": 16384,
+          "logical": 16384,
+          "physical": 16384
+        },
+        "Ingress.chain_8": {
+          "requested": 16384,
+          "logical": 16384,
+          "physical": 16384
+        },
+        "Ingress.chain_9": {
+          "requested": 16384,
+          "logical": 16384,
+          "physical": 16384
+        },
+        "Ingress.chain_10": {
+          "requested": 16384,
+          "logical": 16384,
+          "physical": 16384
+        },
+        "Ingress.chain_11": {
+          "requested": 16384,
+          "logical": 16384,
+          "physical": 16384
+        },
+        "Ingress.side_0": {
+          "requested": 196608,
+          "logical": 196608,
+          "physical": 200704
+        },
+        "Ingress.side_1": {
+          "requested": 196608,
+          "logical": 196608,
+          "physical": 200704
+        },
+        "Ingress.side_2": {
+          "requested": 196608,
+          "logical": 196608,
+          "physical": 200704
+        },
+        "Ingress.side_3": {
+          "requested": 196608,
+          "logical": 196608,
+          "physical": 197632
+        },
+        "Ingress.side_4": {
+          "requested": 196608,
+          "logical": 196608,
+          "physical": 200704
+        },
+        "Ingress.side_5": {
+          "requested": 196608,
+          "logical": 196608,
+          "physical": 197632
+        },
+        "Ingress.side_6": {
+          "requested": 196608,
+          "logical": 196608,
+          "physical": 200704
+        },
+        "Ingress.side_7": {
+          "requested": 196608,
+          "logical": 196608,
+          "physical": 200704
+        }
+      },
+      "source_sha256": "d555575fb70714ccd655c004cba4b29d3dfdc937840f25a309969be540b97b36",
+      "probe_sha256": "2cf04a376b75b9e61fb57b69a004133f98af1da25beefcf334bfa3f7063a8bc3",
+      "compiler_identity": {
+        "image_id": "sha256:5b27c37f3835c646c4a7f87c64de986a5fd5d71170b3f8b91e4bfbb908763af9",
+        "target": "tofino",
+        "architecture": "tna",
+        "compiler_executable_sha256": {
+          "bf-p4c": "4c22eff197b43726683b8edacc11fcf60a9db726303a81b1c004b3facc311b16",
+          "bfas": "2e14b84a5a2f456a3a5e6fa643b7d8ff6c66381f6abfb3037e77068525faa3e0",
+          "bfrt_schema.py": "51be8091cc0ee09471b7fce96f7cf8ed9faea7597497ade37ef88129d94ef6c1",
+          "p4_14-to-p4_16": "3be30d98e58f7e8e6392661f22089dd49288a477786beea70511f5087392bd99",
+          "p4c": "4c22eff197b43726683b8edacc11fcf60a9db726303a81b1c004b3facc311b16",
+          "p4c-barefoot": "30f03d4157caafbc81ef3f8a67df2833349c175609d81970f556d70b9d29e407",
+          "p4c-build-logs": "0580a5d375e1d1c4ac94d803f335e7a800533f926c1d91f26a6f31312c7e1e32",
+          "p4c-gen-bfrt-conf": "cc26644f150686dae5993015f6e5372a55eb9a40203e8b1b1204ef2f4d798e88",
+          "p4c-gen-conf": "82160b3e7dec15336fce55a197e785805e325375d09c0e7f434538f159b7a067",
+          "p4c-manifest-config": "70f21b9c6266c66e4bdbc3f40c3a187d0ec29513897eab57e17eb364d2c49f6b",
+          "p4test": "52a1d90f7935015b8014af224853fc8ee009f2c749f901ae35c3c92568eab1f0"
+        },
+        "compiler_support_sha256": {
+          "bin/bfrt_schema.py": "51be8091cc0ee09471b7fce96f7cf8ed9faea7597497ade37ef88129d94ef6c1",
+          "share/p4c/p4_14include/tofino/constants.p4": "fe2e06170a0ca8f7fed9de1f9e1adcfa5f4c5fe295140a2b4daf911413f799fa",
+          "share/p4c/p4_14include/tofino/intrinsic_metadata.p4": "e83c86e17a61197e100aa3f8bd4681ea4b697ce8956f1e7afc2aaebf2bd00325",
+          "share/p4c/p4_14include/tofino/lpf_blackbox.p4": "5098e90bae509a3b9dec42df7f5abcd6e38122d3ab5005545ede6803c20b7674",
+          "share/p4c/p4_14include/tofino/meter_blackbox.p4": "b7f226adf65eac49959435a66e12f5b1866b0865f7b768e976acd9a3b9f21924",
+          "share/p4c/p4_14include/tofino/pktgen_headers.p4": "7a9e643d3fb7cd63c5b6ac4f8da8d8e87b14463b75bb9cdaa426783f1e102cd6",
+          "share/p4c/p4_14include/tofino/primitives.p4": "2c581815923285ed3bd00a62d13bd6559fcbe10c8108778f9ae6d4f1053cf8a6",
+          "share/p4c/p4_14include/tofino/stateful_alu_blackbox.p4": "91d4d6dc4792e52c7090788c0eea4913f668d6928f3c8a9fd1d784bb60ef0a00",
+          "share/p4c/p4_14include/tofino/wred_blackbox.p4": "7f71c71cd2477698b0a568b865613a27ae13b5b25fba83292d5770d9dcc280cb",
+          "share/p4c/p4_14include/tofino2/intrinsic_metadata.p4": "fff11e16e723e24f2ae7cda7f848bdd3007bcbc97e2322f91462db6e8ee45828",
+          "share/p4c/p4c_src/__init__.py": "30396b5615bd6f4ed109f80aeb78f85559f4849e0b1d9d6ccad453528d690358",
+          "share/p4c/p4c_src/barefoot.py": "7a6e5509bb98840a87a6fe97faa472482c933df747c5f3b70c273d1ebb077e9e",
+          "share/p4c/p4c_src/bfn_version.py": "6d4fd7778e1bee35e25d5f0f892361a5ad5f607ce982ecc0dc968e5066044c70",
+          "share/p4c/p4c_src/config.py": "2881fda8f0b51165d3cebc9bc6902dbe30ed5aa7cbad14cceb0bd336cfb361b2",
+          "share/p4c/p4c_src/driver.py": "b513a9b2ed2176ed97e5c29486642670893ff104e7ddd255eb278fb11acb18cc",
+          "share/p4c/p4c_src/main.py": "ac9a295456746b13769e92bacdca2a7366617ba4bc1c5a260f2fdcab987a93b1",
+          "share/p4c/p4c_src/p4c.tofino.cfg": "d8d50aa9c2907a6eb9d5ee93ef9588d4602e0059e2a486ec1b44f6f77377175a",
+          "share/p4c/p4c_src/p4c.tofino2.cfg": "637c51fd22ecea408b3998e54b1cef14bf56439d57da2908b5fd151312ce2f4b",
+          "share/p4c/p4c_src/util.py": "c1671d0afd7c657bbdfa7c76c377673864a6ffbf9e29ef40b1146f79c9869dc3",
+          "share/p4c/p4include/bmv2/pna.p4": "520a612c4fe8ec0b8c3ab8261677e8ce48d0d15be88d8a9521e701d095e4d993",
+          "share/p4c/p4include/bmv2/psa.p4": "fccfb6ccef4e3563a61d16c002bb12baceb039f6bae16a3b318ea3eb2f6c7948",
+          "share/p4c/p4include/core.p4": "bd66f54991b90029759c17a67b28c84505926d601a6fff789f0f5fb6e8bd3e43",
+          "share/p4c/p4include/dpdk/pna.p4": "24089f24446d35445534b157ce345a24315ba86b91654733ae1c8fa3f05bf186",
+          "share/p4c/p4include/dpdk/psa.p4": "ac5fb40c3dfb8aa966bb3bafffeb70534881ff5ef84d76203a98df45892b67ae",
+          "share/p4c/p4include/ebpf_model.p4": "17161e60e85edb4f0a2f94da47dd702f86ec7638b5ccb3be1b1fc0e3d1e1b46d",
+          "share/p4c/p4include/pna.p4": "a7316bea61780247081698a9fc2f1fb5a88ae68f6b774a647cd0ae7070eff2b2",
+          "share/p4c/p4include/t2na.p4": "e04c48fe14c78b534f5831b97ef5925c1c423b0891fe9d9e358cbaf6d1f3dbe3",
+          "share/p4c/p4include/tc/pna.p4": "1bcf9d884fbb317adba4c38d84102263b9c50c93b4ac5e7e0aad0c7387f32e86",
+          "share/p4c/p4include/tna.p4": "c4cf0d0e6238771979449f5622c3484631344acb98a2ce624dc5d2a5c3d9338c",
+          "share/p4c/p4include/tofino/lpf.p4": "7f6e99446759e2bc12b44278edcef0e0e4f98bbca735f9ceb3d5178bd0ce5794",
+          "share/p4c/p4include/tofino/meter.p4": "c9da9b8f2c5f4f18f1eb025e42dac9f892918a9baf048201e4d2b207be470cfc",
+          "share/p4c/p4include/tofino/p4_14_prim.p4": "ab11dc1179bb922f70eeef2fc226693e7a230570d8211302dfd084825ff28b58",
+          "share/p4c/p4include/tofino/psa.p4": "eaabe7c9d4c0b9675f3c95836e06e69bc46ba53559a576107817e8db5880f8b9",
+          "share/p4c/p4include/tofino/stateful_alu.p4": "6ba7abec003bd0caf6e95d1ce8764fddaa87f7c0f65607f0c308d80ab29053c4",
+          "share/p4c/p4include/tofino/stratum.p4": "ab373e9d4c90933d22163717c7fb07b0df96151475ef97397cadc47b2cdb37b4",
+          "share/p4c/p4include/tofino/wred.p4": "9b6c8eb763548f05b10beb6333dab8f781c4e55fc0511a5dda9cb6fbda90830b",
+          "share/p4c/p4include/tofino1_arch.p4": "cc51d14d61aca154bfa2737b366a18ab2eb55845f7a10bdd2757da316f46638c",
+          "share/p4c/p4include/tofino1_base.p4": "cd0b26d649d1abf61711685e59db997462cad49e4686611269c9f0674570f031",
+          "share/p4c/p4include/tofino1_specs.p4": "e68438ee728067be0bd40fdd66f6c0b5a0b762d8a54270982a34bc7de87b17cb",
+          "share/p4c/p4include/tofino2_arch.p4": "6dce1ff970724c0402934a6937a3979aa57fdb90de6a48596020224423602a60",
+          "share/p4c/p4include/tofino2_base.p4": "722bb6f2d73c6a28d45e877c3db7a1e92ac2c3ddb7c66aec6a104892d2d520b3",
+          "share/p4c/p4include/tofino2_specs.p4": "8977cd30758f12cd0475dc3d67969d13877df9ddbc0454fc92d19a408998e21b",
+          "share/p4c/p4include/ubpf_model.p4": "77569e50184260a3d687f45d4b8dfa3340968cfb6e239af4f835b4a688e14bdf",
+          "share/p4c/p4include/v1model.p4": "93693e6bdac5b9f31136efb5216c638df2e0bf5f15a04d258326b69991d68079",
+          "share/p4c/p4include/xdp_model.p4": "bdbc05c358ffdde804ecf63acdedb0b8a6f84c5e9ad7157ca00fa5f0f19ae34c"
+        },
+        "probe_sha256": "f25a4c9e9055097c1a8b0b68e6fe4a547b327dbf3374cdc24f613a174121b553"
+      },
+      "receipt_path": "artifacts/p4-immediate-dev/overlapping-admission-196608/default/probe.json",
+      "bfrt_sha256": {
+        "compiler/bfrt.json": "09bdf6f7b0a265a3f74413c91f81da6f147129b6dce9b1ab545afad29f0ebc24"
+      },
+      "binaries": {}
+    },
+    "side-no-immediate": {
+      "compiler_reported_fit": true,
+      "returncode": 0,
+      "timed_out": false,
+      "actual_stage_ids": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "srams": 944,
+      "acceptance": {
+        "eligible_fit": true,
+        "errors": [],
+        "bfrt_comparison": "equal"
+      },
+      "accepted_fit": true,
+      "capacities": {
+        "Ingress.chain_0": {
+          "requested": 16384,
+          "logical": 16384,
+          "physical": 16384
+        },
+        "Ingress.chain_1": {
+          "requested": 16384,
+          "logical": 16384,
+          "physical": 16384
+        },
+        "Ingress.chain_2": {
+          "requested": 16384,
+          "logical": 16384,
+          "physical": 16384
+        },
+        "Ingress.chain_3": {
+          "requested": 16384,
+          "logical": 16384,
+          "physical": 16384
+        },
+        "Ingress.chain_4": {
+          "requested": 16384,
+          "logical": 16384,
+          "physical": 16384
+        },
+        "Ingress.chain_5": {
+          "requested": 16384,
+          "logical": 16384,
+          "physical": 16384
+        },
+        "Ingress.chain_6": {
+          "requested": 16384,
+          "logical": 16384,
+          "physical": 16384
+        },
+        "Ingress.chain_7": {
+          "requested": 16384,
+          "logical": 16384,
+          "physical": 16384
+        },
+        "Ingress.chain_8": {
+          "requested": 16384,
+          "logical": 16384,
+          "physical": 16384
+        },
+        "Ingress.chain_9": {
+          "requested": 16384,
+          "logical": 16384,
+          "physical": 16384
+        },
+        "Ingress.chain_10": {
+          "requested": 16384,
+          "logical": 16384,
+          "physical": 16384
+        },
+        "Ingress.chain_11": {
+          "requested": 16384,
+          "logical": 16384,
+          "physical": 16384
+        },
+        "Ingress.side_0": {
+          "requested": 196608,
+          "logical": 196608,
+          "physical": 200704
+        },
+        "Ingress.side_1": {
+          "requested": 196608,
+          "logical": 196608,
+          "physical": 200704
+        },
+        "Ingress.side_2": {
+          "requested": 196608,
+          "logical": 196608,
+          "physical": 200704
+        },
+        "Ingress.side_3": {
+          "requested": 196608,
+          "logical": 196608,
+          "physical": 200704
+        },
+        "Ingress.side_4": {
+          "requested": 196608,
+          "logical": 196608,
+          "physical": 200704
+        },
+        "Ingress.side_5": {
+          "requested": 196608,
+          "logical": 196608,
+          "physical": 200704
+        },
+        "Ingress.side_6": {
+          "requested": 196608,
+          "logical": 196608,
+          "physical": 200704
+        },
+        "Ingress.side_7": {
+          "requested": 196608,
+          "logical": 196608,
+          "physical": 200704
+        }
+      },
+      "source_sha256": "13e45c52768828b343d47b474fd7588c9c51829e761281317ea803f80485d262",
+      "probe_sha256": "f16934ae9c0812e374109f35dfa21c3fdb3c860768fe9965b7cc4274c7e2730e",
+      "compiler_identity": {
+        "image_id": "sha256:5b27c37f3835c646c4a7f87c64de986a5fd5d71170b3f8b91e4bfbb908763af9",
+        "target": "tofino",
+        "architecture": "tna",
+        "compiler_executable_sha256": {
+          "bf-p4c": "4c22eff197b43726683b8edacc11fcf60a9db726303a81b1c004b3facc311b16",
+          "bfas": "2e14b84a5a2f456a3a5e6fa643b7d8ff6c66381f6abfb3037e77068525faa3e0",
+          "bfrt_schema.py": "51be8091cc0ee09471b7fce96f7cf8ed9faea7597497ade37ef88129d94ef6c1",
+          "p4_14-to-p4_16": "3be30d98e58f7e8e6392661f22089dd49288a477786beea70511f5087392bd99",
+          "p4c": "4c22eff197b43726683b8edacc11fcf60a9db726303a81b1c004b3facc311b16",
+          "p4c-barefoot": "30f03d4157caafbc81ef3f8a67df2833349c175609d81970f556d70b9d29e407",
+          "p4c-build-logs": "0580a5d375e1d1c4ac94d803f335e7a800533f926c1d91f26a6f31312c7e1e32",
+          "p4c-gen-bfrt-conf": "cc26644f150686dae5993015f6e5372a55eb9a40203e8b1b1204ef2f4d798e88",
+          "p4c-gen-conf": "82160b3e7dec15336fce55a197e785805e325375d09c0e7f434538f159b7a067",
+          "p4c-manifest-config": "70f21b9c6266c66e4bdbc3f40c3a187d0ec29513897eab57e17eb364d2c49f6b",
+          "p4test": "52a1d90f7935015b8014af224853fc8ee009f2c749f901ae35c3c92568eab1f0"
+        },
+        "compiler_support_sha256": {
+          "bin/bfrt_schema.py": "51be8091cc0ee09471b7fce96f7cf8ed9faea7597497ade37ef88129d94ef6c1",
+          "share/p4c/p4_14include/tofino/constants.p4": "fe2e06170a0ca8f7fed9de1f9e1adcfa5f4c5fe295140a2b4daf911413f799fa",
+          "share/p4c/p4_14include/tofino/intrinsic_metadata.p4": "e83c86e17a61197e100aa3f8bd4681ea4b697ce8956f1e7afc2aaebf2bd00325",
+          "share/p4c/p4_14include/tofino/lpf_blackbox.p4": "5098e90bae509a3b9dec42df7f5abcd6e38122d3ab5005545ede6803c20b7674",
+          "share/p4c/p4_14include/tofino/meter_blackbox.p4": "b7f226adf65eac49959435a66e12f5b1866b0865f7b768e976acd9a3b9f21924",
+          "share/p4c/p4_14include/tofino/pktgen_headers.p4": "7a9e643d3fb7cd63c5b6ac4f8da8d8e87b14463b75bb9cdaa426783f1e102cd6",
+          "share/p4c/p4_14include/tofino/primitives.p4": "2c581815923285ed3bd00a62d13bd6559fcbe10c8108778f9ae6d4f1053cf8a6",
+          "share/p4c/p4_14include/tofino/stateful_alu_blackbox.p4": "91d4d6dc4792e52c7090788c0eea4913f668d6928f3c8a9fd1d784bb60ef0a00",
+          "share/p4c/p4_14include/tofino/wred_blackbox.p4": "7f71c71cd2477698b0a568b865613a27ae13b5b25fba83292d5770d9dcc280cb",
+          "share/p4c/p4_14include/tofino2/intrinsic_metadata.p4": "fff11e16e723e24f2ae7cda7f848bdd3007bcbc97e2322f91462db6e8ee45828",
+          "share/p4c/p4c_src/__init__.py": "30396b5615bd6f4ed109f80aeb78f85559f4849e0b1d9d6ccad453528d690358",
+          "share/p4c/p4c_src/barefoot.py": "7a6e5509bb98840a87a6fe97faa472482c933df747c5f3b70c273d1ebb077e9e",
+          "share/p4c/p4c_src/bfn_version.py": "6d4fd7778e1bee35e25d5f0f892361a5ad5f607ce982ecc0dc968e5066044c70",
+          "share/p4c/p4c_src/config.py": "2881fda8f0b51165d3cebc9bc6902dbe30ed5aa7cbad14cceb0bd336cfb361b2",
+          "share/p4c/p4c_src/driver.py": "b513a9b2ed2176ed97e5c29486642670893ff104e7ddd255eb278fb11acb18cc",
+          "share/p4c/p4c_src/main.py": "ac9a295456746b13769e92bacdca2a7366617ba4bc1c5a260f2fdcab987a93b1",
+          "share/p4c/p4c_src/p4c.tofino.cfg": "d8d50aa9c2907a6eb9d5ee93ef9588d4602e0059e2a486ec1b44f6f77377175a",
+          "share/p4c/p4c_src/p4c.tofino2.cfg": "637c51fd22ecea408b3998e54b1cef14bf56439d57da2908b5fd151312ce2f4b",
+          "share/p4c/p4c_src/util.py": "c1671d0afd7c657bbdfa7c76c377673864a6ffbf9e29ef40b1146f79c9869dc3",
+          "share/p4c/p4include/bmv2/pna.p4": "520a612c4fe8ec0b8c3ab8261677e8ce48d0d15be88d8a9521e701d095e4d993",
+          "share/p4c/p4include/bmv2/psa.p4": "fccfb6ccef4e3563a61d16c002bb12baceb039f6bae16a3b318ea3eb2f6c7948",
+          "share/p4c/p4include/core.p4": "bd66f54991b90029759c17a67b28c84505926d601a6fff789f0f5fb6e8bd3e43",
+          "share/p4c/p4include/dpdk/pna.p4": "24089f24446d35445534b157ce345a24315ba86b91654733ae1c8fa3f05bf186",
+          "share/p4c/p4include/dpdk/psa.p4": "ac5fb40c3dfb8aa966bb3bafffeb70534881ff5ef84d76203a98df45892b67ae",
+          "share/p4c/p4include/ebpf_model.p4": "17161e60e85edb4f0a2f94da47dd702f86ec7638b5ccb3be1b1fc0e3d1e1b46d",
+          "share/p4c/p4include/pna.p4": "a7316bea61780247081698a9fc2f1fb5a88ae68f6b774a647cd0ae7070eff2b2",
+          "share/p4c/p4include/t2na.p4": "e04c48fe14c78b534f5831b97ef5925c1c423b0891fe9d9e358cbaf6d1f3dbe3",
+          "share/p4c/p4include/tc/pna.p4": "1bcf9d884fbb317adba4c38d84102263b9c50c93b4ac5e7e0aad0c7387f32e86",
+          "share/p4c/p4include/tna.p4": "c4cf0d0e6238771979449f5622c3484631344acb98a2ce624dc5d2a5c3d9338c",
+          "share/p4c/p4include/tofino/lpf.p4": "7f6e99446759e2bc12b44278edcef0e0e4f98bbca735f9ceb3d5178bd0ce5794",
+          "share/p4c/p4include/tofino/meter.p4": "c9da9b8f2c5f4f18f1eb025e42dac9f892918a9baf048201e4d2b207be470cfc",
+          "share/p4c/p4include/tofino/p4_14_prim.p4": "ab11dc1179bb922f70eeef2fc226693e7a230570d8211302dfd084825ff28b58",
+          "share/p4c/p4include/tofino/psa.p4": "eaabe7c9d4c0b9675f3c95836e06e69bc46ba53559a576107817e8db5880f8b9",
+          "share/p4c/p4include/tofino/stateful_alu.p4": "6ba7abec003bd0caf6e95d1ce8764fddaa87f7c0f65607f0c308d80ab29053c4",
+          "share/p4c/p4include/tofino/stratum.p4": "ab373e9d4c90933d22163717c7fb07b0df96151475ef97397cadc47b2cdb37b4",
+          "share/p4c/p4include/tofino/wred.p4": "9b6c8eb763548f05b10beb6333dab8f781c4e55fc0511a5dda9cb6fbda90830b",
+          "share/p4c/p4include/tofino1_arch.p4": "cc51d14d61aca154bfa2737b366a18ab2eb55845f7a10bdd2757da316f46638c",
+          "share/p4c/p4include/tofino1_base.p4": "cd0b26d649d1abf61711685e59db997462cad49e4686611269c9f0674570f031",
+          "share/p4c/p4include/tofino1_specs.p4": "e68438ee728067be0bd40fdd66f6c0b5a0b762d8a54270982a34bc7de87b17cb",
+          "share/p4c/p4include/tofino2_arch.p4": "6dce1ff970724c0402934a6937a3979aa57fdb90de6a48596020224423602a60",
+          "share/p4c/p4include/tofino2_base.p4": "722bb6f2d73c6a28d45e877c3db7a1e92ac2c3ddb7c66aec6a104892d2d520b3",
+          "share/p4c/p4include/tofino2_specs.p4": "8977cd30758f12cd0475dc3d67969d13877df9ddbc0454fc92d19a408998e21b",
+          "share/p4c/p4include/ubpf_model.p4": "77569e50184260a3d687f45d4b8dfa3340968cfb6e239af4f835b4a688e14bdf",
+          "share/p4c/p4include/v1model.p4": "93693e6bdac5b9f31136efb5216c638df2e0bf5f15a04d258326b69991d68079",
+          "share/p4c/p4include/xdp_model.p4": "bdbc05c358ffdde804ecf63acdedb0b8a6f84c5e9ad7157ca00fa5f0f19ae34c"
+        },
+        "probe_sha256": "f25a4c9e9055097c1a8b0b68e6fe4a547b327dbf3374cdc24f613a174121b553"
+      },
+      "receipt_path": "artifacts/p4-immediate-dev/overlapping-admission-196608/side-no-immediate/probe.json",
+      "bfrt_sha256": {
+        "compiler/bfrt.json": "862f1c55f4d99f1ff8628cfb09886b06a079ba281565d903c9531eed102e8e19"
+      },
+      "binaries": {
+        "pipe/tofino.bin": "f63738a3f6c8a3f4f904e4d64b35111be95498cda8150dd6866b1f8e80ddb0c8"
+      }
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "experiment_id": "p4-multirepair-v1",
+  "parent_grid_sha256": "7c33b007b6b6c2d14874b6af2ca69c3a5e7b2ad5544e72a0b8a95f1e08fcb0dc",
+  "curator_reported_precompile_addendum_sha256": "5e0ba268713a87fa221716d7e7c8b7a58eb2b6a77b3c3a611fa963ff6a943741",
+  "new_source_cases": 8,
+  "uniform_sources_per_case": 26,
+  "additional_physical_compilation_upper_bound": 208,
+  "notes": "Separately identified boundary grid for the remaining unfinished structural contribution. Retain original and first-addendum attempts and exclusions; no adviser outcomes used. Frozen selectors, knowledge, candidate grammar, acceptance and qualification targets unchanged."
+}

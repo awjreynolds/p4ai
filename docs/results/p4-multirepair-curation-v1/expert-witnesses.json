@@ -1,0 +1,3794 @@
+[
+  {
+    "cells": [
+      {
+        "accepted": false,
+        "candidate": "default",
+        "canonical_bfrt_sha256": "0d601ea16406e4c896ab87b4104302ac0ce69a7cae232934471716656b267587",
+        "capacity": [
+          {
+            "allocated_size": 16384,
+            "logical_size": 16384,
+            "name": "Ingress.chain_0",
+            "required": 16384,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 16384,
+                "stage_number": 0,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 16384,
+            "logical_size": 16384,
+            "name": "Ingress.chain_1",
+            "required": 16384,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 16384,
+                "stage_number": 1,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 16384,
+            "logical_size": 16384,
+            "name": "Ingress.chain_10",
+            "required": 16384,
+            "stages": [
+              {
+                "logical_table_id": 0,
+                "size": 16384,
+                "stage_number": 13,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 16384,
+            "logical_size": 16384,
+            "name": "Ingress.chain_11",
+            "required": 16384,
+            "stages": [
+              {
+                "logical_table_id": 0,
+                "size": 16384,
+                "stage_number": 14,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 16384,
+            "logical_size": 16384,
+            "name": "Ingress.chain_2",
+            "required": 16384,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 16384,
+                "stage_number": 2,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 16384,
+            "logical_size": 16384,
+            "name": "Ingress.chain_3",
+            "required": 16384,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 16384,
+                "stage_number": 4,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 16384,
+            "logical_size": 16384,
+            "name": "Ingress.chain_4",
+            "required": 16384,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 16384,
+                "stage_number": 5,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 16384,
+            "logical_size": 16384,
+            "name": "Ingress.chain_5",
+            "required": 16384,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 16384,
+                "stage_number": 7,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 16384,
+            "logical_size": 16384,
+            "name": "Ingress.chain_6",
+            "required": 16384,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 16384,
+                "stage_number": 8,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 16384,
+            "logical_size": 16384,
+            "name": "Ingress.chain_7",
+            "required": 16384,
+            "stages": [
+              {
+                "logical_table_id": 0,
+                "size": 16384,
+                "stage_number": 10,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 16384,
+            "logical_size": 16384,
+            "name": "Ingress.chain_8",
+            "required": 16384,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 16384,
+                "stage_number": 11,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 16384,
+            "logical_size": 16384,
+            "name": "Ingress.chain_9",
+            "required": 16384,
+            "stages": [
+              {
+                "logical_table_id": 0,
+                "size": 16384,
+                "stage_number": 12,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 200704,
+            "logical_size": 196608,
+            "name": "Ingress.side_0",
+            "required": 196608,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 136192,
+                "stage_number": 10,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 64512,
+                "stage_number": 11,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 200704,
+            "logical_size": 196608,
+            "name": "Ingress.side_1",
+            "required": 196608,
+            "stages": [
+              {
+                "logical_table_id": 2,
+                "size": 50176,
+                "stage_number": 8,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 150528,
+                "stage_number": 9,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 200704,
+            "logical_size": 196608,
+            "name": "Ingress.side_2",
+            "required": 196608,
+            "stages": [
+              {
+                "logical_table_id": 2,
+                "size": 114688,
+                "stage_number": 7,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 86016,
+                "stage_number": 8,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 197632,
+            "logical_size": 196608,
+            "name": "Ingress.side_3",
+            "required": 196608,
+            "stages": [
+              {
+                "logical_table_id": 2,
+                "size": 28672,
+                "stage_number": 5,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 150528,
+                "stage_number": 6,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 18432,
+                "stage_number": 7,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 200704,
+            "logical_size": 196608,
+            "name": "Ingress.side_4",
+            "required": 196608,
+            "stages": [
+              {
+                "logical_table_id": 2,
+                "size": 93184,
+                "stage_number": 4,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 107520,
+                "stage_number": 5,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 197632,
+            "logical_size": 196608,
+            "name": "Ingress.side_5",
+            "required": 196608,
+            "stages": [
+              {
+                "logical_table_id": 2,
+                "size": 4096,
+                "stage_number": 2,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 150528,
+                "stage_number": 3,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 43008,
+                "stage_number": 4,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 200704,
+            "logical_size": 196608,
+            "name": "Ingress.side_6",
+            "required": 196608,
+            "stages": [
+              {
+                "logical_table_id": 2,
+                "size": 71680,
+                "stage_number": 1,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 129024,
+                "stage_number": 2,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 200704,
+            "logical_size": 196608,
+            "name": "Ingress.side_7",
+            "required": 196608,
+            "stages": [
+              {
+                "logical_table_id": 2,
+                "size": 136192,
+                "stage_number": 0,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 64512,
+                "stage_number": 1,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          }
+        ],
+        "compiler_fit": false,
+        "probe_sha256": "6b73795d768df8c205cf2071ffeb162e8706af98bcded7b9f4675011ac080a36",
+        "returncode": 2,
+        "source_sha256": "46084df9fd80e9af5767ddd20634180b119c9e088054de83f0cea70341fefb54"
+      },
+      {
+        "accepted": true,
+        "candidate": "a-no-immediate",
+        "canonical_bfrt_sha256": "0d601ea16406e4c896ab87b4104302ac0ce69a7cae232934471716656b267587",
+        "capacity": [
+          {
+            "allocated_size": 16384,
+            "logical_size": 16384,
+            "name": "Ingress.chain_0",
+            "required": 16384,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 16384,
+                "stage_number": 0,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 16384,
+            "logical_size": 16384,
+            "name": "Ingress.chain_1",
+            "required": 16384,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 16384,
+                "stage_number": 1,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 16384,
+            "logical_size": 16384,
+            "name": "Ingress.chain_10",
+            "required": 16384,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 16384,
+                "stage_number": 10,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 16384,
+            "logical_size": 16384,
+            "name": "Ingress.chain_11",
+            "required": 16384,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 16384,
+                "stage_number": 11,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 16384,
+            "logical_size": 16384,
+            "name": "Ingress.chain_2",
+            "required": 16384,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 16384,
+                "stage_number": 2,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 16384,
+            "logical_size": 16384,
+            "name": "Ingress.chain_3",
+            "required": 16384,
+            "stages": [
+              {
+                "logical_table_id": 0,
+                "size": 16384,
+                "stage_number": 3,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 16384,
+            "logical_size": 16384,
+            "name": "Ingress.chain_4",
+            "required": 16384,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 16384,
+                "stage_number": 4,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 16384,
+            "logical_size": 16384,
+            "name": "Ingress.chain_5",
+            "required": 16384,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 16384,
+                "stage_number": 5,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 16384,
+            "logical_size": 16384,
+            "name": "Ingress.chain_6",
+            "required": 16384,
+            "stages": [
+              {
+                "logical_table_id": 0,
+                "size": 16384,
+                "stage_number": 6,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 16384,
+            "logical_size": 16384,
+            "name": "Ingress.chain_7",
+            "required": 16384,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 16384,
+                "stage_number": 7,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 16384,
+            "logical_size": 16384,
+            "name": "Ingress.chain_8",
+            "required": 16384,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 16384,
+                "stage_number": 8,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 16384,
+            "logical_size": 16384,
+            "name": "Ingress.chain_9",
+            "required": 16384,
+            "stages": [
+              {
+                "logical_table_id": 0,
+                "size": 16384,
+                "stage_number": 9,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 200704,
+            "logical_size": 196608,
+            "name": "Ingress.side_0",
+            "required": 196608,
+            "stages": [
+              {
+                "logical_table_id": 2,
+                "size": 71680,
+                "stage_number": 10,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 129024,
+                "stage_number": 11,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 200704,
+            "logical_size": 196608,
+            "name": "Ingress.side_1",
+            "required": 196608,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 136192,
+                "stage_number": 9,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 64512,
+                "stage_number": 10,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 200704,
+            "logical_size": 196608,
+            "name": "Ingress.side_2",
+            "required": 196608,
+            "stages": [
+              {
+                "logical_table_id": 2,
+                "size": 71680,
+                "stage_number": 7,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 129024,
+                "stage_number": 8,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 200704,
+            "logical_size": 196608,
+            "name": "Ingress.side_3",
+            "required": 196608,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 136192,
+                "stage_number": 6,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 64512,
+                "stage_number": 7,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 200704,
+            "logical_size": 196608,
+            "name": "Ingress.side_4",
+            "required": 196608,
+            "stages": [
+              {
+                "logical_table_id": 2,
+                "size": 71680,
+                "stage_number": 4,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 129024,
+                "stage_number": 5,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 200704,
+            "logical_size": 196608,
+            "name": "Ingress.side_5",
+            "required": 196608,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 136192,
+                "stage_number": 3,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 64512,
+                "stage_number": 4,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 200704,
+            "logical_size": 196608,
+            "name": "Ingress.side_6",
+            "required": 196608,
+            "stages": [
+              {
+                "logical_table_id": 2,
+                "size": 71680,
+                "stage_number": 1,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 129024,
+                "stage_number": 2,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 200704,
+            "logical_size": 196608,
+            "name": "Ingress.side_7",
+            "required": 196608,
+            "stages": [
+              {
+                "logical_table_id": 2,
+                "size": 136192,
+                "stage_number": 0,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 64512,
+                "stage_number": 1,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          }
+        ],
+        "compiler_fit": true,
+        "probe_sha256": "018da7ac63b225eacf1e77c65c606b4483d30ba6da0a44d61c736f22830f0218",
+        "returncode": 0,
+        "source_sha256": "4612681e2376cefdc178bfc1a2e6a16012149884329a6a6281dc14d1d2dbe548"
+      }
+    ],
+    "curator_id": "candidate-01",
+    "oracle_scope": "A verified witness, not proof of unique repair; only no-known-repair control exhausts all candidates.",
+    "public_id": "heldout-01",
+    "requirements": {
+      "Ingress.chain_0": 16384,
+      "Ingress.chain_1": 16384,
+      "Ingress.chain_10": 16384,
+      "Ingress.chain_11": 16384,
+      "Ingress.chain_2": 16384,
+      "Ingress.chain_3": 16384,
+      "Ingress.chain_4": 16384,
+      "Ingress.chain_5": 16384,
+      "Ingress.chain_6": 16384,
+      "Ingress.chain_7": 16384,
+      "Ingress.chain_8": 16384,
+      "Ingress.chain_9": 16384,
+      "Ingress.side_0": 196608,
+      "Ingress.side_1": 196608,
+      "Ingress.side_2": 196608,
+      "Ingress.side_3": 196608,
+      "Ingress.side_4": 196608,
+      "Ingress.side_5": 196608,
+      "Ingress.side_6": 196608,
+      "Ingress.side_7": 196608
+    },
+    "role": "repair",
+    "verified_witness": "a-no-immediate"
+  },
+  {
+    "cells": [
+      {
+        "accepted": true,
+        "candidate": "default",
+        "canonical_bfrt_sha256": "10fc0bcf5a66fdfc466c2b05c5374a04096e4564b253b2df06254cbf71677064",
+        "capacity": [
+          {
+            "allocated_size": 4096,
+            "logical_size": 1024,
+            "name": "Ingress.chain_0",
+            "required": 1024,
+            "stages": [
+              {
+                "logical_table_id": 2,
+                "size": 4096,
+                "stage_number": 0,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 4096,
+            "logical_size": 1024,
+            "name": "Ingress.chain_1",
+            "required": 1024,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 4096,
+                "stage_number": 0,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 4096,
+            "logical_size": 1024,
+            "name": "Ingress.chain_10",
+            "required": 1024,
+            "stages": [
+              {
+                "logical_table_id": 0,
+                "size": 4096,
+                "stage_number": 6,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 4096,
+            "logical_size": 1024,
+            "name": "Ingress.chain_11",
+            "required": 1024,
+            "stages": [
+              {
+                "logical_table_id": 0,
+                "size": 4096,
+                "stage_number": 7,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 4096,
+            "logical_size": 1024,
+            "name": "Ingress.chain_2",
+            "required": 1024,
+            "stages": [
+              {
+                "logical_table_id": 0,
+                "size": 4096,
+                "stage_number": 1,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 4096,
+            "logical_size": 1024,
+            "name": "Ingress.chain_3",
+            "required": 1024,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 4096,
+                "stage_number": 2,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 4096,
+            "logical_size": 1024,
+            "name": "Ingress.chain_4",
+            "required": 1024,
+            "stages": [
+              {
+                "logical_table_id": 0,
+                "size": 4096,
+                "stage_number": 2,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 4096,
+            "logical_size": 1024,
+            "name": "Ingress.chain_5",
+            "required": 1024,
+            "stages": [
+              {
+                "logical_table_id": 0,
+                "size": 4096,
+                "stage_number": 3,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 4096,
+            "logical_size": 1024,
+            "name": "Ingress.chain_6",
+            "required": 1024,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 4096,
+                "stage_number": 4,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 4096,
+            "logical_size": 1024,
+            "name": "Ingress.chain_7",
+            "required": 1024,
+            "stages": [
+              {
+                "logical_table_id": 0,
+                "size": 4096,
+                "stage_number": 4,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 4096,
+            "logical_size": 1024,
+            "name": "Ingress.chain_8",
+            "required": 1024,
+            "stages": [
+              {
+                "logical_table_id": 0,
+                "size": 4096,
+                "stage_number": 5,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 4096,
+            "logical_size": 1024,
+            "name": "Ingress.chain_9",
+            "required": 1024,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 4096,
+                "stage_number": 6,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 4096,
+            "logical_size": 1024,
+            "name": "Ingress.side_0",
+            "required": 1024,
+            "stages": [
+              {
+                "logical_table_id": 2,
+                "size": 4096,
+                "stage_number": 1,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 4096,
+            "logical_size": 1024,
+            "name": "Ingress.side_1",
+            "required": 1024,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 4096,
+                "stage_number": 1,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 4096,
+            "logical_size": 1024,
+            "name": "Ingress.side_2",
+            "required": 1024,
+            "stages": [
+              {
+                "logical_table_id": 8,
+                "size": 4096,
+                "stage_number": 0,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 4096,
+            "logical_size": 1024,
+            "name": "Ingress.side_3",
+            "required": 1024,
+            "stages": [
+              {
+                "logical_table_id": 7,
+                "size": 4096,
+                "stage_number": 0,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 4096,
+            "logical_size": 1024,
+            "name": "Ingress.side_4",
+            "required": 1024,
+            "stages": [
+              {
+                "logical_table_id": 6,
+                "size": 4096,
+                "stage_number": 0,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 4096,
+            "logical_size": 1024,
+            "name": "Ingress.side_5",
+            "required": 1024,
+            "stages": [
+              {
+                "logical_table_id": 5,
+                "size": 4096,
+                "stage_number": 0,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 4096,
+            "logical_size": 1024,
+            "name": "Ingress.side_6",
+            "required": 1024,
+            "stages": [
+              {
+                "logical_table_id": 4,
+                "size": 4096,
+                "stage_number": 0,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 4096,
+            "logical_size": 1024,
+            "name": "Ingress.side_7",
+            "required": 1024,
+            "stages": [
+              {
+                "logical_table_id": 3,
+                "size": 4096,
+                "stage_number": 0,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          }
+        ],
+        "compiler_fit": true,
+        "probe_sha256": "61aa8e2b5e1ebe8224321da3aa8e868f9c00764e4f2463a529ab412c50105bf2",
+        "returncode": 0,
+        "source_sha256": "48f6f15db182598d0da742e5b71a839815bdfdb71c290bcc03d401955603d7e3"
+      }
+    ],
+    "curator_id": "control-fit",
+    "oracle_scope": "A verified witness, not proof of unique repair; only no-known-repair control exhausts all candidates.",
+    "public_id": "heldout-02",
+    "requirements": {
+      "Ingress.chain_0": 1024,
+      "Ingress.chain_1": 1024,
+      "Ingress.chain_10": 1024,
+      "Ingress.chain_11": 1024,
+      "Ingress.chain_2": 1024,
+      "Ingress.chain_3": 1024,
+      "Ingress.chain_4": 1024,
+      "Ingress.chain_5": 1024,
+      "Ingress.chain_6": 1024,
+      "Ingress.chain_7": 1024,
+      "Ingress.chain_8": 1024,
+      "Ingress.chain_9": 1024,
+      "Ingress.side_0": 1024,
+      "Ingress.side_1": 1024,
+      "Ingress.side_2": 1024,
+      "Ingress.side_3": 1024,
+      "Ingress.side_4": 1024,
+      "Ingress.side_5": 1024,
+      "Ingress.side_6": 1024,
+      "Ingress.side_7": 1024
+    },
+    "role": "default_fit",
+    "verified_witness": null
+  },
+  {
+    "cells": [
+      {
+        "accepted": false,
+        "candidate": "default",
+        "canonical_bfrt_sha256": "c1429a5090fe7546544ac3692fa89507e5eb2caa44ae5da16102c23b12083fc1",
+        "capacity": [
+          {
+            "allocated_size": 32768,
+            "logical_size": 32768,
+            "name": "Ingress.chain_0",
+            "required": 32768,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 32768,
+                "stage_number": 0,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 32768,
+            "logical_size": 32768,
+            "name": "Ingress.chain_1",
+            "required": 32768,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 32768,
+                "stage_number": 6,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 32768,
+            "logical_size": 32768,
+            "name": "Ingress.chain_10",
+            "required": 32768,
+            "stages": [
+              {
+                "logical_table_id": 0,
+                "size": 32768,
+                "stage_number": 35,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 32768,
+            "logical_size": 32768,
+            "name": "Ingress.chain_11",
+            "required": 32768,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 32768,
+                "stage_number": 41,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 32768,
+            "logical_size": 32768,
+            "name": "Ingress.chain_2",
+            "required": 32768,
+            "stages": [
+              {
+                "logical_table_id": 0,
+                "size": 32768,
+                "stage_number": 7,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 32768,
+            "logical_size": 32768,
+            "name": "Ingress.chain_3",
+            "required": 32768,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 32768,
+                "stage_number": 13,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 32768,
+            "logical_size": 32768,
+            "name": "Ingress.chain_4",
+            "required": 32768,
+            "stages": [
+              {
+                "logical_table_id": 0,
+                "size": 32768,
+                "stage_number": 14,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 32768,
+            "logical_size": 32768,
+            "name": "Ingress.chain_5",
+            "required": 32768,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 32768,
+                "stage_number": 20,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 32768,
+            "logical_size": 32768,
+            "name": "Ingress.chain_6",
+            "required": 32768,
+            "stages": [
+              {
+                "logical_table_id": 0,
+                "size": 32768,
+                "stage_number": 21,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 32768,
+            "logical_size": 32768,
+            "name": "Ingress.chain_7",
+            "required": 32768,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 32768,
+                "stage_number": 27,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 32768,
+            "logical_size": 32768,
+            "name": "Ingress.chain_8",
+            "required": 32768,
+            "stages": [
+              {
+                "logical_table_id": 0,
+                "size": 32768,
+                "stage_number": 28,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 32768,
+            "logical_size": 32768,
+            "name": "Ingress.chain_9",
+            "required": 32768,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 32768,
+                "stage_number": 34,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 524288,
+            "logical_size": 524288,
+            "name": "Ingress.side_0",
+            "required": 524288,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 49152,
+                "stage_number": 48,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 81920,
+                "stage_number": 49,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 81920,
+                "stage_number": 50,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 81920,
+                "stage_number": 51,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 81920,
+                "stage_number": 52,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 81920,
+                "stage_number": 53,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 65536,
+                "stage_number": 54,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 524288,
+            "logical_size": 524288,
+            "name": "Ingress.side_1",
+            "required": 524288,
+            "stages": [
+              {
+                "logical_table_id": 0,
+                "size": 81920,
+                "stage_number": 42,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 81920,
+                "stage_number": 43,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 81920,
+                "stage_number": 44,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 81920,
+                "stage_number": 45,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 81920,
+                "stage_number": 46,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 81920,
+                "stage_number": 47,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 32768,
+                "stage_number": 48,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 524288,
+            "logical_size": 524288,
+            "name": "Ingress.side_2",
+            "required": 524288,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 57344,
+                "stage_number": 35,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 81920,
+                "stage_number": 36,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 81920,
+                "stage_number": 37,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 81920,
+                "stage_number": 38,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 81920,
+                "stage_number": 39,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 81920,
+                "stage_number": 40,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 57344,
+                "stage_number": 41,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 524288,
+            "logical_size": 524288,
+            "name": "Ingress.side_3",
+            "required": 524288,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 57344,
+                "stage_number": 28,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 81920,
+                "stage_number": 29,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 81920,
+                "stage_number": 30,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 81920,
+                "stage_number": 31,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 81920,
+                "stage_number": 32,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 81920,
+                "stage_number": 33,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 57344,
+                "stage_number": 34,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 524288,
+            "logical_size": 524288,
+            "name": "Ingress.side_4",
+            "required": 524288,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 57344,
+                "stage_number": 21,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 81920,
+                "stage_number": 22,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 81920,
+                "stage_number": 23,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 81920,
+                "stage_number": 24,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 81920,
+                "stage_number": 25,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 81920,
+                "stage_number": 26,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 57344,
+                "stage_number": 27,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 524288,
+            "logical_size": 524288,
+            "name": "Ingress.side_5",
+            "required": 524288,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 57344,
+                "stage_number": 14,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 81920,
+                "stage_number": 15,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 81920,
+                "stage_number": 16,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 81920,
+                "stage_number": 17,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 81920,
+                "stage_number": 18,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 81920,
+                "stage_number": 19,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 57344,
+                "stage_number": 20,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 524288,
+            "logical_size": 524288,
+            "name": "Ingress.side_6",
+            "required": 524288,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 57344,
+                "stage_number": 7,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 81920,
+                "stage_number": 8,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 81920,
+                "stage_number": 9,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 81920,
+                "stage_number": 10,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 81920,
+                "stage_number": 11,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 81920,
+                "stage_number": 12,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 57344,
+                "stage_number": 13,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 524288,
+            "logical_size": 524288,
+            "name": "Ingress.side_7",
+            "required": 524288,
+            "stages": [
+              {
+                "logical_table_id": 2,
+                "size": 57344,
+                "stage_number": 0,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 81920,
+                "stage_number": 1,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 81920,
+                "stage_number": 2,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 81920,
+                "stage_number": 3,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 81920,
+                "stage_number": 4,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 81920,
+                "stage_number": 5,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 57344,
+                "stage_number": 6,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          }
+        ],
+        "compiler_fit": false,
+        "probe_sha256": "354f7a8e10e92828d3baeb450e17238feaf8f738ef4b51e280559a08faf42951",
+        "returncode": 2,
+        "source_sha256": "8b23bc73a5f229be12c12ad1d8cd7737a979c406fa485d9c936dd1c818a93562"
+      }
+    ],
+    "curator_id": "control-unsolved",
+    "oracle_scope": "A verified witness, not proof of unique repair; only no-known-repair control exhausts all candidates.",
+    "public_id": "heldout-03",
+    "requirements": {
+      "Ingress.chain_0": 32768,
+      "Ingress.chain_1": 32768,
+      "Ingress.chain_10": 32768,
+      "Ingress.chain_11": 32768,
+      "Ingress.chain_2": 32768,
+      "Ingress.chain_3": 32768,
+      "Ingress.chain_4": 32768,
+      "Ingress.chain_5": 32768,
+      "Ingress.chain_6": 32768,
+      "Ingress.chain_7": 32768,
+      "Ingress.chain_8": 32768,
+      "Ingress.chain_9": 32768,
+      "Ingress.side_0": 524288,
+      "Ingress.side_1": 524288,
+      "Ingress.side_2": 524288,
+      "Ingress.side_3": 524288,
+      "Ingress.side_4": 524288,
+      "Ingress.side_5": 524288,
+      "Ingress.side_6": 524288,
+      "Ingress.side_7": 524288
+    },
+    "role": "no_known_repair",
+    "verified_witness": null
+  },
+  {
+    "cells": [
+      {
+        "accepted": false,
+        "candidate": "default",
+        "canonical_bfrt_sha256": "f629188f01e4bc1d5a67c9125f88f4464b0940fb349d7696ca118848dee7add7",
+        "capacity": [
+          {
+            "allocated_size": 16384,
+            "logical_size": 16384,
+            "name": "Ingress.chain_0",
+            "required": 16384,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 16384,
+                "stage_number": 0,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 16384,
+            "logical_size": 16384,
+            "name": "Ingress.chain_1",
+            "required": 16384,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 16384,
+                "stage_number": 1,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 16384,
+            "logical_size": 16384,
+            "name": "Ingress.chain_10",
+            "required": 16384,
+            "stages": [
+              {
+                "logical_table_id": 0,
+                "size": 16384,
+                "stage_number": 12,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 16384,
+            "logical_size": 16384,
+            "name": "Ingress.chain_11",
+            "required": 16384,
+            "stages": [
+              {
+                "logical_table_id": 0,
+                "size": 16384,
+                "stage_number": 13,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 16384,
+            "logical_size": 16384,
+            "name": "Ingress.chain_2",
+            "required": 16384,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 16384,
+                "stage_number": 2,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 16384,
+            "logical_size": 16384,
+            "name": "Ingress.chain_3",
+            "required": 16384,
+            "stages": [
+              {
+                "logical_table_id": 0,
+                "size": 16384,
+                "stage_number": 4,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 16384,
+            "logical_size": 16384,
+            "name": "Ingress.chain_4",
+            "required": 16384,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 16384,
+                "stage_number": 5,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 16384,
+            "logical_size": 16384,
+            "name": "Ingress.chain_5",
+            "required": 16384,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 16384,
+                "stage_number": 6,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 16384,
+            "logical_size": 16384,
+            "name": "Ingress.chain_6",
+            "required": 16384,
+            "stages": [
+              {
+                "logical_table_id": 0,
+                "size": 16384,
+                "stage_number": 8,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 16384,
+            "logical_size": 16384,
+            "name": "Ingress.chain_7",
+            "required": 16384,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 16384,
+                "stage_number": 9,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 16384,
+            "logical_size": 16384,
+            "name": "Ingress.chain_8",
+            "required": 16384,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 16384,
+                "stage_number": 10,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 16384,
+            "logical_size": 16384,
+            "name": "Ingress.chain_9",
+            "required": 16384,
+            "stages": [
+              {
+                "logical_table_id": 0,
+                "size": 16384,
+                "stage_number": 11,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 186368,
+            "logical_size": 180224,
+            "name": "Ingress.side_0",
+            "required": 180224,
+            "stages": [
+              {
+                "logical_table_id": 2,
+                "size": 86016,
+                "stage_number": 9,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 100352,
+                "stage_number": 10,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 182272,
+            "logical_size": 180224,
+            "name": "Ingress.side_1",
+            "required": 180224,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 136192,
+                "stage_number": 8,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 46080,
+                "stage_number": 9,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 186368,
+            "logical_size": 180224,
+            "name": "Ingress.side_2",
+            "required": 180224,
+            "stages": [
+              {
+                "logical_table_id": 2,
+                "size": 35840,
+                "stage_number": 6,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 150528,
+                "stage_number": 7,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 186368,
+            "logical_size": 180224,
+            "name": "Ingress.side_3",
+            "required": 180224,
+            "stages": [
+              {
+                "logical_table_id": 2,
+                "size": 86016,
+                "stage_number": 5,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 100352,
+                "stage_number": 6,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 182272,
+            "logical_size": 180224,
+            "name": "Ingress.side_4",
+            "required": 180224,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 136192,
+                "stage_number": 4,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 46080,
+                "stage_number": 5,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 186368,
+            "logical_size": 180224,
+            "name": "Ingress.side_5",
+            "required": 180224,
+            "stages": [
+              {
+                "logical_table_id": 2,
+                "size": 35840,
+                "stage_number": 2,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 150528,
+                "stage_number": 3,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 186368,
+            "logical_size": 180224,
+            "name": "Ingress.side_6",
+            "required": 180224,
+            "stages": [
+              {
+                "logical_table_id": 2,
+                "size": 86016,
+                "stage_number": 1,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 100352,
+                "stage_number": 2,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 182272,
+            "logical_size": 180224,
+            "name": "Ingress.side_7",
+            "required": 180224,
+            "stages": [
+              {
+                "logical_table_id": 2,
+                "size": 136192,
+                "stage_number": 0,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 46080,
+                "stage_number": 1,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          }
+        ],
+        "compiler_fit": false,
+        "probe_sha256": "8241e6cb37b58a6aaf4a4debff96422580787e37bf77e8b7cf268e18928a0892",
+        "returncode": 2,
+        "source_sha256": "aec4c8eefb3c0dd18c722a126cdbea224a229e560df806a7be9578e47d86156e"
+      },
+      {
+        "accepted": true,
+        "candidate": "a-pack-6",
+        "canonical_bfrt_sha256": "f629188f01e4bc1d5a67c9125f88f4464b0940fb349d7696ca118848dee7add7",
+        "capacity": [
+          {
+            "allocated_size": 16384,
+            "logical_size": 16384,
+            "name": "Ingress.chain_0",
+            "required": 16384,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 16384,
+                "stage_number": 0,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 16384,
+            "logical_size": 16384,
+            "name": "Ingress.chain_1",
+            "required": 16384,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 16384,
+                "stage_number": 1,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 16384,
+            "logical_size": 16384,
+            "name": "Ingress.chain_10",
+            "required": 16384,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 16384,
+                "stage_number": 10,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 16384,
+            "logical_size": 16384,
+            "name": "Ingress.chain_11",
+            "required": 16384,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 16384,
+                "stage_number": 11,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 16384,
+            "logical_size": 16384,
+            "name": "Ingress.chain_2",
+            "required": 16384,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 16384,
+                "stage_number": 2,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 16384,
+            "logical_size": 16384,
+            "name": "Ingress.chain_3",
+            "required": 16384,
+            "stages": [
+              {
+                "logical_table_id": 0,
+                "size": 16384,
+                "stage_number": 3,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 16384,
+            "logical_size": 16384,
+            "name": "Ingress.chain_4",
+            "required": 16384,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 16384,
+                "stage_number": 4,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 16384,
+            "logical_size": 16384,
+            "name": "Ingress.chain_5",
+            "required": 16384,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 16384,
+                "stage_number": 5,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 16384,
+            "logical_size": 16384,
+            "name": "Ingress.chain_6",
+            "required": 16384,
+            "stages": [
+              {
+                "logical_table_id": 0,
+                "size": 16384,
+                "stage_number": 6,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 16384,
+            "logical_size": 16384,
+            "name": "Ingress.chain_7",
+            "required": 16384,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 16384,
+                "stage_number": 7,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 16384,
+            "logical_size": 16384,
+            "name": "Ingress.chain_8",
+            "required": 16384,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 16384,
+                "stage_number": 8,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 16384,
+            "logical_size": 16384,
+            "name": "Ingress.chain_9",
+            "required": 16384,
+            "stages": [
+              {
+                "logical_table_id": 0,
+                "size": 16384,
+                "stage_number": 9,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 184320,
+            "logical_size": 180224,
+            "name": "Ingress.side_0",
+            "required": 180224,
+            "stages": [
+              {
+                "logical_table_id": 2,
+                "size": 61440,
+                "stage_number": 10,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 122880,
+                "stage_number": 11,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 184320,
+            "logical_size": 180224,
+            "name": "Ingress.side_1",
+            "required": 180224,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 122880,
+                "stage_number": 9,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 61440,
+                "stage_number": 10,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 184320,
+            "logical_size": 180224,
+            "name": "Ingress.side_2",
+            "required": 180224,
+            "stages": [
+              {
+                "logical_table_id": 2,
+                "size": 61440,
+                "stage_number": 7,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 122880,
+                "stage_number": 8,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 184320,
+            "logical_size": 180224,
+            "name": "Ingress.side_3",
+            "required": 180224,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 122880,
+                "stage_number": 6,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 61440,
+                "stage_number": 7,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 184320,
+            "logical_size": 180224,
+            "name": "Ingress.side_4",
+            "required": 180224,
+            "stages": [
+              {
+                "logical_table_id": 2,
+                "size": 61440,
+                "stage_number": 4,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 122880,
+                "stage_number": 5,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 184320,
+            "logical_size": 180224,
+            "name": "Ingress.side_5",
+            "required": 180224,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 122880,
+                "stage_number": 3,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 61440,
+                "stage_number": 4,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 184320,
+            "logical_size": 180224,
+            "name": "Ingress.side_6",
+            "required": 180224,
+            "stages": [
+              {
+                "logical_table_id": 2,
+                "size": 61440,
+                "stage_number": 1,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 122880,
+                "stage_number": 2,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 184320,
+            "logical_size": 180224,
+            "name": "Ingress.side_7",
+            "required": 180224,
+            "stages": [
+              {
+                "logical_table_id": 2,
+                "size": 122880,
+                "stage_number": 0,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 61440,
+                "stage_number": 1,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          }
+        ],
+        "compiler_fit": true,
+        "probe_sha256": "2487e02b33a7eb8a1f09f103c751cb65394544ba4b11a35fd3eb1ba5c05412a8",
+        "returncode": 0,
+        "source_sha256": "dc94962435d79ce52e2aa1168e46585c9934d4dcbe90f4f5ba1b7c4ed47c17a9"
+      }
+    ],
+    "curator_id": "extension-02",
+    "oracle_scope": "A verified witness, not proof of unique repair; only no-known-repair control exhausts all candidates.",
+    "public_id": "heldout-04",
+    "requirements": {
+      "Ingress.chain_0": 16384,
+      "Ingress.chain_1": 16384,
+      "Ingress.chain_10": 16384,
+      "Ingress.chain_11": 16384,
+      "Ingress.chain_2": 16384,
+      "Ingress.chain_3": 16384,
+      "Ingress.chain_4": 16384,
+      "Ingress.chain_5": 16384,
+      "Ingress.chain_6": 16384,
+      "Ingress.chain_7": 16384,
+      "Ingress.chain_8": 16384,
+      "Ingress.chain_9": 16384,
+      "Ingress.side_0": 180224,
+      "Ingress.side_1": 180224,
+      "Ingress.side_2": 180224,
+      "Ingress.side_3": 180224,
+      "Ingress.side_4": 180224,
+      "Ingress.side_5": 180224,
+      "Ingress.side_6": 180224,
+      "Ingress.side_7": 180224
+    },
+    "role": "repair",
+    "verified_witness": "a-pack-6"
+  },
+  {
+    "cells": [
+      {
+        "accepted": false,
+        "candidate": "default",
+        "canonical_bfrt_sha256": "98fc74a25207055aefc10c2d28977b8c7673f66f8fd8502d5cbde523acdeb23f",
+        "capacity": [
+          {
+            "allocated_size": 16384,
+            "logical_size": 16384,
+            "name": "Ingress.chain_0",
+            "required": 16384,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 16384,
+                "stage_number": 0,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 16384,
+            "logical_size": 16384,
+            "name": "Ingress.chain_1",
+            "required": 16384,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 16384,
+                "stage_number": 1,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 16384,
+            "logical_size": 16384,
+            "name": "Ingress.chain_10",
+            "required": 16384,
+            "stages": [
+              {
+                "logical_table_id": 0,
+                "size": 16384,
+                "stage_number": 13,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 16384,
+            "logical_size": 16384,
+            "name": "Ingress.chain_11",
+            "required": 16384,
+            "stages": [
+              {
+                "logical_table_id": 0,
+                "size": 16384,
+                "stage_number": 14,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 16384,
+            "logical_size": 16384,
+            "name": "Ingress.chain_2",
+            "required": 16384,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 16384,
+                "stage_number": 2,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 16384,
+            "logical_size": 16384,
+            "name": "Ingress.chain_3",
+            "required": 16384,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 16384,
+                "stage_number": 4,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 16384,
+            "logical_size": 16384,
+            "name": "Ingress.chain_4",
+            "required": 16384,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 16384,
+                "stage_number": 5,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 16384,
+            "logical_size": 16384,
+            "name": "Ingress.chain_5",
+            "required": 16384,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 16384,
+                "stage_number": 7,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 16384,
+            "logical_size": 16384,
+            "name": "Ingress.chain_6",
+            "required": 16384,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 16384,
+                "stage_number": 8,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 16384,
+            "logical_size": 16384,
+            "name": "Ingress.chain_7",
+            "required": 16384,
+            "stages": [
+              {
+                "logical_table_id": 0,
+                "size": 16384,
+                "stage_number": 10,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 16384,
+            "logical_size": 16384,
+            "name": "Ingress.chain_8",
+            "required": 16384,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 16384,
+                "stage_number": 11,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 16384,
+            "logical_size": 16384,
+            "name": "Ingress.chain_9",
+            "required": 16384,
+            "stages": [
+              {
+                "logical_table_id": 0,
+                "size": 16384,
+                "stage_number": 12,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 200704,
+            "logical_size": 196608,
+            "name": "Ingress.side_0",
+            "required": 196608,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 136192,
+                "stage_number": 10,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 64512,
+                "stage_number": 11,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 200704,
+            "logical_size": 196608,
+            "name": "Ingress.side_1",
+            "required": 196608,
+            "stages": [
+              {
+                "logical_table_id": 2,
+                "size": 50176,
+                "stage_number": 8,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 150528,
+                "stage_number": 9,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 200704,
+            "logical_size": 196608,
+            "name": "Ingress.side_2",
+            "required": 196608,
+            "stages": [
+              {
+                "logical_table_id": 2,
+                "size": 114688,
+                "stage_number": 7,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 86016,
+                "stage_number": 8,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 197632,
+            "logical_size": 196608,
+            "name": "Ingress.side_3",
+            "required": 196608,
+            "stages": [
+              {
+                "logical_table_id": 2,
+                "size": 28672,
+                "stage_number": 5,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 150528,
+                "stage_number": 6,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 18432,
+                "stage_number": 7,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 200704,
+            "logical_size": 196608,
+            "name": "Ingress.side_4",
+            "required": 196608,
+            "stages": [
+              {
+                "logical_table_id": 2,
+                "size": 93184,
+                "stage_number": 4,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 107520,
+                "stage_number": 5,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 197632,
+            "logical_size": 196608,
+            "name": "Ingress.side_5",
+            "required": 196608,
+            "stages": [
+              {
+                "logical_table_id": 2,
+                "size": 4096,
+                "stage_number": 2,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 150528,
+                "stage_number": 3,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 43008,
+                "stage_number": 4,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 200704,
+            "logical_size": 196608,
+            "name": "Ingress.side_6",
+            "required": 196608,
+            "stages": [
+              {
+                "logical_table_id": 2,
+                "size": 71680,
+                "stage_number": 1,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 129024,
+                "stage_number": 2,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 200704,
+            "logical_size": 196608,
+            "name": "Ingress.side_7",
+            "required": 196608,
+            "stages": [
+              {
+                "logical_table_id": 2,
+                "size": 136192,
+                "stage_number": 0,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 64512,
+                "stage_number": 1,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          }
+        ],
+        "compiler_fit": false,
+        "probe_sha256": "5eccda38d7ead52c22fdae6f4e4031c2c694f1b63d65dadee01a56401a101e0a",
+        "returncode": 2,
+        "source_sha256": "c65699aaa4dd9bc1043d9ebc40215633ce07224258d1edcbd8935e0165dd8711"
+      },
+      {
+        "accepted": true,
+        "candidate": "a-no-immediate",
+        "canonical_bfrt_sha256": "98fc74a25207055aefc10c2d28977b8c7673f66f8fd8502d5cbde523acdeb23f",
+        "capacity": [
+          {
+            "allocated_size": 16384,
+            "logical_size": 16384,
+            "name": "Ingress.chain_0",
+            "required": 16384,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 16384,
+                "stage_number": 0,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 16384,
+            "logical_size": 16384,
+            "name": "Ingress.chain_1",
+            "required": 16384,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 16384,
+                "stage_number": 1,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 16384,
+            "logical_size": 16384,
+            "name": "Ingress.chain_10",
+            "required": 16384,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 16384,
+                "stage_number": 10,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 16384,
+            "logical_size": 16384,
+            "name": "Ingress.chain_11",
+            "required": 16384,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 16384,
+                "stage_number": 11,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 16384,
+            "logical_size": 16384,
+            "name": "Ingress.chain_2",
+            "required": 16384,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 16384,
+                "stage_number": 2,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 16384,
+            "logical_size": 16384,
+            "name": "Ingress.chain_3",
+            "required": 16384,
+            "stages": [
+              {
+                "logical_table_id": 0,
+                "size": 16384,
+                "stage_number": 3,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 16384,
+            "logical_size": 16384,
+            "name": "Ingress.chain_4",
+            "required": 16384,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 16384,
+                "stage_number": 4,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 16384,
+            "logical_size": 16384,
+            "name": "Ingress.chain_5",
+            "required": 16384,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 16384,
+                "stage_number": 5,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 16384,
+            "logical_size": 16384,
+            "name": "Ingress.chain_6",
+            "required": 16384,
+            "stages": [
+              {
+                "logical_table_id": 0,
+                "size": 16384,
+                "stage_number": 6,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 16384,
+            "logical_size": 16384,
+            "name": "Ingress.chain_7",
+            "required": 16384,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 16384,
+                "stage_number": 7,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 16384,
+            "logical_size": 16384,
+            "name": "Ingress.chain_8",
+            "required": 16384,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 16384,
+                "stage_number": 8,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 16384,
+            "logical_size": 16384,
+            "name": "Ingress.chain_9",
+            "required": 16384,
+            "stages": [
+              {
+                "logical_table_id": 0,
+                "size": 16384,
+                "stage_number": 9,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 200704,
+            "logical_size": 196608,
+            "name": "Ingress.side_0",
+            "required": 196608,
+            "stages": [
+              {
+                "logical_table_id": 2,
+                "size": 71680,
+                "stage_number": 10,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 129024,
+                "stage_number": 11,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 200704,
+            "logical_size": 196608,
+            "name": "Ingress.side_1",
+            "required": 196608,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 136192,
+                "stage_number": 9,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 64512,
+                "stage_number": 10,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 200704,
+            "logical_size": 196608,
+            "name": "Ingress.side_2",
+            "required": 196608,
+            "stages": [
+              {
+                "logical_table_id": 2,
+                "size": 71680,
+                "stage_number": 7,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 129024,
+                "stage_number": 8,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 200704,
+            "logical_size": 196608,
+            "name": "Ingress.side_3",
+            "required": 196608,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 136192,
+                "stage_number": 6,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 64512,
+                "stage_number": 7,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 200704,
+            "logical_size": 196608,
+            "name": "Ingress.side_4",
+            "required": 196608,
+            "stages": [
+              {
+                "logical_table_id": 2,
+                "size": 71680,
+                "stage_number": 4,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 129024,
+                "stage_number": 5,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 200704,
+            "logical_size": 196608,
+            "name": "Ingress.side_5",
+            "required": 196608,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 136192,
+                "stage_number": 3,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 64512,
+                "stage_number": 4,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 200704,
+            "logical_size": 196608,
+            "name": "Ingress.side_6",
+            "required": 196608,
+            "stages": [
+              {
+                "logical_table_id": 2,
+                "size": 71680,
+                "stage_number": 1,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 129024,
+                "stage_number": 2,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 200704,
+            "logical_size": 196608,
+            "name": "Ingress.side_7",
+            "required": 196608,
+            "stages": [
+              {
+                "logical_table_id": 2,
+                "size": 136192,
+                "stage_number": 0,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 64512,
+                "stage_number": 1,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          }
+        ],
+        "compiler_fit": true,
+        "probe_sha256": "b9d5df6817ed29374bd92210e58e913885a15883cf2d724a76c29d0ea65f1eab",
+        "returncode": 0,
+        "source_sha256": "e0d400b8111837496429b6e26206d19e8fd3c3c0bfb82d9485bc86dabc620638"
+      }
+    ],
+    "curator_id": "extension-01",
+    "oracle_scope": "A verified witness, not proof of unique repair; only no-known-repair control exhausts all candidates.",
+    "public_id": "heldout-05",
+    "requirements": {
+      "Ingress.chain_0": 16384,
+      "Ingress.chain_1": 16384,
+      "Ingress.chain_10": 16384,
+      "Ingress.chain_11": 16384,
+      "Ingress.chain_2": 16384,
+      "Ingress.chain_3": 16384,
+      "Ingress.chain_4": 16384,
+      "Ingress.chain_5": 16384,
+      "Ingress.chain_6": 16384,
+      "Ingress.chain_7": 16384,
+      "Ingress.chain_8": 16384,
+      "Ingress.chain_9": 16384,
+      "Ingress.side_0": 196608,
+      "Ingress.side_1": 196608,
+      "Ingress.side_2": 196608,
+      "Ingress.side_3": 196608,
+      "Ingress.side_4": 196608,
+      "Ingress.side_5": 196608,
+      "Ingress.side_6": 196608,
+      "Ingress.side_7": 196608
+    },
+    "role": "repair",
+    "verified_witness": "a-no-immediate"
+  },
+  {
+    "cells": [
+      {
+        "accepted": false,
+        "candidate": "default",
+        "canonical_bfrt_sha256": "a3a0f330f2cd68c3d7bf23f39de8c3435df84e1307927a58db6b42ae9761dcd8",
+        "capacity": [
+          {
+            "allocated_size": 16384,
+            "logical_size": 16384,
+            "name": "Ingress.chain_0",
+            "required": 16384,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 16384,
+                "stage_number": 0,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 16384,
+            "logical_size": 16384,
+            "name": "Ingress.chain_1",
+            "required": 16384,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 16384,
+                "stage_number": 1,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 16384,
+            "logical_size": 16384,
+            "name": "Ingress.chain_10",
+            "required": 16384,
+            "stages": [
+              {
+                "logical_table_id": 0,
+                "size": 16384,
+                "stage_number": 12,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 16384,
+            "logical_size": 16384,
+            "name": "Ingress.chain_11",
+            "required": 16384,
+            "stages": [
+              {
+                "logical_table_id": 0,
+                "size": 16384,
+                "stage_number": 13,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 16384,
+            "logical_size": 16384,
+            "name": "Ingress.chain_2",
+            "required": 16384,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 16384,
+                "stage_number": 2,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 16384,
+            "logical_size": 16384,
+            "name": "Ingress.chain_3",
+            "required": 16384,
+            "stages": [
+              {
+                "logical_table_id": 0,
+                "size": 16384,
+                "stage_number": 4,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 16384,
+            "logical_size": 16384,
+            "name": "Ingress.chain_4",
+            "required": 16384,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 16384,
+                "stage_number": 5,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 16384,
+            "logical_size": 16384,
+            "name": "Ingress.chain_5",
+            "required": 16384,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 16384,
+                "stage_number": 6,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 16384,
+            "logical_size": 16384,
+            "name": "Ingress.chain_6",
+            "required": 16384,
+            "stages": [
+              {
+                "logical_table_id": 0,
+                "size": 16384,
+                "stage_number": 8,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 16384,
+            "logical_size": 16384,
+            "name": "Ingress.chain_7",
+            "required": 16384,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 16384,
+                "stage_number": 9,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 16384,
+            "logical_size": 16384,
+            "name": "Ingress.chain_8",
+            "required": 16384,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 16384,
+                "stage_number": 10,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 16384,
+            "logical_size": 16384,
+            "name": "Ingress.chain_9",
+            "required": 16384,
+            "stages": [
+              {
+                "logical_table_id": 0,
+                "size": 16384,
+                "stage_number": 11,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 186368,
+            "logical_size": 180224,
+            "name": "Ingress.side_0",
+            "required": 180224,
+            "stages": [
+              {
+                "logical_table_id": 2,
+                "size": 86016,
+                "stage_number": 9,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 100352,
+                "stage_number": 10,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 182272,
+            "logical_size": 180224,
+            "name": "Ingress.side_1",
+            "required": 180224,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 136192,
+                "stage_number": 8,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 46080,
+                "stage_number": 9,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 186368,
+            "logical_size": 180224,
+            "name": "Ingress.side_2",
+            "required": 180224,
+            "stages": [
+              {
+                "logical_table_id": 2,
+                "size": 35840,
+                "stage_number": 6,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 150528,
+                "stage_number": 7,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 186368,
+            "logical_size": 180224,
+            "name": "Ingress.side_3",
+            "required": 180224,
+            "stages": [
+              {
+                "logical_table_id": 2,
+                "size": 86016,
+                "stage_number": 5,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 100352,
+                "stage_number": 6,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 182272,
+            "logical_size": 180224,
+            "name": "Ingress.side_4",
+            "required": 180224,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 136192,
+                "stage_number": 4,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 46080,
+                "stage_number": 5,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 186368,
+            "logical_size": 180224,
+            "name": "Ingress.side_5",
+            "required": 180224,
+            "stages": [
+              {
+                "logical_table_id": 2,
+                "size": 35840,
+                "stage_number": 2,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 150528,
+                "stage_number": 3,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 186368,
+            "logical_size": 180224,
+            "name": "Ingress.side_6",
+            "required": 180224,
+            "stages": [
+              {
+                "logical_table_id": 2,
+                "size": 86016,
+                "stage_number": 1,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 100352,
+                "stage_number": 2,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 182272,
+            "logical_size": 180224,
+            "name": "Ingress.side_7",
+            "required": 180224,
+            "stages": [
+              {
+                "logical_table_id": 2,
+                "size": 136192,
+                "stage_number": 0,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 46080,
+                "stage_number": 1,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          }
+        ],
+        "compiler_fit": false,
+        "probe_sha256": "62d40d65bd8abe4e9b9136247c8a5c60a56ed52aae4ca13befee6909c7ef2c72",
+        "returncode": 2,
+        "source_sha256": "f10d4a5be80307510f8359fff8504b2e5992aded572778f06ba08b9430852050"
+      },
+      {
+        "accepted": true,
+        "candidate": "a-pack-6",
+        "canonical_bfrt_sha256": "a3a0f330f2cd68c3d7bf23f39de8c3435df84e1307927a58db6b42ae9761dcd8",
+        "capacity": [
+          {
+            "allocated_size": 16384,
+            "logical_size": 16384,
+            "name": "Ingress.chain_0",
+            "required": 16384,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 16384,
+                "stage_number": 0,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 16384,
+            "logical_size": 16384,
+            "name": "Ingress.chain_1",
+            "required": 16384,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 16384,
+                "stage_number": 1,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 16384,
+            "logical_size": 16384,
+            "name": "Ingress.chain_10",
+            "required": 16384,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 16384,
+                "stage_number": 10,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 16384,
+            "logical_size": 16384,
+            "name": "Ingress.chain_11",
+            "required": 16384,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 16384,
+                "stage_number": 11,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 16384,
+            "logical_size": 16384,
+            "name": "Ingress.chain_2",
+            "required": 16384,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 16384,
+                "stage_number": 2,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 16384,
+            "logical_size": 16384,
+            "name": "Ingress.chain_3",
+            "required": 16384,
+            "stages": [
+              {
+                "logical_table_id": 0,
+                "size": 16384,
+                "stage_number": 3,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 16384,
+            "logical_size": 16384,
+            "name": "Ingress.chain_4",
+            "required": 16384,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 16384,
+                "stage_number": 4,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 16384,
+            "logical_size": 16384,
+            "name": "Ingress.chain_5",
+            "required": 16384,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 16384,
+                "stage_number": 5,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 16384,
+            "logical_size": 16384,
+            "name": "Ingress.chain_6",
+            "required": 16384,
+            "stages": [
+              {
+                "logical_table_id": 0,
+                "size": 16384,
+                "stage_number": 6,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 16384,
+            "logical_size": 16384,
+            "name": "Ingress.chain_7",
+            "required": 16384,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 16384,
+                "stage_number": 7,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 16384,
+            "logical_size": 16384,
+            "name": "Ingress.chain_8",
+            "required": 16384,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 16384,
+                "stage_number": 8,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 16384,
+            "logical_size": 16384,
+            "name": "Ingress.chain_9",
+            "required": 16384,
+            "stages": [
+              {
+                "logical_table_id": 0,
+                "size": 16384,
+                "stage_number": 9,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 184320,
+            "logical_size": 180224,
+            "name": "Ingress.side_0",
+            "required": 180224,
+            "stages": [
+              {
+                "logical_table_id": 2,
+                "size": 61440,
+                "stage_number": 10,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 122880,
+                "stage_number": 11,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 184320,
+            "logical_size": 180224,
+            "name": "Ingress.side_1",
+            "required": 180224,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 122880,
+                "stage_number": 9,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 61440,
+                "stage_number": 10,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 184320,
+            "logical_size": 180224,
+            "name": "Ingress.side_2",
+            "required": 180224,
+            "stages": [
+              {
+                "logical_table_id": 2,
+                "size": 61440,
+                "stage_number": 7,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 122880,
+                "stage_number": 8,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 184320,
+            "logical_size": 180224,
+            "name": "Ingress.side_3",
+            "required": 180224,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 122880,
+                "stage_number": 6,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 61440,
+                "stage_number": 7,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 184320,
+            "logical_size": 180224,
+            "name": "Ingress.side_4",
+            "required": 180224,
+            "stages": [
+              {
+                "logical_table_id": 2,
+                "size": 61440,
+                "stage_number": 4,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 122880,
+                "stage_number": 5,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 184320,
+            "logical_size": 180224,
+            "name": "Ingress.side_5",
+            "required": 180224,
+            "stages": [
+              {
+                "logical_table_id": 1,
+                "size": 122880,
+                "stage_number": 3,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 61440,
+                "stage_number": 4,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 184320,
+            "logical_size": 180224,
+            "name": "Ingress.side_6",
+            "required": 180224,
+            "stages": [
+              {
+                "logical_table_id": 2,
+                "size": 61440,
+                "stage_number": 1,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 122880,
+                "stage_number": 2,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          },
+          {
+            "allocated_size": 184320,
+            "logical_size": 180224,
+            "name": "Ingress.side_7",
+            "required": 180224,
+            "stages": [
+              {
+                "logical_table_id": 2,
+                "size": 122880,
+                "stage_number": 0,
+                "stage_table_type": "hash_match"
+              },
+              {
+                "logical_table_id": 0,
+                "size": 61440,
+                "stage_number": 1,
+                "stage_table_type": "hash_match"
+              }
+            ]
+          }
+        ],
+        "compiler_fit": true,
+        "probe_sha256": "549bac48aa833171f9b7cb56f83f9b8862943e0d798c3472c0abe675452a10c1",
+        "returncode": 0,
+        "source_sha256": "89e1494743241f0751e08514ed6588bcc956303ab07bfc888e1b0e0966575e61"
+      }
+    ],
+    "curator_id": "candidate-02",
+    "oracle_scope": "A verified witness, not proof of unique repair; only no-known-repair control exhausts all candidates.",
+    "public_id": "heldout-06",
+    "requirements": {
+      "Ingress.chain_0": 16384,
+      "Ingress.chain_1": 16384,
+      "Ingress.chain_10": 16384,
+      "Ingress.chain_11": 16384,
+      "Ingress.chain_2": 16384,
+      "Ingress.chain_3": 16384,
+      "Ingress.chain_4": 16384,
+      "Ingress.chain_5": 16384,
+      "Ingress.chain_6": 16384,
+      "Ingress.chain_7": 16384,
+      "Ingress.chain_8": 16384,
+      "Ingress.chain_9": 16384,
+      "Ingress.side_0": 180224,
+      "Ingress.side_1": 180224,
+      "Ingress.side_2": 180224,
+      "Ingress.side_3": 180224,
+      "Ingress.side_4": 180224,
+      "Ingress.side_5": 180224,
+      "Ingress.side_6": 180224,
+      "Ingress.side_7": 180224
+    },
+    "role": "repair",
+    "verified_witness": "a-pack-6"
+  }
+]

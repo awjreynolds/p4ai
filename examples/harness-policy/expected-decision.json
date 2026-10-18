@@ -1,0 +1,19 @@
+{
+  "action": "ijk",
+  "action_id": "0",
+  "artifact_sha256": "3b6ea4363f7847aa5c620b01c092aeb933c7c823afaa8fb2c475e360b13406e5",
+  "compiler_identity": {
+    "sha256": "bdf7e085e770703f4cb620cc998f01463b1ac499e8cecbbc2e22a4051fc4a686",
+    "target": "arm64-apple-darwin/apple-m3"
+  },
+  "packet_sha256": "7ca26247aa60ec09ac12710db50c3fd1a202f231f2d9e68238ee4afbd9447af2",
+  "schema_version": 1,
+  "scores": {
+    "ijk": -0.09932966744045597,
+    "ikj": 0.5745512632967252,
+    "jik": 0.2323543851777364,
+    "jki": -0.016338868562650728,
+    "kij": 0.456530296991129,
+    "kji": 0.5363246327699174
+  }
+}

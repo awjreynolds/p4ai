@@ -1,0 +1,11 @@
+{
+  "experiment_id": "p4-multirepair-v2",
+  "image": "sha256:5b27c37f3835c646c4a7f87c64de986a5fd5d71170b3f8b91e4bfbb908763af9",
+  "target": "tofino",
+  "compile_timeout_seconds": 120,
+  "attempts_per_arm": 3,
+  "corpus_manifest": "examples/p4-multirepair/corpus.json",
+  "knowledge": "experiments/knowledge/p4-multirepair-v1.md",
+  "policy": "experiments/p4-multirepair-v1-policy.json",
+  "design": "docs/p4-multirepair-v2.md"
+}

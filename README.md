@@ -2,11 +2,29 @@
 
 A **harness compiler** that experiments with replacing handwritten compiler selection policy with a small mechanical selector, Typesafe.ai's Jev, and selective stronger-model advice. Compiler mechanisms and acceptance checks remain authoritative.
 
+The [completed proof of concept](docs/harness-compiler-poc.md) now includes native correctness, repeatable builds, portable policy replay, and a [frozen policy-repair experiment](docs/results/workload-policy-repair-v1.md). The learned update failed: refitting made held-out code about 15% slower. A small agent-authored heuristic improved aggregate runtime by about 13%, but failed the required breadth of improvement; the full escalation and maintenance hypotheses remain unproved. Negative results and all competing choices are published.
+
+Replay all twelve final local decisions with **plain Python**, without a compiler, model service or ML dependency:
+
+```sh
+python3 -S -m scripts.replay_workload_repair
+```
+
+This verifies recorded decisions; it does not rerun performance measurements. The [result report](docs/results/workload-policy-repair-v1.md) explains the failed gates, per-case regressions and native reproduction requirements.
+
+For a quick executable example, try [offline policy replay](examples/harness-policy/README.md): plain Python scores six legal loop orders with a frozen locally trained forest, without credentials, scikit-learn or a compiler installation. This replays recorded compiler features; native compilation and optimization evidence are separate checks below.
+
 The first executable target is **native ARM64 on macOS**, using LLVM's existing register-allocation eviction advisor. Registers are the constrained resource. LLVM offers eligible candidate positions; an external policy selects one. A small C++ patch checks the response before indexing the candidate array. Python hosts the decision protocol and experiments.
 
 The mechanical baseline picks the first eligible candidate. LLVM's normal Greedy allocator remains a separate production reference. Candidate filtering, hints, cost limits, splitting, spilling, and substantial surrounding policy remain in LLVM. This is one replaced decision boundary, not a new allocator or an assertion that all compiler policy has been simplified. See the [boundary inventory](docs/selector-boundary.md).
 
-GPU access is permanently unavailable for this effort. NVIDIA scheduling was investigated, but GPU-free compilation cannot establish runtime correctness or performance. That experiment was retired before validation; eBPF and CPU scheduling remain alternatives. Tofino is excluded as the destination.
+GPU access is permanently unavailable for this effort. NVIDIA scheduling was investigated, but GPU-free compilation cannot establish runtime correctness or performance. That experiment was retired before validation; eBPF and CPU scheduling remain alternatives. Tofino is now authorized as a compiler resource-fit research testbed; the eventual commercial/career target remains open.
+
+The [P4 qualification](docs/results/p4-pragma-fit-qualification-v1.md) now demonstrates a real pragma-only repair: a program that needs 14 stages fits Tofino’s 12-stage limit after eight `@pack(3)` directives, with unchanged logical table capacities and control-plane interface. SRAM use increases from 880 to 936 blocks. The public compiler emits a target binary; no switch hardware is required for this fit check. This establishes the developer-steering boundary for a [harness compiler experiment](docs/p4-pragma-fit-pilot.md), not model advantage or executed packet correctness. The completed CPU results above remain unchanged.
+
+The [frozen six-case P4 adviser pilot](docs/results/p4-fit-advice-v1.md) found no escalation benefit: packing repaired one of five default failures under the strict acceptance gate; Jev and Codex repaired none, and the cascade only matched packing through its mechanical tier. Three other fitting candidates were rejected solely for generated debug-schema changes; their application tables were unchanged, and mechanical methods found all of them. The report preserves the frozen scores and this acceptance-rule limitation separately. No model or maintenance advantage is established.
+
+That pilot gave the mechanical recipe development knowledge withheld from the models. A [separate information-access diagnostic](docs/results/p4-information-diagnostic-v1.md) showed both advisers could select the supplied repair. The subsequent [equal-knowledge, unseen-source trial](docs/results/p4-multirepair-v2.md) repaired two of four qualified cases with each of the mechanical, Jev, Codex and escalation arms. Escalation recovered one invalid-response failure over cheap continuation, but added no coverage over the three-choice mechanical selector. Two cases with verified `pack(6)` repairs remained unsolved by every arm. The original three-structure corpus failed qualification; the separately frozen trial covers two synthetic repair structures and two controls. Neither broader generalization nor policy-maintenance savings is demonstrated.
 
 ## Build and validate
 
@@ -66,6 +84,20 @@ On held-out contraction layouts, Jev beat the constant and nearest-neighbor cont
 
 The [contraction design](docs/contraction-policy-design.md) preserves six legal schedules and LLVM downstream optimization. It uses the actual Apple M3 target and native execution; canonical `ijk` is a source-order reference, not LLVM's preferred scheduling policy. Reproduction commands and public evidence are in the result report.
 
+## Compiler-informed decisions
+
+The [compiler-feedback experiment](docs/results/compiler-feedback-v1.md) found a useful middle tier on 12 fresh held-out contraction settings: compiler-informed Jev reduced runtime by **17.56% versus stride** and **12.06% versus a cheap ridge predictor**, beyond the declared dispersion thresholds. Adding compiler evidence improved Jev by **34.86% versus source-only input**. The mechanical stride rule stayed unchanged.
+
+The full cascade still failed. Its agreement shortcut made one costly mistake, and calibration's predicted-regret signal never triggered Codex. Always-Codex was 56.10% slower than informed Jev. The current informed policy also compiles every candidate to extract features; native runtime gains do not establish end-to-end cost or maintenance savings. The [design](docs/compiler-feedback-design.md) and [public evidence](docs/results/compiler-feedback-v1.json) preserve both the positive information result and negative three-tier result.
+
+The [fresh replication](docs/results/feedback-replication-v1.md) retains an aggregate Jev advantage: about 23% less runtime than stride and 8.5% less than a fixed random forest in both timing blocks. It nevertheless **fails the frozen success gate**, improving only three of six structural groups against forest and ridge where four were required. The wide group is about 13.3% worse. All cases, provider failures and a cache-only report repair are preserved; no third-tier or maintenance benefit is claimed.
+
+The [open decision-policy review](docs/research/open-decision-policy-options.md) recommends testing automatic policy repair against a direct compiler heuristic change. Open typed models are potential implementations, but moving handwritten rules into another engine does not establish simpler maintenance. A small learned scorer can live inside the compiler; a separate model service is not required by the architecture.
+
+The [System One architecture deep dive](docs/research/system-one-domain-policies.md) separates model specialization, deployment and MCP integration. It recommends testing versioned policy updates against direct heuristic repairs, preserving reproducible builds and using general advisers where their measured value justifies them. It also audits the small number of independent workload recipes behind the current results.
+
+The [application feasibility gate](docs/results/sqlite-feasibility-v1.md) passes historical SQLite's reference workload on both compilers but rejects that source for optimization evidence after a UBSan finding. A separate toy check confirms LLVM's interactive inliner through the exact pinned `opt` tool and Apple Clang. These are technical prerequisites for later application-level repair, not a demonstrated repair policy. The subsequent [current SQLite qualification](docs/results/current-sqlite-feasibility-v1.md) passes both compiler baselines and Apple ASan/UBSan against the unchanged workload/reference, clearing that application prerequisite without an optimization claim.
+
 ## Decision map
 
 Follow [Choose a constrained compilation target and a reproducible first experiment](https://github.com/awjreynolds/p4ai/issues/1). The reopened decision is [Choose the first target and compiler intervention](https://github.com/awjreynolds/p4ai/issues/5), followed by [Agree the first experiment and evidence required for success](https://github.com/awjreynolds/p4ai/issues/6). See the [glossary](GLOSSARY.md) and [tracker conventions](docs/issue-tracker.md) for collaboration details.
@@ -74,4 +106,4 @@ The technical implementation evidence is recorded in [Validate native ARM64 comp
 
 ## License
 
-Project code is MIT. See [LICENSE](LICENSE). LLVM source, its imported log reader and the LLVM patch retain Apache-2.0 WITH LLVM-exception terms; downloaded sources retain their upstream license files. Model services have separate terms. No model weights are distributed.
+Project code is MIT. See [LICENSE](LICENSE). LLVM source, its imported log reader and the LLVM patch retain Apache-2.0 WITH LLVM-exception terms; downloaded sources retain their upstream license files. Model services have separate terms. The replay example includes a small forest trained on this project's measurements; no third-party pretrained language-model weights are distributed.

@@ -8,8 +8,16 @@ from pathlib import Path
 from typing import Any
 
 try:
-    from . import counterfactual, experiment, loop_build, quality_experiment, validate
+    from . import (
+        compiler_evidence,
+        counterfactual,
+        experiment,
+        loop_build,
+        quality_experiment,
+        validate,
+    )
 except ImportError:  # Running as `python scripts/contraction_build.py`.
+    import compiler_evidence
     import counterfactual
     import experiment
     import loop_build
@@ -40,9 +48,13 @@ def _sha256_file(path: Path) -> str:
 
 
 def _normalize_spec(spec: dict[str, Any]) -> dict[str, int | bool]:
-    expected = {"m", "n", "k", "a_column_major", "b_column_major", "c_column_major"}
-    if not isinstance(spec, dict) or set(spec) != expected:
-        raise ValueError(f"spec must contain exactly: {', '.join(sorted(expected))}")
+    required = {"m", "n", "k", "a_column_major", "b_column_major", "c_column_major"}
+    optional = {"a_padding", "b_padding", "c_padding"}
+    if not isinstance(spec, dict) or not required <= spec.keys() or not spec.keys() <= required | optional:
+        raise ValueError(
+            f"spec must contain required keys and only optional padding keys: "
+            f"{', '.join(sorted(required | optional))}"
+        )
     normalized: dict[str, int | bool] = {}
     for name in ("m", "n", "k"):
         if type(spec[name]) is not int or spec[name] <= 0:
@@ -52,6 +64,11 @@ def _normalize_spec(spec: dict[str, Any]) -> dict[str, int | bool]:
         if type(spec[name]) is not bool:
             raise ValueError(f"spec {name} must be a boolean")
         normalized[name] = spec[name]
+    for name in ("a_padding", "b_padding", "c_padding"):
+        value = spec.get(name, 0)
+        if type(value) is not int or not 0 <= value <= 64:
+            raise ValueError(f"spec {name} must be an integer from 0 through 64")
+        normalized[name] = value
     return normalized
 
 
@@ -102,6 +119,7 @@ def build_case(
     inputs = counterfactual._validated_toolchain(validation_path)
     corpus = _corpus_module()
     corpus_path = Path(corpus.__file__).resolve()
+    evidence_path = Path(compiler_evidence.__file__).resolve()
     case_dir = outdir.expanduser().resolve()
     case_dir.mkdir(parents=True, exist_ok=True)
     report_path = case_dir / "report.json"
@@ -130,6 +148,7 @@ def build_case(
         "builder_sha256": _sha256_file(Path(__file__).resolve()),
         "loop_builder_sha256": _sha256_file(Path(loop_build.__file__).resolve()),
         "corpus_sha256": _sha256_file(corpus_path),
+        "compiler_evidence_sha256": _sha256_file(evidence_path),
         "validation_report_sha256": _sha256_file(validation_path),
         "spec": normalized_spec,
         "action_order": ACTION_ORDER,
@@ -163,6 +182,14 @@ def build_case(
         "status": "running",
         "report_path": str(report_path),
         "case_fingerprint": fingerprint,
+        "provenance": {
+            "builder_sha256": fingerprint_payload["builder_sha256"],
+            "loop_builder_sha256": fingerprint_payload["loop_builder_sha256"],
+            "corpus_generator_sha256": fingerprint_payload["corpus_sha256"],
+            "compiler_evidence_extractor_sha256": fingerprint_payload[
+                "compiler_evidence_sha256"
+            ],
+        },
         "inputs": {
             "validation_report": {
                 "path": str(validation_path),
@@ -170,6 +197,10 @@ def build_case(
             },
             "spec": normalized_spec,
             "corpus_generator": {"path": str(corpus_path), "sha256": fingerprint_payload["corpus_sha256"]},
+            "compiler_evidence_extractor": {
+                "path": str(evidence_path),
+                "sha256": fingerprint_payload["compiler_evidence_sha256"],
+            },
         },
         "toolchain": {
             "clang": {"path": str(inputs["clang"]), "sha256": llvm["clang_sha256"]},
@@ -268,6 +299,16 @@ def build_case(
             except (OSError, ValueError) as error:
                 errors.append(f"could not identify native object code: {error}")
 
+        evidence = compiler_evidence.extract_compiler_evidence(
+            ir_path if ir_ok else None,
+            object_result["_stderr"],
+            object_path,
+        )
+        if evidence["status"] != "complete":
+            errors.append(
+                "compiler evidence is unavailable or ambiguous: " + evidence["reason"]
+            )
+
         if object_ok and driver_ok:
             correctness = loop_build._native_result(
                 action,
@@ -313,6 +354,15 @@ def build_case(
             "code_identity": code_identity,
             "ir_targets": targets,
             "llvm_remarks": _remarks(object_result["_stderr"]),
+            "compiler_evidence": evidence["features"],
+            "compiler_evidence_status": {
+                "status": evidence["status"],
+                "ir_status": evidence["ir_status"],
+                "vectorization_remarks": evidence["remark_status"],
+                "reason": evidence["reason"],
+            },
+            "vectorization_diagnostics": evidence["remark_diagnostics"],
+            "compiler_evidence_extraction_ms": evidence["extraction_elapsed_ms"],
             "artifacts": {
                 "source": loop_build._artifact(source_path),
                 "optimized_ir": loop_build._artifact(ir_path),

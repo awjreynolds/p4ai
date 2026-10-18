@@ -20,3 +20,22 @@ For adaptation, both approaches receive the same new 40-lane action-outcome meas
 An unchanged prompt does not imply zero maintenance: the corpus, interpretation of features, provider compatibility and calibration process still require upkeep. Conversely, adding automatically collected examples is not equivalent to writing bespoke compiler rules. This exercise records those differences without claiming that one example costs as much to maintain as one threshold or one prompt.
 
 Reduced long-term maintenance would need repeated independent changes with comparable quality targets and measured engineering effort, including diagnosis, label acquisition, prompt/configuration changes and regression work. This experiment can show whether the frozen policy transfers and whether automated adaptation helps. It cannot establish human maintenance savings from line counts or a single pressure shift.
+
+## Scheduling proof-of-concept accounting
+
+The contraction studies add further maintained surfaces. They do not alter the register-allocation accounting above.
+
+| Surface | Observed work and cost |
+| --- | --- |
+| Structured contraction contract | Dense non-aliasing unsigned modular arithmetic, six legal loop orders, generated driver and scalar reference; narrow assumptions must remain explicit |
+| Static compiler representation | Thirty source features plus twelve compiler-derived features; informed selection compiles candidates before choosing |
+| Local forest policy | Fixed fitting parameters, measured labels and exported trees; the offline evaluator preserves float32 routing, estimator accumulation and action tie-breaking |
+| Artifact and execution binding | Compiler identity, schema, policy/input hashes, checked sources, driver objects and decision records; supplied hashes establish identity, not authenticity |
+| Native reproducibility | Separate object/code/executable comparisons; the demo required a checksum iteration-count repair and records original versus repeated executable equality separately |
+| Compiler integration | Direct Apple Clang linking required explicit SDK selection; the failed preparation and scoped repair are retained |
+| Experiment adapters | Shared helpers have canonical action aliases, dropped metadata and global/block round conventions; adapters require integration tests, not only approximate mocked schemas |
+| Updating a policy | Generic target-data refitting and one bounded agent-written direct patch are separately frozen in the workload-repair trial; count label acquisition and evaluation as well as edits |
+
+The runtime selector remains bounded, but the evidence and execution infrastructure is substantial. These implementation repairs are observed maintenance work. They do not measure comparative human effort or prove that an external harness is cheaper than integrating a small policy directly into a compiler. New experiment code and test code must not be excluded from total system complexity merely because they are outside the selector.
+
+The [completed workload repair](results/workload-policy-repair-v1.md) records 72 labels from twelve training cases, a 0.60-second fixed forest fit, and one 157-second agent-authored heuristic. Its four composite predicates contain seven comparisons and two numeric ranking terms. The experiment runner adds 1,554 source lines and 334 test lines; these are measured source counts, not human effort. The refit worsened held-out code about 15%, while the heuristic improved aggregate runtime about 13% but failed the frozen breadth gate. Neither approach demonstrated reduced maintenance; the unsuccessful learned update is retained and not promoted.

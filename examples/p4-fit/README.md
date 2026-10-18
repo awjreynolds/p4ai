@@ -1,0 +1,163 @@
+# Tofino resource-fit discovery inputs
+
+The [qualification report](../../docs/results/p4-pragma-fit-qualification-v1.md)
+records a controlled 14-stage failure → 12-stage fit after eight `@pack(3)`
+directives, preserving logical capacity. Other generated inputs remain discovery
+candidates. The generator itself does not run a compiler. Tofino is an explicitly authorized
+research testbed here, not the project's recommendation for a current ASIC career
+target.
+
+## Build and probe the real target compiler
+
+The bootstrap requires Python 3.12 or newer and a running Docker daemon. It was
+validated on an ARM64 Mac with about 8 GiB available to Docker. It builds the
+pinned public compiler, assembler and headers inside ARM64 Linux; it does not
+install host packages or require switch hardware. Dependencies are recorded,
+but apt repositories are not snapshot-pinned, so this is not a fully hermetic
+build.
+
+```sh
+python3 -m scripts.build_p4_compiler --jobs 4
+python3 -m scripts.p4_compile_probe path/to/program.p4 \
+  --output artifacts/p4-fit-discovery/runs/fresh-run
+```
+
+Use a source path within this repository and a new output directory. The probe
+mounts inputs read-only, disables container networking, records hashes and logs,
+and requires a successful compiler manifest plus a nonempty target binary for
+`compiler_reported_fit`. A failed compile is a recorded probe result, so the
+probe CLI still exits zero; inspect `probe.json` for the compiler return code,
+timeout and fit status. Failure does not by itself mean resource exhaustion or
+infeasibility. The default target is Tofino/TNA; `--target tofino2` selects
+Tofino2/T2NA explicitly and checks its corresponding binary.
+
+## Pinned SwitchML application variants
+
+`prepare_switchml.py` prepares an existing application alongside three variants
+that remove either or both of its two PHV allocation annotations. It uses only
+the local checkout and Python's standard library:
+
+```sh
+git clone https://github.com/p4lang/p4app-switchML.git /tmp/p4ai-switchml-source
+git -C /tmp/p4ai-switchml-source checkout --detach b5c74a04fa66faa82acab154a4e21c8f76d913f2
+python3 examples/p4-fit/prepare_switchml.py \
+  --source /tmp/p4ai-switchml-source \
+  --output artifacts/p4-fit-discovery/switchml-reproduction
+```
+
+Choose fresh source and output paths if those paths already exist. Before any
+output writes, the script checks all 17 original P4 file hashes and the upstream
+LICENSE against `switchml-source.json`. It rejects an existing destination and
+any source mismatch. Each variant preserves the original Apache headers and
+copies the Apache LICENSE into its `source` directory. The generated upstream
+files retain their upstream license; this repository's MIT license does not
+replace it.
+
+The only removed text is exactly:
+
+```p4
+@pa_container_size("ingress", "hdr.ib_bth.psn", 32)
+@pa_no_overlay("ingress", "ig_md.switchml_md.simulate_egress_drop")
+```
+
+The script checks equality after removing these two known annotations, writes
+per-file hashes for all four variants, and labels every compile status `not_run`.
+It does not modify packet-processing statements, capacities or configuration.
+Removing a protective annotation does not establish semantic safety: subsequent
+fit and behavior checks are necessary. The original program might compile both
+with and without these hints, or a variant might fail for an unrelated reason.
+
+The container directive is a useful candidate because the packet sequence number
+is 24 bits while register actions explicitly widen it to 32 bits for comparison
+and increment, including wraparound. The no-overlay directive protects a drop
+simulation flag that crosses the ingress/egress boundary; it is not dead metadata.
+Qualification must preserve the configured 16,384-entry register capacity, 8,192 slots, 32 workers,
+512 queue pairs per worker and the 1,024-entry forwarding table. Check PHV
+allocation and accepted directives alongside the fit result; these source-level
+invariants do not replace packet-behavior validation.
+
+## Synthetic pressure family
+
+`generate.py` creates an experimental service-policy packet pipeline. EtherType
+`0x88b5` carries a 50-byte header with a flow identifier, tenant identifier, service
+token, eight policy-result words and reserved bytes. Ethernet plus this header is
+64 bytes. The pipeline forwards to the input port, performs independent
+flow-and-tenant policy lookups, then applies dependent token translations. All
+result words and the final token are emitted, so lookup actions have observable
+behavior. Unknown EtherTypes pass through without these lookups. Misses leave the
+corresponding packet fields unchanged. The egress pipeline parses and emits the
+same headers without further changes.
+
+The control plane can install arbitrary exact-match entries up to each declared
+capacity. It assigns 32-bit result values to the independent tables and 32-bit
+replacement tokens to the chain tables. Each chain lookup uses the token produced
+by its predecessor. Keeping this contract fixed is necessary for any later
+annotation-only fit claim. The generator is a synthetic workload construction,
+not a production networking application.
+
+`--tenant-bits` changes the workload's tenant identifier width in byte increments
+from 8 to 64 bits (default 32). The independent lookup key is therefore
+`32 + tenant_bits` bits. Reserved header space changes to `80 - tenant_bits` bits,
+so the experimental header remains 50 bytes and Ethernet plus that header remains
+64 bytes. Changing tenant width creates a different workload and control-plane
+key contract; it is not an allowed repair within an annotation-only pair. Every
+policy variant within one generated case retains the same width. The default
+32-bit case emits the same P4 bytes as the original generator.
+
+```sh
+python3 examples/p4-fit/generate.py \
+  --output artifacts/p4-fit-discovery/qualification \
+  --depth 1 --sides 1 --chain-entries 1024 --side-entries 1024 --policy all
+
+python3 examples/p4-fit/generate.py \
+  --output artifacts/p4-fit-discovery/chain8-side4-16k-32k \
+  --depth 8 --sides 4 --chain-entries 16384 --side-entries 32768 --policy all
+```
+
+The generated `default.p4` has **no tuning annotations**. Each alternative changes
+only table annotations; the generator checks byte equality after stripping those
+annotation lines. A manifest records workload dimensions, annotation policy and
+file hashes. No candidate reduces table capacity, changes packet actions, removes
+dependencies, asserts mutual exclusion, disables diagnostics or changes hardware
+limits. Do not overwrite a measured directory: use a new directory when changing
+the generator or workload. The generator refuses any existing output destination,
+including an empty directory, before writing candidate files.
+
+For controlled comparisons, add `--stable-layout`. This writes each policy to
+`<output>/<policy>/program.p4`, so the source basename is identical, and reserves
+four 80-character annotation-or-blank lines before every table. Erasing annotation
+text to spaces therefore leaves identical source bytes, including all line and
+code positions, across policies. This controls allocator changes caused by
+compiler-generated names that incorporate source basenames and line numbers.
+The manifest records `stable_layout` and the annotation-comparison method.
+Omitting the flag retains the original flat filenames and P4 source layout;
+existing measured cases must not be regenerated in place.
+
+The first case qualifies parsing, type checking and backend operation. The second
+is an initial pressure probe. Subsequent discovery can increase chain depth,
+capacity or independent lookup count until a natural boundary is found. The
+supported annotation probes are placement priority, entries-per-word packing and
+action-data immediate placement. `--policy all` produces 25 policies, including
+the documented packing values 1 through 9 independently for chain and side
+tables. These controls can make fit worse as well as
+better. In particular, `immediate(1)` is already the compiler default; disabling
+it is the nondefault probe. A discovered effect is not yet evidence that a model
+can infer it.
+
+Before recording a positive pair, retain the complete invocation, pinned compiler
+and target, normal baseline resource diagnostic and successful annotated resource
+report. A syntax error, unsupported operation, internal compiler error or timeout
+does not qualify as a resource-fit failure. The alternative must have the same
+capacities and packet/control-plane contract. Compiler fit does not alone prove
+semantic equivalence; validate behavior separately.
+
+The annotations and TNA interface were checked against upstream p4c revision
+`ca5aef25de1f847b5c88a05af583506484927015`:
+
+- [Pragma definitions](https://github.com/p4lang/p4c/blob/ca5aef25de1f847b5c88a05af583506484927015/backends/tofino/bf-p4c/common/pragma/pragmas.cpp)
+- [TNA interfaces](https://github.com/p4lang/p4c/blob/ca5aef25de1f847b5c88a05af583506484927015/backends/tofino/bf-p4c/p4include/tofino1_base.p4)
+- [Public stage/packing regression test](https://github.com/p4lang/p4c/blob/ca5aef25de1f847b5c88a05af583506484927015/backends/tofino/bf-p4c/test/gtest/pragma_stage.cpp)
+
+These original generated programs and generator are covered by this repository's
+MIT license. Upstream source is cited for API and annotation behavior; upstream
+program files are not vendored here.

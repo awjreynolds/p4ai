@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "name": "workload-policy-repair-v1",
+  "claim": "Repair poor generalization to fresh workloads, not compiler-induced degradation",
+  "shift_design": "experiments/policy-shift-v1.json",
+  "shift_design_sha256": "fedfe2cf0e48e45f7a2f42b91d59fed2366e11c3eadd7f5751abca16f4204d2d",
+  "audit_report": "artifacts/policy-shift-v1-sdk/audit-report.json",
+  "audit_report_sha256": "30f7e85d1f251c531d779eca34ab8fcc458d506e5980c51c0489d6457d3ec32f",
+  "prepared_audit": "artifacts/policy-shift-v1-sdk/prepared-audit.json",
+  "prepared_audit_sha256": "94e19a9c81cb8b2ab183e457ad54d46c7a608a685f2968ac3308dd492e348fa3",
+  "training": {
+    "compiler": "target",
+    "historical_partition": "audit",
+    "new_partition": "adaptation",
+    "label_block": 1,
+    "recipe_count": 6,
+    "case_count": 12,
+    "action_rows": 72,
+    "rule": "Fit target-only forest from all twelve cases using fixed original hyperparameters; no search or tuning"
+  },
+  "forest": {
+    "n_estimators": 64,
+    "max_depth": 6,
+    "min_samples_leaf": 2,
+    "random_state": 20261020,
+    "n_jobs": 1
+  },
+  "sklearn_version": "1.9.1",
+  "benchmark_rounds": 11,
+  "benchmark_blocks": 2,
+  "target_sample_ms": 20,
+  "seed": 20261022,
+  "noise_floor_fraction": 0.02,
+  "minimum_repair_improvement": 0.05,
+  "minimum_positive_test_groups": 4,
+  "direct_patch": {
+    "module": "scripts/workload_heuristic.py",
+    "candidate_limit": 1,
+    "adviser_minutes": 20,
+    "maximum_bespoke_predicates": 4,
+    "case_identity_rules": false,
+    "test_outcome_access": false,
+    "scope": "Agent-authored code patch to harness scheduling choice; not a human-maintenance comparator",
+    "data_access": "Exactly the same block-one72 target action rows as refit, compiler/feature/action descriptions and frozen source policy artifact; no block-two outcomes, no test specifications/outcomes, no additional source labels"
+  },
+  "evaluation": {
+    "partitions": "Target adaptation6 and test12 as specified by shift_design; historical audit6 are now training data",
+    "controls": [
+      "unchanged_source_forest",
+      "stride_selector"
+    ],
+    "candidates": [
+      "target_refit",
+      "direct_patch",
+      "informed_jev_reference"
+    ],
+    "primary": "target_refit versus unchanged_source_forest",
+    "secondary": "direct_patch versus unchanged_source_forest; target_refit versus direct_patch",
+    "gate": "Both blocks require runtime ratio<0.95, mean paired group-balanced log improvement beyond max(log1.02,3MAD), and at least4/6 recipe groups faster. Same rule per declared comparison.",
+    "stop": "Evaluate one frozen repair per arm once on twelve fresh cases; no post-test tuning regardless of result",
+    "dispersion": "MAD across11 round-level group-balanced natural-log ratios; within each round average two case log ratios per recipe, then six recipe means; mean those11 logs for aggregate improvement"
+  },
+  "prior_negative_result": "Compiler-shift gate failed; target/source regret did not worsen. This new experiment addresses workload generalization separately and preserves original negative report.",
+  "public_audit_bundle": {
+    "path": "docs/results/policy-shift-v1.json",
+    "sha256": "541f22cb68b14271143548c771435fee36671a9e293687dc0e02aa1142a35777"
+  },
+  "jev_reference": {
+    "replicates": 3,
+    "max_attempts_per_slot": 3,
+    "packet": "Same frozen 42-feature informed packet; no adaptation labels in prompt",
+    "purpose": "General pretrained decision prior versus outcome-trained local refit; distinct data access reported explicitly",
+    "aggregation": "Mean selected runtimes across three frozen responses within each case and round, then grouped log-ratio comparisons; never choose best response",
+    "failure": "Retain failures; if any slot unavailable after attempts, Jev reference unavailable for the experiment; local primary and patch comparisons continue",
+    "comparison": "Predeclared secondary Jev versus target_refit using same quality gate; no routing trained on test outcomes"
+  }
+}

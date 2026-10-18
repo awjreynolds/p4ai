@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "mechanical_order": [
+    "a-pack-3",
+    "a-no-immediate",
+    "a-pack-2"
+  ],
+  "max_attempts": 3,
+  "knowledge_sources": [
+    "docs/results/p4-pragma-fit-qualification-v1.md",
+    "docs/results/p4-fit-advice-v1.md",
+    "docs/results/p4-information-diagnostic-v1.md",
+    "docs/p4-information-diagnostic-v1.md",
+    "examples/p4-immediate-dev/README.md",
+    "examples/p4-multirepair/development.md"
+  ],
+  "knowledge_source_sha256": {
+    "docs/results/p4-pragma-fit-qualification-v1.md": "c63e69760f5d5b1874358a9404bff4c4b51833ac8ca80adf158f08016156fa26",
+    "docs/results/p4-fit-advice-v1.md": "ec5550b079e50e98f802da22886de7f9c2aa1abc8367ab22c7cfaaf7ef17d4a7",
+    "docs/results/p4-information-diagnostic-v1.md": "c7fec3592c2e93bf8e0ad3ba17c181ece22354ea1491ad83dd2c0e19ce919868",
+    "docs/p4-information-diagnostic-v1.md": "95be9773fd3839cefe886b3cb852d7ab94cc63a627c5558af21804ca455d1a47",
+    "examples/p4-immediate-dev/README.md": "b891f9f2f36ff570aa93ccbb83eb8f7f0bc1efdedfc81592f59f1264aa3989b4",
+    "examples/p4-multirepair/development.md": "24fcedf472110a50ad6e0d64b9d0f1fec7e3c393423e5e7130d87ad34ef0d685"
+  },
+  "frozen_at_utc": "2026-10-18T17:30:54.859237+00:00",
+  "selection_procedure": "One manual fixed ordering using only the six listed development/background documents and development-only messages reproduced in the canonical development packet. First use the established accepted packing-3 repair; then the newly qualified immediate-data repair; then packing-2, supported by a previous raw compiler fit rejected only by the original metadata-sensitive schema gate. Packing-2 and packing-4 had equivalent reported old outcomes; choose the lower numeric factor as a deterministic tie-break. No new packing or priority rescue supports replacing these slots. No candidate sweep, score fitting, case-ID lookup, feature conditions, new held-out data, model calls, or compilation was used by the designer.",
+  "application": "Use this same order for every case. Each candidate replaces the original baseline; edits never accumulate. The runner stops on accepted fit and otherwise permits at most three repair attempts."
+}

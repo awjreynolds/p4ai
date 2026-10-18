@@ -1,0 +1,10 @@
+{
+  "experiment_id": "p4-multirepair-v1",
+  "policy_sha256": "09cdc64f9f2502bf8b55e94c6274d9173cc0159f41f60a0a596658131abf558c",
+  "shared_knowledge_sha256": "df6d49ddd2386618a75b97b05c347f825a2a63e2c679c7542f20435beff034e9",
+  "curator_reported_precompile_selection_grid_sha256": "7c33b007b6b6c2d14874b6af2ca69c3a5e7b2ad5544e72a0b8a95f1e08fcb0dc",
+  "planned_source_cases": 20,
+  "uniform_sources_per_case": 26,
+  "physical_compilation_upper_bound": 520,
+  "notes": "Fresh-context curator excludes fixed policy contents. Stop when predeclared deterministic corpus-selection criteria are met. Test repairs remain sealed until all evaluation choices complete. Earlier curator stopped before test selection after receiving a tentative policy order."
+}

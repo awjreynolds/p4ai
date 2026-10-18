@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "experiment": "current-sqlite-substrate-feasibility",
+  "scope": "qualify SQLite 3.54.1 source compatibility and sanitizer behavior for a bounded compiler-repair experiment; no optimization claim or performance measurement",
+  "source": {
+    "version": "3.54.1",
+    "source_id": "2026-10-16 14:45:20 555e07ef33f69a0957d24d8e555b702464a131d6f1607f4c3c1e4551e8e6ca76",
+    "archive_url": "https://www.sqlite.org/2026/sqlite-autoconf-3540100.tar.gz",
+    "archive_sha3_256": "b6ced585c750916b1052667239a12c25a7ff34e7f06e1e6e01ecb0427657d9c4",
+    "members": {
+      "VERSION": {
+        "member": "sqlite-autoconf-3540100/VERSION",
+        "sha3_256": "a8732116b90ea6b88ae64e7748a07a4c521a171ad0b0d3e7e363a0316f18d909"
+      },
+      "sqlite3.c": {
+        "member": "sqlite-autoconf-3540100/sqlite3.c",
+        "sha3_256": "e2b869d3003b33c942b7dd7063604fbc53553e1b66609570df39b9b7b558ee81"
+      },
+      "sqlite3.h": {
+        "member": "sqlite-autoconf-3540100/sqlite3.h",
+        "sha3_256": "15ef3f5dbc4a7a980f828fa0d1e473cee5a124e7bb77e9bc70fc0bfa3f9a2af8"
+      },
+      "shell.c": {
+        "member": "sqlite-autoconf-3540100/shell.c",
+        "sha3_256": "79a4e25bcfdd7b96b8f1897d50334c5a13c2596c335b44c51ecfdbb1cf0940a6"
+      },
+      "README.txt": {
+        "member": "sqlite-autoconf-3540100/README.txt",
+        "sha3_256": "b749816b8452b3af994dc6d607394bef3df1736d7e09359f1087de8439a52807"
+      },
+      "notices/autosetup-LICENSE": {
+        "member": "sqlite-autoconf-3540100/autosetup/LICENSE",
+        "sha3_256": "41a26aebdd2cd185d1e2b210f71b7ce234496979f6b35aef2cbf6b80cbed4ce4"
+      }
+    },
+    "source_id_is_required_in": ["sqlite3.c", "sqlite3.h"],
+    "preserve_embedded_sqlite_notices": true
+  },
+  "historical_evidence": {
+    "report": "artifacts/sqlite-feasibility-v1-timeit-direct/runs/ce9b9faec60990af/feasibility-report.json",
+    "report_sha256": "cd9af4922247abade8af9adbd126caa4dd11c166ad80f30773b341cf97afa9aa",
+    "reference_variant": "pinned_llvm",
+    "require_baseline_variants": ["pinned_llvm", "system_apple"],
+    "require_historical_status": "passed",
+    "reuse_compile_flags": "historical compile_commands.json after verifying both compiler rows have identical flags",
+    "reuse_native_helpers": true
+  },
+  "workload": {
+    "input_files": [
+      "commands",
+      "sqlite3rc",
+      "test1.sql",
+      "test2.sql",
+      "test3.sql",
+      "test4.sql",
+      "test5.sql",
+      "test6.sql",
+      "test7.sql",
+      "test8.sql",
+      "test9.sql",
+      "test10.sql",
+      "test11.sql",
+      "test12.sql",
+      "test13.sql",
+      "test14.sql",
+      "test15.sql"
+    ],
+    "commands_sha256": "5ce3a4d87a56565a81e0ff4365cd164b2744d1a446b3e629a3020f9358f4f519",
+    "initialization_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "run_options": ["-init", "sqlite3rc", ":memory:"],
+    "stdin_file": "commands",
+    "database_mode": "one in-memory database across the full dependent SQL sequence"
+  },
+  "verification": {
+    "reference_output": "sqlite3.reference_output.small",
+    "reference_sha256": "70abd085bdbb8b60cfe400bf34b91d05ef1c2af923100a109c757ce51489578c",
+    "comparator": "historical fpcmp-target",
+    "relative_tolerance": "1.0e-9",
+    "preserve_exact_output": true,
+    "require_application_exit_zero": true
+  },
+  "build": {
+    "source_pair": ["sqlite3.c", "shell.c"],
+    "matching_header": "sqlite3.h",
+    "reuse_shared_historical_flags": true,
+    "required_definitions": [
+      "-DSQLITE_OMIT_LOAD_EXTENSION=1",
+      "-DSQLITE_THREADSAFE=0"
+    ],
+    "required_optimization_flags": ["-DNDEBUG", "-O3"],
+    "forbidden_flags": ["-flto", "-fomit-frame-pointer"],
+    "link_flags": ["-Wl,-search_paths_first", "-Wl,-headerpad_max_install_names"],
+    "native_target_from_historical_report": true,
+    "execute_configure": false
+  },
+  "toolchains": {
+    "baseline": ["pinned_llvm", "system_apple"],
+    "sanitizer": "system_apple",
+    "sanitizer_flags": ["-fsanitize=address,undefined", "-fno-omit-frame-pointer"],
+    "sanitizer_runtime_options": {
+      "ASAN_OPTIONS": "halt_on_error=1",
+      "UBSAN_OPTIONS": "halt_on_error=1:print_stacktrace=1"
+    },
+    "pinned_llvm_sanitizer": {
+      "status": "known_unavailable",
+      "historical_reason": "pinned LLVM toolchain lacks libclang_rt.asan_osx_dynamic.dylib; reuse and verify historical failure evidence, do not retry configure or compile"
+    }
+  },
+  "reporting": {
+    "record_archive_and_source_hashes": true,
+    "record_compiler_and_sdk_hashes": true,
+    "record_every_command_exit_code_and_output_hash": true,
+    "record_reused_workload_and_helper_hashes": true,
+    "performance_measurements": 0
+  }
+}

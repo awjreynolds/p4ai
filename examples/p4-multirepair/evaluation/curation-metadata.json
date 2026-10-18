@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "qualification_status": "v1_qualification_incomplete_smaller_corpus_prepared",
+  "initial_v1_target": {
+    "repair_cases": 6,
+    "repair_structures": 3,
+    "distinct_mechanisms": 2,
+    "default_fit_controls": 1,
+    "no_known_repair_controls": 1
+  },
+  "aggregate_qualified": {
+    "repair_cases": 4,
+    "repair_structures": 2,
+    "distinct_mechanisms": 2,
+    "default_fit_controls": 1,
+    "no_known_repair_controls": 1
+  },
+  "case_roles_and_expert_answers": "withheld until all adviser choices complete",
+  "source_case_count": 6,
+  "source_variant_count": 156,
+  "case_order": "baseline source SHA256 ascending",
+  "curation_grid_hashes": {
+    "selection-addendum-1.json": "ebced1ffa46053f6d5eb88f3253dc85ae26a89c1a60352bcadadd23fe015459b",
+    "selection-addendum-2.json": "5e0ba268713a87fa221716d7e7c8b7a58eb2b6a77b3c3a611fa963ff6a943741",
+    "selection-grid.json": "7c33b007b6b6c2d14874b6af2ca69c3a5e7b2ad5544e72a0b8a95f1e08fcb0dc"
+  },
+  "curation_cost": {
+    "adviser_calls": 0,
+    "aggregate_compiler_seconds": 6801.237177121919,
+    "completed_receipts": 150,
+    "interpretation": "Curation cost only. Concurrent provenance timings are not performance measurements. Unknown elapsed interrupted cells are additional unmeasured cost.",
+    "interrupted_invocations": 2,
+    "physical_invocations": 152,
+    "timeouts": 3,
+    "unknown_elapsed_invocations": 2
+  },
+  "initial_acceptance_runner_sha256": "fa52166cea623f0e972632fed73c419a57125f4588904aed7e0123ed551a681b",
+  "current_acceptance_runner_sha256": "bf1451bc2dea88fabebabd609304ba1c0504e6903e648dd70a8e85fa3e42933e",
+  "compiler_image": "sha256:5b27c37f3835c646c4a7f87c64de986a5fd5d71170b3f8b91e4bfbb908763af9",
+  "timeout_seconds": 120,
+  "interpretation": "Synthetic compiler-reported resource-fit qualification, with full declared capacities and BFRT gate. No hardware execution or generalization claim. No adviser calls in curation. V1 must not be evaluated when qualification is incomplete; a smaller pilot requires its own pre-call freeze."
+}

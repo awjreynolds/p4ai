@@ -1,0 +1,2070 @@
+{
+  "path_redaction": {
+    "$ARTIFACTS": "local inliner artifact directory",
+    "$HOME": "home directory",
+    "$REPO": "repository root"
+  },
+  "reports": {
+    "apple_driver": {
+      "original_report_sha256": "46638c5d6a53656f3d0973208b4a2e55f008bc903e57424f1ce55cba7265d7ea",
+      "report": {
+        "claim": "interactive inliner protocol and caller-code-shape feasibility; no performance claim",
+        "clang": {
+          "path": "/Library/Developer/CommandLineTools/usr/bin/clang",
+          "sha256": "f30550eab15fdf5ab8c0dc54c52679711241e5d4b636b027e18c09fef531775d",
+          "version": "Apple clang version 21.0.0 (clang-2100.1.1.101)\nTarget: arm64-apple-darwin25.6.0\nThread model: posix\nInstalledDir: /Library/Developer/CommandLineTools/usr/bin",
+          "version_return_code": 0
+        },
+        "decision": "context is recorded as protocol context only; it is not treated as a caller identifier",
+        "distinct_0_vs_1_normalized_caller_body": true,
+        "frontend": null,
+        "inliner_tool": {
+          "path": "/Library/Developer/CommandLineTools/usr/bin/clang",
+          "sha256": "f30550eab15fdf5ab8c0dc54c52679711241e5d4b636b027e18c09fef531775d",
+          "version": "Apple clang version 21.0.0 (clang-2100.1.1.101)\nTarget: arm64-apple-darwin25.6.0\nThread model: posix\nInstalledDir: /Library/Developer/CommandLineTools/usr/bin",
+          "version_return_code": 0
+        },
+        "llvm_source": {
+          "log_reader": "$REPO/.cache/iree/third_party/llvm-project/llvm/lib/Analysis/models/log_reader.py",
+          "path": "$REPO/.cache/iree/third_party/llvm-project",
+          "revision": "32d702efa29d0fdd02cff7b79dea8fdbbcf059d4"
+        },
+        "mode": "clang-driver",
+        "policies": [
+          "0",
+          "1",
+          "default"
+        ],
+        "runs": [
+          {
+            "command": [
+              "/Library/Developer/CommandLineTools/usr/bin/clang",
+              "-O2",
+              "-S",
+              "-emit-llvm",
+              "$ARTIFACTS/published-apple-final/inliner_smoke.c",
+              "-o",
+              "$ARTIFACTS/published-apple-final/clang-driver-0.ll",
+              "-mllvm",
+              "-enable-ml-inliner=release",
+              "-mllvm",
+              "-inliner-interactive-include-default",
+              "-mllvm",
+              "-inliner-interactive-channel-base=$ARTIFACTS/published-apple-final/inliner-channel-20hcjngf/channel"
+            ],
+            "communication_error": null,
+            "duration_ms": 121,
+            "mode": "clang-driver",
+            "observation_count": 2,
+            "observations": [
+              {
+                "choice": 0,
+                "context": "",
+                "features": {
+                  "call_argument_setup": [
+                    0
+                  ],
+                  "call_penalty": [
+                    0
+                  ],
+                  "callee_basic_block_count": [
+                    1
+                  ],
+                  "callee_conditionally_executed_blocks": [
+                    0
+                  ],
+                  "callee_users": [
+                    2
+                  ],
+                  "caller_basic_block_count": [
+                    1
+                  ],
+                  "caller_conditionally_executed_blocks": [
+                    0
+                  ],
+                  "caller_users": [
+                    1
+                  ],
+                  "callsite_cost": [
+                    -35
+                  ],
+                  "callsite_height": [
+                    1
+                  ],
+                  "case_cluster_penalty": [
+                    0
+                  ],
+                  "cold_cc_penalty": [
+                    0
+                  ],
+                  "constant_args": [
+                    0
+                  ],
+                  "constant_offset_ptr_args": [
+                    0
+                  ],
+                  "cost_estimate": [
+                    15
+                  ],
+                  "dead_blocks": [
+                    0
+                  ],
+                  "edge_count": [
+                    2
+                  ],
+                  "indirect_call_penalty": [
+                    0
+                  ],
+                  "inlining_default": [
+                    1
+                  ],
+                  "is_callee_avail_external": [
+                    0
+                  ],
+                  "is_caller_avail_external": [
+                    0
+                  ],
+                  "is_multiple_blocks": [
+                    0
+                  ],
+                  "jump_table_penalty": [
+                    0
+                  ],
+                  "last_call_to_static_bonus": [
+                    0
+                  ],
+                  "load_elimination": [
+                    0
+                  ],
+                  "load_relative_intrinsic": [
+                    0
+                  ],
+                  "lowered_call_arg_setup": [
+                    0
+                  ],
+                  "nested_inline_cost_estimate": [
+                    0
+                  ],
+                  "nested_inlines": [
+                    0
+                  ],
+                  "node_count": [
+                    2
+                  ],
+                  "nr_ctant_params": [
+                    0
+                  ],
+                  "num_loops": [
+                    0
+                  ],
+                  "simplified_instructions": [
+                    1
+                  ],
+                  "sroa_losses": [
+                    0
+                  ],
+                  "sroa_savings": [
+                    0
+                  ],
+                  "switch_default_dest_penalty": [
+                    0
+                  ],
+                  "switch_penalty": [
+                    0
+                  ],
+                  "threshold": [
+                    5
+                  ],
+                  "unsimplified_common_instructions": [
+                    50
+                  ]
+                },
+                "observation": 0,
+                "policy": "0"
+              },
+              {
+                "choice": 0,
+                "context": "",
+                "features": {
+                  "call_argument_setup": [
+                    0
+                  ],
+                  "call_penalty": [
+                    0
+                  ],
+                  "callee_basic_block_count": [
+                    1
+                  ],
+                  "callee_conditionally_executed_blocks": [
+                    0
+                  ],
+                  "callee_users": [
+                    2
+                  ],
+                  "caller_basic_block_count": [
+                    1
+                  ],
+                  "caller_conditionally_executed_blocks": [
+                    0
+                  ],
+                  "caller_users": [
+                    1
+                  ],
+                  "callsite_cost": [
+                    -35
+                  ],
+                  "callsite_height": [
+                    1
+                  ],
+                  "case_cluster_penalty": [
+                    0
+                  ],
+                  "cold_cc_penalty": [
+                    0
+                  ],
+                  "constant_args": [
+                    0
+                  ],
+                  "constant_offset_ptr_args": [
+                    0
+                  ],
+                  "cost_estimate": [
+                    15
+                  ],
+                  "dead_blocks": [
+                    0
+                  ],
+                  "edge_count": [
+                    2
+                  ],
+                  "indirect_call_penalty": [
+                    0
+                  ],
+                  "inlining_default": [
+                    1
+                  ],
+                  "is_callee_avail_external": [
+                    0
+                  ],
+                  "is_caller_avail_external": [
+                    0
+                  ],
+                  "is_multiple_blocks": [
+                    0
+                  ],
+                  "jump_table_penalty": [
+                    0
+                  ],
+                  "last_call_to_static_bonus": [
+                    0
+                  ],
+                  "load_elimination": [
+                    0
+                  ],
+                  "load_relative_intrinsic": [
+                    0
+                  ],
+                  "lowered_call_arg_setup": [
+                    0
+                  ],
+                  "nested_inline_cost_estimate": [
+                    0
+                  ],
+                  "nested_inlines": [
+                    0
+                  ],
+                  "node_count": [
+                    2
+                  ],
+                  "nr_ctant_params": [
+                    0
+                  ],
+                  "num_loops": [
+                    0
+                  ],
+                  "simplified_instructions": [
+                    1
+                  ],
+                  "sroa_losses": [
+                    0
+                  ],
+                  "sroa_savings": [
+                    0
+                  ],
+                  "switch_default_dest_penalty": [
+                    0
+                  ],
+                  "switch_penalty": [
+                    0
+                  ],
+                  "threshold": [
+                    5
+                  ],
+                  "unsimplified_common_instructions": [
+                    50
+                  ]
+                },
+                "observation": 1,
+                "policy": "0"
+              }
+            ],
+            "optimized_ir": {
+              "caller_body": {
+                "body": "%2 = tail call fastcc i32 @transform(i32 noundef %0)\n%3 = add i32 %0, 1\n%4 = tail call fastcc i32 @transform(i32 noundef %3)\n%5 = add i32 %4, 3\n%6 = xor i32 %5, %2\nret i32 %6",
+                "body_lines": 6,
+                "body_sha256": "9b32839c1ac67fad6a82a4ddd71573a1b4084cd86a9db187bf34982d3ac511eb",
+                "calls_transform": true,
+                "found": true
+              },
+              "path": "$ARTIFACTS/published-apple-final/clang-driver-0.ll",
+              "sha256": "f2f00b85786c21a69144cfb6926fe5b696a17b4078725f52c351a7551c8b1a46"
+            },
+            "policy": "0",
+            "return_code": 0,
+            "stderr": {
+              "bytes": 0,
+              "path": "$ARTIFACTS/published-apple-final/clang-driver-0.stderr"
+            },
+            "stderr_head": "",
+            "stderr_tail": "",
+            "stdout": {
+              "bytes": 0,
+              "path": "$ARTIFACTS/published-apple-final/clang-driver-0.stdout"
+            },
+            "timed_out": false
+          },
+          {
+            "command": [
+              "/Library/Developer/CommandLineTools/usr/bin/clang",
+              "-O2",
+              "-S",
+              "-emit-llvm",
+              "$ARTIFACTS/published-apple-final/inliner_smoke.c",
+              "-o",
+              "$ARTIFACTS/published-apple-final/clang-driver-1.ll",
+              "-mllvm",
+              "-enable-ml-inliner=release",
+              "-mllvm",
+              "-inliner-interactive-include-default",
+              "-mllvm",
+              "-inliner-interactive-channel-base=$ARTIFACTS/published-apple-final/inliner-channel-y2u34zaf/channel"
+            ],
+            "communication_error": null,
+            "duration_ms": 125,
+            "mode": "clang-driver",
+            "observation_count": 2,
+            "observations": [
+              {
+                "choice": 1,
+                "context": "",
+                "features": {
+                  "call_argument_setup": [
+                    0
+                  ],
+                  "call_penalty": [
+                    0
+                  ],
+                  "callee_basic_block_count": [
+                    1
+                  ],
+                  "callee_conditionally_executed_blocks": [
+                    0
+                  ],
+                  "callee_users": [
+                    2
+                  ],
+                  "caller_basic_block_count": [
+                    1
+                  ],
+                  "caller_conditionally_executed_blocks": [
+                    0
+                  ],
+                  "caller_users": [
+                    1
+                  ],
+                  "callsite_cost": [
+                    -35
+                  ],
+                  "callsite_height": [
+                    1
+                  ],
+                  "case_cluster_penalty": [
+                    0
+                  ],
+                  "cold_cc_penalty": [
+                    0
+                  ],
+                  "constant_args": [
+                    0
+                  ],
+                  "constant_offset_ptr_args": [
+                    0
+                  ],
+                  "cost_estimate": [
+                    15
+                  ],
+                  "dead_blocks": [
+                    0
+                  ],
+                  "edge_count": [
+                    2
+                  ],
+                  "indirect_call_penalty": [
+                    0
+                  ],
+                  "inlining_default": [
+                    1
+                  ],
+                  "is_callee_avail_external": [
+                    0
+                  ],
+                  "is_caller_avail_external": [
+                    0
+                  ],
+                  "is_multiple_blocks": [
+                    0
+                  ],
+                  "jump_table_penalty": [
+                    0
+                  ],
+                  "last_call_to_static_bonus": [
+                    0
+                  ],
+                  "load_elimination": [
+                    0
+                  ],
+                  "load_relative_intrinsic": [
+                    0
+                  ],
+                  "lowered_call_arg_setup": [
+                    0
+                  ],
+                  "nested_inline_cost_estimate": [
+                    0
+                  ],
+                  "nested_inlines": [
+                    0
+                  ],
+                  "node_count": [
+                    2
+                  ],
+                  "nr_ctant_params": [
+                    0
+                  ],
+                  "num_loops": [
+                    0
+                  ],
+                  "simplified_instructions": [
+                    1
+                  ],
+                  "sroa_losses": [
+                    0
+                  ],
+                  "sroa_savings": [
+                    0
+                  ],
+                  "switch_default_dest_penalty": [
+                    0
+                  ],
+                  "switch_penalty": [
+                    0
+                  ],
+                  "threshold": [
+                    5
+                  ],
+                  "unsimplified_common_instructions": [
+                    50
+                  ]
+                },
+                "observation": 0,
+                "policy": "1"
+              },
+              {
+                "choice": 1,
+                "context": "",
+                "features": {
+                  "call_argument_setup": [
+                    0
+                  ],
+                  "call_penalty": [
+                    0
+                  ],
+                  "callee_basic_block_count": [
+                    1
+                  ],
+                  "callee_conditionally_executed_blocks": [
+                    0
+                  ],
+                  "callee_users": [
+                    2
+                  ],
+                  "caller_basic_block_count": [
+                    1
+                  ],
+                  "caller_conditionally_executed_blocks": [
+                    0
+                  ],
+                  "caller_users": [
+                    1
+                  ],
+                  "callsite_cost": [
+                    -35
+                  ],
+                  "callsite_height": [
+                    1
+                  ],
+                  "case_cluster_penalty": [
+                    0
+                  ],
+                  "cold_cc_penalty": [
+                    0
+                  ],
+                  "constant_args": [
+                    0
+                  ],
+                  "constant_offset_ptr_args": [
+                    0
+                  ],
+                  "cost_estimate": [
+                    -14985
+                  ],
+                  "dead_blocks": [
+                    0
+                  ],
+                  "edge_count": [
+                    1
+                  ],
+                  "indirect_call_penalty": [
+                    0
+                  ],
+                  "inlining_default": [
+                    1
+                  ],
+                  "is_callee_avail_external": [
+                    0
+                  ],
+                  "is_caller_avail_external": [
+                    0
+                  ],
+                  "is_multiple_blocks": [
+                    0
+                  ],
+                  "jump_table_penalty": [
+                    0
+                  ],
+                  "last_call_to_static_bonus": [
+                    1
+                  ],
+                  "load_elimination": [
+                    0
+                  ],
+                  "load_relative_intrinsic": [
+                    0
+                  ],
+                  "lowered_call_arg_setup": [
+                    0
+                  ],
+                  "nested_inline_cost_estimate": [
+                    0
+                  ],
+                  "nested_inlines": [
+                    0
+                  ],
+                  "node_count": [
+                    2
+                  ],
+                  "nr_ctant_params": [
+                    0
+                  ],
+                  "num_loops": [
+                    0
+                  ],
+                  "simplified_instructions": [
+                    1
+                  ],
+                  "sroa_losses": [
+                    0
+                  ],
+                  "sroa_savings": [
+                    0
+                  ],
+                  "switch_default_dest_penalty": [
+                    0
+                  ],
+                  "switch_penalty": [
+                    0
+                  ],
+                  "threshold": [
+                    5
+                  ],
+                  "unsimplified_common_instructions": [
+                    50
+                  ]
+                },
+                "observation": 1,
+                "policy": "1"
+              }
+            ],
+            "optimized_ir": {
+              "caller_body": {
+                "body": "%2 = mul i32 %0, 17\n%3 = add i32 %2, 13\n%4 = lshr i32 %0, 2\n%5 = xor i32 %3, %4\n%6 = mul i32 %5, 7\n%7 = add i32 %6, 29\n%8 = lshr i32 %3, 1\n%9 = xor i32 %7, %8\n%10 = mul i32 %0, %0\n%11 = add i32 %9, %10\n%12 = add i32 %0, 1\n%13 = mul i32 %12, 17\n%14 = add i32 %13, 13\n%15 = lshr i32 %12, 2\n%16 = xor i32 %14, %15\n%17 = mul i32 %16, 7\n%18 = add i32 %17, 29\n%19 = lshr i32 %14, 1\n%20 = xor i32 %18, %19\n%21 = mul i32 %12, %12\n%22 = add i32 %21, 3\n%23 = add i32 %22, %20\n%24 = xor i32 %23, %11\nret i32 %24",
+                "body_lines": 24,
+                "body_sha256": "f54e4f79a38475fbfd4123e77f5551a7db74fa86d8784ba71501fea9a13c2552",
+                "calls_transform": false,
+                "found": true
+              },
+              "path": "$ARTIFACTS/published-apple-final/clang-driver-1.ll",
+              "sha256": "f1c5177b90fc6905d396f44fb358b75aa6107fd87eed26ce5da8d90badae5c79"
+            },
+            "policy": "1",
+            "return_code": 0,
+            "stderr": {
+              "bytes": 0,
+              "path": "$ARTIFACTS/published-apple-final/clang-driver-1.stderr"
+            },
+            "stderr_head": "",
+            "stderr_tail": "",
+            "stdout": {
+              "bytes": 0,
+              "path": "$ARTIFACTS/published-apple-final/clang-driver-1.stdout"
+            },
+            "timed_out": false
+          },
+          {
+            "command": [
+              "/Library/Developer/CommandLineTools/usr/bin/clang",
+              "-O2",
+              "-S",
+              "-emit-llvm",
+              "$ARTIFACTS/published-apple-final/inliner_smoke.c",
+              "-o",
+              "$ARTIFACTS/published-apple-final/clang-driver-default.ll",
+              "-mllvm",
+              "-enable-ml-inliner=release",
+              "-mllvm",
+              "-inliner-interactive-include-default",
+              "-mllvm",
+              "-inliner-interactive-channel-base=$ARTIFACTS/published-apple-final/inliner-channel-sjlaogha/channel"
+            ],
+            "communication_error": null,
+            "duration_ms": 126,
+            "mode": "clang-driver",
+            "observation_count": 2,
+            "observations": [
+              {
+                "choice": 1,
+                "context": "",
+                "features": {
+                  "call_argument_setup": [
+                    0
+                  ],
+                  "call_penalty": [
+                    0
+                  ],
+                  "callee_basic_block_count": [
+                    1
+                  ],
+                  "callee_conditionally_executed_blocks": [
+                    0
+                  ],
+                  "callee_users": [
+                    2
+                  ],
+                  "caller_basic_block_count": [
+                    1
+                  ],
+                  "caller_conditionally_executed_blocks": [
+                    0
+                  ],
+                  "caller_users": [
+                    1
+                  ],
+                  "callsite_cost": [
+                    -35
+                  ],
+                  "callsite_height": [
+                    1
+                  ],
+                  "case_cluster_penalty": [
+                    0
+                  ],
+                  "cold_cc_penalty": [
+                    0
+                  ],
+                  "constant_args": [
+                    0
+                  ],
+                  "constant_offset_ptr_args": [
+                    0
+                  ],
+                  "cost_estimate": [
+                    15
+                  ],
+                  "dead_blocks": [
+                    0
+                  ],
+                  "edge_count": [
+                    2
+                  ],
+                  "indirect_call_penalty": [
+                    0
+                  ],
+                  "inlining_default": [
+                    1
+                  ],
+                  "is_callee_avail_external": [
+                    0
+                  ],
+                  "is_caller_avail_external": [
+                    0
+                  ],
+                  "is_multiple_blocks": [
+                    0
+                  ],
+                  "jump_table_penalty": [
+                    0
+                  ],
+                  "last_call_to_static_bonus": [
+                    0
+                  ],
+                  "load_elimination": [
+                    0
+                  ],
+                  "load_relative_intrinsic": [
+                    0
+                  ],
+                  "lowered_call_arg_setup": [
+                    0
+                  ],
+                  "nested_inline_cost_estimate": [
+                    0
+                  ],
+                  "nested_inlines": [
+                    0
+                  ],
+                  "node_count": [
+                    2
+                  ],
+                  "nr_ctant_params": [
+                    0
+                  ],
+                  "num_loops": [
+                    0
+                  ],
+                  "simplified_instructions": [
+                    1
+                  ],
+                  "sroa_losses": [
+                    0
+                  ],
+                  "sroa_savings": [
+                    0
+                  ],
+                  "switch_default_dest_penalty": [
+                    0
+                  ],
+                  "switch_penalty": [
+                    0
+                  ],
+                  "threshold": [
+                    5
+                  ],
+                  "unsimplified_common_instructions": [
+                    50
+                  ]
+                },
+                "observation": 0,
+                "policy": "default"
+              },
+              {
+                "choice": 1,
+                "context": "",
+                "features": {
+                  "call_argument_setup": [
+                    0
+                  ],
+                  "call_penalty": [
+                    0
+                  ],
+                  "callee_basic_block_count": [
+                    1
+                  ],
+                  "callee_conditionally_executed_blocks": [
+                    0
+                  ],
+                  "callee_users": [
+                    2
+                  ],
+                  "caller_basic_block_count": [
+                    1
+                  ],
+                  "caller_conditionally_executed_blocks": [
+                    0
+                  ],
+                  "caller_users": [
+                    1
+                  ],
+                  "callsite_cost": [
+                    -35
+                  ],
+                  "callsite_height": [
+                    1
+                  ],
+                  "case_cluster_penalty": [
+                    0
+                  ],
+                  "cold_cc_penalty": [
+                    0
+                  ],
+                  "constant_args": [
+                    0
+                  ],
+                  "constant_offset_ptr_args": [
+                    0
+                  ],
+                  "cost_estimate": [
+                    -14985
+                  ],
+                  "dead_blocks": [
+                    0
+                  ],
+                  "edge_count": [
+                    1
+                  ],
+                  "indirect_call_penalty": [
+                    0
+                  ],
+                  "inlining_default": [
+                    1
+                  ],
+                  "is_callee_avail_external": [
+                    0
+                  ],
+                  "is_caller_avail_external": [
+                    0
+                  ],
+                  "is_multiple_blocks": [
+                    0
+                  ],
+                  "jump_table_penalty": [
+                    0
+                  ],
+                  "last_call_to_static_bonus": [
+                    1
+                  ],
+                  "load_elimination": [
+                    0
+                  ],
+                  "load_relative_intrinsic": [
+                    0
+                  ],
+                  "lowered_call_arg_setup": [
+                    0
+                  ],
+                  "nested_inline_cost_estimate": [
+                    0
+                  ],
+                  "nested_inlines": [
+                    0
+                  ],
+                  "node_count": [
+                    2
+                  ],
+                  "nr_ctant_params": [
+                    0
+                  ],
+                  "num_loops": [
+                    0
+                  ],
+                  "simplified_instructions": [
+                    1
+                  ],
+                  "sroa_losses": [
+                    0
+                  ],
+                  "sroa_savings": [
+                    0
+                  ],
+                  "switch_default_dest_penalty": [
+                    0
+                  ],
+                  "switch_penalty": [
+                    0
+                  ],
+                  "threshold": [
+                    5
+                  ],
+                  "unsimplified_common_instructions": [
+                    50
+                  ]
+                },
+                "observation": 1,
+                "policy": "default"
+              }
+            ],
+            "optimized_ir": {
+              "caller_body": {
+                "body": "%2 = mul i32 %0, 17\n%3 = add i32 %2, 13\n%4 = lshr i32 %0, 2\n%5 = xor i32 %3, %4\n%6 = mul i32 %5, 7\n%7 = add i32 %6, 29\n%8 = lshr i32 %3, 1\n%9 = xor i32 %7, %8\n%10 = mul i32 %0, %0\n%11 = add i32 %9, %10\n%12 = add i32 %0, 1\n%13 = mul i32 %12, 17\n%14 = add i32 %13, 13\n%15 = lshr i32 %12, 2\n%16 = xor i32 %14, %15\n%17 = mul i32 %16, 7\n%18 = add i32 %17, 29\n%19 = lshr i32 %14, 1\n%20 = xor i32 %18, %19\n%21 = mul i32 %12, %12\n%22 = add i32 %21, 3\n%23 = add i32 %22, %20\n%24 = xor i32 %23, %11\nret i32 %24",
+                "body_lines": 24,
+                "body_sha256": "f54e4f79a38475fbfd4123e77f5551a7db74fa86d8784ba71501fea9a13c2552",
+                "calls_transform": false,
+                "found": true
+              },
+              "path": "$ARTIFACTS/published-apple-final/clang-driver-default.ll",
+              "sha256": "f1c5177b90fc6905d396f44fb358b75aa6107fd87eed26ce5da8d90badae5c79"
+            },
+            "policy": "default",
+            "return_code": 0,
+            "stderr": {
+              "bytes": 0,
+              "path": "$ARTIFACTS/published-apple-final/clang-driver-default.stderr"
+            },
+            "stderr_head": "",
+            "stderr_tail": "",
+            "stdout": {
+              "bytes": 0,
+              "path": "$ARTIFACTS/published-apple-final/clang-driver-default.stdout"
+            },
+            "timed_out": false
+          }
+        ],
+        "schema_version": 1,
+        "script": {
+          "path": "$REPO/scripts/inliner_feasibility.py",
+          "sha256": "27cc22a4f6725f7d3c7770ab145373e30dccb58252d973e9729d57a118c15df4"
+        },
+        "source": {
+          "path": "$ARTIFACTS/published-apple-final/inliner_smoke.c",
+          "sha256": "8e93de5bedcc06614414ad9e035d7464c807de52ec1d916c46eff17faa5ee69b",
+          "text": "static unsigned transform(unsigned x) {\n  unsigned a = x * 17u + 13u;\n  unsigned b = (a ^ (x >> 2)) * 7u;\n  unsigned c = (b + 29u) ^ (a >> 1);\n  return c + (x * x);\n}\n\nunsigned public_caller(unsigned x) {\n  unsigned first = transform(x);\n  unsigned second = transform(x + 1u);\n  return first ^ (second + 3u);\n}\n"
+        },
+        "status": "passed",
+        "timeout_seconds_per_run": 45
+      }
+    },
+    "pinned_driver": {
+      "original_report_sha256": "3b763e23f323da62c696bf95ce518f6a88a7982ac67104f9a1e57dd96721ba08",
+      "report": {
+        "claim": "interactive inliner protocol and caller-code-shape feasibility; no performance claim",
+        "clang": {
+          "path": "$REPO/.cache/llvm-build/bin/clang-24",
+          "sha256": "bdf7e085e770703f4cb620cc998f01463b1ac499e8cecbbc2e22a4051fc4a686",
+          "version": "clang version 24.0.0git (https://github.com/iree-org/llvm-project.git 32d702efa29d0fdd02cff7b79dea8fdbbcf059d4)\nTarget: arm64-apple-darwin25.6.0\nThread model: posix\nInstalledDir: $REPO/.cache/llvm-build/bin\nBuild config: +assertions",
+          "version_return_code": 0
+        },
+        "decision": "context is recorded as protocol context only; it is not treated as a caller identifier",
+        "distinct_0_vs_1_normalized_caller_body": false,
+        "frontend": null,
+        "inliner_tool": {
+          "path": "$REPO/.cache/llvm-build/bin/clang-24",
+          "sha256": "bdf7e085e770703f4cb620cc998f01463b1ac499e8cecbbc2e22a4051fc4a686",
+          "version": "clang version 24.0.0git (https://github.com/iree-org/llvm-project.git 32d702efa29d0fdd02cff7b79dea8fdbbcf059d4)\nTarget: arm64-apple-darwin25.6.0\nThread model: posix\nInstalledDir: $REPO/.cache/llvm-build/bin\nBuild config: +assertions",
+          "version_return_code": 0
+        },
+        "llvm_source": {
+          "log_reader": "$REPO/.cache/iree/third_party/llvm-project/llvm/lib/Analysis/models/log_reader.py",
+          "path": "$REPO/.cache/iree/third_party/llvm-project",
+          "revision": "32d702efa29d0fdd02cff7b79dea8fdbbcf059d4"
+        },
+        "mode": "clang-driver",
+        "policies": [
+          "0",
+          "1",
+          "default"
+        ],
+        "runs": [
+          {
+            "command": [
+              "$REPO/.cache/llvm-build/bin/clang-24",
+              "-O2",
+              "-S",
+              "-emit-llvm",
+              "$ARTIFACTS/published-pinned-driver-final/inliner_smoke.c",
+              "-o",
+              "$ARTIFACTS/published-pinned-driver-final/clang-driver-0.ll",
+              "-mllvm",
+              "-enable-ml-inliner=release",
+              "-mllvm",
+              "-inliner-interactive-include-default",
+              "-mllvm",
+              "-inliner-interactive-channel-base=$ARTIFACTS/published-pinned-driver-final/inliner-channel-32up6fq7/channel"
+            ],
+            "communication_error": "compiler exited before interactive header",
+            "duration_ms": 114,
+            "mode": "clang-driver",
+            "observation_count": 0,
+            "observations": [],
+            "optimized_ir": {
+              "caller_body": null,
+              "path": "$ARTIFACTS/published-pinned-driver-final/clang-driver-0.ll",
+              "sha256": null
+            },
+            "policy": "0",
+            "return_code": 1,
+            "stderr": {
+              "bytes": 11313,
+              "path": "$ARTIFACTS/published-pinned-driver-final/clang-driver-0.stderr"
+            },
+            "stderr_head": "fatal error: error in backend: IO sandbox violation\nPLEASE submit a bug report to https://github.com/llvm/llvm-project/issues/ and include the crash backtrace and dumped files.\nStack dump:\n0.\tProgram arguments: $REPO/.cache/llvm-build/bin/clang-24 -O2 -S -emit-llvm $ARTIFACTS/published-pinned-driver-final/inliner_smoke.c -o $ARTIFACTS/published-pinned-driver-final/clang-driver-0.ll -mllvm -enable-ml-inliner=release -mllvm -inliner-interactive-include-default -mllvm -inliner-interactive-channel-base=$ARTIFACTS/published-pinned-driver-final/inliner-channel-32up6fq7/channel\n1.\t<eof> parser at end of file\n2.\tOptimizer\n3.\tRunning pass \"require<globals-aa>,function(invalidate<aa>),require<profile-summary>,cgscc(devirt<4>(inline,function-attrs<skip-non-recursive-function-attrs>,openmp-opt-cgscc,function<eager-inv;no-rerun>(sroa<modify-cfg>,early-cse<memssa>,speculative-execution<only-if-divergent-target>,jump-threading,correlated-propagation,jump-table-to-switch,simplifycfg<bonus-inst-threshold=1;no-forward-switch-cond;switch-range-to-icmp;no-switch-to-arithmetic;no-switch-to-lookup;keep-loops;no-hoist-common-insts;no-hoist-loads-stores-with-cond-faulting;no-sink-common-insts;speculate-blocks;simplify-cond-branch;no-speculate-unpredictables>,instcombine<max-iterations=1;no-verify-fixpoint>,aggressive-instcombine,libcalls-shrinkwrap,tailcallelim,simplifycfg<bonus-inst-threshold=1;no-forward-switch-cond;switch-range-to-icmp;no-switch-to-arithmetic;no-switch-to-lookup;keep-loops;no-hoist-common-insts;no-hoist-loads-stores-with-cond-faulting;no-sink-common-insts;speculate-blocks;simplify-cond-branch;no-speculate-unpredictables>,reassociate,constraint-elimination,loop-mssa(loop-instsimplify,loop-simplifycfg,licm<no-allowspeculation>,loop-rotate<header-duplication;no-prepare-for-lto;no-check-exit-count>,licm<allowspeculation>,simple-loop-unswitch<no-nontrivial;trivial>),simplifycfg<",
+            "stderr_tail": "hRecoveryContext::RunSafely(llvm::function_ref<void ()>) + 168\n32 clang-24 0x0000000106f8b58c clang::driver::CC1Command::Execute(llvm::ArrayRef<std::__1::optional<llvm::StringRef>>, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>*, bool*) const + 288\n33 clang-24 0x0000000106f521fc clang::driver::Compilation::ExecuteCommand(clang::driver::Command const&, clang::driver::Command const*&, bool) const + 728\n34 clang-24 0x0000000106f528c0 clang::driver::Compilation::ExecuteJobs(clang::driver::JobList const&, llvm::SmallVectorImpl<std::__1::pair<int, clang::driver::Command const*>>&, bool) const + 1328\n35 clang-24 0x0000000106f72448 clang::driver::Driver::ExecuteCompilation(clang::driver::Compilation&, llvm::SmallVectorImpl<std::__1::pair<int, clang::driver::Command const*>>&) + 328\n36 clang-24 0x0000000104dd2968 clang_main(int, char**, llvm::ToolContext const&) + 4324\n37 clang-24 0x0000000104ddf930 main + 96\n38 dyld     0x000000018af6c4e4 start + 6992\nclang-24: error: clang frontend command failed with exit code 70 (use -v to see invocation)\nclang version 24.0.0git (https://github.com/iree-org/llvm-project.git 32d702efa29d0fdd02cff7b79dea8fdbbcf059d4)\nTarget: arm64-apple-darwin25.6.0\nThread model: posix\nInstalledDir: $REPO/.cache/llvm-build/bin\nBuild config: +assertions\nclang-24: note: diagnostic msg: \n********************\n\nPLEASE ATTACH THE FOLLOWING CRASH REPRODUCER FILES TO THE BUG REPORT:\nclang-24: note: diagnostic msg: /var/folders/mt/ytn5m24d4699b7hs1tjm810c0000gp/T/inliner_smoke-97de9d.c\nclang-24: note: diagnostic msg: /var/folders/mt/ytn5m24d4699b7hs1tjm810c0000gp/T/inliner_smoke-97de9d.sh\nclang-24: note: diagnostic msg: Crash backtrace is located in\nclang-24: note: diagnostic msg: $HOME/Library/Logs/DiagnosticReports/clang-24_<YYYY-MM-DD-HHMMSS>_<hostname>.crash\nclang-24: note: diagnostic msg: (choose the .crash file that corresponds to your crash)\nclang-24: note: diagnostic msg: \n\n********************\n",
+            "stdout": {
+              "bytes": 0,
+              "path": "$ARTIFACTS/published-pinned-driver-final/clang-driver-0.stdout"
+            },
+            "timed_out": false
+          },
+          {
+            "command": [
+              "$REPO/.cache/llvm-build/bin/clang-24",
+              "-O2",
+              "-S",
+              "-emit-llvm",
+              "$ARTIFACTS/published-pinned-driver-final/inliner_smoke.c",
+              "-o",
+              "$ARTIFACTS/published-pinned-driver-final/clang-driver-1.ll",
+              "-mllvm",
+              "-enable-ml-inliner=release",
+              "-mllvm",
+              "-inliner-interactive-include-default",
+              "-mllvm",
+              "-inliner-interactive-channel-base=$ARTIFACTS/published-pinned-driver-final/inliner-channel-x2h77gcg/channel"
+            ],
+            "communication_error": "compiler exited before interactive header",
+            "duration_ms": 107,
+            "mode": "clang-driver",
+            "observation_count": 0,
+            "observations": [],
+            "optimized_ir": {
+              "caller_body": null,
+              "path": "$ARTIFACTS/published-pinned-driver-final/clang-driver-1.ll",
+              "sha256": null
+            },
+            "policy": "1",
+            "return_code": 1,
+            "stderr": {
+              "bytes": 11313,
+              "path": "$ARTIFACTS/published-pinned-driver-final/clang-driver-1.stderr"
+            },
+            "stderr_head": "fatal error: error in backend: IO sandbox violation\nPLEASE submit a bug report to https://github.com/llvm/llvm-project/issues/ and include the crash backtrace and dumped files.\nStack dump:\n0.\tProgram arguments: $REPO/.cache/llvm-build/bin/clang-24 -O2 -S -emit-llvm $ARTIFACTS/published-pinned-driver-final/inliner_smoke.c -o $ARTIFACTS/published-pinned-driver-final/clang-driver-1.ll -mllvm -enable-ml-inliner=release -mllvm -inliner-interactive-include-default -mllvm -inliner-interactive-channel-base=$ARTIFACTS/published-pinned-driver-final/inliner-channel-x2h77gcg/channel\n1.\t<eof> parser at end of file\n2.\tOptimizer\n3.\tRunning pass \"require<globals-aa>,function(invalidate<aa>),require<profile-summary>,cgscc(devirt<4>(inline,function-attrs<skip-non-recursive-function-attrs>,openmp-opt-cgscc,function<eager-inv;no-rerun>(sroa<modify-cfg>,early-cse<memssa>,speculative-execution<only-if-divergent-target>,jump-threading,correlated-propagation,jump-table-to-switch,simplifycfg<bonus-inst-threshold=1;no-forward-switch-cond;switch-range-to-icmp;no-switch-to-arithmetic;no-switch-to-lookup;keep-loops;no-hoist-common-insts;no-hoist-loads-stores-with-cond-faulting;no-sink-common-insts;speculate-blocks;simplify-cond-branch;no-speculate-unpredictables>,instcombine<max-iterations=1;no-verify-fixpoint>,aggressive-instcombine,libcalls-shrinkwrap,tailcallelim,simplifycfg<bonus-inst-threshold=1;no-forward-switch-cond;switch-range-to-icmp;no-switch-to-arithmetic;no-switch-to-lookup;keep-loops;no-hoist-common-insts;no-hoist-loads-stores-with-cond-faulting;no-sink-common-insts;speculate-blocks;simplify-cond-branch;no-speculate-unpredictables>,reassociate,constraint-elimination,loop-mssa(loop-instsimplify,loop-simplifycfg,licm<no-allowspeculation>,loop-rotate<header-duplication;no-prepare-for-lto;no-check-exit-count>,licm<allowspeculation>,simple-loop-unswitch<no-nontrivial;trivial>),simplifycfg<",
+            "stderr_tail": "hRecoveryContext::RunSafely(llvm::function_ref<void ()>) + 168\n32 clang-24 0x0000000104f9f58c clang::driver::CC1Command::Execute(llvm::ArrayRef<std::__1::optional<llvm::StringRef>>, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>*, bool*) const + 288\n33 clang-24 0x0000000104f661fc clang::driver::Compilation::ExecuteCommand(clang::driver::Command const&, clang::driver::Command const*&, bool) const + 728\n34 clang-24 0x0000000104f668c0 clang::driver::Compilation::ExecuteJobs(clang::driver::JobList const&, llvm::SmallVectorImpl<std::__1::pair<int, clang::driver::Command const*>>&, bool) const + 1328\n35 clang-24 0x0000000104f86448 clang::driver::Driver::ExecuteCompilation(clang::driver::Compilation&, llvm::SmallVectorImpl<std::__1::pair<int, clang::driver::Command const*>>&) + 328\n36 clang-24 0x0000000102de6968 clang_main(int, char**, llvm::ToolContext const&) + 4324\n37 clang-24 0x0000000102df3930 main + 96\n38 dyld     0x000000018af6c4e4 start + 6992\nclang-24: error: clang frontend command failed with exit code 70 (use -v to see invocation)\nclang version 24.0.0git (https://github.com/iree-org/llvm-project.git 32d702efa29d0fdd02cff7b79dea8fdbbcf059d4)\nTarget: arm64-apple-darwin25.6.0\nThread model: posix\nInstalledDir: $REPO/.cache/llvm-build/bin\nBuild config: +assertions\nclang-24: note: diagnostic msg: \n********************\n\nPLEASE ATTACH THE FOLLOWING CRASH REPRODUCER FILES TO THE BUG REPORT:\nclang-24: note: diagnostic msg: /var/folders/mt/ytn5m24d4699b7hs1tjm810c0000gp/T/inliner_smoke-2c2c9f.c\nclang-24: note: diagnostic msg: /var/folders/mt/ytn5m24d4699b7hs1tjm810c0000gp/T/inliner_smoke-2c2c9f.sh\nclang-24: note: diagnostic msg: Crash backtrace is located in\nclang-24: note: diagnostic msg: $HOME/Library/Logs/DiagnosticReports/clang-24_<YYYY-MM-DD-HHMMSS>_<hostname>.crash\nclang-24: note: diagnostic msg: (choose the .crash file that corresponds to your crash)\nclang-24: note: diagnostic msg: \n\n********************\n",
+            "stdout": {
+              "bytes": 0,
+              "path": "$ARTIFACTS/published-pinned-driver-final/clang-driver-1.stdout"
+            },
+            "timed_out": false
+          },
+          {
+            "command": [
+              "$REPO/.cache/llvm-build/bin/clang-24",
+              "-O2",
+              "-S",
+              "-emit-llvm",
+              "$ARTIFACTS/published-pinned-driver-final/inliner_smoke.c",
+              "-o",
+              "$ARTIFACTS/published-pinned-driver-final/clang-driver-default.ll",
+              "-mllvm",
+              "-enable-ml-inliner=release",
+              "-mllvm",
+              "-inliner-interactive-include-default",
+              "-mllvm",
+              "-inliner-interactive-channel-base=$ARTIFACTS/published-pinned-driver-final/inliner-channel-60cfia1e/channel"
+            ],
+            "communication_error": "compiler exited before interactive header",
+            "duration_ms": 108,
+            "mode": "clang-driver",
+            "observation_count": 0,
+            "observations": [],
+            "optimized_ir": {
+              "caller_body": null,
+              "path": "$ARTIFACTS/published-pinned-driver-final/clang-driver-default.ll",
+              "sha256": null
+            },
+            "policy": "default",
+            "return_code": 1,
+            "stderr": {
+              "bytes": 11319,
+              "path": "$ARTIFACTS/published-pinned-driver-final/clang-driver-default.stderr"
+            },
+            "stderr_head": "fatal error: error in backend: IO sandbox violation\nPLEASE submit a bug report to https://github.com/llvm/llvm-project/issues/ and include the crash backtrace and dumped files.\nStack dump:\n0.\tProgram arguments: $REPO/.cache/llvm-build/bin/clang-24 -O2 -S -emit-llvm $ARTIFACTS/published-pinned-driver-final/inliner_smoke.c -o $ARTIFACTS/published-pinned-driver-final/clang-driver-default.ll -mllvm -enable-ml-inliner=release -mllvm -inliner-interactive-include-default -mllvm -inliner-interactive-channel-base=$ARTIFACTS/published-pinned-driver-final/inliner-channel-60cfia1e/channel\n1.\t<eof> parser at end of file\n2.\tOptimizer\n3.\tRunning pass \"require<globals-aa>,function(invalidate<aa>),require<profile-summary>,cgscc(devirt<4>(inline,function-attrs<skip-non-recursive-function-attrs>,openmp-opt-cgscc,function<eager-inv;no-rerun>(sroa<modify-cfg>,early-cse<memssa>,speculative-execution<only-if-divergent-target>,jump-threading,correlated-propagation,jump-table-to-switch,simplifycfg<bonus-inst-threshold=1;no-forward-switch-cond;switch-range-to-icmp;no-switch-to-arithmetic;no-switch-to-lookup;keep-loops;no-hoist-common-insts;no-hoist-loads-stores-with-cond-faulting;no-sink-common-insts;speculate-blocks;simplify-cond-branch;no-speculate-unpredictables>,instcombine<max-iterations=1;no-verify-fixpoint>,aggressive-instcombine,libcalls-shrinkwrap,tailcallelim,simplifycfg<bonus-inst-threshold=1;no-forward-switch-cond;switch-range-to-icmp;no-switch-to-arithmetic;no-switch-to-lookup;keep-loops;no-hoist-common-insts;no-hoist-loads-stores-with-cond-faulting;no-sink-common-insts;speculate-blocks;simplify-cond-branch;no-speculate-unpredictables>,reassociate,constraint-elimination,loop-mssa(loop-instsimplify,loop-simplifycfg,licm<no-allowspeculation>,loop-rotate<header-duplication;no-prepare-for-lto;no-check-exit-count>,licm<allowspeculation>,simple-loop-unswitch<no-nontrivial;trivial>),simpli",
+            "stderr_tail": "hRecoveryContext::RunSafely(llvm::function_ref<void ()>) + 168\n32 clang-24 0x000000010681358c clang::driver::CC1Command::Execute(llvm::ArrayRef<std::__1::optional<llvm::StringRef>>, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>*, bool*) const + 288\n33 clang-24 0x00000001067da1fc clang::driver::Compilation::ExecuteCommand(clang::driver::Command const&, clang::driver::Command const*&, bool) const + 728\n34 clang-24 0x00000001067da8c0 clang::driver::Compilation::ExecuteJobs(clang::driver::JobList const&, llvm::SmallVectorImpl<std::__1::pair<int, clang::driver::Command const*>>&, bool) const + 1328\n35 clang-24 0x00000001067fa448 clang::driver::Driver::ExecuteCompilation(clang::driver::Compilation&, llvm::SmallVectorImpl<std::__1::pair<int, clang::driver::Command const*>>&) + 328\n36 clang-24 0x000000010465a968 clang_main(int, char**, llvm::ToolContext const&) + 4324\n37 clang-24 0x0000000104667930 main + 96\n38 dyld     0x000000018af6c4e4 start + 6992\nclang-24: error: clang frontend command failed with exit code 70 (use -v to see invocation)\nclang version 24.0.0git (https://github.com/iree-org/llvm-project.git 32d702efa29d0fdd02cff7b79dea8fdbbcf059d4)\nTarget: arm64-apple-darwin25.6.0\nThread model: posix\nInstalledDir: $REPO/.cache/llvm-build/bin\nBuild config: +assertions\nclang-24: note: diagnostic msg: \n********************\n\nPLEASE ATTACH THE FOLLOWING CRASH REPRODUCER FILES TO THE BUG REPORT:\nclang-24: note: diagnostic msg: /var/folders/mt/ytn5m24d4699b7hs1tjm810c0000gp/T/inliner_smoke-5103bc.c\nclang-24: note: diagnostic msg: /var/folders/mt/ytn5m24d4699b7hs1tjm810c0000gp/T/inliner_smoke-5103bc.sh\nclang-24: note: diagnostic msg: Crash backtrace is located in\nclang-24: note: diagnostic msg: $HOME/Library/Logs/DiagnosticReports/clang-24_<YYYY-MM-DD-HHMMSS>_<hostname>.crash\nclang-24: note: diagnostic msg: (choose the .crash file that corresponds to your crash)\nclang-24: note: diagnostic msg: \n\n********************\n",
+            "stdout": {
+              "bytes": 0,
+              "path": "$ARTIFACTS/published-pinned-driver-final/clang-driver-default.stdout"
+            },
+            "timed_out": false
+          }
+        ],
+        "schema_version": 1,
+        "script": {
+          "path": "$REPO/scripts/inliner_feasibility.py",
+          "sha256": "27cc22a4f6725f7d3c7770ab145373e30dccb58252d973e9729d57a118c15df4"
+        },
+        "source": {
+          "path": "$ARTIFACTS/published-pinned-driver-final/inliner_smoke.c",
+          "sha256": "8e93de5bedcc06614414ad9e035d7464c807de52ec1d916c46eff17faa5ee69b",
+          "text": "static unsigned transform(unsigned x) {\n  unsigned a = x * 17u + 13u;\n  unsigned b = (a ^ (x >> 2)) * 7u;\n  unsigned c = (b + 29u) ^ (a >> 1);\n  return c + (x * x);\n}\n\nunsigned public_caller(unsigned x) {\n  unsigned first = transform(x);\n  unsigned second = transform(x + 1u);\n  return first ^ (second + 3u);\n}\n"
+        },
+        "status": "failed",
+        "timeout_seconds_per_run": 45
+      }
+    },
+    "pinned_opt": {
+      "original_report_sha256": "f38ee8c9ac6236aee57c2dd1b4c40761e6ce60906447c3eb6022f294c318fdcf",
+      "report": {
+        "claim": "interactive inliner protocol and caller-code-shape feasibility; no performance claim",
+        "clang": {
+          "path": "$REPO/.cache/llvm-build/bin/clang-24",
+          "sha256": "bdf7e085e770703f4cb620cc998f01463b1ac499e8cecbbc2e22a4051fc4a686",
+          "version": "clang version 24.0.0git (https://github.com/iree-org/llvm-project.git 32d702efa29d0fdd02cff7b79dea8fdbbcf059d4)\nTarget: arm64-apple-darwin25.6.0\nThread model: posix\nInstalledDir: $REPO/.cache/llvm-build/bin\nBuild config: +assertions",
+          "version_return_code": 0
+        },
+        "decision": "context is recorded as protocol context only; it is not treated as a caller identifier",
+        "distinct_0_vs_1_normalized_caller_body": true,
+        "frontend": {
+          "command": [
+            "$REPO/.cache/llvm-build/bin/clang-24",
+            "-O2",
+            "-Xclang",
+            "-disable-llvm-passes",
+            "-S",
+            "-emit-llvm",
+            "$ARTIFACTS/published-pinned-final/inliner_smoke.c",
+            "-o",
+            "$ARTIFACTS/published-pinned-final/frontend-no-opt.ll"
+          ],
+          "duration_ms": 24,
+          "error": null,
+          "input_ir": {
+            "path": "$ARTIFACTS/published-pinned-final/frontend-no-opt.ll",
+            "sha256": "725aff47f6f4c102586c3333af360c04ab9f2b6cb2ffe1aedb1acfbc815b19d6"
+          },
+          "return_code": 0,
+          "stderr": {
+            "bytes": 0,
+            "path": "$ARTIFACTS/published-pinned-final/frontend.stderr"
+          },
+          "stderr_head": "",
+          "stderr_tail": "",
+          "stdout": {
+            "bytes": 0,
+            "path": "$ARTIFACTS/published-pinned-final/frontend.stdout"
+          },
+          "timed_out": false
+        },
+        "inliner_tool": {
+          "path": "$REPO/.cache/llvm-build/bin/opt",
+          "sha256": "eeda9d3e594ee803016bae76b47d8f8b8e580ecc9a0ea18f1f7d5d9c9927964b",
+          "version": "LLVM (http://llvm.org/):\n  LLVM version 24.0.0git\n  Optimized build with assertions.\n  Default target: arm64-apple-darwin25.6.0\n  Host CPU: apple-m3",
+          "version_return_code": 0
+        },
+        "llvm_source": {
+          "log_reader": "$REPO/.cache/iree/third_party/llvm-project/llvm/lib/Analysis/models/log_reader.py",
+          "path": "$REPO/.cache/iree/third_party/llvm-project",
+          "revision": "32d702efa29d0fdd02cff7b79dea8fdbbcf059d4"
+        },
+        "mode": "opt",
+        "policies": [
+          "0",
+          "1",
+          "default"
+        ],
+        "runs": [
+          {
+            "command": [
+              "$REPO/.cache/llvm-build/bin/opt",
+              "-passes=scc-oz-module-inliner",
+              "-S",
+              "$ARTIFACTS/published-pinned-final/frontend-no-opt.ll",
+              "-o",
+              "$ARTIFACTS/published-pinned-final/opt-0.ll",
+              "-enable-ml-inliner=release",
+              "-inliner-interactive-include-default",
+              "-inliner-interactive-channel-base=$ARTIFACTS/published-pinned-final/inliner-channel-6gw7ubg_/channel"
+            ],
+            "communication_error": null,
+            "duration_ms": 121,
+            "mode": "opt",
+            "observation_count": 2,
+            "observations": [
+              {
+                "choice": 0,
+                "context": "",
+                "features": {
+                  "call_argument_setup": [
+                    0
+                  ],
+                  "call_penalty": [
+                    0
+                  ],
+                  "callee_basic_block_count": [
+                    1
+                  ],
+                  "callee_conditionally_executed_blocks": [
+                    0
+                  ],
+                  "callee_users": [
+                    2
+                  ],
+                  "caller_basic_block_count": [
+                    1
+                  ],
+                  "caller_conditionally_executed_blocks": [
+                    0
+                  ],
+                  "caller_users": [
+                    1
+                  ],
+                  "callsite_cost": [
+                    -35
+                  ],
+                  "callsite_height": [
+                    1
+                  ],
+                  "case_cluster_penalty": [
+                    0
+                  ],
+                  "cold_cc_penalty": [
+                    0
+                  ],
+                  "constant_args": [
+                    0
+                  ],
+                  "constant_offset_ptr_args": [
+                    0
+                  ],
+                  "cost_estimate": [
+                    15
+                  ],
+                  "dead_blocks": [
+                    0
+                  ],
+                  "edge_count": [
+                    2
+                  ],
+                  "indirect_call_penalty": [
+                    0
+                  ],
+                  "inlining_default": [
+                    1
+                  ],
+                  "is_callee_avail_external": [
+                    0
+                  ],
+                  "is_caller_avail_external": [
+                    0
+                  ],
+                  "is_multiple_blocks": [
+                    0
+                  ],
+                  "jump_table_penalty": [
+                    0
+                  ],
+                  "last_call_to_static_bonus": [
+                    0
+                  ],
+                  "load_elimination": [
+                    0
+                  ],
+                  "load_relative_intrinsic": [
+                    0
+                  ],
+                  "lowered_call_arg_setup": [
+                    0
+                  ],
+                  "nested_inline_cost_estimate": [
+                    0
+                  ],
+                  "nested_inlines": [
+                    0
+                  ],
+                  "node_count": [
+                    2
+                  ],
+                  "nr_ctant_params": [
+                    0
+                  ],
+                  "num_loops": [
+                    0
+                  ],
+                  "simplified_instructions": [
+                    1
+                  ],
+                  "sroa_losses": [
+                    0
+                  ],
+                  "sroa_savings": [
+                    0
+                  ],
+                  "switch_default_dest_penalty": [
+                    0
+                  ],
+                  "switch_penalty": [
+                    0
+                  ],
+                  "threshold": [
+                    5
+                  ],
+                  "unsimplified_common_instructions": [
+                    50
+                  ]
+                },
+                "observation": 0,
+                "policy": "0"
+              },
+              {
+                "choice": 0,
+                "context": "",
+                "features": {
+                  "call_argument_setup": [
+                    0
+                  ],
+                  "call_penalty": [
+                    0
+                  ],
+                  "callee_basic_block_count": [
+                    1
+                  ],
+                  "callee_conditionally_executed_blocks": [
+                    0
+                  ],
+                  "callee_users": [
+                    2
+                  ],
+                  "caller_basic_block_count": [
+                    1
+                  ],
+                  "caller_conditionally_executed_blocks": [
+                    0
+                  ],
+                  "caller_users": [
+                    1
+                  ],
+                  "callsite_cost": [
+                    -35
+                  ],
+                  "callsite_height": [
+                    1
+                  ],
+                  "case_cluster_penalty": [
+                    0
+                  ],
+                  "cold_cc_penalty": [
+                    0
+                  ],
+                  "constant_args": [
+                    0
+                  ],
+                  "constant_offset_ptr_args": [
+                    0
+                  ],
+                  "cost_estimate": [
+                    15
+                  ],
+                  "dead_blocks": [
+                    0
+                  ],
+                  "edge_count": [
+                    2
+                  ],
+                  "indirect_call_penalty": [
+                    0
+                  ],
+                  "inlining_default": [
+                    1
+                  ],
+                  "is_callee_avail_external": [
+                    0
+                  ],
+                  "is_caller_avail_external": [
+                    0
+                  ],
+                  "is_multiple_blocks": [
+                    0
+                  ],
+                  "jump_table_penalty": [
+                    0
+                  ],
+                  "last_call_to_static_bonus": [
+                    0
+                  ],
+                  "load_elimination": [
+                    0
+                  ],
+                  "load_relative_intrinsic": [
+                    0
+                  ],
+                  "lowered_call_arg_setup": [
+                    0
+                  ],
+                  "nested_inline_cost_estimate": [
+                    0
+                  ],
+                  "nested_inlines": [
+                    0
+                  ],
+                  "node_count": [
+                    2
+                  ],
+                  "nr_ctant_params": [
+                    0
+                  ],
+                  "num_loops": [
+                    0
+                  ],
+                  "simplified_instructions": [
+                    1
+                  ],
+                  "sroa_losses": [
+                    0
+                  ],
+                  "sroa_savings": [
+                    0
+                  ],
+                  "switch_default_dest_penalty": [
+                    0
+                  ],
+                  "switch_penalty": [
+                    0
+                  ],
+                  "threshold": [
+                    5
+                  ],
+                  "unsimplified_common_instructions": [
+                    50
+                  ]
+                },
+                "observation": 1,
+                "policy": "0"
+              }
+            ],
+            "optimized_ir": {
+              "caller_body": {
+                "body": "entry:\n%call = tail call i32 @transform(i32 noundef %x)\n%add = add i32 %x, 1\n%call1 = tail call i32 @transform(i32 noundef %add)\n%add2 = add i32 %call1, 3\n%xor = xor i32 %add2, %call\nret i32 %xor",
+                "body_lines": 7,
+                "body_sha256": "ff14d737a79994ff161156371f84738fcfc99009886ad22d88c644e86fa14e20",
+                "calls_transform": true,
+                "found": true
+              },
+              "path": "$ARTIFACTS/published-pinned-final/opt-0.ll",
+              "sha256": "43806c3b7b3835e33633639182f88cc14f5030970547eaa545870b5db4186fa7"
+            },
+            "policy": "0",
+            "return_code": 0,
+            "stderr": {
+              "bytes": 0,
+              "path": "$ARTIFACTS/published-pinned-final/opt-0.stderr"
+            },
+            "stderr_head": "",
+            "stderr_tail": "",
+            "stdout": {
+              "bytes": 0,
+              "path": "$ARTIFACTS/published-pinned-final/opt-0.stdout"
+            },
+            "timed_out": false
+          },
+          {
+            "command": [
+              "$REPO/.cache/llvm-build/bin/opt",
+              "-passes=scc-oz-module-inliner",
+              "-S",
+              "$ARTIFACTS/published-pinned-final/frontend-no-opt.ll",
+              "-o",
+              "$ARTIFACTS/published-pinned-final/opt-1.ll",
+              "-enable-ml-inliner=release",
+              "-inliner-interactive-include-default",
+              "-inliner-interactive-channel-base=$ARTIFACTS/published-pinned-final/inliner-channel-hlljkdc5/channel"
+            ],
+            "communication_error": null,
+            "duration_ms": 113,
+            "mode": "opt",
+            "observation_count": 2,
+            "observations": [
+              {
+                "choice": 1,
+                "context": "",
+                "features": {
+                  "call_argument_setup": [
+                    0
+                  ],
+                  "call_penalty": [
+                    0
+                  ],
+                  "callee_basic_block_count": [
+                    1
+                  ],
+                  "callee_conditionally_executed_blocks": [
+                    0
+                  ],
+                  "callee_users": [
+                    2
+                  ],
+                  "caller_basic_block_count": [
+                    1
+                  ],
+                  "caller_conditionally_executed_blocks": [
+                    0
+                  ],
+                  "caller_users": [
+                    1
+                  ],
+                  "callsite_cost": [
+                    -35
+                  ],
+                  "callsite_height": [
+                    1
+                  ],
+                  "case_cluster_penalty": [
+                    0
+                  ],
+                  "cold_cc_penalty": [
+                    0
+                  ],
+                  "constant_args": [
+                    0
+                  ],
+                  "constant_offset_ptr_args": [
+                    0
+                  ],
+                  "cost_estimate": [
+                    15
+                  ],
+                  "dead_blocks": [
+                    0
+                  ],
+                  "edge_count": [
+                    2
+                  ],
+                  "indirect_call_penalty": [
+                    0
+                  ],
+                  "inlining_default": [
+                    1
+                  ],
+                  "is_callee_avail_external": [
+                    0
+                  ],
+                  "is_caller_avail_external": [
+                    0
+                  ],
+                  "is_multiple_blocks": [
+                    0
+                  ],
+                  "jump_table_penalty": [
+                    0
+                  ],
+                  "last_call_to_static_bonus": [
+                    0
+                  ],
+                  "load_elimination": [
+                    0
+                  ],
+                  "load_relative_intrinsic": [
+                    0
+                  ],
+                  "lowered_call_arg_setup": [
+                    0
+                  ],
+                  "nested_inline_cost_estimate": [
+                    0
+                  ],
+                  "nested_inlines": [
+                    0
+                  ],
+                  "node_count": [
+                    2
+                  ],
+                  "nr_ctant_params": [
+                    0
+                  ],
+                  "num_loops": [
+                    0
+                  ],
+                  "simplified_instructions": [
+                    1
+                  ],
+                  "sroa_losses": [
+                    0
+                  ],
+                  "sroa_savings": [
+                    0
+                  ],
+                  "switch_default_dest_penalty": [
+                    0
+                  ],
+                  "switch_penalty": [
+                    0
+                  ],
+                  "threshold": [
+                    5
+                  ],
+                  "unsimplified_common_instructions": [
+                    50
+                  ]
+                },
+                "observation": 0,
+                "policy": "1"
+              },
+              {
+                "choice": 1,
+                "context": "",
+                "features": {
+                  "call_argument_setup": [
+                    0
+                  ],
+                  "call_penalty": [
+                    0
+                  ],
+                  "callee_basic_block_count": [
+                    1
+                  ],
+                  "callee_conditionally_executed_blocks": [
+                    0
+                  ],
+                  "callee_users": [
+                    2
+                  ],
+                  "caller_basic_block_count": [
+                    1
+                  ],
+                  "caller_conditionally_executed_blocks": [
+                    0
+                  ],
+                  "caller_users": [
+                    1
+                  ],
+                  "callsite_cost": [
+                    -35
+                  ],
+                  "callsite_height": [
+                    1
+                  ],
+                  "case_cluster_penalty": [
+                    0
+                  ],
+                  "cold_cc_penalty": [
+                    0
+                  ],
+                  "constant_args": [
+                    0
+                  ],
+                  "constant_offset_ptr_args": [
+                    0
+                  ],
+                  "cost_estimate": [
+                    -14985
+                  ],
+                  "dead_blocks": [
+                    0
+                  ],
+                  "edge_count": [
+                    1
+                  ],
+                  "indirect_call_penalty": [
+                    0
+                  ],
+                  "inlining_default": [
+                    1
+                  ],
+                  "is_callee_avail_external": [
+                    0
+                  ],
+                  "is_caller_avail_external": [
+                    0
+                  ],
+                  "is_multiple_blocks": [
+                    0
+                  ],
+                  "jump_table_penalty": [
+                    0
+                  ],
+                  "last_call_to_static_bonus": [
+                    1
+                  ],
+                  "load_elimination": [
+                    0
+                  ],
+                  "load_relative_intrinsic": [
+                    0
+                  ],
+                  "lowered_call_arg_setup": [
+                    0
+                  ],
+                  "nested_inline_cost_estimate": [
+                    0
+                  ],
+                  "nested_inlines": [
+                    0
+                  ],
+                  "node_count": [
+                    2
+                  ],
+                  "nr_ctant_params": [
+                    0
+                  ],
+                  "num_loops": [
+                    0
+                  ],
+                  "simplified_instructions": [
+                    1
+                  ],
+                  "sroa_losses": [
+                    0
+                  ],
+                  "sroa_savings": [
+                    0
+                  ],
+                  "switch_default_dest_penalty": [
+                    0
+                  ],
+                  "switch_penalty": [
+                    0
+                  ],
+                  "threshold": [
+                    5
+                  ],
+                  "unsimplified_common_instructions": [
+                    50
+                  ]
+                },
+                "observation": 1,
+                "policy": "1"
+              }
+            ],
+            "optimized_ir": {
+              "caller_body": {
+                "body": "entry:\n%mul.i = mul i32 %x, 17\n%add.i = add i32 %mul.i, 13\n%shr.i = lshr i32 %x, 2\n%xor.i = xor i32 %add.i, %shr.i\n%mul1.i = mul i32 %xor.i, 7\n%add2.i = add i32 %mul1.i, 29\n%shr3.i = lshr i32 %add.i, 1\n%xor4.i = xor i32 %add2.i, %shr3.i\n%mul5.i = mul i32 %x, %x\n%add6.i = add i32 %xor4.i, %mul5.i\n%add = add i32 %x, 1\n%mul.i1 = mul i32 %add, 17\n%add.i2 = add i32 %mul.i1, 13\n%shr.i3 = lshr i32 %add, 2\n%xor.i4 = xor i32 %add.i2, %shr.i3\n%mul1.i5 = mul i32 %xor.i4, 7\n%add2.i6 = add i32 %mul1.i5, 29\n%shr3.i7 = lshr i32 %add.i2, 1\n%xor4.i8 = xor i32 %add2.i6, %shr3.i7\n%mul5.i9 = mul i32 %add, %add\n%add6.i10 = add i32 %mul5.i9, 3\n%add2 = add i32 %add6.i10, %xor4.i8\n%xor = xor i32 %add2, %add6.i\nret i32 %xor",
+                "body_lines": 25,
+                "body_sha256": "82722f57534f6e7d688cdd722d78e4d9242654d40e7d515e0d4c476f12c05701",
+                "calls_transform": false,
+                "found": true
+              },
+              "path": "$ARTIFACTS/published-pinned-final/opt-1.ll",
+              "sha256": "c4c41b5bb396e25dff75f393ce8bba2cab512499da9c497960056ab08f860950"
+            },
+            "policy": "1",
+            "return_code": 0,
+            "stderr": {
+              "bytes": 0,
+              "path": "$ARTIFACTS/published-pinned-final/opt-1.stderr"
+            },
+            "stderr_head": "",
+            "stderr_tail": "",
+            "stdout": {
+              "bytes": 0,
+              "path": "$ARTIFACTS/published-pinned-final/opt-1.stdout"
+            },
+            "timed_out": false
+          },
+          {
+            "command": [
+              "$REPO/.cache/llvm-build/bin/opt",
+              "-passes=scc-oz-module-inliner",
+              "-S",
+              "$ARTIFACTS/published-pinned-final/frontend-no-opt.ll",
+              "-o",
+              "$ARTIFACTS/published-pinned-final/opt-default.ll",
+              "-enable-ml-inliner=release",
+              "-inliner-interactive-include-default",
+              "-inliner-interactive-channel-base=$ARTIFACTS/published-pinned-final/inliner-channel-f0f2orcq/channel"
+            ],
+            "communication_error": null,
+            "duration_ms": 122,
+            "mode": "opt",
+            "observation_count": 2,
+            "observations": [
+              {
+                "choice": 1,
+                "context": "",
+                "features": {
+                  "call_argument_setup": [
+                    0
+                  ],
+                  "call_penalty": [
+                    0
+                  ],
+                  "callee_basic_block_count": [
+                    1
+                  ],
+                  "callee_conditionally_executed_blocks": [
+                    0
+                  ],
+                  "callee_users": [
+                    2
+                  ],
+                  "caller_basic_block_count": [
+                    1
+                  ],
+                  "caller_conditionally_executed_blocks": [
+                    0
+                  ],
+                  "caller_users": [
+                    1
+                  ],
+                  "callsite_cost": [
+                    -35
+                  ],
+                  "callsite_height": [
+                    1
+                  ],
+                  "case_cluster_penalty": [
+                    0
+                  ],
+                  "cold_cc_penalty": [
+                    0
+                  ],
+                  "constant_args": [
+                    0
+                  ],
+                  "constant_offset_ptr_args": [
+                    0
+                  ],
+                  "cost_estimate": [
+                    15
+                  ],
+                  "dead_blocks": [
+                    0
+                  ],
+                  "edge_count": [
+                    2
+                  ],
+                  "indirect_call_penalty": [
+                    0
+                  ],
+                  "inlining_default": [
+                    1
+                  ],
+                  "is_callee_avail_external": [
+                    0
+                  ],
+                  "is_caller_avail_external": [
+                    0
+                  ],
+                  "is_multiple_blocks": [
+                    0
+                  ],
+                  "jump_table_penalty": [
+                    0
+                  ],
+                  "last_call_to_static_bonus": [
+                    0
+                  ],
+                  "load_elimination": [
+                    0
+                  ],
+                  "load_relative_intrinsic": [
+                    0
+                  ],
+                  "lowered_call_arg_setup": [
+                    0
+                  ],
+                  "nested_inline_cost_estimate": [
+                    0
+                  ],
+                  "nested_inlines": [
+                    0
+                  ],
+                  "node_count": [
+                    2
+                  ],
+                  "nr_ctant_params": [
+                    0
+                  ],
+                  "num_loops": [
+                    0
+                  ],
+                  "simplified_instructions": [
+                    1
+                  ],
+                  "sroa_losses": [
+                    0
+                  ],
+                  "sroa_savings": [
+                    0
+                  ],
+                  "switch_default_dest_penalty": [
+                    0
+                  ],
+                  "switch_penalty": [
+                    0
+                  ],
+                  "threshold": [
+                    5
+                  ],
+                  "unsimplified_common_instructions": [
+                    50
+                  ]
+                },
+                "observation": 0,
+                "policy": "default"
+              },
+              {
+                "choice": 1,
+                "context": "",
+                "features": {
+                  "call_argument_setup": [
+                    0
+                  ],
+                  "call_penalty": [
+                    0
+                  ],
+                  "callee_basic_block_count": [
+                    1
+                  ],
+                  "callee_conditionally_executed_blocks": [
+                    0
+                  ],
+                  "callee_users": [
+                    2
+                  ],
+                  "caller_basic_block_count": [
+                    1
+                  ],
+                  "caller_conditionally_executed_blocks": [
+                    0
+                  ],
+                  "caller_users": [
+                    1
+                  ],
+                  "callsite_cost": [
+                    -35
+                  ],
+                  "callsite_height": [
+                    1
+                  ],
+                  "case_cluster_penalty": [
+                    0
+                  ],
+                  "cold_cc_penalty": [
+                    0
+                  ],
+                  "constant_args": [
+                    0
+                  ],
+                  "constant_offset_ptr_args": [
+                    0
+                  ],
+                  "cost_estimate": [
+                    -14985
+                  ],
+                  "dead_blocks": [
+                    0
+                  ],
+                  "edge_count": [
+                    1
+                  ],
+                  "indirect_call_penalty": [
+                    0
+                  ],
+                  "inlining_default": [
+                    1
+                  ],
+                  "is_callee_avail_external": [
+                    0
+                  ],
+                  "is_caller_avail_external": [
+                    0
+                  ],
+                  "is_multiple_blocks": [
+                    0
+                  ],
+                  "jump_table_penalty": [
+                    0
+                  ],
+                  "last_call_to_static_bonus": [
+                    1
+                  ],
+                  "load_elimination": [
+                    0
+                  ],
+                  "load_relative_intrinsic": [
+                    0
+                  ],
+                  "lowered_call_arg_setup": [
+                    0
+                  ],
+                  "nested_inline_cost_estimate": [
+                    0
+                  ],
+                  "nested_inlines": [
+                    0
+                  ],
+                  "node_count": [
+                    2
+                  ],
+                  "nr_ctant_params": [
+                    0
+                  ],
+                  "num_loops": [
+                    0
+                  ],
+                  "simplified_instructions": [
+                    1
+                  ],
+                  "sroa_losses": [
+                    0
+                  ],
+                  "sroa_savings": [
+                    0
+                  ],
+                  "switch_default_dest_penalty": [
+                    0
+                  ],
+                  "switch_penalty": [
+                    0
+                  ],
+                  "threshold": [
+                    5
+                  ],
+                  "unsimplified_common_instructions": [
+                    50
+                  ]
+                },
+                "observation": 1,
+                "policy": "default"
+              }
+            ],
+            "optimized_ir": {
+              "caller_body": {
+                "body": "entry:\n%mul.i = mul i32 %x, 17\n%add.i = add i32 %mul.i, 13\n%shr.i = lshr i32 %x, 2\n%xor.i = xor i32 %add.i, %shr.i\n%mul1.i = mul i32 %xor.i, 7\n%add2.i = add i32 %mul1.i, 29\n%shr3.i = lshr i32 %add.i, 1\n%xor4.i = xor i32 %add2.i, %shr3.i\n%mul5.i = mul i32 %x, %x\n%add6.i = add i32 %xor4.i, %mul5.i\n%add = add i32 %x, 1\n%mul.i1 = mul i32 %add, 17\n%add.i2 = add i32 %mul.i1, 13\n%shr.i3 = lshr i32 %add, 2\n%xor.i4 = xor i32 %add.i2, %shr.i3\n%mul1.i5 = mul i32 %xor.i4, 7\n%add2.i6 = add i32 %mul1.i5, 29\n%shr3.i7 = lshr i32 %add.i2, 1\n%xor4.i8 = xor i32 %add2.i6, %shr3.i7\n%mul5.i9 = mul i32 %add, %add\n%add6.i10 = add i32 %mul5.i9, 3\n%add2 = add i32 %add6.i10, %xor4.i8\n%xor = xor i32 %add2, %add6.i\nret i32 %xor",
+                "body_lines": 25,
+                "body_sha256": "82722f57534f6e7d688cdd722d78e4d9242654d40e7d515e0d4c476f12c05701",
+                "calls_transform": false,
+                "found": true
+              },
+              "path": "$ARTIFACTS/published-pinned-final/opt-default.ll",
+              "sha256": "c4c41b5bb396e25dff75f393ce8bba2cab512499da9c497960056ab08f860950"
+            },
+            "policy": "default",
+            "return_code": 0,
+            "stderr": {
+              "bytes": 0,
+              "path": "$ARTIFACTS/published-pinned-final/opt-default.stderr"
+            },
+            "stderr_head": "",
+            "stderr_tail": "",
+            "stdout": {
+              "bytes": 0,
+              "path": "$ARTIFACTS/published-pinned-final/opt-default.stdout"
+            },
+            "timed_out": false
+          }
+        ],
+        "schema_version": 1,
+        "script": {
+          "path": "$REPO/scripts/inliner_feasibility.py",
+          "sha256": "27cc22a4f6725f7d3c7770ab145373e30dccb58252d973e9729d57a118c15df4"
+        },
+        "source": {
+          "path": "$ARTIFACTS/published-pinned-final/inliner_smoke.c",
+          "sha256": "8e93de5bedcc06614414ad9e035d7464c807de52ec1d916c46eff17faa5ee69b",
+          "text": "static unsigned transform(unsigned x) {\n  unsigned a = x * 17u + 13u;\n  unsigned b = (a ^ (x >> 2)) * 7u;\n  unsigned c = (b + 29u) ^ (a >> 1);\n  return c + (x * x);\n}\n\nunsigned public_caller(unsigned x) {\n  unsigned first = transform(x);\n  unsigned second = transform(x + 1u);\n  return first ^ (second + 3u);\n}\n"
+        },
+        "status": "passed",
+        "timeout_seconds_per_run": 45
+      }
+    }
+  },
+  "schema_version": 1,
+  "scope": "toy interactive inliner feasibility; no application/performance claim",
+  "script_sha256": "27cc22a4f6725f7d3c7770ab145373e30dccb58252d973e9729d57a118c15df4"
+}
