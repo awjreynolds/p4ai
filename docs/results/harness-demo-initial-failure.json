@@ -1,0 +1,15 @@
+{
+  "status": "initial_demo_checksum_count_mismatch",
+  "driver_result": {
+    "correct": true,
+    "iterations": 1,
+    "checksum": "4ed4326cbb7ab8d3",
+    "elapsed_ns": 37000
+  },
+  "driver_result_sha256": "d314ac19a9f5b503e8756e7a2295a7bda13637b0b7a18f634252750ec08a12e6",
+  "frozen_correctness_iterations": 3,
+  "cause": "Demo ran one iteration but compared checksum to the three-iteration prepared reference. Kernel itself reported correct:true.",
+  "repair_commit": "f5ec5a6",
+  "fresh_demo_result": "harness-demo-v1.json",
+  "performance_claim": false
+}

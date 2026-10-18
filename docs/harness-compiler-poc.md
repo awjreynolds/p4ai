@@ -38,6 +38,24 @@ flowchart LR
 
 The frozen forest executes locally using only Python's standard library. It converts features to float32 before tree routing to match scikit-learn semantics, preserves estimator order and breaks ties by canonical action order. It rejects malformed trees, incompatible compiler identities and feature/action schema mismatches. The native caller must obtain compiler identity from the actual binary; a supplied identity file alone does not establish that fact.
 
+## Native rebuild demonstration
+
+On the pinned macOS ARM64 environment, prepare the audit candidates without performance timing, then replay and rebuild one selected kernel:
+
+```sh
+uv run --offline python -m scripts.policy_shift_experiment \
+  --phase prepare-audit --design experiments/policy-shift-v1.json \
+  --output artifacts/policy-shift-reproduction
+python3 -S -m scripts.harness_demo \
+  --prepared artifacts/policy-shift-reproduction/prepared-audit.json \
+  --case-id shift-audit-small-ccr --compiler target \
+  --output artifacts/harness-demo-reproduction
+```
+
+Use a new output directory for each independent demo. The [recorded result](results/harness-demo-v1.json) selected `ikj`, passed both three-iteration scalar-reference checks, and produced identical object and executable bytes across two fresh rebuilds. This is same-host repeatability, not a hermetic or cross-machine guarantee. The two rebuilds differ from the original prepared executable, while matching its object bytes and code identity. Inspection found different embedded signing identifiers (`selected-kernel` versus `kernel`); executable equality is sensitive to more than the scheduling choice.
+
+The [initial failed demo](results/harness-demo-initial-failure.json) used a one-iteration checksum against a three-iteration reference. The iteration contract was repaired and tested before the successful fresh run. Kernel output itself passed its reference; the wrapper comparison was wrong. The audit's native performance evidence was unchanged.
+
 The present compiler-informed policy compiles every candidate before selection. That is a material cost, not an implementation detail to hide. A future earlier decision boundary would need information available before those compilations, and a new experiment.
 
 ## Evidence and limits
