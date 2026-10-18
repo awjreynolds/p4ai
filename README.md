@@ -20,7 +20,7 @@ The mechanical baseline picks the first eligible candidate. LLVM's normal Greedy
 
 GPU access is permanently unavailable for this effort. NVIDIA scheduling was investigated, but GPU-free compilation cannot establish runtime correctness or performance. That experiment was retired before validation; eBPF and CPU scheduling remain alternatives. Tofino is now authorized as a compiler resource-fit research testbed; the eventual commercial/career target remains open.
 
-The next experiment tests [P4 pragma-guided resource-fit repair](docs/p4-pragma-fit-pilot.md): infer the allocation directives a developer would supply when a program fails to fit. Qualification uses the public Tofino backend, fixed capacities and annotation-only changes. [Discovery candidates](examples/p4-fit/README.md) are prepared, but no genuine failure-to-fit → pragma-only fit pair has yet been established. This work preserves the completed CPU results above.
+The [P4 qualification](docs/results/p4-pragma-fit-qualification-v1.md) now demonstrates a real pragma-only repair: a program that needs 14 stages fits Tofino’s 12-stage limit after eight `@pack(3)` directives, with unchanged logical table capacities and control-plane interface. SRAM use increases from 880 to 936 blocks. The public compiler emits a target binary; no switch hardware is required for this fit check. This establishes the developer-steering boundary for a [harness compiler experiment](docs/p4-pragma-fit-pilot.md), not model advantage or executed packet correctness. The completed CPU results above remain unchanged.
 
 ## Build and validate
 

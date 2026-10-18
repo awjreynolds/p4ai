@@ -27,3 +27,11 @@ def test_ambiguous_or_invalid_manifest_is_not_fit(tmp_path):
     nested.mkdir()
     (nested / "manifest.json").write_text(json.dumps({"compilation_succeeded": True}))
     assert not fit_evidence(tmp_path, 0)["compiler_reported_fit"]
+
+
+def test_binary_must_match_requested_target(tmp_path):
+    (tmp_path / "manifest.json").write_text(json.dumps({"compilation_succeeded": True}))
+    (tmp_path / "tofino.bin").write_bytes(b"fixture binary")
+    assert not fit_evidence(tmp_path, 0, "tofino2")["compiler_reported_fit"]
+    (tmp_path / "tofino2.bin").write_bytes(b"fixture binary")
+    assert fit_evidence(tmp_path, 0, "tofino2")["compiler_reported_fit"]

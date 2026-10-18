@@ -1,0 +1,1397 @@
+{
+  "architecture": "tna",
+  "case_manifest_sha256": "0dd295e911d9808d05f7008e425d6f11c7bd4ca86dfa1e4bd701715e8bcc4997",
+  "case_spec": {
+    "chain_entries": 16384,
+    "depth": 12,
+    "side_entries": 114688,
+    "sides": 8,
+    "stable_layout": true,
+    "tenant_bits": 48
+  },
+  "claim": "Eight @pack(3) directives repair a real 12-stage compiler-fit failure with unchanged required table capacities and control-plane schema apart from annotation metadata.",
+  "compiler_command_path": "/work/.cache/p4c-tofino/install/bin/p4c",
+  "compiler_flags": [
+    "--target",
+    "tofino",
+    "--arch",
+    "tna",
+    "-g",
+    "-o",
+    "/output/compiler"
+  ],
+  "compiler_version": "9.13.4",
+  "container_network": "none",
+  "controlled_pair": [
+    {
+      "compiler_executable_sha256": {
+        "bf-p4c": "4c22eff197b43726683b8edacc11fcf60a9db726303a81b1c004b3facc311b16",
+        "bfas": "2e14b84a5a2f456a3a5e6fa643b7d8ff6c66381f6abfb3037e77068525faa3e0",
+        "bfrt_schema.py": "51be8091cc0ee09471b7fce96f7cf8ed9faea7597497ade37ef88129d94ef6c1",
+        "p4_14-to-p4_16": "3be30d98e58f7e8e6392661f22089dd49288a477786beea70511f5087392bd99",
+        "p4c": "4c22eff197b43726683b8edacc11fcf60a9db726303a81b1c004b3facc311b16",
+        "p4c-barefoot": "30f03d4157caafbc81ef3f8a67df2833349c175609d81970f556d70b9d29e407",
+        "p4c-build-logs": "0580a5d375e1d1c4ac94d803f335e7a800533f926c1d91f26a6f31312c7e1e32",
+        "p4c-gen-bfrt-conf": "cc26644f150686dae5993015f6e5372a55eb9a40203e8b1b1204ef2f4d798e88",
+        "p4c-gen-conf": "82160b3e7dec15336fce55a197e785805e325375d09c0e7f434538f159b7a067",
+        "p4c-manifest-config": "70f21b9c6266c66e4bdbc3f40c3a187d0ec29513897eab57e17eb364d2c49f6b",
+        "p4test": "52a1d90f7935015b8014af224853fc8ee009f2c749f901ae35c3c92568eab1f0"
+      },
+      "compiler_reported_fit": false,
+      "compiler_support_sha256": {
+        "bin/bfrt_schema.py": "51be8091cc0ee09471b7fce96f7cf8ed9faea7597497ade37ef88129d94ef6c1",
+        "share/p4c/p4_14include/tofino/constants.p4": "fe2e06170a0ca8f7fed9de1f9e1adcfa5f4c5fe295140a2b4daf911413f799fa",
+        "share/p4c/p4_14include/tofino/intrinsic_metadata.p4": "e83c86e17a61197e100aa3f8bd4681ea4b697ce8956f1e7afc2aaebf2bd00325",
+        "share/p4c/p4_14include/tofino/lpf_blackbox.p4": "5098e90bae509a3b9dec42df7f5abcd6e38122d3ab5005545ede6803c20b7674",
+        "share/p4c/p4_14include/tofino/meter_blackbox.p4": "b7f226adf65eac49959435a66e12f5b1866b0865f7b768e976acd9a3b9f21924",
+        "share/p4c/p4_14include/tofino/pktgen_headers.p4": "7a9e643d3fb7cd63c5b6ac4f8da8d8e87b14463b75bb9cdaa426783f1e102cd6",
+        "share/p4c/p4_14include/tofino/primitives.p4": "2c581815923285ed3bd00a62d13bd6559fcbe10c8108778f9ae6d4f1053cf8a6",
+        "share/p4c/p4_14include/tofino/stateful_alu_blackbox.p4": "91d4d6dc4792e52c7090788c0eea4913f668d6928f3c8a9fd1d784bb60ef0a00",
+        "share/p4c/p4_14include/tofino/wred_blackbox.p4": "7f71c71cd2477698b0a568b865613a27ae13b5b25fba83292d5770d9dcc280cb",
+        "share/p4c/p4_14include/tofino2/intrinsic_metadata.p4": "fff11e16e723e24f2ae7cda7f848bdd3007bcbc97e2322f91462db6e8ee45828",
+        "share/p4c/p4c_src/__init__.py": "30396b5615bd6f4ed109f80aeb78f85559f4849e0b1d9d6ccad453528d690358",
+        "share/p4c/p4c_src/barefoot.py": "7a6e5509bb98840a87a6fe97faa472482c933df747c5f3b70c273d1ebb077e9e",
+        "share/p4c/p4c_src/bfn_version.py": "6d4fd7778e1bee35e25d5f0f892361a5ad5f607ce982ecc0dc968e5066044c70",
+        "share/p4c/p4c_src/config.py": "2881fda8f0b51165d3cebc9bc6902dbe30ed5aa7cbad14cceb0bd336cfb361b2",
+        "share/p4c/p4c_src/driver.py": "b513a9b2ed2176ed97e5c29486642670893ff104e7ddd255eb278fb11acb18cc",
+        "share/p4c/p4c_src/main.py": "ac9a295456746b13769e92bacdca2a7366617ba4bc1c5a260f2fdcab987a93b1",
+        "share/p4c/p4c_src/p4c.tofino.cfg": "d8d50aa9c2907a6eb9d5ee93ef9588d4602e0059e2a486ec1b44f6f77377175a",
+        "share/p4c/p4c_src/p4c.tofino2.cfg": "637c51fd22ecea408b3998e54b1cef14bf56439d57da2908b5fd151312ce2f4b",
+        "share/p4c/p4c_src/util.py": "c1671d0afd7c657bbdfa7c76c377673864a6ffbf9e29ef40b1146f79c9869dc3",
+        "share/p4c/p4include/bmv2/pna.p4": "520a612c4fe8ec0b8c3ab8261677e8ce48d0d15be88d8a9521e701d095e4d993",
+        "share/p4c/p4include/bmv2/psa.p4": "fccfb6ccef4e3563a61d16c002bb12baceb039f6bae16a3b318ea3eb2f6c7948",
+        "share/p4c/p4include/core.p4": "bd66f54991b90029759c17a67b28c84505926d601a6fff789f0f5fb6e8bd3e43",
+        "share/p4c/p4include/dpdk/pna.p4": "24089f24446d35445534b157ce345a24315ba86b91654733ae1c8fa3f05bf186",
+        "share/p4c/p4include/dpdk/psa.p4": "ac5fb40c3dfb8aa966bb3bafffeb70534881ff5ef84d76203a98df45892b67ae",
+        "share/p4c/p4include/ebpf_model.p4": "17161e60e85edb4f0a2f94da47dd702f86ec7638b5ccb3be1b1fc0e3d1e1b46d",
+        "share/p4c/p4include/pna.p4": "a7316bea61780247081698a9fc2f1fb5a88ae68f6b774a647cd0ae7070eff2b2",
+        "share/p4c/p4include/t2na.p4": "e04c48fe14c78b534f5831b97ef5925c1c423b0891fe9d9e358cbaf6d1f3dbe3",
+        "share/p4c/p4include/tc/pna.p4": "1bcf9d884fbb317adba4c38d84102263b9c50c93b4ac5e7e0aad0c7387f32e86",
+        "share/p4c/p4include/tna.p4": "c4cf0d0e6238771979449f5622c3484631344acb98a2ce624dc5d2a5c3d9338c",
+        "share/p4c/p4include/tofino/lpf.p4": "7f6e99446759e2bc12b44278edcef0e0e4f98bbca735f9ceb3d5178bd0ce5794",
+        "share/p4c/p4include/tofino/meter.p4": "c9da9b8f2c5f4f18f1eb025e42dac9f892918a9baf048201e4d2b207be470cfc",
+        "share/p4c/p4include/tofino/p4_14_prim.p4": "ab11dc1179bb922f70eeef2fc226693e7a230570d8211302dfd084825ff28b58",
+        "share/p4c/p4include/tofino/psa.p4": "eaabe7c9d4c0b9675f3c95836e06e69bc46ba53559a576107817e8db5880f8b9",
+        "share/p4c/p4include/tofino/stateful_alu.p4": "6ba7abec003bd0caf6e95d1ce8764fddaa87f7c0f65607f0c308d80ab29053c4",
+        "share/p4c/p4include/tofino/stratum.p4": "ab373e9d4c90933d22163717c7fb07b0df96151475ef97397cadc47b2cdb37b4",
+        "share/p4c/p4include/tofino/wred.p4": "9b6c8eb763548f05b10beb6333dab8f781c4e55fc0511a5dda9cb6fbda90830b",
+        "share/p4c/p4include/tofino1_arch.p4": "cc51d14d61aca154bfa2737b366a18ab2eb55845f7a10bdd2757da316f46638c",
+        "share/p4c/p4include/tofino1_base.p4": "cd0b26d649d1abf61711685e59db997462cad49e4686611269c9f0674570f031",
+        "share/p4c/p4include/tofino1_specs.p4": "e68438ee728067be0bd40fdd66f6c0b5a0b762d8a54270982a34bc7de87b17cb",
+        "share/p4c/p4include/tofino2_arch.p4": "6dce1ff970724c0402934a6937a3979aa57fdb90de6a48596020224423602a60",
+        "share/p4c/p4include/tofino2_base.p4": "722bb6f2d73c6a28d45e877c3db7a1e92ac2c3ddb7c66aec6a104892d2d520b3",
+        "share/p4c/p4include/tofino2_specs.p4": "8977cd30758f12cd0475dc3d67969d13877df9ddbc0454fc92d19a408998e21b",
+        "share/p4c/p4include/ubpf_model.p4": "77569e50184260a3d687f45d4b8dfa3340968cfb6e239af4f835b4a688e14bdf",
+        "share/p4c/p4include/v1model.p4": "93693e6bdac5b9f31136efb5216c638df2e0bf5f15a04d258326b69991d68079",
+        "share/p4c/p4include/xdp_model.p4": "bdbc05c358ffdde804ecf63acdedb0b8a6f84c5e9ad7157ca00fa5f0f19ae34c"
+      },
+      "elapsed_seconds_observational": 23.451835666783154,
+      "observed_stage_ids": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "probe_sha256": "f25a4c9e9055097c1a8b0b68e6fe4a547b327dbf3374cdc24f613a174121b553",
+      "raw_artifact_sha256": {
+        "compiler/bfrt.json": "009b050cf5e22021fda47f149929521919520890f11af5eb3642a11ca2119ac2",
+        "compiler/manifest.json": "bb816908119e43ea5705a7ce684f702fd1cfa8bc75ffaeef4a6d505b4e0e6e42",
+        "compiler/pipe/context.json": "c3bae1f3565a9de71c0de8024a3ff7df4fdc5c24b55a49f9ad6ae82e40830020",
+        "compiler/pipe/logs/metrics.json": "689b8322c11044183e6d71ae23cf553ac0d86274b4341a7651cf50a1f8782db3",
+        "compiler/pipe/logs/pragmas.log": "43df920a1cc771ea622b6f057c69b65364c7ea6ee4c95f26e948dd1739da8b5e",
+        "compiler/pipe/logs/resources.json": "1f475baed150da32bd548c30b39f3eff46c4ab6bbd519e71d7d696b5dbbc9ef9",
+        "probe.json": "b314b37565e5ca01ed4bbac90512ac09c755ad61717bb96c49c03db79fa4b573",
+        "stderr.log": "b62d7b06be959be15a144d0f101d47963854cb079ce6acd5eed7ec70519b2d2d",
+        "stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "returncode": 2,
+      "run": "stable-tenant48-default-v1",
+      "source_sha256": "e6a6c222a4e217c029454b7d98380dc3723b08dbf6564a9471cc61a8697ca37a",
+      "stage_sram_usage": [
+        {
+          "srams": 76,
+          "stage": 0
+        },
+        {
+          "srams": 79,
+          "stage": 1
+        },
+        {
+          "srams": 80,
+          "stage": 2
+        },
+        {
+          "srams": 77,
+          "stage": 3
+        },
+        {
+          "srams": 78,
+          "stage": 4
+        },
+        {
+          "srams": 76,
+          "stage": 5
+        },
+        {
+          "srams": 80,
+          "stage": 6
+        },
+        {
+          "srams": 77,
+          "stage": 7
+        },
+        {
+          "srams": 77,
+          "stage": 8
+        },
+        {
+          "srams": 80,
+          "stage": 9
+        },
+        {
+          "srams": 76,
+          "stage": 10
+        },
+        {
+          "srams": 8,
+          "stage": 11
+        },
+        {
+          "srams": 8,
+          "stage": 12
+        },
+        {
+          "srams": 8,
+          "stage": 13
+        }
+      ],
+      "tables": [
+        {
+          "key_bits": 32,
+          "name": "Ingress.chain_0",
+          "physical_stage_slots": 16384,
+          "required_logical_entries": 16384,
+          "stages": [
+            {
+              "pack": [
+                4
+              ],
+              "slots": 16384,
+              "stage": 0
+            }
+          ]
+        },
+        {
+          "key_bits": 32,
+          "name": "Ingress.chain_1",
+          "physical_stage_slots": 16384,
+          "required_logical_entries": 16384,
+          "stages": [
+            {
+              "pack": [
+                4
+              ],
+              "slots": 16384,
+              "stage": 1
+            }
+          ]
+        },
+        {
+          "key_bits": 32,
+          "name": "Ingress.chain_10",
+          "physical_stage_slots": 16384,
+          "required_logical_entries": 16384,
+          "stages": [
+            {
+              "pack": [
+                4
+              ],
+              "slots": 16384,
+              "stage": 12
+            }
+          ]
+        },
+        {
+          "key_bits": 32,
+          "name": "Ingress.chain_11",
+          "physical_stage_slots": 16384,
+          "required_logical_entries": 16384,
+          "stages": [
+            {
+              "pack": [
+                4
+              ],
+              "slots": 16384,
+              "stage": 13
+            }
+          ]
+        },
+        {
+          "key_bits": 32,
+          "name": "Ingress.chain_2",
+          "physical_stage_slots": 16384,
+          "required_logical_entries": 16384,
+          "stages": [
+            {
+              "pack": [
+                4
+              ],
+              "slots": 16384,
+              "stage": 2
+            }
+          ]
+        },
+        {
+          "key_bits": 32,
+          "name": "Ingress.chain_3",
+          "physical_stage_slots": 16384,
+          "required_logical_entries": 16384,
+          "stages": [
+            {
+              "pack": [
+                4
+              ],
+              "slots": 16384,
+              "stage": 4
+            }
+          ]
+        },
+        {
+          "key_bits": 32,
+          "name": "Ingress.chain_4",
+          "physical_stage_slots": 16384,
+          "required_logical_entries": 16384,
+          "stages": [
+            {
+              "pack": [
+                4
+              ],
+              "slots": 16384,
+              "stage": 5
+            }
+          ]
+        },
+        {
+          "key_bits": 32,
+          "name": "Ingress.chain_5",
+          "physical_stage_slots": 16384,
+          "required_logical_entries": 16384,
+          "stages": [
+            {
+              "pack": [
+                4
+              ],
+              "slots": 16384,
+              "stage": 6
+            }
+          ]
+        },
+        {
+          "key_bits": 32,
+          "name": "Ingress.chain_6",
+          "physical_stage_slots": 16384,
+          "required_logical_entries": 16384,
+          "stages": [
+            {
+              "pack": [
+                4
+              ],
+              "slots": 16384,
+              "stage": 8
+            }
+          ]
+        },
+        {
+          "key_bits": 32,
+          "name": "Ingress.chain_7",
+          "physical_stage_slots": 16384,
+          "required_logical_entries": 16384,
+          "stages": [
+            {
+              "pack": [
+                4
+              ],
+              "slots": 16384,
+              "stage": 9
+            }
+          ]
+        },
+        {
+          "key_bits": 32,
+          "name": "Ingress.chain_8",
+          "physical_stage_slots": 16384,
+          "required_logical_entries": 16384,
+          "stages": [
+            {
+              "pack": [
+                4
+              ],
+              "slots": 16384,
+              "stage": 10
+            }
+          ]
+        },
+        {
+          "key_bits": 32,
+          "name": "Ingress.chain_9",
+          "physical_stage_slots": 16384,
+          "required_logical_entries": 16384,
+          "stages": [
+            {
+              "pack": [
+                4
+              ],
+              "slots": 16384,
+              "stage": 11
+            }
+          ]
+        },
+        {
+          "key_bits": 80,
+          "name": "Ingress.side_0",
+          "physical_stage_slots": 117760,
+          "required_logical_entries": 114688,
+          "stages": [
+            {
+              "pack": [
+                5
+              ],
+              "slots": 35840,
+              "stage": 9
+            },
+            {
+              "pack": [
+                5
+              ],
+              "slots": 81920,
+              "stage": 10
+            }
+          ]
+        },
+        {
+          "key_bits": 80,
+          "name": "Ingress.side_1",
+          "physical_stage_slots": 115712,
+          "required_logical_entries": 114688,
+          "stages": [
+            {
+              "pack": [
+                5
+              ],
+              "slots": 66560,
+              "stage": 8
+            },
+            {
+              "pack": [
+                8
+              ],
+              "slots": 49152,
+              "stage": 9
+            }
+          ]
+        },
+        {
+          "key_bits": 80,
+          "name": "Ingress.side_2",
+          "physical_stage_slots": 114688,
+          "required_logical_entries": 114688,
+          "stages": [
+            {
+              "pack": [
+                1
+              ],
+              "slots": 9216,
+              "stage": 6
+            },
+            {
+              "pack": [
+                5
+              ],
+              "slots": 92160,
+              "stage": 7
+            },
+            {
+              "pack": [
+                1
+              ],
+              "slots": 13312,
+              "stage": 8
+            }
+          ]
+        },
+        {
+          "key_bits": 80,
+          "name": "Ingress.side_3",
+          "physical_stage_slots": 114688,
+          "required_logical_entries": 114688,
+          "stages": [
+            {
+              "pack": [
+                5
+              ],
+              "slots": 40960,
+              "stage": 5
+            },
+            {
+              "pack": [
+                8
+              ],
+              "slots": 73728,
+              "stage": 6
+            }
+          ]
+        },
+        {
+          "key_bits": 80,
+          "name": "Ingress.side_4",
+          "physical_stage_slots": 117760,
+          "required_logical_entries": 114688,
+          "stages": [
+            {
+              "pack": [
+                5
+              ],
+              "slots": 76800,
+              "stage": 4
+            },
+            {
+              "pack": [
+                5
+              ],
+              "slots": 40960,
+              "stage": 5
+            }
+          ]
+        },
+        {
+          "key_bits": 80,
+          "name": "Ingress.side_5",
+          "physical_stage_slots": 114688,
+          "required_logical_entries": 114688,
+          "stages": [
+            {
+              "pack": [
+                1
+              ],
+              "slots": 16384,
+              "stage": 2
+            },
+            {
+              "pack": [
+                5
+              ],
+              "slots": 92160,
+              "stage": 3
+            },
+            {
+              "pack": [
+                1
+              ],
+              "slots": 6144,
+              "stage": 4
+            }
+          ]
+        },
+        {
+          "key_bits": 80,
+          "name": "Ingress.side_6",
+          "physical_stage_slots": 117760,
+          "required_logical_entries": 114688,
+          "stages": [
+            {
+              "pack": [
+                5
+              ],
+              "slots": 51200,
+              "stage": 1
+            },
+            {
+              "pack": [
+                5
+              ],
+              "slots": 66560,
+              "stage": 2
+            }
+          ]
+        },
+        {
+          "key_bits": 80,
+          "name": "Ingress.side_7",
+          "physical_stage_slots": 114688,
+          "required_logical_entries": 114688,
+          "stages": [
+            {
+              "pack": [
+                5
+              ],
+              "slots": 81920,
+              "stage": 0
+            },
+            {
+              "pack": [
+                8
+              ],
+              "slots": 32768,
+              "stage": 1
+            }
+          ]
+        }
+      ],
+      "target_binary_sha256": {},
+      "target_capacity_stages": 12,
+      "timed_out": false,
+      "total_srams": 880
+    },
+    {
+      "compiler_executable_sha256": {
+        "bf-p4c": "4c22eff197b43726683b8edacc11fcf60a9db726303a81b1c004b3facc311b16",
+        "bfas": "2e14b84a5a2f456a3a5e6fa643b7d8ff6c66381f6abfb3037e77068525faa3e0",
+        "bfrt_schema.py": "51be8091cc0ee09471b7fce96f7cf8ed9faea7597497ade37ef88129d94ef6c1",
+        "p4_14-to-p4_16": "3be30d98e58f7e8e6392661f22089dd49288a477786beea70511f5087392bd99",
+        "p4c": "4c22eff197b43726683b8edacc11fcf60a9db726303a81b1c004b3facc311b16",
+        "p4c-barefoot": "30f03d4157caafbc81ef3f8a67df2833349c175609d81970f556d70b9d29e407",
+        "p4c-build-logs": "0580a5d375e1d1c4ac94d803f335e7a800533f926c1d91f26a6f31312c7e1e32",
+        "p4c-gen-bfrt-conf": "cc26644f150686dae5993015f6e5372a55eb9a40203e8b1b1204ef2f4d798e88",
+        "p4c-gen-conf": "82160b3e7dec15336fce55a197e785805e325375d09c0e7f434538f159b7a067",
+        "p4c-manifest-config": "70f21b9c6266c66e4bdbc3f40c3a187d0ec29513897eab57e17eb364d2c49f6b",
+        "p4test": "52a1d90f7935015b8014af224853fc8ee009f2c749f901ae35c3c92568eab1f0"
+      },
+      "compiler_reported_fit": true,
+      "compiler_support_sha256": {
+        "bin/bfrt_schema.py": "51be8091cc0ee09471b7fce96f7cf8ed9faea7597497ade37ef88129d94ef6c1",
+        "share/p4c/p4_14include/tofino/constants.p4": "fe2e06170a0ca8f7fed9de1f9e1adcfa5f4c5fe295140a2b4daf911413f799fa",
+        "share/p4c/p4_14include/tofino/intrinsic_metadata.p4": "e83c86e17a61197e100aa3f8bd4681ea4b697ce8956f1e7afc2aaebf2bd00325",
+        "share/p4c/p4_14include/tofino/lpf_blackbox.p4": "5098e90bae509a3b9dec42df7f5abcd6e38122d3ab5005545ede6803c20b7674",
+        "share/p4c/p4_14include/tofino/meter_blackbox.p4": "b7f226adf65eac49959435a66e12f5b1866b0865f7b768e976acd9a3b9f21924",
+        "share/p4c/p4_14include/tofino/pktgen_headers.p4": "7a9e643d3fb7cd63c5b6ac4f8da8d8e87b14463b75bb9cdaa426783f1e102cd6",
+        "share/p4c/p4_14include/tofino/primitives.p4": "2c581815923285ed3bd00a62d13bd6559fcbe10c8108778f9ae6d4f1053cf8a6",
+        "share/p4c/p4_14include/tofino/stateful_alu_blackbox.p4": "91d4d6dc4792e52c7090788c0eea4913f668d6928f3c8a9fd1d784bb60ef0a00",
+        "share/p4c/p4_14include/tofino/wred_blackbox.p4": "7f71c71cd2477698b0a568b865613a27ae13b5b25fba83292d5770d9dcc280cb",
+        "share/p4c/p4_14include/tofino2/intrinsic_metadata.p4": "fff11e16e723e24f2ae7cda7f848bdd3007bcbc97e2322f91462db6e8ee45828",
+        "share/p4c/p4c_src/__init__.py": "30396b5615bd6f4ed109f80aeb78f85559f4849e0b1d9d6ccad453528d690358",
+        "share/p4c/p4c_src/barefoot.py": "7a6e5509bb98840a87a6fe97faa472482c933df747c5f3b70c273d1ebb077e9e",
+        "share/p4c/p4c_src/bfn_version.py": "6d4fd7778e1bee35e25d5f0f892361a5ad5f607ce982ecc0dc968e5066044c70",
+        "share/p4c/p4c_src/config.py": "2881fda8f0b51165d3cebc9bc6902dbe30ed5aa7cbad14cceb0bd336cfb361b2",
+        "share/p4c/p4c_src/driver.py": "b513a9b2ed2176ed97e5c29486642670893ff104e7ddd255eb278fb11acb18cc",
+        "share/p4c/p4c_src/main.py": "ac9a295456746b13769e92bacdca2a7366617ba4bc1c5a260f2fdcab987a93b1",
+        "share/p4c/p4c_src/p4c.tofino.cfg": "d8d50aa9c2907a6eb9d5ee93ef9588d4602e0059e2a486ec1b44f6f77377175a",
+        "share/p4c/p4c_src/p4c.tofino2.cfg": "637c51fd22ecea408b3998e54b1cef14bf56439d57da2908b5fd151312ce2f4b",
+        "share/p4c/p4c_src/util.py": "c1671d0afd7c657bbdfa7c76c377673864a6ffbf9e29ef40b1146f79c9869dc3",
+        "share/p4c/p4include/bmv2/pna.p4": "520a612c4fe8ec0b8c3ab8261677e8ce48d0d15be88d8a9521e701d095e4d993",
+        "share/p4c/p4include/bmv2/psa.p4": "fccfb6ccef4e3563a61d16c002bb12baceb039f6bae16a3b318ea3eb2f6c7948",
+        "share/p4c/p4include/core.p4": "bd66f54991b90029759c17a67b28c84505926d601a6fff789f0f5fb6e8bd3e43",
+        "share/p4c/p4include/dpdk/pna.p4": "24089f24446d35445534b157ce345a24315ba86b91654733ae1c8fa3f05bf186",
+        "share/p4c/p4include/dpdk/psa.p4": "ac5fb40c3dfb8aa966bb3bafffeb70534881ff5ef84d76203a98df45892b67ae",
+        "share/p4c/p4include/ebpf_model.p4": "17161e60e85edb4f0a2f94da47dd702f86ec7638b5ccb3be1b1fc0e3d1e1b46d",
+        "share/p4c/p4include/pna.p4": "a7316bea61780247081698a9fc2f1fb5a88ae68f6b774a647cd0ae7070eff2b2",
+        "share/p4c/p4include/t2na.p4": "e04c48fe14c78b534f5831b97ef5925c1c423b0891fe9d9e358cbaf6d1f3dbe3",
+        "share/p4c/p4include/tc/pna.p4": "1bcf9d884fbb317adba4c38d84102263b9c50c93b4ac5e7e0aad0c7387f32e86",
+        "share/p4c/p4include/tna.p4": "c4cf0d0e6238771979449f5622c3484631344acb98a2ce624dc5d2a5c3d9338c",
+        "share/p4c/p4include/tofino/lpf.p4": "7f6e99446759e2bc12b44278edcef0e0e4f98bbca735f9ceb3d5178bd0ce5794",
+        "share/p4c/p4include/tofino/meter.p4": "c9da9b8f2c5f4f18f1eb025e42dac9f892918a9baf048201e4d2b207be470cfc",
+        "share/p4c/p4include/tofino/p4_14_prim.p4": "ab11dc1179bb922f70eeef2fc226693e7a230570d8211302dfd084825ff28b58",
+        "share/p4c/p4include/tofino/psa.p4": "eaabe7c9d4c0b9675f3c95836e06e69bc46ba53559a576107817e8db5880f8b9",
+        "share/p4c/p4include/tofino/stateful_alu.p4": "6ba7abec003bd0caf6e95d1ce8764fddaa87f7c0f65607f0c308d80ab29053c4",
+        "share/p4c/p4include/tofino/stratum.p4": "ab373e9d4c90933d22163717c7fb07b0df96151475ef97397cadc47b2cdb37b4",
+        "share/p4c/p4include/tofino/wred.p4": "9b6c8eb763548f05b10beb6333dab8f781c4e55fc0511a5dda9cb6fbda90830b",
+        "share/p4c/p4include/tofino1_arch.p4": "cc51d14d61aca154bfa2737b366a18ab2eb55845f7a10bdd2757da316f46638c",
+        "share/p4c/p4include/tofino1_base.p4": "cd0b26d649d1abf61711685e59db997462cad49e4686611269c9f0674570f031",
+        "share/p4c/p4include/tofino1_specs.p4": "e68438ee728067be0bd40fdd66f6c0b5a0b762d8a54270982a34bc7de87b17cb",
+        "share/p4c/p4include/tofino2_arch.p4": "6dce1ff970724c0402934a6937a3979aa57fdb90de6a48596020224423602a60",
+        "share/p4c/p4include/tofino2_base.p4": "722bb6f2d73c6a28d45e877c3db7a1e92ac2c3ddb7c66aec6a104892d2d520b3",
+        "share/p4c/p4include/tofino2_specs.p4": "8977cd30758f12cd0475dc3d67969d13877df9ddbc0454fc92d19a408998e21b",
+        "share/p4c/p4include/ubpf_model.p4": "77569e50184260a3d687f45d4b8dfa3340968cfb6e239af4f835b4a688e14bdf",
+        "share/p4c/p4include/v1model.p4": "93693e6bdac5b9f31136efb5216c638df2e0bf5f15a04d258326b69991d68079",
+        "share/p4c/p4include/xdp_model.p4": "bdbc05c358ffdde804ecf63acdedb0b8a6f84c5e9ad7157ca00fa5f0f19ae34c"
+      },
+      "elapsed_seconds_observational": 6.15753541700542,
+      "observed_stage_ids": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "probe_sha256": "f25a4c9e9055097c1a8b0b68e6fe4a547b327dbf3374cdc24f613a174121b553",
+      "raw_artifact_sha256": {
+        "compiler/bfrt.json": "dbdd5917be08c66bb5d4b869d4ea833e38fe8502d223547c5004f69f6907d58b",
+        "compiler/manifest.json": "4a82d63f175b2334fe29bb4a10b9ce779384cde1205e8be21146993e77db3c6d",
+        "compiler/pipe/context.json": "f8d57e3c9456d4a76ebc2d8161f0afdfb4c95ae0e6ce5686db19d267b853db0f",
+        "compiler/pipe/logs/metrics.json": "2540f56ec2377430bb814452b0846ecf1fdc55dfce09350e73c9505976a7af73",
+        "compiler/pipe/logs/pragmas.log": "43df920a1cc771ea622b6f057c69b65364c7ea6ee4c95f26e948dd1739da8b5e",
+        "compiler/pipe/logs/resources.json": "c897a8e6315905ae3ad891caefe1e0605feeb4ba574c7f289109dc527c94c5fc",
+        "probe.json": "c52ebeafdf4cf1b9fb734d25e41925b87342b372c3402d1b550d1ff47df0c8bd",
+        "stderr.log": "0b27238e0c366091b1595cb9f7dd791cf92d0495d1c62dabc4bc789dda1e9ffa",
+        "stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "returncode": 0,
+      "run": "stable-tenant48-side-pack-3-v1",
+      "source_sha256": "e34ac59b0d164f3ab75835a9f4ee7ff2525bf1c597f4464ddf79f68a2fff2051",
+      "stage_sram_usage": [
+        {
+          "srams": 80,
+          "stage": 0
+        },
+        {
+          "srams": 80,
+          "stage": 1
+        },
+        {
+          "srams": 74,
+          "stage": 2
+        },
+        {
+          "srams": 80,
+          "stage": 3
+        },
+        {
+          "srams": 80,
+          "stage": 4
+        },
+        {
+          "srams": 74,
+          "stage": 5
+        },
+        {
+          "srams": 80,
+          "stage": 6
+        },
+        {
+          "srams": 80,
+          "stage": 7
+        },
+        {
+          "srams": 74,
+          "stage": 8
+        },
+        {
+          "srams": 80,
+          "stage": 9
+        },
+        {
+          "srams": 80,
+          "stage": 10
+        },
+        {
+          "srams": 74,
+          "stage": 11
+        }
+      ],
+      "tables": [
+        {
+          "key_bits": 32,
+          "name": "Ingress.chain_0",
+          "physical_stage_slots": 16384,
+          "required_logical_entries": 16384,
+          "stages": [
+            {
+              "pack": [
+                4
+              ],
+              "slots": 16384,
+              "stage": 0
+            }
+          ]
+        },
+        {
+          "key_bits": 32,
+          "name": "Ingress.chain_1",
+          "physical_stage_slots": 16384,
+          "required_logical_entries": 16384,
+          "stages": [
+            {
+              "pack": [
+                4
+              ],
+              "slots": 16384,
+              "stage": 1
+            }
+          ]
+        },
+        {
+          "key_bits": 32,
+          "name": "Ingress.chain_10",
+          "physical_stage_slots": 16384,
+          "required_logical_entries": 16384,
+          "stages": [
+            {
+              "pack": [
+                4
+              ],
+              "slots": 16384,
+              "stage": 10
+            }
+          ]
+        },
+        {
+          "key_bits": 32,
+          "name": "Ingress.chain_11",
+          "physical_stage_slots": 16384,
+          "required_logical_entries": 16384,
+          "stages": [
+            {
+              "pack": [
+                4
+              ],
+              "slots": 16384,
+              "stage": 11
+            }
+          ]
+        },
+        {
+          "key_bits": 32,
+          "name": "Ingress.chain_2",
+          "physical_stage_slots": 16384,
+          "required_logical_entries": 16384,
+          "stages": [
+            {
+              "pack": [
+                4
+              ],
+              "slots": 16384,
+              "stage": 2
+            }
+          ]
+        },
+        {
+          "key_bits": 32,
+          "name": "Ingress.chain_3",
+          "physical_stage_slots": 16384,
+          "required_logical_entries": 16384,
+          "stages": [
+            {
+              "pack": [
+                4
+              ],
+              "slots": 16384,
+              "stage": 3
+            }
+          ]
+        },
+        {
+          "key_bits": 32,
+          "name": "Ingress.chain_4",
+          "physical_stage_slots": 16384,
+          "required_logical_entries": 16384,
+          "stages": [
+            {
+              "pack": [
+                4
+              ],
+              "slots": 16384,
+              "stage": 4
+            }
+          ]
+        },
+        {
+          "key_bits": 32,
+          "name": "Ingress.chain_5",
+          "physical_stage_slots": 16384,
+          "required_logical_entries": 16384,
+          "stages": [
+            {
+              "pack": [
+                4
+              ],
+              "slots": 16384,
+              "stage": 5
+            }
+          ]
+        },
+        {
+          "key_bits": 32,
+          "name": "Ingress.chain_6",
+          "physical_stage_slots": 16384,
+          "required_logical_entries": 16384,
+          "stages": [
+            {
+              "pack": [
+                4
+              ],
+              "slots": 16384,
+              "stage": 6
+            }
+          ]
+        },
+        {
+          "key_bits": 32,
+          "name": "Ingress.chain_7",
+          "physical_stage_slots": 16384,
+          "required_logical_entries": 16384,
+          "stages": [
+            {
+              "pack": [
+                4
+              ],
+              "slots": 16384,
+              "stage": 7
+            }
+          ]
+        },
+        {
+          "key_bits": 32,
+          "name": "Ingress.chain_8",
+          "physical_stage_slots": 16384,
+          "required_logical_entries": 16384,
+          "stages": [
+            {
+              "pack": [
+                4
+              ],
+              "slots": 16384,
+              "stage": 8
+            }
+          ]
+        },
+        {
+          "key_bits": 32,
+          "name": "Ingress.chain_9",
+          "physical_stage_slots": 16384,
+          "required_logical_entries": 16384,
+          "stages": [
+            {
+              "pack": [
+                4
+              ],
+              "slots": 16384,
+              "stage": 9
+            }
+          ]
+        },
+        {
+          "key_bits": 80,
+          "name": "Ingress.side_0",
+          "physical_stage_slots": 116736,
+          "required_logical_entries": 114688,
+          "stages": [
+            {
+              "pack": [
+                3
+              ],
+              "slots": 43008,
+              "stage": 10
+            },
+            {
+              "pack": [
+                3
+              ],
+              "slots": 73728,
+              "stage": 11
+            }
+          ]
+        },
+        {
+          "key_bits": 80,
+          "name": "Ingress.side_1",
+          "physical_stage_slots": 116736,
+          "required_logical_entries": 114688,
+          "stages": [
+            {
+              "pack": [
+                3
+              ],
+              "slots": 79872,
+              "stage": 9
+            },
+            {
+              "pack": [
+                3
+              ],
+              "slots": 36864,
+              "stage": 10
+            }
+          ]
+        },
+        {
+          "key_bits": 80,
+          "name": "Ingress.side_2",
+          "physical_stage_slots": 116736,
+          "required_logical_entries": 114688,
+          "stages": [
+            {
+              "pack": [
+                3
+              ],
+              "slots": 43008,
+              "stage": 7
+            },
+            {
+              "pack": [
+                3
+              ],
+              "slots": 73728,
+              "stage": 8
+            }
+          ]
+        },
+        {
+          "key_bits": 80,
+          "name": "Ingress.side_3",
+          "physical_stage_slots": 116736,
+          "required_logical_entries": 114688,
+          "stages": [
+            {
+              "pack": [
+                3
+              ],
+              "slots": 79872,
+              "stage": 6
+            },
+            {
+              "pack": [
+                3
+              ],
+              "slots": 36864,
+              "stage": 7
+            }
+          ]
+        },
+        {
+          "key_bits": 80,
+          "name": "Ingress.side_4",
+          "physical_stage_slots": 116736,
+          "required_logical_entries": 114688,
+          "stages": [
+            {
+              "pack": [
+                3
+              ],
+              "slots": 43008,
+              "stage": 4
+            },
+            {
+              "pack": [
+                3
+              ],
+              "slots": 73728,
+              "stage": 5
+            }
+          ]
+        },
+        {
+          "key_bits": 80,
+          "name": "Ingress.side_5",
+          "physical_stage_slots": 116736,
+          "required_logical_entries": 114688,
+          "stages": [
+            {
+              "pack": [
+                3
+              ],
+              "slots": 79872,
+              "stage": 3
+            },
+            {
+              "pack": [
+                3
+              ],
+              "slots": 36864,
+              "stage": 4
+            }
+          ]
+        },
+        {
+          "key_bits": 80,
+          "name": "Ingress.side_6",
+          "physical_stage_slots": 116736,
+          "required_logical_entries": 114688,
+          "stages": [
+            {
+              "pack": [
+                3
+              ],
+              "slots": 43008,
+              "stage": 1
+            },
+            {
+              "pack": [
+                3
+              ],
+              "slots": 73728,
+              "stage": 2
+            }
+          ]
+        },
+        {
+          "key_bits": 80,
+          "name": "Ingress.side_7",
+          "physical_stage_slots": 116736,
+          "required_logical_entries": 114688,
+          "stages": [
+            {
+              "pack": [
+                3
+              ],
+              "slots": 79872,
+              "stage": 0
+            },
+            {
+              "pack": [
+                3
+              ],
+              "slots": 36864,
+              "stage": 1
+            }
+          ]
+        }
+      ],
+      "target_binary_sha256": {
+        "pipe/tofino.bin": "c02422edab52857e58fabb75a2ac20e89cf302104d8fd8ab9391f84e8548127b"
+      },
+      "target_capacity_stages": 12,
+      "timed_out": false,
+      "total_srams": 936
+    }
+  ],
+  "discovery": [
+    {
+      "elapsed_seconds_observational": 27.904488374944776,
+      "errors": [
+        "/output/compiler/pipe/default.bfa:2898: error: tofino supports up to 12 stages, using 14",
+        "/output/compiler/pipe/default.bfa:0: error: Due to errors, no binary will be generated"
+      ],
+      "observed_stage_ids": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "raw_probe_sha256": "1ee89de1175da98978a3ced3f48e2bb3a225c5f62698460d588113b69b270f2a",
+      "returncode": 2,
+      "run": "chain12-side8-16k-112k-tenant48-default-v1",
+      "status": "stage_capacity_exceeded",
+      "total_srams": 880
+    },
+    {
+      "elapsed_seconds_observational": 6.205731292255223,
+      "errors": [],
+      "observed_stage_ids": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "raw_probe_sha256": "1d09337df6fc31686214e287dda40638bb395a575605305f8c7c50e5bee91061",
+      "returncode": 0,
+      "run": "chain12-side8-16k-112k-tenant48-side-pack-3-v1",
+      "status": "compiler_reported_fit",
+      "total_srams": 936
+    },
+    {
+      "elapsed_seconds_observational": 9.102649958338588,
+      "errors": [],
+      "observed_stage_ids": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "raw_probe_sha256": "9f8e15e6dd56b3b8e7fc2dec97a6581ed9cf23c60759a7687bc66b07ac1b6e8c",
+      "returncode": 0,
+      "run": "chain12-side8-16k-128k-default-v1",
+      "status": "compiler_reported_fit",
+      "total_srams": 864
+    },
+    {
+      "elapsed_seconds_observational": 9.625835958402604,
+      "errors": [],
+      "observed_stage_ids": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "raw_probe_sha256": "bfaac15e6a282dc48ea92f494de245b626c9d58dd5a2452e2a8d9074e392ec43",
+      "returncode": 0,
+      "run": "chain12-side8-16k-144k-default-v1",
+      "status": "compiler_reported_fit",
+      "total_srams": 960
+    },
+    {
+      "elapsed_seconds_observational": 47.40568883297965,
+      "errors": [
+        "/output/compiler/pipe/default.bfa:2905: error: tofino supports up to 12 stages, using 15",
+        "/output/compiler/pipe/default.bfa:0: error: Due to errors, no binary will be generated"
+      ],
+      "observed_stage_ids": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "raw_probe_sha256": "e9afdd66caa2723e46bac93441712156520365a8b3021da8a7b4d1975b3543bc",
+      "returncode": 2,
+      "run": "chain12-side8-16k-144k-tenant24-default-v1",
+      "status": "stage_capacity_exceeded",
+      "total_srams": 900
+    },
+    {
+      "elapsed_seconds_observational": 4.80440729111433,
+      "errors": [],
+      "observed_stage_ids": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "raw_probe_sha256": "b1e1c73eca31d14b41d23005a0ac8cb0720e13e5d611e31722f8067c743ea7fb",
+      "returncode": 0,
+      "run": "chain8-side4-default-v1",
+      "status": "compiler_reported_fit",
+      "total_srams": 160
+    },
+    {
+      "elapsed_seconds_observational": 7.9507801667787135,
+      "errors": [
+        "error: The input ingress::temp_sum_0 to stateful alu SwitchIngress.register_queue_delay is not allocated in a valid region on the input xbar to be a source of an ALU operation"
+      ],
+      "observed_stage_ids": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "raw_probe_sha256": "06698cde45c120f06b4c068c8774167dc452f429e23bc61b26299f20500f2b57",
+      "returncode": 2,
+      "run": "issue5192-original-v1",
+      "status": "stateful_alu_input_allocation_rejection",
+      "total_srams": 13
+    },
+    {
+      "elapsed_seconds_observational": 3.3008386250585318,
+      "errors": [],
+      "observed_stage_ids": [
+        0
+      ],
+      "raw_probe_sha256": "97c4db9e3867e21d963d0b8c074b4616d19b83fe82480e982780f82f2fb56ae2",
+      "returncode": 0,
+      "run": "qualification-default-v1",
+      "status": "compiler_reported_fit",
+      "total_srams": 8
+    },
+    {
+      "elapsed_seconds_observational": 23.451835666783154,
+      "errors": [
+        "/output/compiler/pipe/program.bfa:2898: error: tofino supports up to 12 stages, using 14",
+        "/output/compiler/pipe/program.bfa:0: error: Due to errors, no binary will be generated"
+      ],
+      "observed_stage_ids": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "raw_probe_sha256": "b314b37565e5ca01ed4bbac90512ac09c755ad61717bb96c49c03db79fa4b573",
+      "returncode": 2,
+      "run": "stable-tenant48-default-v1",
+      "status": "stage_capacity_exceeded",
+      "total_srams": 880
+    },
+    {
+      "elapsed_seconds_observational": 6.15753541700542,
+      "errors": [],
+      "observed_stage_ids": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "raw_probe_sha256": "c52ebeafdf4cf1b9fb734d25e41925b87342b372c3402d1b550d1ff47df0c8bd",
+      "returncode": 0,
+      "run": "stable-tenant48-side-pack-3-v1",
+      "status": "compiler_reported_fit",
+      "total_srams": 936
+    },
+    {
+      "elapsed_seconds_observational": 329.75763374986127,
+      "errors": [
+        "error: Cannot find a slicing to satisfy @pa_container_size pragma(s): ingress::hdr.ib_bth.psn",
+        "error: PHV allocation was not successful",
+        "error: Some fields cannot be allocated because of unsatisfiable constraints."
+      ],
+      "raw_probe_sha256": "e084b0a62886574634d907d8da42a268d9d53b8fad4a18130638142e645f31f9",
+      "returncode": 2,
+      "run": "switchml-original-v1",
+      "status": "phv_allocation_rejected"
+    },
+    {
+      "elapsed_seconds_observational": 600.0557278748602,
+      "errors": [],
+      "raw_probe_sha256": "41cc4b510395568053e328c2da7b0c761281f1233187282cf15a86e271e79b28",
+      "returncode": null,
+      "run": "switchml-without-both-v1",
+      "status": "timeout"
+    },
+    {
+      "elapsed_seconds_observational": 600.0875454582274,
+      "errors": [],
+      "raw_probe_sha256": "3b57af8a6506369e367afb543fa07e79b2fc5da7442b2d6b6d07ff1ddd2afa92",
+      "returncode": null,
+      "run": "switchml-without-container-v1",
+      "status": "timeout"
+    }
+  ],
+  "generator_reproducer_sha256": "957a41c7ff0bbb3d6c5da53ec721f3fda4f41cf06005f2fd5e127d0fe0da53a0",
+  "generator_snapshot_verified_reproduces_pair": true,
+  "image_id": "sha256:5b27c37f3835c646c4a7f87c64de986a5fd5d71170b3f8b91e4bfbb908763af9",
+  "limitations": [
+    "No packet execution, hardware execution or complete semantic-equivalence proof.",
+    "No Jev or other inference-policy model calls were used in qualification; Codex agents performed discovery and implementation.",
+    "No model advantage, held-out generalization, maintenance reduction or current-ASIC career recommendation is established.",
+    "Elapsed values were recorded during concurrent compilation activity and are not latency comparisons.",
+    "Synthetic discovery was adaptive; the successful directive is known and cannot be treated as a hidden evaluation answer.",
+    "resources.mau.nStages is target capacity, not observed stage usage.",
+    "Source and base image were pinned; package dependencies were recorded, not a fully hermetic snapshot."
+  ],
+  "recorded_at_utc": "2026-10-18T12:31:01.007653+00:00",
+  "schema_version": 1,
+  "source_archive_sha256": "0e6df6b7fafa5d04038964a6c1318c47e3b5e96be89ecf9be923572d7512fc25",
+  "source_commit": "ca5aef25de1f847b5c88a05af583506484927015",
+  "source_control_checks": {
+    "all20_effective_context_capacities_at_least_required": true,
+    "annotation_erased_source_sha256": "e6a6c222a4e217c029454b7d98380dc3723b08dbf6564a9471cc61a8697ca37a",
+    "bfrt_table_count": 29,
+    "canonical_bfrt_without_annotations_sha256": "0962c3e67878e83719a6285402088006939595a0afe65905bfb2b1556e504a74",
+    "full_bfrt_equal_excluding_annotation_metadata": true,
+    "only_changed_lines": [
+      {
+        "baseline": "",
+        "line": 182,
+        "repair": "    @pack(3)"
+      },
+      {
+        "baseline": "",
+        "line": 193,
+        "repair": "    @pack(3)"
+      },
+      {
+        "baseline": "",
+        "line": 204,
+        "repair": "    @pack(3)"
+      },
+      {
+        "baseline": "",
+        "line": 215,
+        "repair": "    @pack(3)"
+      },
+      {
+        "baseline": "",
+        "line": 226,
+        "repair": "    @pack(3)"
+      },
+      {
+        "baseline": "",
+        "line": 237,
+        "repair": "    @pack(3)"
+      },
+      {
+        "baseline": "",
+        "line": 248,
+        "repair": "    @pack(3)"
+      },
+      {
+        "baseline": "",
+        "line": 259,
+        "repair": "    @pack(3)"
+      }
+    ],
+    "physical_allocation_counts_not_required_to_match": true,
+    "same_basename": "program.p4",
+    "same_byte_count": 15034,
+    "same_line_count": 322
+  },
+  "status": "compiler_fit_pair_qualified_not_model_evaluation",
+  "target": "tofino",
+  "timeout_seconds": 600,
+  "toolchain_metadata_sha256": "b53cbd9d53a7efef7fb9436c7cf2fbabaf658f9f2ab8cfeb24199da63d695b84",
+  "workspace_mount": "read_only"
+}

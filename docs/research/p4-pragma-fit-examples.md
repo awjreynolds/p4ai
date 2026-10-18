@@ -30,6 +30,8 @@ The backend itself documents interdependent resource allocation, table placement
 
 ## Qualification experiment before any model comparison
 
+A subsequent bounded search found a complete additional failure specimen in [p4c issue 5192](https://github.com/p4lang/p4c/issues/5192). The reporter used Tofino2/SDE 9.13.4 and received a stateful-ALU input-crossbar allocation error; the attached `forum_version.zip` contains one 16,111-byte P4 program. The downloaded archive SHA-256 is `95e8361e9f79ed75311de37903603b93d2be985a3c5dece6ede2dc3a33f73ac6`. The visible issue records no successful pragma repair. This is a fallback failure candidate requiring reproduction on the pinned compiler, not an established repair pair. Its target must remain Tofino2 in both arms.
+
 This is a proposed experiment, not an observed result:
 
 1. Pin a publicly buildable compiler/backend and run the official gateway pair and stage test unchanged. Save compiler identity, complete inputs and emitted allocation artifacts.
