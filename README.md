@@ -2,6 +2,8 @@
 
 A **harness compiler** that experiments with replacing handwritten compiler selection policy with a small mechanical selector, Typesafe.ai's Jev, and selective stronger-model advice. Compiler mechanisms and acceptance checks remain authoritative.
 
+For a quick executable example, try [offline policy replay](examples/harness-policy/README.md): plain Python scores six legal loop orders with a frozen locally trained forest, without credentials, scikit-learn or a compiler installation. This replays recorded compiler features; native compilation and optimization evidence are separate checks below.
+
 The first executable target is **native ARM64 on macOS**, using LLVM's existing register-allocation eviction advisor. Registers are the constrained resource. LLVM offers eligible candidate positions; an external policy selects one. A small C++ patch checks the response before indexing the candidate array. Python hosts the decision protocol and experiments.
 
 The mechanical baseline picks the first eligible candidate. LLVM's normal Greedy allocator remains a separate production reference. Candidate filtering, hints, cost limits, splitting, spilling, and substantial surrounding policy remain in LLVM. This is one replaced decision boundary, not a new allocator or an assertion that all compiler policy has been simplified. See the [boundary inventory](docs/selector-boundary.md).
@@ -88,4 +90,4 @@ The technical implementation evidence is recorded in [Validate native ARM64 comp
 
 ## License
 
-Project code is MIT. See [LICENSE](LICENSE). LLVM source, its imported log reader and the LLVM patch retain Apache-2.0 WITH LLVM-exception terms; downloaded sources retain their upstream license files. Model services have separate terms. No model weights are distributed.
+Project code is MIT. See [LICENSE](LICENSE). LLVM source, its imported log reader and the LLVM patch retain Apache-2.0 WITH LLVM-exception terms; downloaded sources retain their upstream license files. Model services have separate terms. The replay example includes a small forest trained on this project's measurements; no third-party pretrained language-model weights are distributed.
